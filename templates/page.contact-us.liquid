@@ -1,0 +1,391 @@
+
+
+{% section 'contact-top' %}
+{% include 'contact-main', variable: 'contact-order-inquiry' %}
+{% section 'page-bottom-nav' %}
+{% comment %}
+{{ 'page.contact-2.scss.css' | asset_url | stylesheet_tag }}
+{{ 'https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js' | script_tag }}
+{{ 'https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css' | stylesheet_tag }}
+<div class="contact-main-banner">
+  <h1>
+    Contact Us
+  </h1>
+</div>
+<div class="contact-wrapper">
+  <div class="contact-content">
+    {{ page.content }}
+  </div>
+  <h2>
+    What would you like to contact us about?
+  </h2>
+  <div class="section-selectors">
+    <div data-section="order_inquiry" class="selected">
+      Order Inquiry
+    </div>
+    <div data-section="product_technical_help">
+      Product Technical Help
+    </div>
+    <div data-section="marketing_sponsorship">
+      Marketing/Sponsorship
+    </div>
+    <div data-section="wholesale_inquiry">
+      Wholesale Inquiry
+    </div>
+  </div>
+  <div data-section="order_inquiry" class="contact-section selected">
+    <div class="section-selector">
+      Order Inquiry
+    </div>
+    <div class="section-form">
+      <form>
+        <input type="hidden" 
+               name="form_type" value="order_inquiry">
+        <div class="form-group">
+          <h3 class="group-header">
+            Customer Information
+          </h3>
+          <div class="group-fields">
+            <input type="text" placeholder="First Name*"
+                   name="first_name" required>
+            <input type="text" placeholder="Last Name*"
+                   name="last_name" required>
+            <input type="text" placeholder="Email*"
+                   name="email" required>
+            <input type="text" placeholder="Phone Number*"
+                   name="phone_number" required>
+            <input type="text" placeholder="Order Number"
+                   name="order_number">
+          </div>
+        </div>
+        <div class="form-group">
+          <h3 class="group-header">
+            Detailed Description
+          </h3>
+          <textarea placeholder="Message"
+                    name="message"></textarea>
+          Picture / Video:
+          <input type="file"
+                 name="picture_video">
+        </div>
+        <input class="submit-button" type="submit">
+      </form>
+    </div>
+  </div>
+  <div data-section="product_technical_help" class="contact-section">
+    <div class="section-selector">
+      Product Technical Help
+    </div>
+    <div class="section-form">
+      <form>
+        <input type="hidden" 
+               name="form_type" value="product_technical_help">
+        <div class="form-group">
+          <h3 class="group-header">
+            Customer Information
+          </h3>
+          <div class="group-fields">
+            <input type="text" placeholder="First Name*"
+                   name="first_name" required>
+            <input type="text" placeholder="Last Name"
+                   name="last_name">
+            <input type="text" placeholder="Email*"
+                   name="email" required>
+            <input type="text" placeholder="Phone Number*"
+                   name="phone_number" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <h3>
+            Product Information
+          </h3>
+          <div class="group-fields">
+            <input type="text" placeholder="Model"
+                   name="model">
+            <div class="serial-number">
+              <input type="text" placeholder="Serial Number"
+                     name="serial_number">
+              <a class="how-to-find-it">
+                How to find it
+              </a>
+            </div>
+            <input type="text" placeholder="Retailer"
+                   name="retailer">
+            <input type="text" placeholder="Purchase Date"
+                   name="purchase_date">
+            <input type="text" placeholder="Order Number"
+                   name="order_number">
+            <div>
+              Invoice: 
+              <input type="file"
+                     name="invoice">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <h3 class="group-header">
+            Detailed Description
+          </h3>
+          <textarea placeholder="Message*"
+                    name="message" required></textarea>
+          Picture / Video: 
+          <input type="file"
+                 name="picture_video">
+        </div>
+        <input class="submit-button" type="submit">
+      </form>
+    </div>
+  </div>
+  <div data-section="marketing_sponsorship" class="contact-section">
+    <div class="section-selector">
+      Marketing/Sponsorship
+    </div>
+    <div class="section-form">
+      <form>
+        <input type="hidden"
+               name="form_type" value="marketing_sponsorship">
+        <div class="form-group">
+          <h3 class="group-header">
+            Customer Information
+          </h3>
+          <div class="group-fields">
+            <input type="text" placeholder="First Name*"
+                   name="first_name" required>
+            <input type="text" placeholder="Last Name*"
+                   name="last_name" required>
+            <input type="text" placeholder="Email*"
+                   name="email" required>
+            <input type="text" placeholder="Phone Number*"
+                   name="phone_number" required>
+            <input type="text" placeholder="Website"
+                   name="website">
+            <input type="text" placeholder="Company / Team / Event"
+                   name="company_team_event">
+          </div>
+        </div>
+        <div class="form-group">
+          <h4 class="group-subheader">
+            Social Media Information
+          </h4>
+          <div class="group-fields">
+            <div class="social-media-input">
+              <span class="input-label">
+                http://
+              </span>
+              <input type="text" placeholder=""
+                     name="twitter">
+            </div>
+            <div class="social-media-input">
+              <span class="input-label">
+                http://
+              </span>
+              <input type="text" placeholder=""
+                     name="twitch">
+            </div>
+             <div class="social-media-input">
+              <span class="input-label">
+                http://
+              </span>
+              <input type="text" placeholder=""
+                     name="instagram">
+            </div>
+            <div class="social-media-input">
+              <span class="input-label">
+                http://
+              </span>
+              <input type="text" placeholder=""
+                     name="youtube">
+            </div>
+            <input type="text" placeholder="Enter other social media information"
+                   name="other_social_media_information">
+          </div>
+          <textarea placeholder="Message*"
+                    name="message" required></textarea>
+        </div>
+        <input class="submit-button" type="submit">
+      </form>
+    </div>
+  </div>
+  <div data-section="wholesale_inquiry" class="contact-section">
+    <div class="section-selector">
+      Wholesale Inquiry
+    </div>
+    <div class="section-form">
+      <form>
+        <input type="hidden"
+               name="form_type" value="wholesale_inquiry">
+        <div class="form-group">
+          <h3 class="group-header">
+            Customer Information
+          </h3>
+          <div class="group-fields">
+            <input type="text" placeholder="First Name*"
+                   name="first_name" required>
+            <input type="text" placeholder="Last Name*"
+                   name="last_name" required>
+            <input type="text" placeholder="Email*"
+                   name="email" required>
+            <input type="text" placeholder="Phone Number*"
+                   name="phone_number" required>
+            <input type="text" placeholder="Website*"
+                   name="website" required>
+            <input type="text" placeholder="Company*"
+                   name="company" required>
+            <input type="text" placeholder="Country*"
+                   name="country" required>
+          </div>
+          <textarea placeholder="Message*"
+                    name="message" required></textarea>
+        </div>
+        <input class="submit-button" type="submit">
+      </form>
+    </div>
+  </div>
+</div>
+
+{{ 'bootstrap.min.js' | asset_url | script_tag }}
+
+<script>
+  jQuery.fn.scrollTo = function(){
+    var thisElement = jQuery(this[0]);
+    $('html, body').animate({
+      scrollTop: $(thisElement).offset().top
+    }, 500);
+  };
+  jQuery.fn.disableFormSubmit = function(selector){
+    var $submitButtons = selector ? 
+        jQuery(selector) :
+        jQuery(this).find('input[type="submit"]');
+    $submitButtons.attr("disabled", true);
+  };
+  jQuery.fn.enableFormSubmit = function(selector){
+    var $submitButtons = selector ? 
+        jQuery(selector) :
+        jQuery(this).find('input[type="submit"]');
+    $submitButtons.removeAttr("disabled");
+  };
+  
+  var mobileBreakpoint = 767;
+  
+  jQuery('.serial-number .how-to-find-it').popover({
+    placement: "left",
+    title: "Finding your serial number",
+    content: '<div style="text-align:center;"><a href="https:{{ 'contact-2.serial-number.jpg' | asset_url }}" target="_blank"><img src="{{ 'contact-2.serial-number.jpg' | asset_url }}" style="width:80vw;"><br>Click to enlarge</a></div>',
+    html: true,
+  });
+  
+  var elementsWithDataSection = jQuery("*[data-section]");
+  var refreshSectionSelection = function(sectionName){
+    jQuery(elementsWithDataSection).each(function(index){
+      var currentSection = jQuery(this).attr("data-section");
+      if(currentSection == sectionName){
+        jQuery(this).addClass("selected");
+      }else{
+        jQuery(this).removeClass("selected"); 
+      }
+    });
+    var $mobileTop = jQuery('.contact-section.selected');
+    var $desktopTop = jQuery(".section-selectors");
+    var clientWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    clientWidth > mobileBreakpoint ? $desktopTop.scrollTo() : $mobileTop.scrollTo();
+  };
+  
+  var desktopSelectionElements = jQuery(".section-selectors > *");
+  jQuery(desktopSelectionElements).on("click", function(){
+    var currentSection = jQuery(this).attr("data-section");
+    refreshSectionSelection(currentSection);
+  });
+  
+  var mobileSectionElements = jQuery(".contact-section");
+  jQuery(mobileSectionElements).on("click", function(){
+    var currentSection = jQuery(this).attr("data-section");
+    var sectionSelectorSelector = ".section-selector";
+    var sectionSelector = jQuery(this).children(sectionSelectorSelector).first();
+    jQuery(sectionSelector).on("click", function(){
+      refreshSectionSelection(currentSection);
+    });
+  });
+  
+  var $contactForms = jQuery(".section-form form");
+  $contactForms.on("submit", function(event){
+    var $currentForm = jQuery(this);
+    event.preventDefault();
+    $currentForm.disableFormSubmit();
+    $formInputs = jQuery(this).find(":input");
+    var formPayload = {};
+    var fileQueue = [];
+    var formReady = false;
+    var finishFormSubmit = function(){
+      if(formReady && fileQueue.length == 0){
+//         var url = 'https://h007jnxat0.execute-api.us-east-1.amazonaws.com/dev/zendesk/ticket/create';
+        var url = 'https://06hjwr922d.execute-api.us-east-1.amazonaws.com/default/createZendeskTicket';
+        fetch(url, {mode: 'cors', method: 'POST', body: JSON.stringify(formPayload) }).then(function(response) {
+          if (!response.ok) {
+            throw response;
+          }
+        }).then(function(data) {
+          console.log(data);
+          new Noty({
+            type: 'success',
+            text: 'Your ticket was successfuly sent!'
+          }).show();
+        }).catch(function(err) {
+          console.log(err);
+          err.json().then(function(error) {
+			new Noty({
+              type: 'error',
+              text: error.message
+            }).show();
+          });
+        }).then(function(){
+          $currentForm.enableFormSubmit();
+          $currentForm[0].reset();
+        });
+      }
+    };
+    var addToFormFiles = function(file, file_key){
+      var fileReader = new FileReader();
+      fileQueue.push(file_key);
+      // add file extension
+      fileReader.onloadend = function(event) {
+        var fileBase64 = event.target.result.split(',')[1];
+        formPayload[file_key+"_b64"] = fileBase64;
+        var fileQueueIndex = fileQueue.indexOf(file_key);
+        fileQueue.splice(fileQueueIndex,1);
+        finishFormSubmit();
+      }
+      fileReader.readAsDataURL(file);
+    };
+    jQuery($formInputs).each(function(index){
+      var inputType = jQuery(this).attr("type");
+      var inputName = jQuery(this).attr("name");
+      if(inputType == "submit"){
+        return true;
+      }
+      if(inputType == "file"){
+        // do the file thing
+        var inputFile = this.files[0];
+        if(!inputFile){
+          return true; 
+        }
+        // inputFile.name
+        var inputFileExtensionParts = inputFile.name.split(".");
+        if(inputFileExtensionParts.length > 0){
+          var inputFileExtension = inputFileExtensionParts[inputFileExtensionParts.length-1];
+          addToFormFiles(inputFile, inputName);
+          formPayload[inputName + "_extension"] = inputFileExtension;
+        }
+      }else{ 
+        // do the other thing
+        var inputValue = jQuery(this).val();
+        if(inputValue){
+          formPayload[inputName] = inputValue;
+        }
+      }
+    });
+    formReady = true;
+    finishFormSubmit();
+  });
+  
+</script>
+{% endcomment %}

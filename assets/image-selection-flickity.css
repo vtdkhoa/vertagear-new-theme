@@ -1,0 +1,25 @@
+/* big previous & next buttons */
+.nam-product-images__selection .flickity-prev-next-button,
+.nam-product-images__selection .flickity-prev-next-button:hover,
+.nam-product-images__selection .flickity-prev-next-button:active {
+  width: 40px !important;
+  height: 100% !important;
+  border-radius: 0;
+  background-color: var(--nam-product-main-color);
+  opacity: 1;
+}
+.nam-product-images__selection .flickity-prev-next-button.previous {
+  left: 0 !important;
+}
+.nam-product-images__selection .flickity-prev-next-button.next {
+  right: 0 !important;
+}
+.nam-product-images__selection
+  .flickity-prev-next-button
+  .flickity-button-icon {
+  color: #fff;
+}
+/* hide disabled button */
+.nam-product-images__selection .flickity-button:disabled {
+  display: none;
+}

@@ -1,0 +1,111 @@
+{% assign size = '400x400' %}
+{% assign chartLabel = "
+RGB LED Kit(sold separately)|
+HygennX|
+Heavy Duty Base|
+PUC|
+Effortless Assembly|
+Steel Frame|
+UPHR Foam|
+5-Star Base|
+Penta RS1 Caster|
+Armrests|
+Gas Lift|
+Recommended Height|
+Recommended Weight" 
+| split: "|" %}
+<div class="product-comparison-chart-section">
+    <div class="product-comparison-chart-section__container">
+        <div class="product-comparison-chart-section__title">
+            Product Comparison Chart
+        </div>
+        <div class="product-comparison-chart-section__chart">
+            <div class="product-comparison-chart-section__chart-label">
+                <div class="product-comparison-chart-section__chart-label-content -padding-top"></div>
+                {% for label in chartLabel %}
+                <div class="product-comparison-chart-section__chart-label-content">{{ label }}</div>
+                {% endfor %}
+                <div class="product-comparison-chart-section__chart-product-content -padding-top"></div>
+                <div class="product-comparison-chart-section__chart-label-view"></div>
+            </div>
+            {% assign image = product.featured_image.src | img_url: size %}
+            <div class="product-comparison-chart-section__chart-product -current">
+                {% include 'product-chart-slide',
+                    title:product.title,
+                    thumb: image,
+                    isrgb: product.metafields.custom_fields["isrgb"],
+                    hygennx:product.metafields.custom_fields["hygennx"],
+                    heavy_duty_base:product.metafields.custom_fields["heavy_duty_base"],
+                    puc:product.metafields.custom_fields["puc"],
+                    effortless_assembly:product.metafields.custom_fields["effortless_assembly"],
+                    steel_frame:product.metafields.custom_fields["steel_frame"],
+                    uphr_foam:product.metafields.custom_fields["uphr_foam"],
+                    field_5star_base:product.metafields.custom_fields["5-star_base"],
+                    penta_rs1_caster:product.metafields.custom_fields["penta_rs1_caster"],
+                    armrests:product.metafields.custom_fields["armrests"],
+                    gas_lift:product.metafields.custom_fields["gas_lift"],
+                    recommended_height:product.metafields.custom_fields["recommended_height"],
+                    recommended_weight:product.metafields.custom_fields["recommended_weight"],
+                    url:'#ag-vg-product'
+                %}
+            </div>
+            {% assign productTitle = product.title %}
+            {% assign collectionsArray = 'S-Line|P-Line|Gaming-Series' | split: "|" %}
+            <swiper class="product-comparison-chart-section__swiper" :options="options">
+                {% for product in collections[product.type].products  %}
+                    {% unless product.title == productTitle %}
+                        {% assign image = product.featured_image.src | img_url: size %}
+                        <swiper-slide class="product-comparison-chart-section__chart-product">
+                            {% include 'product-chart-slide',
+                                title:product.title,
+                                thumb:image,
+                                isrgb: product.metafields.custom_fields["isrgb"],
+                                hygennx:product.metafields.custom_fields["hygennx"],
+                                heavy_duty_base:product.metafields.custom_fields["heavy_duty_base"],
+                                puc:product.metafields.custom_fields["puc"],
+                                effortless_assembly:product.metafields.custom_fields["effortless_assembly"],
+                                steel_frame:product.metafields.custom_fields["steel_frame"],
+                                uphr_foam:product.metafields.custom_fields["uphr_foam"],
+                                field_5star_base:product.metafields.custom_fields["5-star_base"],
+                                penta_rs1_caster:product.metafields.custom_fields["penta_rs1_caster"],
+                                armrests:product.metafields.custom_fields["armrests"],
+                                gas_lift:product.metafields.custom_fields["gas_lift"],
+                                recommended_height:product.metafields.custom_fields["recommended_height"],
+                                recommended_weight:product.metafields.custom_fields["recommended_weight"],
+                                url:product.url
+                            %}
+                        </swiper-slide>
+                    {% endunless %}
+                {% endfor %}
+                {% for collection in collectionsArray %}
+                    {% unless collection == product.type %}
+                        {% for product in collections[collection].products %}
+                            {% assign image = product.featured_image.src | img_url: size %}
+                            <swiper-slide class="product-comparison-chart-section__chart-product">
+                                {% include 'product-chart-slide',
+                                    title:product.title,
+                                    thumb:image,
+                                    isrgb: product.metafields.custom_fields["isrgb"],
+                                    hygennx:product.metafields.custom_fields["hygennx"],
+                                    heavy_duty_base:product.metafields.custom_fields["heavy_duty_base"],
+                                    puc:product.metafields.custom_fields["puc"],
+                                    effortless_assembly:product.metafields.custom_fields["effortless_assembly"],
+                                    steel_frame:product.metafields.custom_fields["steel_frame"],
+                                    uphr_foam:product.metafields.custom_fields["uphr_foam"],
+                                    field_5star_base:product.metafields.custom_fields["5-star_base"],
+                                    penta_rs1_caster:product.metafields.custom_fields["penta_rs1_caster"],
+                                    armrests:product.metafields.custom_fields["armrests"],
+                                    gas_lift:product.metafields.custom_fields["gas_lift"],
+                                    recommended_height:product.metafields.custom_fields["recommended_height"],
+                                    recommended_weight:product.metafields.custom_fields["recommended_weight"],
+                                    url:product.url
+                                %}
+                            </swiper-slide>
+                        {% endfor %}
+                    {% endunless %}
+                {% endfor %}
+            </swiper>
+        </div>
+        <div class="product-comparison-chart-section__swiper-pagination swiper-pagination"></div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+{% assign featured_gaming_chairs = collections['store-page-featured-accessories'].products %}
+{% for product in featured_gaming_chairs %}
+<h1>{{ product.title }}</h1>
+{% for image in product.images %}
+<img src="{{ image.src | img_url: 'master' }}" />
+{% endfor %}
+{% endfor %}

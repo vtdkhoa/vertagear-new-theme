@@ -1,0 +1,224 @@
+$mobile-breakpoint: 768px;
+
+
+.accessories-hero {
+  height: 759px;
+  width: 100%;
+  
+  background-image: url("{{ 'vertagear-accessories-mobile-hero-banner.jpg' | asset_url }}");  
+  @media screen and (min-width: $mobile-breakpoint) { 
+  	background-image: url("{{ 'vertagear-accessories-hero-banner.jpg' | asset_url }}");
+  }
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display:block;
+  overflow:hidden;
+}
+
+.accessories-hero h2 { 
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 72px;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 2.7px;
+  text-align: center;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  padding: 0px auto;
+  font-size: 20px;
+}
+
+.accessories-hero h1 {
+  text-align: center;
+  width: 100%;
+  padding: 0px auto;
+  font-family: Lato;
+  font-size: 46px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  text-align: center;
+  color: #ffffff;
+}
+
+
+.grid-container {
+  max-width: 1024px; 
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.accessories-line-container {
+ 
+    background: transparent;
+    color: white;
+    width: 100%;
+    text-align: center;
+ 	display: block;
+  	margin: 440px auto 0;
+    width: 50%;
+    height: 264px;
+   @media screen and (min-width: $mobile-breakpoint) { 
+  		height: 264px;
+   }
+  .copy-container {
+    width: auto;
+    margin: 0 auto;
+    font-size: 16px;
+    @media screen and (min-width: $mobile-breakpoint) { 	
+      width: 600px;
+      margin: 65px auto;
+    }
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: center;
+
+  }
+}
+
+.shop-other-product-lines {
+  width: 100%;
+  display:block;
+  background-color:white;
+  .top-span {
+    h2 {
+      text-align: center;
+      font-size: 20px;
+      background-color:white;
+      padding-top:30px;
+      padding-bottom:20px;
+    }
+  }
+}
+.other-product-lines h2 {
+  font-weight: bold; 
+}
+
+.other-product-lines {
+  margin: 0;
+    list-style-type: none;
+    width: 100%;
+    height: auto;
+    @media screen and (max-width: $mobile-breakpoint) {
+      background-color: white;
+    }
+  
+    >li {
+      &:nth-child(1) {
+        background-image: url("{{ 'vertagear-sline-shop-now-banner.jpg' | asset_url }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      }
+      &:nth-child(2) {
+        background-image: url("{{ 'vertagear-pline-shop-now-banner.jpg' | asset_url }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      }
+      &:nth-child(3) {
+        background-image: url("{{ 'vertagear-triigger-shop-now-banner.jpg' | asset_url }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      }
+      background-color:black;
+      color: white;
+      width: 100%;
+      padding-top:106px;
+      height:340px;
+      margin-top:10px;
+      text-align: center;
+      @media screen and (min-width: $mobile-breakpoint) {
+        width: 33%;
+        padding-top: 95px;
+        float: left;
+        display: block;
+        height: 318px;
+        border-right:10px solid;
+        &:last-child {
+          border-right: none;
+        }
+      }
+      h3 {
+         text-transform: uppercase;
+          height: 15px;
+          font-family: Lato;
+          font-size: 12px;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 2px;
+          text-align: center;
+          color: #ffffff;
+      }
+      
+      h2 {
+        margin: 14px auto 0;
+        height: 27px;
+        font-family: Lato;
+        font-size: 22px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        text-align: center;
+        color: #ffffff;
+      }
+      .vertagear-jump-list-container {
+        margin-top:30px;
+		ul {
+          list-style-type: none;
+          margin-left: 0;
+        }
+        li {
+          display: block;
+          height: 40px;
+          .vertagear-button {
+            margin: 0 auto;
+            display: inline-block;
+            cursor:pointer;
+            display: block;
+            width: 150px;
+            height: 40px;
+            line-height: 36px;
+            vertical-align: middle;
+            border: solid 1px #ffffff;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-family: Lato;
+            font-size: 16px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: normal;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+}

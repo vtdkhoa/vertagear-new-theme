@@ -1,0 +1,18 @@
+<div class="sitewide--title-wrapper">
+  <h1 class="page--title">{{ article.title }}</h1>
+</div>
+<article class="grid__item community" itemscope itemtype="http://schema.org/Article">
+
+  <div class="rte" itemprop="articleBody">
+    <center>
+      {% if article.image %}
+      <div class="article--image-wrapper">
+        {{ article | img_url: '250x250' | img_tag: article.title }}
+      </div>
+      {% endif %}
+
+      {{ article.content }}
+    </center>
+  </div>
+
+</article>

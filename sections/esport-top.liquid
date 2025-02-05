@@ -1,0 +1,43 @@
+<div class="esport-top js-parallax-section">
+    <div class="esport-top__inner">
+        <div class="esport-top__bg">
+            <img src='{{section.settings.banner | img_url: 'master'}}' class="esport-top__bg-img js-parallax-section__bg">
+        </div>
+        <div class="esport-top__center">
+            <div class="esport-top__logo">
+                <img src='{{section.settings.logo | img_url: 'master'}}'>
+            </div>
+            <div class="esport-top__title">
+                {{section.settings.slogan}}
+            </div>
+        </div>
+        <a class="esport-top__scroll" href="#esport-main">
+            <img src="{{'scroll.svg' | asset_url}}" alt="scroll" class="esport-top__scroll-img">
+        </a>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+  "name": "Top",
+  "settings": [
+    {
+        "id": "slogan",
+        "type": "text",
+        "label": "Title",
+        "default":"Find Out Your favorite team’s Gaming chair"
+    },
+    {
+        "id": "logo",
+        "type": "image_picker",
+        "label": "Logo"
+    },
+    {
+        "id": "banner",
+        "type": "image_picker",
+        "label": "Banner"
+    }
+  ]
+  }
+{% endschema %}

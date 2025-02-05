@@ -1,0 +1,258 @@
+<div data-section-id="{{ section.id }}" data-section-type="header-section">
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N65JW4H');</script>
+<!-- End Google Tag Manager -->
+
+    <header class="site-header large--hide medium--hide small--hide">
+      <div class="wrapper">
+
+        <div class="grid--full grid--table">
+          <div class="grid__item large--one-quarter">
+              <div class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+
+              	{% if template == 'index' %}
+              	  <h1 class="site-header__logo" id="site-title" itemscope itemtype="http://schema.org/Organization">
+              	{% else %}
+              	  <div class="site-header__logo h1" id="site-title" itemscope itemtype="http://schema.org/Organization">
+              	{% endif %}
+              	  {% if section.settings.logo %}
+              	    <a href="/" itemprop="url" class="site-header__logo-image">
+              	      {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+              	      <img src="{{ section.settings.logo | img_url: image_size }}"
+              	           alt="{{ section.settings.logo.alt | default: shop.name }}"
+              	           itemprop="logo">
+              	    </a>
+              	  {% else %}
+              	    <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+              	  {% endif %}
+              	{% if template == 'index' %}
+              	  </h1>
+              	{% else %}
+              	  </div>
+              	{% endif %}
+
+              </div>
+          </div>
+          <div class="grid__item large--two-quarters large--text-center large-down--hide">
+            {% comment %}
+              Show number of items in the cart and total cost in the /cart link
+
+              Ajax Cart Notes:
+                - #cartCount updates the total number of items in the cart
+                - #cartCost updates the total cost of the cart
+                - Documentation:  http://shopify.com/timber#ajax-cart
+            {% endcomment %}
+			<div class="top-links header-font">
+
+				<ul class="site-nav" id="AccessibleNav">
+					{% for link in linklists[section.settings.main_linklist].links %}
+
+						{% assign child_list_handle = link.title | handleize %}
+
+						{% if linklists[child_list_handle].links != blank %}
+							<li class="site-nav--has-dropdown" aria-haspopup="true">
+								<a href="{{ link.url }}" class="site-nav__link">
+									{{ link.title }}
+									<span class="icon icon-arrow-down" aria-hidden="true"></span>
+								</a>
+
+								<ul class="site-nav__dropdown">
+									{% for childlink in linklists[child_list_handle].links %}
+										<li>
+											<a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
+										</li>
+									{% endfor %}
+								</ul>
+							</li>
+
+							{% else %}
+
+							<li>
+								<a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+							</li>
+
+						{% endif %}
+
+					{% endfor %}
+				</ul>
+
+				<ul class="top-links--icon-links">
+                  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N65JW4H"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+					<li>
+						<a href="/search">
+							<i class="fa fa-search fa-lg"></i>
+						</a>
+					</li>
+
+
+					{% if shop.customer_accounts_enabled %}
+						{% if customer %}
+							<li>
+								<a href="/account" title="{{ 'layout.customer.account' | t }}">
+									<i class="fa fa-user fa-lg"></i>
+								</a>
+							</li>
+						{% else %}
+							<li>
+								<a href="/account/login" title="{{ 'layout.customer.log_in' | t }}">
+									<i class="fa fa-user fa-lg"></i>
+								</a>
+							</li>
+						{% endif %}
+					{% endif %}
+
+					<li>
+						<a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+							<i class="fa fa-shopping-cart fa-lg"></i>
+              				<span class="site-header__cart-indicator {% if cart.item_count == 0 %}hide{% endif %}"></span>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+
+            {% comment %}
+              If customer accounts are enabled, provide login and create account links
+            {% if shop.customer_accounts_enabled %}
+              <div>
+                {% if customer %}
+                  {% if customer.first_name != blank %}
+                    {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+                    {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+                  {% else %}
+                    <a href="/account">{{ 'layout.customer.account' | t }}</a>
+                  {% endif %}
+                  | {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                {% else %}
+                  {{ 'layout.customer.log_in' | t | customer_login_link }}
+                  | {{ 'layout.customer.create_account' | t | customer_register_link }}
+                {% endif %}
+              </div>
+            {% endif %}
+            {% endcomment %}
+
+			{% comment %}
+            <div class="site-header__search">
+              <!-- /snippets/search-bar.liquid -->
+{% comment %}
+
+  A snippet to include a search bar anywhere in your theme.
+  Note we are using 'input-group' for the layout. Look under Forms > Input Groups for some demos.
+
+  More information:
+   - http://docs.shopify.com/themes/liquid-variables/search
+
+  To return only products in results:
+    - http://docs.shopify.com/manual/configuration/store-customization/return-only-product-in-storefront-search-results
+    - Or manually add type=product to the search URL as a query parameter
+    - Uncomment hidden input with value="product" below
+
+{% endcomment %}
+
+<form action="/search" method="get" class="input-group search-bar" role="search" id="vg-search">
+  {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
+  <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="input-group-field" aria-label="{{ 'general.search.placeholder' | t }}">
+  <span class="input-group-btn">
+    <button type="submit" class="btn icon-fallback-text">
+      <i class="fa fa-search"></i>
+      <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
+    </button>
+  </span>
+</form>
+             
+            </div>
+            {% endcomment %}
+
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+<nav class="nav-bar mobile-nav-bar-wrapper large--hide medium-down--show">
+  <div class="wrapper">
+    <div class="large--hide medium-down--show">
+      <div class="mobile-grid--table">
+        <div class="grid__item one-third">
+          <div class="site-nav--mobile">
+            <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left" aria-controls="NavDrawer" aria-expanded="false">
+              <i class="fa fa-bars fa-2x"></i>
+              <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid__item one-third">
+          {% if template == 'index' %}
+          	  <h1 class="site-header__logo" id="site-title" itemscope itemtype="http://schema.org/Organization">
+          	{% else %}
+          	  <div class="site-header__logo h1" id="site-title" itemscope itemtype="http://schema.org/Organization">
+          	{% endif %}
+          	  {% if section.settings.logo %}
+          	    <a href="/" itemprop="url" class="site-header__logo-image">
+          	      {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+          	      <img src="{{ section.settings.logo | img_url: image_size }}"
+          	           srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+          	           alt="{{ section.settings.logo.alt | default: shop.name }}"
+          	           itemprop="logo">
+          	    </a>
+          	  {% else %}
+          	    <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+          	  {% endif %}
+          	{% if template == 'index' %}
+          	  </h1>
+          	{% else %}
+          	  </div>
+          	{% endif %}
+        </div>
+
+        <div class="grid__item one-third text-right">
+          <div class="site-nav--mobile">
+            <a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
+              <span class="icon-fallback-text">
+                <i class="fa fa-shopping-cart fa-2x"></i>
+                <span class="site-header__cart-indicator {% if cart.item_count == 0 %}hide{% endif %}"></span>
+                <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "text",
+      "id": "logo_max_width",
+      "label": "Custom logo width (in pixels)",
+      "default": "100"
+    },
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": "Main menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

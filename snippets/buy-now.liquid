@@ -1,0 +1,734 @@
+{% for product in buy-now %}
+{% include 'sca_freegift_price' with product %}
+<div class='carousel-item'>
+	<div class='zero-product-display' id='product-{{ product.id }}'>
+      {% if product.title contains "SL2000 Gaming Chair" %}
+      	  {% assign current_variant = "131480125445" %}
+      {% else %}
+          {% assign current_variant = product.selected_or_first_available_variant %}
+      {% endif %}
+      {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+      {% if product.title !='Casters' %}
+      	{% if product.options.size > 1 %}
+      	<div class='chair-image' style='position: relative; width:250px; height:250px; display: flex;'>
+        <button data-product-id='{{ product.id }}' class='qv'>QUICKVIEW</button>
+      	<img class='featured-{{ product.id }}-image' style='width: 250px; height: auto;' src='{{ product.selected_or_first_available_variant.featured_image | product_img_url: '1024x1024' }}' />
+      	<img class='hovered-{{ product.id }}-image hidden' stlye='width: 250px; height: 250px;' src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
+        </div>
+      	{% else %}
+        <div class='chair-image' style='position: relative; width:250px; height:250px; display: flex;'>
+        <button data-product-id='{{ product.id }}' class='qv'>QUICKVIEW</button>
+      	<img class='featured-{{ product.id }}-image' style='width: 250px; height: auto;' src='{{ product.featured_image | product_img_url: '1024x1024' }}' />
+        <img class='hovered-{{ product.id }}-image hidden' stlye='width: 250px; height: 250px;' src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
+        </div>
+      	{% endif %}
+      {% else %}
+      <div class='chair-image' style='position: relative; width:250px; height:250px; display: flex;'>
+        <button data-product-id='{{ product.id }}' class='qv'>QUICKVIEW</button>
+      	<img class='featured-{{ product.id }}-image' style='width: 250px; height: auto;' src='{{ product.featured_image | product_img_url: '1024x1024' }}' />
+      </div>
+      {% endif %}
+      <div class='options'>
+        {% for option in product.options_with_values %}
+              {% if option.name == 'Base-colors' %}
+                  {% for value in option.values %}
+                    {% unless product.variants[forloop.index0].metafields.secomapp.freegifts %}
+                      {{ value }}
+                    {% endunless %}
+                  {% endfor %}
+              {% elsif option.name == 'Base-Color' %}
+                  {% for value in option.values %}
+                    {% unless product.variants[forloop.index0].metafields.secomapp.freegifts %}
+                      {{ value }}
+                    {% endunless %}
+                  {% endfor %}
+              {% endif %}
+        {% endfor %}
+      </div>
+      {% if product.title != "Casters" %}
+      {% if product.title != "Triigger 350 Headrest" %}
+      {% if product.title != "Triigger 350" %}
+      <div id='color_wrapper_{{ product.id }}' class='color-swatch-{{ product.id }} swatch-selector_bottom color-slider'>
+        {% for option in product.options_with_values %}
+          {% if option.name == 'Base-colors' %}
+            {% for value in option.values %}
+              {% unless product.variants[forloop.index0].metafields.secomapp.freegifts %}
+            	<img data-color='{{ value }}' class='swatch' src='{{ value | append: ".jpg" | remove: "/" | downcase | asset_url }}' />
+              {% endunless %}
+            {% endfor %}
+          {% elsif option.name == 'Base-Color' %}
+            {% for value in option.values %}
+              {% unless product.variants[forloop.index0].metafields.secomapp.freegifts %}
+            	<img data-color='{{ value }}' class='swatch' src='{{ value | append: ".jpg" | remove: "/" | downcase | asset_url }}' />
+              {% endunless %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endif %}
+      {% endif %}
+      <h2 class='title'>{{ product.title }}</h2>
+      <div class='price'>{{ sca_price | money }} {% if sca_price < sca_compare_at_price %}<span class="compare-at-price">{{ sca_compare_at_price | money }}</span>{% endif %}</div>
+      <!--<button data-product-id='{{ product.id }}' class='buy-now' type='submit'>Buy Now</button> yada-->
+      <a class='buy-now' id='product-detail-link-{{product.id}}' href='/products/{{ product.handle }}?view=buynow&variant={{ product.variants.first.id }}'>Buy Now</a>
+      <div id='{{ product.id}}-modal' class='modal'>
+        {% unless product.empty? %}
+        <script type="application/json" id="ProductJson-{{ product.id }}">
+            {{ product | json }}
+        </script>
+        {% endunless %}
+        <div class='modal-container'>
+          <div class='close_button' data-product-id='{{ product.id }}'>X</div>
+          <div class='slick'>
+            {% if product.options.size > 1 %}
+            <img class='featured-image-{{ product.id }}' src='{{ product.selected_or_first_available_variant.featured_image | product_img_url: '1024x1024' }}' />
+            {% else %}
+            <img class='featured-image-{{ product.id }}' src='{{ product.featured_image | product_img_url: '1024x1024' }}' />
+            {% endif %}
+            <br />
+            <div id='thumb-slider-{{ product.id }}' class='modal-thumb-slider'>
+            <div id='thumbs-{{ product.id }}'>
+            {% comment %}
+                This chunk of code is pretty ugly when it comes down to making a gallery. But I'm doing this under the limiation of Shopify because
+                they don't allow for multiple images per variant. This would have been cleaner otherwise.
+
+				The user needs to make sure that the images they load into the product follow the following nomenclature:
+              	(product name)-(color)-(side/angle).jpg
+              	Example: PL6000-Black-front.jpg
+              
+              	The images must be 2000x2000 so they don't scale incorrectly. The reason for this is simply for image quality. If image quality is
+              	not an issue then the code below would need to change slightly.
+              
+              	If a new color for any product comes out that is not a part of the code below then another if statement must be added. However any product
+              	with new colors have been handled right now by the else statement. If another color is added to the products, those thumbnails will always show
+              	until the new color is handled. Again, this is also due to the limitation by Shopify. A more elegant solution will be thought out over the next
+              	month on my own time
+            {% endcomment %}
+            {% for image in product.images %}
+            {% if image.src contains "BlackWhite" %}
+            <div class='featured-thumbs thumb_BlackWhite-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+              
+            {% endif %}
+            {% if image.src contains "WhiteBlack" %}
+            <div class='featured-thumbs thumb_WhiteBlack-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% if image.src contains "BlackBlack" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/Black" %}
+            <div class='featured-thumbs thumb_BlackBlack-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackBlack-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% if image.src contains "WhiteBlack" %}
+            {% if current_variant.option1 == "White/Black" %}
+            <div class='featured-thumbs thumb_WhiteBlack-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_WhiteBlack-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endif %}
+            {% elsif image.src contains "BlackBlue" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/Blue" %}
+            <div class='featured-thumbs thumb_BlackBlue-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackBlue-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% if image.src contains "WhiteBlue" %}
+            {% if current_variant.option1 == "White/Blue" %}
+            <div class='featured-thumbs thumb_WhiteBlue-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_WhiteBlue-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endif %}
+            {% elsif image.src contains "BlackOrange" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/Orange" %}
+            <div class='featured-thumbs thumb_BlackOrange-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackOrange-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% if image.src contains "WhiteOrange" %}
+            {% if current_variant.option1 == "White/Orange" %}
+            <div class='featured-thumbs thumb_WhiteOrange-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_WhiteOrange-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endif %}
+            {% elsif image.src contains "BlackWhite" %}
+            {% unless image.src contains "Black" %}
+            {% if current_variant.option1 == "Black/White" %}
+            <div class='featured-thumbs thumb_BlackWhite-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackWhite-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% elsif image.src contains "White" %}
+            {% if image.src contains "WhiteRed" %}
+            {% if current_variant.option1 == "White/Red" %}
+            <div class='featured-thumbs thumb_WhiteRed-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_WhiteRed-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>    
+            {% endif %}
+            {% endif %}
+            {% if image.src contains "WhiteGreen" %}
+            {% if current_variant.option1 == "White/Green" %}
+            <div class='featured-thumbs thumb_WhiteGreen-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_WhiteGreen-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endif %}
+            {% if image.src contains "WhitePurple" %}
+            {% if current_variant.option1 == "White/Purple" %}
+            <div class='featured-thumbs thumb_WhitePurple-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_WhitePurple-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endif %}
+            {% if image.src contains "WhiteBlue" %}
+            {% if current_variant.option1 == "White/Blue" %}
+            <div class='featured-thumbs thumb_WhiteBlue-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_WhiteBlue-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endif %}
+            {% elsif image.src contains "BlackPurple" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/Purple" %}
+            <div class='featured-thumbs thumb_BlackPurple-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackPurple-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% elsif image.src contains "BlackRed" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/Red" %}
+            <div class='featured-thumbs thumb_BlackRed-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% elsif product.title == 'Triigger 350 Special Edition' %}
+            <div class='featured-thumbs thumb_BlackRed-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackRed-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% elsif image.src contains "BlackGreen" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/Green" %}
+            <div class='featured-thumbs thumb_BlackGreen-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackGreen-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% elsif image.src contains "BlackPink" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/Pink" %}
+            <div class='featured-thumbs thumb_BlackPink-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackPink-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% elsif image.src contains "BlackCamo" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/Camo" %}
+            <div class='featured-thumbs thumb_BlackCamo-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackCamo-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% elsif image.src contains "Virtus" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Virtus.pro" %}
+            <div class='featured-thumbs thumb_Virtus.pro-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_Virtus.pro-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% elsif image.src contains "BlackNZXT" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/NZXT" %}
+            <div class='featured-thumbs thumb_BlackNZXT-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackNZXT-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% elsif image.src contains "BlackTSM" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/TSM" %}
+            <div class='featured-thumbs thumb_BlackTSM-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackTSM-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% elsif image.src contains "BlackMisfits" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/Misfits" %}
+            <div class='featured-thumbs thumb_BlackMisfits-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackMisfits-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% elsif image.src contains "BlackMethod" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Black/Method" %}
+            <div class='featured-thumbs thumb_BlackMethod-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_BlackMethod-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% elsif image.src contains "Spacestation" %}
+            {% unless image.src contains "White" %}
+            {% if current_variant.option1 == "Spacestation" %}
+            <div class='featured-thumbs thumb_Spacestation-{{ product.id }}' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs thumb_Spacestation-{{ product.id }} hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endunless %}
+            {% else %}
+            {% if product.title == 'Triigger 350 Special Edition' %}
+            <div class='featured-thumbs-onevariant' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% else %}
+            <div class='featured-thumbs-accessories hidden' style='display: inline-block; width: 100px; height: 100px; cursor: pointer;'>
+              <img class='chair-thumbs-{{ product.id }}' src='{{ image.src | product_img_url: '1024x1024' }}' />
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            </div>
+            </div>
+            <script>
+              $('.chair-thumbs-' + {{ product.id }}).on('click', function(event) {
+                var newImage = $(this).attr('src');
+                $('.featured-image-' + {{ product.id }}).attr('src', newImage);
+              });
+            </script>
+          </div>
+          <div class='details'>
+            <h2 class='title'>{{ product.title }}</h2>
+            <div id="ProductPrice" class='price' itemprop="price" content="{{ current_variant.price | divided_by: 100 }}">{{ current_variant.price | money }} </div>
+            <div class='description'>{{ product.description }}</div>
+            <strong><a id='product-full-link-{{ product.id }}' href='/products/{{ product.handle }}?view=buynow&variant={{ product.variants.first.id }}'>SEE FULL PRODUCT DETAILS</a></strong>
+            <br />
+            <form action='/cart/add' method='post' id='AddToCartForm'>
+              {% if sca_product_variantCount > 1 %}
+              {% if product.options[0] %}
+              {% assign options = product.variants | map:'option1' | uniq %}
+              <label class='quantity-text' for="select-one-{{product.id}}">Colors</label><br />
+              <select id='select-one-{{product.id}}' onchange="changeId{{ product.id }}()" style='display: none;'>
+                {% for option in options %}
+                <option value='{{ option }}'>{{ option }}</option>
+                {% endfor %}
+              </select>
+              {% endif %}
+              {% if product.options[0] %}
+              {% assign options = product.variants | map:'option1' | uniq %}
+              <div class='color-swatch-modal-{{ product.id }} pointer'>
+                {% for option in options %}
+                	{% if forloop.first == true %}
+                		<img data-color='{{ option }}' class='swatch active' src='{{ option | append: ".jpg" | remove: "/" | downcase | asset_url }}' />
+                	{% else %}
+                		<img data-color='{{ option }}' class='swatch' src='{{ option | append: ".jpg" | remove: "/" | downcase | asset_url }}' />
+                	{% endif %}
+                {% endfor %}
+              </div><br /><br />
+              {% endif %}
+              <script>
+                $(".color-swatch-modal-" + {{ product.id }} + " img.swatch").on("click", function() {
+                  var initialcolor = $(this).attr('data-color');
+                  var color = $(this).attr('data-color').replace(/\//g, "").replace("/", "");
+                  if (color == "") {
+                    color = "BlackBlack";
+                  }
+                  $('#thumbs-' + {{ product.id }} + ' div.featured-thumbs').each(function() {
+                    if(!$(this).hasClass('hidden')) {
+                      $(this).addClass('hidden');
+                    }
+                    if($(this).hasClass('thumb_' + color + '-' + {{ product.id }})) {
+                       $(this).removeClass('hidden');
+                    }
+                  });
+                  var lowercolor = color;
+                  var clickedValue = $(this).attr('data-color');
+                  var exprfront = new RegExp('-' + color + '_front-min', "g");
+                  var expr = new RegExp('-' + color + '-min', "g");
+                  var exprside = new RegExp('-' + color + '-min', "g");
+                  var exprcaster = new RegExp('PentaRS1-' + lowercolor, "g");
+                  var exprlower = new RegExp('-' + lowercolor + '-min', "g");
+                  console.log("Color:", color);
+                  $('.chair-thumbs-' + {{ product.id }}).each(function() {
+                    console.log("huh");
+                    if($(this).attr('src').match(expr) || $(this).attr('src').match(exprcaster)) {
+                      var newImage = $(this).attr('src');
+                      console.log("featured image", newImage);
+                      $('.featured-image-' + {{ product.id }}).attr('src', newImage);
+                    }
+                  });
+                  
+                  $('.pointer img').each(function() {
+                    $(this).removeClass('active');
+
+                    if($(this).attr('data-color') == clickedValue) {
+                      $(this).addClass('active');
+                    }
+                  });
+                  $("#select-one-" + {{product.id}} + " option").each(function() {
+                    $(this).prop('selected', false).trigger('change');
+                    
+                    if ($(this).val() == clickedValue) {
+                      $(this).prop('selected', true).trigger('change');
+                      
+                    }
+                  });
+                  $('.zero-eager-load-' + {{ product.id }} + ' img').each(function() {
+                    if($(this).attr('src').match(exprside) || $(this).attr('src').match(exprlower)) {
+                      var newImage = $(this).attr('src');
+                      console.log(newImage);
+                      $('.featured-' + {{ product.id }} + '-image').attr('src', newImage);
+                    }
+                  });
+                });
+              </script>
+              {% if product.options[1] %}
+              {% assign options = product.variants | map:'option2' | uniq %}
+              <label class='quantity-text' for="select-one-{{product.id}}">Casters</label><br />
+              <select id='select-two-{{product.id}}' onchange="changeId{{ product.id }}()">
+                {% for option in options %}
+                	<option value='{{ option }}'>{{ option }}</option>
+                {% endfor %}
+              </select><br /><br />
+              {% endif %}
+              {% if product.options[2] %}
+              {% assign options = product.variants | map:'option3' | uniq %}
+              <label class='quantity-text' for="select-one-{{product.id}}">Armrests</label><br />
+              <select id='select-three-{{product.id}}' onchange="changeId{{ product.id }}()">
+                {% for option in options %}
+                	<option value='{{ option }}'>{{ option }}</option>
+                {% endfor %}
+              </select><br /><br />
+              {% endif %}
+              {% endif %}
+              <input type="hidden"name="id" id="product-select-{{product.id}}" value="{{ product.variants.first.id }}" />
+              <div class='quantity-text'>Quantity</div>
+              <div class='quantity-wrapper'>
+                <button type='button' class='quantity-left-minus' data-type='minus' data-field='' data-product-id='{{ product.id }}'>–</button>
+                <input type='text' value='1' name='quantity' class='quantity' id='{{ product.id }}-quantity'>
+                <button type='button' class='quantity-right-plus' data-type='plus' data-field='' data-product-id='{{ product.id }}'>+</button>
+              </div>
+              
+              <button type='submit' name='add' id='AddToCart' class='add-to-cart-btn' data-product-id='{{ product.id }}'>Add To Cart</button>
+            </form>
+            <script>
+              function changeId{{ product.id }}() {
+                var pid = {{ product.id }};
+                var id = '';
+                var opt1n = '#select-one-' + pid;
+                var opt2n = '#select-two-' + pid;
+                var opt3n = '#select-three-' + pid;
+                {% if product.options[0] %}var opt1 = $(opt1n).val(); {% endif %}
+                {% if product.options[1] %}var opt2 = $(opt2n).val(); {% endif %}
+                {% if product.options[2] %}var opt3 = $(opt3n).val(); {% endif %}
+                var id = '';
+                {% for v in product.variants %}
+{% unless v.metafields.secomapp.freegifts %}
+{% unless v.title contains '(Freegifts)' %}
+
+                if(opt1=='{{ v.option1 }}'{% if product.options[1] %} && 
+                   opt2=='{{ v.option2 }}'{% endif %}{% if product.options[2] %} && 
+                   opt3=='{{ v.option3 }}'{% endif %}) {
+                  id = {{ v.id }};
+                  var price = "{{ v.price | money }}";
+                  if( {{v.inventory_quantity}} <= 0) {
+                    $('#AddToCart').text('Pre-Order');
+                    $('#AddToCartForm').append("<input id='pre-ordered-line-item' class='hidden' type='text' name='properties[Note]' value='This is a pre-ordered product'>");
+                  } else {
+                    $('#AddToCart').text('Add To Cart');
+                    $('#pre-ordered-line-item').remove();
+                  }
+                }
+
+{%endunless%}
+{%endunless%}
+                {% endfor %}
+                if(id!='') {
+                  var handle = '{{ product.handle }}';
+                  $('#product-select-' + pid).val(id);
+                  $('#product-full-link-' + pid).attr("href", "/products/" + handle + "?view=buynow&variant=" + id);
+                  
+                } else {
+                  $('#product-select-' + pid).val('');
+                  console.log('somethings wrong...');
+                }
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div class='zero-eager-load-{{ product.id }} hidden'>
+        {% for image in product.images %}
+          <img style='width: 240px; height: 240px;' src='{{ image.src | product_img_url: '1024x1024' }}' />
+        {% endfor %}
+      </div>
+      <script>
+        $(document).ready(function() {
+          console.log("debug");
+          initSlick = function() {
+            $('#color_wrapper_' + {{ product.id }}).slick({
+              mobileFirst: true,
+              draggable: false,
+              infinite: true,
+              arrows: true,
+              slidesToShow: 4,
+              slidesToScroll: 4
+              });
+            $('#color_wrapper_' + {{ product.id }}).slick('slickGoTo', 0);
+          };
+
+          initSlick();
+
+          $(window).on('resize', function() {
+            $('#color_wrapper_' + {{ product.id }}).slick('slickGoTo', 0);
+            var width = $(window).width();
+            if(width < 768) {
+              initSlick();
+            }
+          });
+
+          $('.modal').iziModal({
+            top: 0,
+            width: 780,
+            closeButton: true,
+            appendTo: 'body'
+          });
+          
+          if('{{ product.title }}' != 'Penta RS1 Casters') {
+            $('#thumbs-' + {{ product.id }}).slick({
+              mobileFirst: true,
+              infinite: false,
+              arrows: true,
+              slidesToShow: 4,
+              slidesToScroll: 1
+            });
+          	$('#thumbs-' + {{ product.id }}).slick('setPosition');
+          }
+          
+          $('.qv').on('click', function(event) {
+            event.preventDefault();
+            var productId = $(this).attr('data-product-id');
+            $('#' + productId + '-modal').iziModal('open');
+          	//$('#thumbs-' + {{ product.id }}).slick('setPosition');
+            $('#thumbs-' + {{ product.id }}).slick('slickGoTo', 0);
+          });
+          
+          $('.add-to-cart-btn').on('click', function() {
+            var productId = $(this).attr('data-product-id');
+            $('#' + productId + '-modal').iziModal('close');
+          });
+          
+          $('.close_button').on('click', function() {
+            var productId = $(this).attr('data-product-id');
+            $('#' + productId + '-modal').iziModal('close');
+          });
+          
+          $('.color-swatch-' + {{ product.id }} + ' img.swatch').on('click', function() {
+            var color = $(this).attr('data-color').replace(/\//g, "");
+            var lowercolor = color;
+            
+            if (color == "") {
+              color = "BlackBlack";
+            }
+            var expr = new RegExp('-' + color + '-min_1024x1024.png', "g");
+            var exprfront = new RegExp('-' + color + '_front-min', "g");
+            var exprlower = new RegExp('-' + lowercolor + '-min_1024x1024.png', "g");
+            var clickedValue = $(this).attr('data-color');
+            var exprcaster = new RegExp('PentaRS1-' + lowercolor, "g");
+            
+            $('.chair-thumbs-' + {{ product.id }}).each(function() {
+              if($(this).attr('src').match(exprfront) || $(this).attr('src').match(exprcaster)) {
+                var newImage = $(this).attr('src');
+                console.log(newImage);
+                $('.featured-image-' + {{ product.id }}).attr('src', newImage);
+              }
+            });
+            $('.pointer img').each(function() {
+              $(this).removeClass('active');
+
+              if($(this).attr('data-color') == clickedValue) {
+                $(this).addClass('active');
+              }
+            });
+            
+            $('#thumbs-' + {{ product.id }} + ' div.featured-thumbs').each(function() {
+              if(!$(this).hasClass('hidden')) {
+                $(this).addClass('hidden');
+              }
+              if($(this).hasClass('thumb_' + color + '-' + {{ product.id }})) {
+                 $(this).removeClass('hidden');
+            	}
+            });
+            $('.zero-eager-load-' + {{ product.id }} + ' img').each(function() {
+              if($(this).attr('src').match(expr) || $(this).attr('src').match(exprlower)) {
+                var newImage = $(this).attr('src');
+                console.log(newImage);
+                $('.featured-' + {{ product.id }} + '-image').attr('src', newImage);
+              }
+            });
+            $('.color-swatch-modal img').each(function() {
+              $(this).removeClass('active');
+
+              if($(this).attr('data-color') == clickedValue) {
+                $(this).addClass('active');
+              }
+            });
+            $("#select-one-" + {{product.id}} + " option").each(function() {
+              $(this).prop('selected', false).trigger('change');
+
+              if ($(this).val() == clickedValue) {
+                $(this).prop('selected', true).trigger('change');
+
+              }
+            });
+          });
+          $('.color-swatch-' + {{ product.id }} + ' img.swatch').on('mouseenter', function() {
+            $('.featured-' + {{ product.id }} + '-image').addClass('hidden');
+            $('.hovered-' + {{ product.id }} + '-image').removeClass('hidden');
+            var color = $(this).attr('data-color').replace(/\//g, "");
+            var lowercolor = color;
+            
+            if (color == "") {
+              color = "BlackBlack";
+            }
+            var expr = new RegExp('-' + color + '-min_1024x1024.png', "g");
+            var exprlower = new RegExp('-' + lowercolor + '-min_1024x1024.png', "g");
+            
+            $('.zero-eager-load-' + {{ product.id }} + ' img').each(function() {
+              if($(this).attr('src').match(expr) || $(this).attr('src').match(exprlower)) {
+                var newImage = $(this).attr('src');
+                console.log(newImage);
+                $('.hovered-' + {{ product.id }} + '-image').attr('src', newImage);
+              }
+            });
+          });
+          $('.color-swatch-' + {{ product.id }} + ' img.swatch').on('mouseleave', function() {
+            $('.featured-' + {{ product.id }} + '-image').removeClass('hidden');
+            $('.hovered-' + {{ product.id }} + '-image').addClass('hidden');
+            var color = $(this).attr('data-color').replace(/\//g, "");
+            var lowercolor = color;
+            
+            if (color == "") {
+              color = "BlackBlack";
+            }
+            var expr = new RegExp('-' + color + '-min.png', "g");
+            var exprlower = new RegExp('-' + lowercolor + '-min.png', "g");
+            
+            $('.zero-eager-load-' + {{ product.id }} + ' img').each(function() {
+              if($(this).attr('src').match(expr) || $(this).attr('src').match(exprlower)) {
+                var newImage = $(this).attr('src');
+                console.log(newImage);
+                $('.hovered-' + {{ product.id }} + '-image').attr('src', newImage);
+              }
+            });
+          });
+        });
+       
+      </script>
+	</div>
+</div>
+{% endfor %}

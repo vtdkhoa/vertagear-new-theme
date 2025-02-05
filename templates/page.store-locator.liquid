@@ -1,0 +1,22 @@
+<!-- /templates/page.liquid -->
+{% comment %}
+{{ 'storelocator.scss' | asset_url | stylesheet_tag }}
+<div class="grid page-main--wrapper">
+
+  <div class="large--two-thirds push--large--one-sixth">
+
+    <div class="sitewide--title-wrapper">
+      <h1 class="page--title">{{ page.title }}</h1>
+    </div>
+
+    <div class="rte multitoool_where-to-buy">
+      <div id="wrapper_content">
+      {% include 'store-locator' %}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+{% endcomment %}
+{% section 'store-locator' %}

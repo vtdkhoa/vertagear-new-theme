@@ -1,0 +1,182 @@
+<style>
+  .specifications__container {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 40px;
+    gap: 80px;
+    background: #f6f6f6;
+  }
+  .specifications__title {
+    color: #000;
+    font-size: 59px;
+    font-weight: 700;
+    line-height: 96%;
+    letter-spacing: -1.18px;
+    text-transform: uppercase;
+  }
+  .specifications__content {
+    display: inherit;
+    gap: 13px;
+  }
+  .specifications__content-left,
+  .specifications__content-right {
+    width: 50%;
+  }
+  .specifications__content-left__spec {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+  }
+  .specifications__content-specs__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  table tr {
+    display: table;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .spec-text {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+  }
+  .specifications__content__spec-title {
+    color: #888;
+    width: 70%;
+  }
+  .specifications__content__spec-info {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .spec-info__right {
+    text-align: end;
+  }
+  .spec-info__list {
+    list-style: none;
+    margin: auto;
+  }
+  .specifications__button {
+    text-align: center;
+  }
+  .specifications__button__comparison {
+    width: 296px;
+    padding: 16px;
+    border-radius: 40px;
+    color: #edf1ff;
+    background: #4e4cf7;
+  }
+</style>
+
+<div class="specifications__container">
+  <div class="specifications__title">specifications</div>
+  <div class="specifications__content">
+    <div class="specifications__content-left">
+      <div class="specifications__content-specs__wrapper">
+        <table>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Model</td>
+            <td class="spec-text specifications__content__spec-info">G-SL5800</td>
+          </tr>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Color</td>
+            <td class="spec-text specifications__content__spec-info">
+              <span>Black/White</span>
+              <span>Carbon Black</span>
+              <span>Midnight Green</span>
+              <span>Midnight Blue</span>
+              <span>Midnight Purple</span>
+              <span>Burgundy Red</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Max load</td>
+            <td class="spec-text specifications__content__spec-info">113 kg / 250 lb</td>
+          </tr>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Recommended height</td>
+            <td class="spec-text specifications__content__spec-info">Up to 183 cm/ 6’</td>
+          </tr>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Materials</td>
+            <td class="spec-text specifications__content__spec-info">
+              <span>Steel (Frame)</span>
+              <span>Coffee ground fiber</span>
+              <span>Memory foam</span>
+              <span>UPHR foam</span>
+              <span>PUC Leather</span>
+              <span>Aluminum Alloy (5-star-base)</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Package dimension</td>
+            <td class="spec-text specifications__content__spec-info">
+              <span>830 mm x 730 mm x 430 mm</span>
+              <span>32.6” x 28.8” x 16.9”</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Overall height (incl. base)</td>
+            <td class="spec-text specifications__content__spec-info">
+              <span>1265 mm - 1340 mm</span>
+              <span>49.8” - 52.8”</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="specifications__content-right">
+      <div class="specifications__content-specs__wrapper">
+        <table>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Backrest width (Shoulder)</td>
+            <td class="spec-text specifications__content__spec-info spec-info__right">500 mm / 19.7”</td>
+          </tr>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Backrest width (Lumbar)</td>
+            <td class="spec-text specifications__content__spec-info spec-info__right">550 mm / 21.7”</td>
+          </tr>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Seat width</td>
+            <td class="spec-text specifications__content__spec-info spec-info__right">530 mm / 20.9”</td>
+          </tr>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Seat depth</td>
+            <td class="spec-text specifications__content__spec-info spec-info__right">420 mm / 16.1”</td>
+          </tr>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Net weight</td>
+            <td class="spec-text specifications__content__spec-info spec-info__right">26.5 kg / 58 lb</td>
+          </tr>
+          <tr>
+            <td class="spec-text specifications__content__spec-title">Gross weight</td>
+            <td class="spec-text specifications__content__spec-info spec-info__right">33.5 kg / 74 lb</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="specifications__button">
+    <button id="toggle-comparison" class="specifications__button__comparison">See Comparison Chart</button>
+  </div>
+</div>
+{% render 'fe800-product_comparison' %}
+
+<script>
+  const toggleComparisonBtn = document.getElementById('toggle-comparison');
+  if (toggleComparisonBtn) {
+    toggleComparisonBtn.addEventListener('click', () => {
+      const comparisonSection = document.querySelector('.product_comparison');
+      if (comparisonSection?.style?.display === 'none') {
+        comparisonSection.style.display = 'block';
+      } else {
+        comparisonSection.style.display = 'none';
+      }
+    });
+  }
+</script>

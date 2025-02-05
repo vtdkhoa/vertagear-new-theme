@@ -1,0 +1,97 @@
+.signature-section {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .signature-section__header {
+    padding: 20px;
+    padding-top: 40px;
+  }
+  
+  .signature-section__header__title .heading {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 150%;
+  }
+  .signature-section__header__title .title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 150%;
+    margin-top: 4px;
+  }
+  
+  .signature-section__header__desc {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    margin-top: 10px;
+  }
+  
+  .signature-section__header__action {
+    margin-top: 10px;
+  }
+  .signature-section__header__action button {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .signature-section__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .signature-section__content__video {
+    width: 100%;
+    padding-bottom: 20px
+  }
+  .signature-section__content .ss__play-btn {
+    position: absolute;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .signature-section__header {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px 40px;
+    }
+  
+    .signature-section__header__title {
+      width: 27%;
+    }
+    .signature-section__header__title .heading {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+    }
+    .signature-section__header__title .title {
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 130%;
+    }
+  
+    .signature-section__header__desc {
+      width: 53%;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+    }
+  
+    .signature-section__header__action button {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      padding: 14px 20px;
+    }
+  }

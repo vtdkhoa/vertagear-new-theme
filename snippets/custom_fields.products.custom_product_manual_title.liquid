@@ -1,0 +1,8 @@
+{% if product.metafields.custom_fields["custom_product_manual_title"] != blank %}
+  <div class="custom-field custom-field__custom-product-manual-title custom-field__type--text">
+    <h3 class="custom-field--title">custom product manual title</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["custom_product_manual_title"] }}
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,18 @@
+<div class="product-feature-section">
+    <div class="product-feature-section__container">
+        <div class="product-feature-section__title" data-scroll="fade-up" data-scroll-duration="600">
+            {{productFeatureBigTitle}}
+        </div>
+        <div class="product-feature-section__main">
+            {% for section in productFeatureThumb %}
+            <div class="product-feature-section__card" data-scroll="fade-up" data-scroll-duration="600">
+                <div class="product-feature-section__card-thumb">
+                    <img src="{{ productFeatureThumb[forloop.index0] }}" alt="{{ productFeatureTitle[forloop.index0] }}" loading="lazy">
+                </div>
+                <div class="product-feature-section__card-title">{{ productFeatureTitle[forloop.index0] }}</div>
+                <div class="product-feature-section__card-desc">{{ productFeatureDesc[forloop.index0] }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

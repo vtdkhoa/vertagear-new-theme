@@ -1,0 +1,1030 @@
+{% comment %}
+jQuery().backstretch:
+https://github.com/jquery-backstretch/jquery-backstretch
+
+jQuery().fullpage:
+https://github.com/alvarotrigo/fullPage.js
+"section" class is used for each full page
+"slider" class is used to each horizontal slide in a full page
+{% endcomment %}
+<style>
+  #product-fullpage .link1 {
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    width: 18%;
+    text-align: right;
+    z-index: 999;
+  }
+  #product-fullpage .link1 ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  #product-fullpage  .link1 ul li {
+    list-style: none;
+    display: inline-block;
+    opacity: .5;
+    margin-left: 5px;
+    margin-top: 10px;
+  }  
+</style> 
+
+{{ 'jquery.fullPage.css' | asset_url | stylesheet_tag }}
+{{ 'ag.product.template.scss.css' | asset_url | stylesheet_tag }}
+{{ 'jquery.backstretch.min.js' | asset_url | script_tag }}
+{{ 'jquery.fullPage.min.js' | asset_url | script_tag }}
+<nav id="ag-product-menu" style="position: fixed;">
+  <div class="ag-menu-left"><span id="ag-menu-title"></span></div>
+  <div class="ag-menu-right">
+    <li data-menuanchor="Top"><a href="#Top">Top</a></li>
+    <li data-menuanchor="Colors"><a href="#Colors">Colors</a></li>
+    <li data-menuanchor="Features"><a href="#Features">Features</a></li>
+    <li data-menuanchor="RGB Kit"><a href="#RGB Kit">RGB Kit</a></li>
+    <li data-menuanchor="Adjustability"><a href="#Adjustability">Adjustability</a></li>
+    <li data-menuanchor="Dimensions"><a href="#Dimensions">Dimensions</a></li>
+    <li data-menuanchor="Specifications"><a href="#Specifications">Specifications</a></li>
+    <li><a href="/products/pl4500-gaming-chair?view=buynow">Buy Now</a></li>
+  </div>
+</nav>
+
+<div id="product-fullpage">
+  <div class="section top-section">
+
+    <div class="ag-product-container">
+      <h2 class="ag-product-series">
+        S-Line
+      </h2>
+      <h1 class="ag-product-title">
+        SL5000
+      </h1>
+      <p class="ag-product-description">
+        A gamer’s delight, the Vertagear Racing Series SL5000 gaming chair will hit the sweet spot for extreme gamers. The racing-style gaming chair empowers your everyday gaming with the right features. Designed to give a wide range of adjustability that provides gamers with the best comfort and ergonomic support in every position for extended periods of time. The high backrest is designed to provide greater neck, shoulder, and lumbar support.
+        <br>
+        <br>
+        Recommended height : Up to 6'4".
+        <br>
+        Recommended weight: Up to 260lbs.
+      </p>
+      <br>
+      <div id="mainButton">
+        <a href="/products/sl5000-gaming-chair?view=buynow">
+          <div class="btn-text">BUY NOW</div>
+        </a>
+      </div>
+      <br>
+      <a href="/pages/rgb-top-kit"><img src="{{ 'rgb-ready-white.png' | asset_url }}" style="width: 130px; height: auto; margin-top: 20px;"/></a>
+
+      <div class="link1">
+        <ul>
+          <li>
+            <a target="_blank" href="http://www.xtremehardware.com/recensioni/periferiche/vertagear-sl5000-2015101311018/?start=5">
+              <img src="https://cdn.shopify.com/s/files/1/1759/4609/t/27/assets/6213343d6b9d--sl5000xtreme_hardware.png?4763" alt="" typeof="foaf:Image">
+
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="http://www.actualidadhardware.com/review-vertagear-sl5000-racing-series/">
+              <img src="https://cdn.shopify.com/s/files/1/1759/4609/t/27/assets/1f11e879a1cf--sl5000hardware.png?4764" alt="" typeof="foaf:Image">
+
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section colors-section">
+    <div class="ag-section-container-right">
+      <div class="ag-color-palette">
+        <span class='ag-palette'>Color Palette</span>
+        <a onclick="changeColorBackground('white', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #FFFFFF 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('red', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #820000 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('green', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #328200 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('blue', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #003482 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('purple', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #430082 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('black', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #000000 51% );"></div>
+        </a>
+      </div>
+    </div>
+    <div class='ag-color-section-container'>
+      <div class="ag-color-palette-mobile">
+        <span class='ag-palette'>Color Palette</span>
+        <a onclick="changeColorBackground('white', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #FFFFFF 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('red', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #820000 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('green', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #328200 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('blue', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #003482 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('purple', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #430082 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('black', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #000000 51% );"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section features-section">
+    <div class="slide coffee-fiber-slide">
+      <div class="ag-section-container-left">
+        <h2 class="ag-section-title">Coffee Fiber Padding</h2>
+        <p class="ag-section-description">
+          The PL4500's backrest and seat is padded with high quality Coffee Fiber,
+          produced through a patented technology, enabling the material to exhibit unique
+          properties, including being odor control and quick drying for added hygiene and comfort.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Coffee Fiber Padding</h2>
+        <p class="ag-section-slider-mobile-description">
+          The PL4500's backrest and seat is padded with high quality Coffee Fiber,
+          produced through a patented technology, enabling the material to exhibit unique
+          properties, including odor control and quick drying for added hygiene and comfort.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide silver-lining-slide">
+      <div class="ag-section-container-right">
+        <h2 class="ag-section-title">Silver Lining</h2>
+        <p class="ag-section-description">
+          The PL4500's embroidery is made out of silver thread. Silver is long hailed
+          for its antibacterial properties. Silver interrupts bacteria's ability to form
+          chemical bonds critical to its survival, so when bacteria meets silver, it falls
+          apart.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Silver Lining</h2>
+        <p class="ag-section-slider-mobile-description">
+          The PL4500's embroidery is made out of silver thread. Silver is long hailed
+          for its antibacterial properties. Silver interrupts bacteria's ability to form
+          chemical bonds critical to its survival, so when bacteria meets silver, it falls
+          apart.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide uphr-foam-slide">
+      <div class="ag-section-container-left">
+        <h2 class="ag-section-title">Ultra Premium High Resiliency Foam</h2>
+        <p class="ag-section-description">
+          Our interior foam boasts a density that puts it well above the standard High Resiliency
+          foam. Where High Resiliency foam sits at approximately 2.5lbs per cubic foot, our foam
+          stands up to 4lbs per cubic foot, inching it near the realm of memory foam. The elasticity
+          of the foam helps prolong the comfort life of the chair and adds to the overall durability
+          of the product.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Ultra Premium High Resiliency Foam</h2>
+        <p class="ag-section-slider-mobile-description">
+          Our interior foam boasts a density that puts it well above the standard High Resiliency
+          foam. Where High Resiliency foam sits at approximately 2.5lbs per cubic foot, our foam
+          stands up to 4lbs per cubic foot, inching it near the realm of memory foam. The elasticity
+          of the foam helps prolong the comfort life of the chair and adds to the overall durability
+          of the product.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide metal-base-slide">
+      <div class="ag-section-container-right">
+        <h2 class="ag-section-title">Heavy Duty Metal Base Frame</h2>
+        <p class="ag-section-description">
+          The PL4500's heavy duty base frame is constructed with industrial strength metal to support
+          up to 180 kg / 400 lbs of weight, for long lasting comfort.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Heavy Duty Metal Base Frame</h2>
+        <p class="ag-section-slider-mobile-description">
+          The PL4500's heavy duty base frame is constructed with industrial strength metal to support
+          up to 180 kg / 400 lbs of weight, for long lasting comfort.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide glide-casters-slide">
+      <div class="ag-section-container-left">
+        <h2 class="ag-section-title">Soft-Glide Wheels</h2>
+        <p class="ag-section-description">
+          The PL4500 comes with 65mm/2.5" PENTA RS1 casters that are engineered for quieter operation and
+          greater resistance to foreign objects and debris, rolling effortlessly on all types of flooring
+          while preventing damage to the surface beneath.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Soft-Glide Wheels</h2>
+        <p class="ag-section-slider-mobile-description">
+          The PL4500 comes with 65mm/2.5" PENTA RS1 casters that are engineered for quieter operation and
+          greater resistance to foreign objects and debris, rolling effortlessly on all types of flooring
+          while preventing damage to the surface beneath.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide effortless-assembly-slide">
+      <div class="ag-section-container-right">
+        <h2 class="ag-section-title">Effortless Assembly</h2>
+        <p class="ag-section-description">
+          A patent pending "Slide-In" design mechanical structure that requires no more than one person to assemble.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Effortless Assembly</h2>
+        <p class="ag-section-slider-mobile-description">
+          A patent pending "Slide-In" design mechanical structure that requires no more than one person to assemble.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide extra-cushions-slide">
+      <div class="ag-section-container-left">
+        <h2 class="ag-section-title">Extra Accessories: Cushions</h2>
+        <p class="ag-section-description">
+          Additional Memory Foam<br /> Neck Support and Lumbar<br /> Support cushions are included.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Extra Accessories: Cushions</h2>
+        <p class="ag-section-slider-mobile-description">
+          Additional Memory Foam<br /> Neck Support and Lumbar<br /> Support cushions are included.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="slide hygennx-slide">
+      <div class="ag-section-container-left">
+        <h2 class="feature-title"><span style="background-color:rgba(255, 255, 255, 0.8)">Hygenn X</span></h2>
+        <p class="feature-description" style="width:500px;background-color:rgba(255, 255, 255, 0.8)">
+          As the marriage of the Coffee Fiber Padding and Silver Lining Embroidery Vertagear fans love, Hygenn X was designed with a patented coffee infused fiber to limit odor and increase breathability, while maintaining bacteria control properties from the silver thread to prioritize cleanliness and comfort in the areas most sat on during long hours of intense gameplay.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Hygenn X</h2>
+        <p class="ag-section-slider-mobile-description">
+          As the marriage of the Coffee Fiber Padding and Silver Lining Embroidery Vertagear fans love, Hygenn X was designed with a patented coffee infused fiber to limit odor and increase breathability, while maintaining bacteria control properties from the silver thread to prioritize cleanliness and comfort in the areas most sat on during long hours of intense gameplay.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section rgbkit-section">
+    <div class="ag-section-container-right">
+      <h2 class="ag-section-title" style="color: white;">RGB/LED Upgrade Kits</h2>
+      <p class="ag-section-description" style="color: white; width: 324px; text-align: justify;">
+        Enhance your experience with our wirelessly controlled, full spectrum RGB LED upgrade kit.
+      </p>
+      <a class="ag-product-learn-more" href="/pages/rgb-led-top-kit">
+        Learn More
+      </a>
+    </div>
+  </div>
+
+  <div class="section adjustibility-section">
+    <div class="ag-adjustibility-section-container">
+      <div class="ag-abjustable-points">
+
+        <!--<div class="ag-adjustable-point">
+<h2 class="ag-adjustable-title">Adjustable Seat Height</h2>
+<p class="ag-adjustable-description">
+The PL4500's seat and height adjustability ensures correct ergonomic posture and prevents
+stress to your back. Having good range of adjustability allows you to at an optimum angle in relation
+to your desk, this reduces back and neck pains.
+</p>
+<img src="{{ 'product.template.pl4500.adjustable-seat-height.jpg' | asset_url }}" />
+</div>
+<div class="ag-adjustable-point">
+<h2 class="ag-adjustable-title">Adjustable Backrest</h2>
+<p class="ag-adjustable-description">
+Features independent back angle option. An angle-adjustable backrest to help you adjust
+your sitting position throughout the course of your gaming experience (up to 140 degrees).
+</p>
+<img src="{{ 'product.template.pl4500.adjustable-backrest.jpg' | asset_url }}" />
+</div>
+<div class="ag-adjustable-point">
+<h2 class="ag-adjustable-title">Adjustable Tilt with Locking System</h2>
+<p class="ag-adjustable-description">
+Our adjustable tilt mechanism allows you to increase or decrease the tension by easily turning
+the knob to match your body weight. This allows you to rock comfortable, without heavy pushing,
+reducing muscle fatigue. In addition, the Racing Series P-Line can be locked into 4 different tilted
+positions, truly putting you in a drivers seat.
+</p>
+<img src="{{ 'product.template.pl4500.adjustable-tilt.jpg' | asset_url }}" />
+</div>
+<div class="ag-adjustable-point">
+<h2 class="ag-adjustable-title">Adjustable 3D Armrests</h2>
+<p class="ag-adjustable-description">
+Ergonomically designed to contour to the shape of the arm. The armrest swivels and adjusts in height
+to provide proper support to the forearm.
+</p>
+<img src="{{ 'product.template.pl4500.adjustable-3d-armrests.jpg' | asset_url }}" />
+</div>-->
+
+        <div class="ag-adjustable-grid">
+          <div class="ag-adjustable-column">
+            <h2 class="ag-adjustable-title">
+              Adjustable Seat Height
+            </h2>
+          </div>
+          <div class="ag-adjustable-column">
+            <h2 class="ag-adjustable-title">
+              Adjustable Backrest
+            </h2>
+          </div>
+          <div class="ag-adjustable-column">
+            <h2 class="ag-adjustable-title">
+              Adjustable Tilt with Locking System
+            </h2>
+          </div>
+          <div class="ag-adjustable-column">
+            <h2 class="ag-adjustable-title">
+              Adjustable 3D Armrests
+            </h2>
+          </div>
+        </div>
+        <div class="ag-adjustable-grid">
+          <div class="ag-adjustable-column">
+            <p class="ag-adjustable-description">
+              The PL4500's seat and height adjustability ensures correct ergonomic posture and prevents
+              stress to your back. Having good range of adjustability allows you to at an optimum angle in relation
+              to your desk, this reduces back and neck pains.
+            </p>
+          </div>
+          <div class="ag-adjustable-column">
+            <p class="ag-adjustable-description">
+              Features independent back angle option. An angle-adjustable backrest to help you adjust
+              your sitting position throughout the course of your gaming experience (up to 140 degrees).
+            </p>
+          </div>
+          <div class="ag-adjustable-column">
+            <p class="ag-adjustable-description">
+              Our adjustable tilt mechanism allows you to increase or decrease the tension by easily turning
+              the knob to match your body weight. This allows you to rock comfortable, without heavy pushing,
+              reducing muscle fatigue. In addition, the Racing Series P-Line can be locked into 4 different tilted
+              positions, truly putting you in a drivers seat.
+            </p>
+          </div>
+          <div class="ag-adjustable-column">
+            <p class="ag-adjustable-description">
+              Ergonomically designed to contour to the shape of the arm. The armrest swivels and adjusts in height
+              to provide proper support to the forearm.
+            </p>
+          </div>
+        </div>
+        <div class="ag-adjustable-grid">
+          <div class="ag-adjustable-column">
+            <img src="{{ 'product.template.pl4500.adjustable-seat-height.jpg' | asset_url }}" />
+          </div>
+          <div class="ag-adjustable-column">
+            <img src="{{ 'product.template.pl4500.adjustable-backrest.jpg' | asset_url }}" />
+          </div>
+          <div class="ag-adjustable-column">
+            <img src="{{ 'product.template.pl4500.adjustable-tilt.jpg' | asset_url }}" />
+          </div>
+          <div class="ag-adjustable-column">
+            <img src="{{ 'product.template.pl4500.adjustable-3d-armrests.jpg' | asset_url }}" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="section dimensions-section">
+    <div class="ag-dimension-section-container">
+      <img src="{{ 'product.template.pl4500.dimensions.png' | asset_url }}" />
+    </div>
+  </div>
+
+  <div class="section specifications-section">
+    <div class="ag-specifications-section-container">
+      <div class="ag-specifications-table">
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Model:</div>
+          <div class="ag-specifications-row-item-right">VG-PL4500</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Colors:</div>
+          <div class="ag-specifications-row-item-right">Black, Black / Blue, Black / Purple, Black / <br /> Green, Black / Red, Black / Black, White</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Max Load:</div>
+          <div class="ag-specifications-row-item-right">180 kg / 400 lb</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Materials:</div>
+          <div class="ag-specifications-row-item-right">Steel (frame), High Density Foam, PVC Leather, Aluminum Alloy (base), Coffee Ground Fiber, Silver Linen</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Package Dimension:</div>
+          <div class="ag-specifications-row-item-right">89 x 80 x 39 cm / 35 x 31.5 x 15 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Overall height (incl. base):</div>
+          <div class="ag-specifications-row-item-right">1310 - 1375 mm / 51.6 - 54.1 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Backrest Width (shoulder):</div>
+          <div class="ag-specifications-row-item-right">530 mm / 20.8 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Backrest Width (lumbar):</div>
+          <div class="ag-specifications-row-item-right">545 mm / 21.5 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Seat Width:</div>
+          <div class="ag-specifications-row-item-right">535 mm / 21 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Seat Depth:</div>
+          <div class="ag-specifications-row-item-right">445 mm / 17.5 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Net Weight:</div>
+          <div class="ag-specifications-row-item-right">30 kg / 66 lb</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Gross Weight:</div>
+          <div class="ag-specifications-row-item-right">34.9 kg / 77 lb</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- mobile // this is hacky but best idea for now. -->
+<div id="product-fullpage-mobile">
+  <div class="section top-section">
+    <div class="ag-product-container">
+      <h2 class="ag-product-series">
+        P-Line
+      </h2>
+      <h1 class="ag-product-title">
+        {{ product.title }}
+      </h1>
+      <p class="ag-product-description">
+        {{ product.description }}
+      </p>
+      <a class="ag-product-buy-now" href="/sl5000-gaming-chair?view=buynow">
+        Buy Now
+      </a>
+    </div>
+  </div>
+
+  <div class="section colors-section">
+    <div class="ag-section-container-right">
+      <div class="ag-color-palette">
+        <span class='ag-palette'>Color Palette</span>
+        <a onclick="changeColorBackground('white', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #FFFFFF 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('red', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #820000 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('green', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #328200 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('blue', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #003482 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('purple', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #430082 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('black', 'desktop')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #000000 51% );"></div>
+        </a>
+      </div>
+    </div>
+    <div class='ag-color-section-container'>
+      <div class="ag-color-palette-mobile">
+        <span class='ag-palette'>Color Palette</span>
+        <a onclick="changeColorBackground('white', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #FFFFFF 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('red', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #820000 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('green', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #328200 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('blue', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #003482 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('purple', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #430082 51% );"></div>
+        </a>
+        <a onclick="changeColorBackground('black', 'mobile')">
+          <div class='ag-color-palette-circle' style="background: linear-gradient(to right, #000000, #000000 49%, transparent 49%, transparent 51%, #000000 51% );"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section features-section">
+    <div class="slide coffee-fiber-slide">
+      <div class="ag-section-container-left">
+        <h2 class="ag-section-title">Coffee Fiber Padding</h2>
+        <p class="ag-section-description">
+          The PL4500's backrest and seat is padded with high quality Coffee Fiber,
+          produced through a patented technology, enabling the material to exhibit unique
+          properties, including being anti-odor and quick drying for added hygiene and comfort.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Coffee Fiber Padding</h2>
+        <p class="ag-section-slider-mobile-description">
+          The PL4500's backrest and seat is padded with high quality Coffee Fiber,
+          produced through a patented technology, enabling the material to exhibit unique
+          properties, including being anti-odor and quick drying for added hygiene and comfort.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide silver-lining-slide">
+      <div class="ag-section-container-right">
+        <h2 class="ag-section-title">Silver Lining</h2>
+        <p class="ag-section-description">
+          The PL4500's embroidery is made out of silver thread. Silver is long hailed
+          for its antibacterial properties. Silver interrupts bacteria's ability to form
+          chemical bonds critical to its survival, so when bacteria meets silver, it falls
+          apart.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Silver Lining</h2>
+        <p class="ag-section-slider-mobile-description">
+          The PL4500's embroidery is made out of silver thread. Silver is long hailed
+          for its antibacterial properties. Silver interrupts bacteria's ability to form
+          chemical bonds critical to its survival, so when bacteria meets silver, it falls
+          apart.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide uphr-foam-slide">
+      <div class="ag-section-container-left">
+        <h2 class="ag-section-title">Ultra Premium High Resiliency Foam</h2>
+        <p class="ag-section-description">
+          Our interior foam boasts a density that puts it well above the standard High Resiliency
+          foam. Where High Resiliency foam sits at approximately 2.5lbs per cubic foot, our foam
+          stands up to 4lbs per cubic foot, inching it near the realm of memory foam. The elasticity
+          of the foam helps prolong the comfort life of the chair and adds to the overall durability
+          of the product.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Ultra Premium High Resiliency Foam</h2>
+        <p class="ag-section-slider-mobile-description">
+          Our interior foam boasts a density that puts it well above the standard High Resiliency
+          foam. Where High Resiliency foam sits at approximately 2.5lbs per cubic foot, our foam
+          stands up to 4lbs per cubic foot, inching it near the realm of memory foam. The elasticity
+          of the foam helps prolong the comfort life of the chair and adds to the overall durability
+          of the product.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide metal-base-slide">
+      <div class="ag-section-container-right">
+        <h2 class="ag-section-title">Heavy Duty Metal Base Frame</h2>
+        <p class="ag-section-description">
+          The PL4500's heavy duty base frame is constructed with industrial strength metal to support
+          up to 180 kg / 400 lbs of weight, for long lasting comfort.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Heavy Duty Metal Base Frame</h2>
+        <p class="ag-section-slider-mobile-description">
+          The PL4500's heavy duty base frame is constructed with industrial strength metal to support
+          up to 180 kg / 400 lbs of weight, for long lasting comfort.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide glide-casters-slide">
+      <div class="ag-section-container-left">
+        <h2 class="ag-section-title">Soft-Glide Wheels</h2>
+        <p class="ag-section-description">
+          The PL4500 comes with 65mm/2.5" PENTA RS1 casters that are engineered for quieter operation and
+          greater resistance to foreign objects and debris, rolling effortlessly on all types of flooring
+          while preventing damage to the surface beneath.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Soft-Glide Wheels</h2>
+        <p class="ag-section-slider-mobile-description">
+          The PL4500 comes with 65mm/2.5" PENTA RS1 casters that are engineered for quieter operation and
+          greater resistance to foreign objects and debris, rolling effortlessly on all types of flooring
+          while preventing damage to the surface beneath.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide effortless-assembly-slide">
+      <div class="ag-section-container-right">
+        <h2 class="ag-section-title">Effortless Assembly</h2>
+        <p class="ag-section-description">
+          A patent pending "Slide-In" design mechanical structure that requires no more than one person to assemble.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Effortless Assembly</h2>
+        <p class="ag-section-slider-mobile-description">
+          A patent pending "Slide-In" design mechanical structure that requires no more than one person to assemble.
+        </p>
+      </div>
+    </div>
+
+    <div class="slide extra-cushions-slide">
+      <div class="ag-section-container-left">
+        <h2 class="ag-section-title">Extra Accessories: Cushions</h2>
+        <p class="ag-section-description">
+          Additional Memory Foam<br /> Neck Support and Lumbar<br /> Support cushions are included.
+        </p>
+      </div>
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Extra Accessories: Cushions</h2>
+        <p class="ag-section-slider-mobile-description">
+          Additional Memory Foam<br /> Neck Support and Lumbar<br /> Support cushions are included.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section adjustibility-section">
+    <div class="slide adjustable-seat-height-slide" style="position: relative;">
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Adjustable Seat Height</h2>
+        <p class="ag-section-slider-mobile-description">
+          The PL4500's seat and height adjustability ensures correct ergonomic posture and prevents
+          stress to your back. Having good range of adjustability allows you to at an optimum angle in relation
+          to your desk, this reduces back and neck pains.
+        </p>
+      </div>
+    </div>
+    <div class="slide adjustable-backrest-slide" style="position: relative;">
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Adjustable Backrest</h2>
+        <p class="ag-section-slider-mobile-description">
+          Features independent back angle option. An angle-adjustable backrest to help you adjust
+          your sitting position throughout the course of your gaming experience (up to 140 degrees).
+        </p>
+      </div>
+    </div>
+    <div class="slide adjustable-tilt-slide" style="position: relative;">
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Adjustable Tilt with Locking System</h2>
+        <p class="ag-section-slider-mobile-description">
+          Our adjustable tilt mechanism allows you to increase or decrease the tension by easily turning
+          the knob to match your body weight. This allows you to rock comfortable, without heavy pushing,
+          reducing muscle fatigue. In addition, the Racing Series P-Line can be locked into 4 different tilted
+          positions, truly putting you in a drivers seat.
+        </p>
+      </div>
+    </div>
+    <div class="slide adjustable-armrest-slide" style="position: relative;">
+      <div class="ag-section-slider-mobile">
+        <h2 class="ag-section-slider-mobile-title">Adjustable 3D Armrests</h2>
+        <p class="ag-section-slider-mobile-description">
+          Ergonomically designed to contour to the shape of the arm. The armrest swivels and adjusts in height
+          to provide proper support to the forearm.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section dimensions-mobile-section">
+    <div class="ag-dimension-section-container">
+      <img src="{{ 'product.template.pl4500.dimensions.mobile-1.png' | asset_url }}" />
+    </div>
+  </div>
+
+  <div class="section dimensions-mobile-section">
+    <div class="ag-dimension-section-container">
+      <img src="{{ 'product.template.pl4500.dimensions.mobile-2.png' | asset_url }}" />
+    </div>
+  </div>
+
+  <div class="section specifications-section">
+    <div class="ag-specifications-section-container">
+      <div class="ag-specifications-table">
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Model:</div>
+          <div class="ag-specifications-row-item-right">VG-PL4500</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Colors:</div>
+          <div class="ag-specifications-row-item-right">Black, Black / Blue, Black / Purple, Black / <br /> Green, Black / Red, Black / Black, White</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Max Load:</div>
+          <div class="ag-specifications-row-item-right">180 kg / 400 lb</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Materials:</div>
+          <div class="ag-specifications-row-item-right">Steel (frame), High Density Foam, PVC Leather, Aluminum Alloy (base)</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Package Dimension:</div>
+          <div class="ag-specifications-row-item-right">89 x 80 x 39 cm / 35 x 31.5 x 15 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Overall height (incl. base):</div>
+          <div class="ag-specifications-row-item-right">1310 - 1375 mm / 51.6 - 54.1 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Backrest Width (shoulder):</div>
+          <div class="ag-specifications-row-item-right">530 mm / 20.8 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Backrest Width (lumbar):</div>
+          <div class="ag-specifications-row-item-right">545 mm / 21.5 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Seat Width:</div>
+          <div class="ag-specifications-row-item-right">535 mm / 21 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Seat Depth:</div>
+          <div class="ag-specifications-row-item-right">445 mm / 17.5 in</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Net Weight:</div>
+          <div class="ag-specifications-row-item-right">34.9 kg / 77 lb</div>
+        </div>
+
+        <div class="ag-spefications-row">
+          <div class="ag-specifications-row-item-left">Gross Weight:</div>
+          <div class="ag-specifications-row-item-right">30 kg / 66 lb</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var productSectionBackgrounds = {
+    "top": "{{ 'product.template.sl5000.top.jpg' | asset_url }}",
+    "rgbkit": "{{ 'product.template.pl4500.addons.jpg' | asset_url }}",
+    "generic": "{{ 'product.template.pl4500.grayscale.jpg' | asset_url }}",
+  };
+
+  var productSectionMobileBackgrounds = {
+    "top": "{{ 'product.template.pl4500.top-mobile.jpg' | asset_url}}"
+  };
+
+  var productColorBackgrounds = {
+    "default": "{{ 'product.template.pl4500.color.default.jpg' | asset_url }}",
+    "white": "{{ 'product.template.pl4500.color.white.jpg' | asset_url }}",
+    "red": "{{ 'product.template.pl4500.color.red.jpg' | asset_url }}",
+    "green": "{{ 'product.template.pl4500.color.green.jpg' | asset_url }}",
+    "blue": "{{ 'product.template.pl4500.color.blue.jpg' | asset_url }}",
+    "purple": "{{ 'product.template.pl4500.color.purple.jpg' | asset_url }}",
+    "black": "{{ 'product.template.pl4500.color.black.jpg' | asset_url }}"
+  };
+
+  var productColorMobileBackgrounds = {
+    "default": "{{ 'product.template.pl4500.color.default-mobile.jpg' | asset_url }}",
+    "white": "{{ 'product.template.pl4500.color.white-mobile.jpg' | asset_url }}",
+    "red": "{{ 'product.template.pl4500.color.red-mobile.jpg' | asset_url }}",
+    "green": "{{ 'product.template.pl4500.color.green-mobile.jpg' | asset_url }}",
+    "blue": "{{ 'product.template.pl4500.color.blue-mobile.jpg' | asset_url }}",
+    "purple": "{{ 'product.template.pl4500.color.purple-mobile.jpg' | asset_url }}",
+    "black": "{{ 'product.template.pl4500.color.black-mobile.jpg' | asset_url }}"
+  };
+
+  var productFeatureBackgrounds = {
+    "coffee-fiber": "{{ 'product.template.pl4500.feature-slide.coffee-fiber.jpg' | asset_url }}",
+    "silver-lining": "{{ 'product.template.pl4500.feature-slide.silver-lining.jpg' | asset_url }}",
+    "uphr-foam": "{{ 'product.template.pl4500.feature-slide.uphr-foam.jpg' | asset_url }}",
+    "metal-base": "{{ 'product.template.pl4500.feature-slide.metal-base.jpg' | asset_url }}",
+    "glide-casters": "{{ 'product.template.pl4500.feature-slide.glide-casters.jpg' | asset_url }}",
+    "effortless-assembly": "{{ 'product.template.pl4500.feature-slide.effortless-assembly.jpg' | asset_url }}",
+    "extra-cushions": "{{ 'product.template.pl4500.feature-slide.extra-cusions.jpg' | asset_url }}",
+    "hygennx": "{{ 'hygenn_x_desktop.jpg' | asset_url }}"
+  };
+
+  var productFeatureMobileBackgrounds = {
+    "coffee-fiber": "{{ 'product.template.pl4500.feature-slide.coffee-fiber-mobile.jpg' | asset_url }}",
+    "silver-lining": "{{ 'product.template.pl4500.feature-slide.silver-lining-mobile.jpg' | asset_url }}",
+    "uphr-foam": "{{ 'product.template.pl4500.feature-slide.uphr-foam-mobile.jpg' | asset_url }}",
+    "metal-base": "{{ 'product.template.pl4500.feature-slide.metal-base-mobile.jpg' | asset_url }}",
+    "glide-casters": "{{ 'product.template.pl4500.feature-slide.glide-casters-mobile.jpg' | asset_url }}",
+    "effortless-assembly": "{{ 'product.template.pl4500.feature-slide.effortless-assembly-mobile.jpg' | asset_url }}",
+    "extra-cushions": "{{ 'product.template.pl4500.feature-slide.extra-cusions-mobile.jpg' | asset_url }}",
+    "hygennx": "{{ 'hygenn_x_mobile.jpg' | asset_url }}"
+  };
+
+  var productAdjustableMobileBackgrounds = {
+    "seat-height": "{{ 'product.template.pl4500.adjustability-slide.seat-height-mobile.jpg' | asset_url }}",
+    "backrest": "{{ 'product.template.pl4500.adjustability-slide.backrest-mobile.jpg' | asset_url }}",
+    "tilt": "{{ 'product.template.pl4500.adjustability-slide.tilt-mobile.jpg' | asset_url }}",
+    "armrest": "{{ 'product.template.pl4500.adjustability-slide.armrest-mobile.jpg' | asset_url }}"
+  };
+
+  var productAnchors = ['Top', 'Colors', 'Features', 'RGB Kit', 'Adjustability', 'Dimensions', 'Specifications'];
+  var productMobileAnchors = ['Top', 'Colors', 'Features', 'RGB Kit', 'Adjustability', 'Dimensions', 'Dimensions', 'Specifications'];
+
+  changeColorBackground = function(color, device) {
+    if(device == "mobile") {
+      jQuery(".colors-section").backstretch(productColorMobileBackgrounds[color]);
+    } else {
+      jQuery(".colors-section").backstretch(productColorBackgrounds[color]);
+    }
+  };
+
+
+  loadBackgroundImages = function() {
+    jQuery(".top-section").backstretch(productSectionBackgrounds["top"]);
+    jQuery(".colors-section").backstretch(productColorBackgrounds["default"]);
+    jQuery(".rgbkit-section").backstretch(productSectionBackgrounds["rgbkit"]);
+    jQuery(".adjustibility-section").backstretch(productSectionBackgrounds["generic"]);
+    jQuery(".dimensions-section").backstretch(productSectionBackgrounds["generic"]);
+
+    jQuery(".specifications-section").backstretch(productSectionBackgrounds["generic"]);
+
+    jQuery(".coffee-fiber-slide").backstretch(productFeatureBackgrounds["coffee-fiber"]);
+    jQuery(".silver-lining-slide").backstretch(productFeatureBackgrounds["silver-lining"]);
+    jQuery(".uphr-foam-slide").backstretch(productFeatureBackgrounds["uphr-foam"]);
+    jQuery(".metal-base-slide").backstretch(productFeatureBackgrounds["metal-base"]);
+    jQuery(".glide-casters-slide").backstretch(productFeatureBackgrounds["glide-casters"]);
+    jQuery(".effortless-assembly-slide").backstretch(productFeatureBackgrounds["effortless-assembly"]);
+    jQuery(".extra-cushions-slide").backstretch(productFeatureBackgrounds["extra-cushions"]);
+    jQuery(".hygennx-slide").backstretch(productFeatureBackgrounds["hygennx"]);
+  };
+
+  loadMobileBackgroundImages = function() {
+    jQuery(".top-section").backstretch(productSectionMobileBackgrounds["top"]);
+    jQuery(".colors-section").backstretch(productColorMobileBackgrounds["default"]);
+    jQuery(".dimensions-mobile-section").backstretch(productSectionBackgrounds["generic"]);
+
+    jQuery(".coffee-fiber-slide").backstretch(productFeatureMobileBackgrounds["coffee-fiber"]);
+    jQuery(".silver-lining-slide").backstretch(productFeatureMobileBackgrounds["silver-lining"]);
+    jQuery(".uphr-foam-slide").backstretch(productFeatureMobileBackgrounds["uphr-foam"]);
+    jQuery(".metal-base-slide").backstretch(productFeatureMobileBackgrounds["metal-base"]);
+    jQuery(".glide-casters-slide").backstretch(productFeatureMobileBackgrounds["glide-casters"]);
+    jQuery(".effortless-assembly-slide").backstretch(productFeatureMobileBackgrounds["effortless-assembly"]);
+    jQuery(".extra-cushions-slide").backstretch(productFeatureMobileBackgrounds["extra-cushions"]);
+    jQuery(".hygennx-slide").backstretch(productFeatureMobileBackgrounds["hygennx"]);
+
+    jQuery(".adjustable-seat-height-slide").backstretch(productAdjustableMobileBackgrounds["seat-height"]);
+    jQuery(".adjustable-backrest-slide").backstretch(productAdjustableMobileBackgrounds["backrest"]);
+    jQuery(".adjustable-tilt-slide").backstretch(productAdjustableMobileBackgrounds["tilt"]);
+    jQuery(".adjustable-armrest-slide").backstretch(productAdjustableMobileBackgrounds["armrest"]);
+  }
+
+  loadFullPageDesktop = function() {
+    jQuery("#product-fullpage").fullpage({
+      menu: '#ag-product-menu',
+      anchors: productAnchors,
+      css3: true,
+      slidesNavigation: true,
+      responsiveWidth: 5000,
+      afterLoad: function(anchorLink, index) {
+        if(index == 1) {
+          jQuery('#ag-product-menu').slideUp(400);
+          jQuery('#ag-menu-title').text("");
+        } else {
+          jQuery("#ag-menu-title").text(anchorLink);
+        }
+      },
+      afterResize: function() {
+        jQuery(".top-section").backstetch('resize');
+        jQuery(".colors-section").backstetch('resize');
+      },
+      onLeave: function(index, nextIndex, direction) {
+        if(nextIndex == 1) {
+          jQuery.when(jQuery('#ag-product-menu').slideUp(400)).then(function() {
+            jQuery('#shopify-section-header-custom').slideDown(400);
+          });
+        } else {
+          jQuery.when(jQuery('#shopify-section-header-custom').slideUp(400)).then(function() {
+            jQuery('#ag-product-menu').slideDown(1200);
+            jQuery('.ag-menu-right').slideDown(400);
+            /*setTimeout(function() {
+              jQuery('.ag-menu-right').slideUp(400);
+            }, 5000);*/
+          });
+        }
+      }
+    });
+  };
+
+  loadFullPageMobile = function () {
+    jQuery("#product-fullpage-mobile").fullpage({
+      menu: '#ag-product-menu',
+      css3: true,
+      responsiveWidth: 6000,
+      afterLoad: function(anchorLink, index) {
+        if(index == 1) {
+          jQuery('#ag-product-menu').slideUp(400);
+        }
+      },
+      afterResize: function() {
+        jQuery(".top-section").backstetch('resize');
+        jQuery(".colors-section").backstetch('resize');
+      },
+      onLeave: function(index, nextIndex, direction) {
+        if(nextIndex == 1) {
+          jQuery.when(jQuery('#ag-product-menu').slideUp(400)).then(function() {
+            jQuery('#shopify-section-header-custom').slideDown(400);
+          });
+        } else {
+          jQuery.when(jQuery('#shopify-section-header-custom').slideUp(400)).then(function() {
+            jQuery('#ag-product-menu').slideDown(1200);
+            jQuery('.ag-menu-right').slideDown(400);
+            /*setTimeout(function() {
+              jQuery('.ag-menu-right').slideUp(400);
+            }, 5000);*/
+          });
+        }
+      }
+    });
+  }
+
+  jQuery(document).ready(function() {
+
+    if (jQuery(window).width() < 768) {
+      var desktopElement = document.getElementById("product-fullpage");
+      while (desktopElement.firstChild) {
+        desktopElement.removeChild(desktopElement.firstChild);
+      }
+      try {
+        loadMobileBackgroundImages();
+        loadFullPageMobile();
+      } catch(err) {
+        //
+      }
+    } else {
+      var mobileElement = document.getElementById("product-fullpage-mobile");
+      while (mobileElement.firstChild) {
+        mobileElement.removeChild(mobileElement.firstChild);
+      }
+      try {
+        loadBackgroundImages();
+        loadFullPageDesktop();
+      } catch(err) {
+        //
+      }
+    }
+  });
+
+  jQuery(window).on('resize', function() {
+    if (jQuery(window).width() < 768) {
+      try {
+        loadMobileBackgroundImages();
+      } catch(err) {
+      }
+    } else {
+      try {
+        loadBackgroundImages();
+      } catch(err) {
+      }
+    }
+  });
+
+
+</script>

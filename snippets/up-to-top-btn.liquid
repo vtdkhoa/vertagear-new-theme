@@ -1,0 +1,36 @@
+<div class="to-top">
+    <a href="#" class="c-btn-circle brown js-to-top">
+        <span class="arrow-top-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="m12 6.586-8.707 8.707 1.414 1.414L12 9.414l7.293 7.293 1.414-1.414L12 6.586z"/></svg>
+        </span>
+    </a>
+</div>
+<style>
+.to-top{
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    bottom: 29px;
+    right: 29px;
+    opacity: 1;
+    transition: opacity 1s; 
+    box-shadow: grey 0px 0px 5px;
+    z-index: 9;
+}
+.to-top.fade {
+  opacity: 0;
+}
+.js-to-top{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.arrow-top-icon{
+    height: 24px;
+    display: flex;
+    margin: auto;
+}
+
+</style>

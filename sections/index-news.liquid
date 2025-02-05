@@ -1,0 +1,56 @@
+<div class="index-news">
+    <div class="index-news__container vertagear-container">
+        <div class="index-news__inner">
+            <div class="index-news__left">
+                <div class="index-news__left-inner">
+                    <div class="index-news__title">
+                        {{section.settings.title}}
+                    </div>
+                    <div class="index-news__desc">
+                        {{section.settings.desc}}
+                    </div>
+                </div>
+            </div>
+   
+            <div class="index-news__right">
+                <div class="index-news__swiper-arrow swiper-arrow -prev vertagear-icon -icon-left"></div>
+                <div class="index-news__swiper-arrow swiper-arrow -next vertagear-icon -icon-right"></div>
+                <swiper class="index-news__swiper" :options="options" key="index-news-swiper">
+                   {% for article in blogs['News'].articles limit:6 %}
+                      <swiper-slide class="index-news__swiper-slide">
+                          <a class="index-news__swiper-slide-inner" href="{{ article.url }}">
+                              <picture>
+                                  <source srcSet="{{ article.image | img_url: '600x600'}}" media="(min-width: 1351px)">
+                                  <source srcSet="{{ article.image | img_url: '220x'}}" media="(min-width: 768px)">
+                                  <source srcSet="{{article.image| img_url: '180x' }}" media="(max-width: 767px)">
+                                  <img src="{{ article.image | img_url: '600x600'}}" class="index-news__swiper-slide-img" loading="lazy" alt="{{ article.title }}">
+                              </picture>
+                          </a>
+                      </swiper-slide>
+    				{% endfor %}  
+                </swiper>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+  "name": "News",
+  "settings": [
+        {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+			"default" : "What's New?"
+        },
+        {
+            "id": "desc",
+            "type": "text",
+            "label": "Description",
+			"default" : "Read the latest news about Vertagear's colaborations, innovation, community, events, and more!"
+        }
+    ]
+  }
+{% endschema %}

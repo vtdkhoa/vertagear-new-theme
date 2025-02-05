@@ -1,0 +1,104 @@
+<div class="youtube-reviews youtube-reviews-2 title-left">
+    <div class="youtube-reviews_container">
+        <div class="youtube-reviews_title">
+            <div class="youtube-reviews__title">Youtube reviews</div>
+            <div class="slider-pagination reviews-pagination">
+                <div class="container">
+                    <div class="slider-pagination__wrapper">
+                    <button class="prev slick-arrow">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 20L13 16L18 12V20Z" fill="#161616"/>
+                        </svg>
+                    </button>
+                    <ul id="slider-pagination-list">
+                        {% for block in section.blocks %}
+                            {% assign remainder = forloop.index0 | modulo: 4 %}
+                            {% if remainder == 0 %}
+                            <li>
+                                <a class="slider-page {% if forloop.index0 == 0 %}active{% endif %}" slick-index="{{ forloop.index | divided_by: 4 | plus: 1 }}">{{ forloop.index | divided_by: 4 | plus: 1 }}</a>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <button class="next slick-arrow">
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 9L16 13L11 17V9Z" fill="#161616"/>
+                        </svg>
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="youtube-reviews_content">
+            {% for block in section.blocks %}
+                <div class="video-youtube-item">
+                    <a href="{{ block.settings.link }}">
+                        <img src="{{block.settings.thumbnail | img_url: '300x' }}" />
+                        <div class="play-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="33" height="42" viewBox="0 0 33 42" fill="none">
+                            <path d="M32.055 20.1681L2.055 0.16815C1.9044 0.067671 1.72935 0.00996145 1.54852 0.00117785C1.36769 -0.00760575 1.18786 0.032866 1.02823 0.118276C0.868605 0.203685 0.735156 0.330829 0.642125 0.486141C0.549095 0.641453 0.499973 0.819107 0.5 1.00015V41.0001C0.499973 41.1812 0.549095 41.3588 0.642125 41.5142C0.735156 41.6695 0.868605 41.7966 1.02823 41.882C1.18786 41.9674 1.36769 42.0079 1.54852 41.9991C1.72935 41.9903 1.9044 41.9326 2.055 41.8321L32.055 21.8322C32.192 21.7408 32.3043 21.6171 32.3819 21.472C32.4596 21.3268 32.5002 21.1648 32.5002 21.0002C32.5002 20.8355 32.4596 20.6735 32.3819 20.5283C32.3043 20.3832 32.192 20.2595 32.055 20.1681Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="slider-pagination reviews-pagination">
+            <div class="container">
+                <div class="slider-pagination__wrapper">
+                <button class="prev slick-arrow">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 20L13 16L18 12V20Z" fill="#161616"/>
+                    </svg>
+                </button>
+                <ul id="slider-pagination-list">
+                    {% for block in section.blocks %}
+                        {% assign remainder = forloop.index0 | modulo: 4 %}
+                        {% if remainder == 0 %}
+                        <li>
+                            <a class="slider-page {% if forloop.index0 == 0 %}active{% endif %}" slick-index="{{ forloop.index | divided_by: 4 | plus: 1 }}">{{ forloop.index | divided_by: 4 | plus: 1 }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <button class="next slick-arrow">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 9L16 13L11 17V9Z" fill="#161616"/>
+                    </svg>
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "Youtube-reviews 2",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Other models"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Video",
+      "type": "video",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Thumbnail"
+        },
+        {
+            "type": "url",
+            "id": "link",
+            "label": "Link video"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,53 @@
+<div class="wear-and-tear__popup -blue -in-active" id="popup-thank">
+    <div class="wear-and-tear__popup-bg" onclick="document.querySelector('#popup-thank').classList.add('-in-active')"></div>
+    <div class="wear-and-tear__popup-center">
+        <div class="wear-and-tear__popup-close" onclick="document.querySelector('#popup-thank').classList.add('-in-active')"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="215.572" height="210.961" viewBox="0 0 215.572 210.961" class="wear-and-tear__popup-svg">
+            <path id="Path_16" data-name="Path 16" d="M396.514,403.41c-3.011-5.164-9.479-8.584-15.091-5.365-2.518,1.445-7.648,5.238-11.115,7.86-.967-1.382-1.716-2.454-2.106-3.017-6.14-8.877-12.459-6.062-14.89-4.442-2.516,1.678-7.035,5.282-10.181,7.841-1.35-1.941-2.411-3.423-2.986-4.142-3.363-4.2-7.641-5.087-11.259-4.108,12.729-13.871,23.875-28.683,29.725-39.825a45.2,45.2,0,0,0-77.228-46.887,45.21,45.21,0,0,0-79.61,41.861c3.255,9.34,17.383,35.893,78.255,82.578l2.173,1.666,2.339-1.422c3.678-2.236,7.28-4.658,10.763-7.223,16.939,24.339,37.634,54.1,39.433,56.795.017.025.033.049.046.072a2.232,2.232,0,0,1-.873.28c-2.839-1.445-13.651-7.331-17.313-9.43-5.28-3.025-10.147-2.375-14.4,1.881a47.075,47.075,0,0,0-7.376,9.068c-3.933,5.99,1.061,13.506,1.645,14.346l6.577-4.554c-1.059-1.553-2.182-4.431-1.53-5.409l.069-.106a39.293,39.293,0,0,1,6.209-7.627c1.77-1.771,2.671-1.893,4.827-.658,3.619,2.075,15.122,8.35,17.924,9.751,3.19,1.6,7.891.5,10.479-2.434,2.383-2.7,2.525-6.385.372-9.616-3.066-4.6-57.67-82.99-61.666-88.727A8.383,8.383,0,0,1,278.7,388.3c3.153-2.244,8.741-5.717,9.9-6.435,1.451-.57,2.381.719,2.692,1.149,3.311,4.587,46.148,68.062,46.581,68.7l6.631-4.475c-.9-1.332-12.081-17.9-23.306-34.492,3.3-2.5,7.585-5.713,8.917-6.6,1.348-.9,2.514-.589,3.781.995,2.473,3.089,16.488,24.164,21.679,32.024l6.676-4.41c-.5-.756-8.292-12.547-14.587-21.844,3.034-2.476,7.7-6.222,10.084-7.81.649-.436,1.541-1.034,3.873,2.336s16.611,23.664,17.218,24.526l6.543-4.6c-.091-.129-5.651-8.03-10.477-14.9,3.561-2.694,8.438-6.294,10.495-7.475,1.269-.73,3.334.968,4.2,2.454,1.848,3.171,16.253,23.967,17.89,26.328l6.574-4.557C407.714,420.041,397.794,405.6,396.514,403.41ZM284.849,374.789l-.226.129c-.281.173-6.938,4.272-10.655,6.93-5.143,3.674-3.172,10.864-1.2,14.533l.24.39c.211.3,7.863,11.288,17.718,25.443-2.61,1.929-5.289,3.777-8.023,5.515-59.134-45.732-71.128-70.646-73.4-77.25l-.073-.2a37.2,37.2,0,0,1,68.523-28.958l3.7,8.378,3.633-8.406a37.193,37.193,0,1,1,66.531,33.036l-.059.11c-6.776,12.926-21.885,31.973-37.611,47.587-8.053-11.884-14.875-21.917-16.164-23.7C293.489,372.386,287.445,373.415,284.849,374.789Z" transform="translate(-198.496 -290.836)" fill="#3e3cd1" />
+        </svg>
+        <div class="wear-and-tear__popup-title -wear-and-tear">Thank you!</div>
+        <div class="wear-and-tear__popup-content -wear-and-tear">
+            Your submission has been received and will go through an evaluation process. Thank you!
+        </div>
+        <div class="wear-and-tear__popup-btn-box">
+            <a class="vertagear-btn wear-and-tear__popup-btn -border" href="/">go to homepage</a>
+        </div>
+    </div>
+</div>
+<div class="wt-form">
+    <div class="vertagear-container wt-form__container">
+        <div class="wt-form__left">
+            <ul class="new-edit-top__breadcrumb">
+                <li class="new-edit-top__breadcrumb-li">
+                    <a href="/pages/wear-and-tear" class="new-edit-top__breadcrumb-link">Protection Program</a>
+                </li>
+                <li class="new-edit-top__breadcrumb-li">
+                    <div class="new-edit-top__breadcrumb-link -current">2-year</div>
+                </li>
+            </ul>
+            <div class="wt-form__title">
+                Free 2-year<br>
+                Wear & Tear<br>
+                Protection Program
+            </div>
+            <div class="wt-form__desc">
+                Enjoy peace of mind with the Vertagear Wear & Tear Protection Program. Receive a FREE 2-year protection ($99.99 retail value!)
+                Just fill out the form and follow the 2 simple steps!
+            </div>
+        </div>
+        <div class="wt-form__right">
+          	{% section 'wear-and-tear-2years-product-options' %}
+            {% section 'wear-and-tear-2years-retailer-options' %}
+            <form class="page-warranty__form js-form wt-form__right-form" data-type="warranty-2-year">
+                <vue-form-generator ref="contactForm" :model="model" :schema="schema" :options="formOptions"></vue-form-generator>
+                <div class="form-submit-box">
+                    <div class="vertagear-btn -blue form-submit-btn" @click="validateInfoForm()" v-if="submit === 'false' ">Proceed</div>
+                    <div class="vertagear-btn -blue form-submit-btn" @click="validateInfoForm()" v-else-if="submit === 'error' ">ERROR</div>
+                    <div class="vertagear-btn -blue form-submit-btn -disable" v-else-if="submit === 'ing' ">SENDING...</div>
+                    <div class="vertagear-btn -blue form-submit-btn -disable" v-else-if="submit === 'true' ">SUCCESS</div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

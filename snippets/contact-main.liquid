@@ -1,0 +1,38 @@
+{% assign contact_array = 'contact-order-inquiry|contact-product-technical-help|contact-market-sponsorship|contact-wholesale-inquiry' | split : '|'%}
+{% assign contact_title = 'Order Inquiry|Product Technical Help|Market Sponsorship|Wholesale Inquiry' | split : '|'%}
+
+<div class="contact-main js-form" data-type="{{variable}}">
+    <div class="vertagear-container -content contact-main__top">
+        <div class="contact-main__navigation">
+            <div class="contact-main__navigation-desktop">
+                {% for item in contact_array %}
+                    {% if item == variable %}
+                        {% assign current = contact_title[forloop.index0] %}
+                        {% assign class = '-active' %}
+                    {% else %}
+                        {% assign class = '' %}
+                    {% endif %}
+                    <a class="contact-main__navigation-link {{class}}" href="/pages/contact-us?view={{item}}">
+                        {{contact_title[forloop.index0]}}
+                    </a>
+                {% endfor %}
+            </div>
+            <multiselect class="contact-main__dropdown" v-model="value" placeholder="{{current}}" label="name" track-by="name" :show-labels="false" :searchable="false" :options="[
+                {% for item in contact_array %}
+                {% unless item == variable %}
+                    { name: '{{contact_title[forloop.index0]}}', url: '/pages/contact-us?view={{item}}' },
+                {% endunless %}
+                {% endfor %}
+            ]">
+                <template slot="option" slot-scope="props">
+                    <a class="option__link" v-text="props.option.name" :href="props.option.url"></a>
+                </template>
+            </multiselect>
+        </div>
+    </div>
+    <div class="vertagear-container -content contact-main__bottom">
+        <form>
+            {% include 'vue-form', button_text: 'SUBMIT' %}
+        </form>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+$popup-width: 266px; // original: 532px
+$popup-height: 180px; // original: 359px
+// orignal ratio: 1.4819
+
+div.vg-paypal-popup{
+  position:fixed;
+  
+  top: auto !important; // some weird issues when logged in as admin...
+  left: 0;
+  bottom: -1 * $popup-height;
+  z-index: 100000; // ensure no issues with clicks passing through element
+  
+  background-color: lightblue;
+  background-image: url('{{ 'paypal-popup-bg.png' | asset_img_url }}');
+  background-size: $popup-width $popup-height;
+  background-repeat: no-repeat;
+    
+  width: $popup-width;
+  height: $popup-height;
+    
+  -webkit-transition: bottom 1s;
+  transition: bottom 1s;
+    
+  .close-button{
+    position: absolute;
+    top:15px; // original: 20px
+    right:15px; // original: 20px
+    line-height:10px;
+    cursor: pointer;
+  }
+  .paypal-logo{
+    width:100%;
+    text-align:center;
+    margin-top:10px; // original: 10px
+    img{
+      width:125px; // original: 250px
+    }
+  }
+  .paypal-description{
+    width: 90%;
+    font-size:10px; // original: 20px
+    line-height:12px; // original: 24px
+    text-align:center;
+    margin: auto;
+  }
+  .paypal-prompts{
+    width:80%;
+    margin:25px auto 0; // original: 45px auto 0
+    display: flex;
+    > * {
+      width:45%;
+      flex: 1;
+      margin: 0 5px;
+      padding: 10px; // original: 15px
+      background-color: #fff;
+      font-weight: bold;
+      text-align:center;
+      font-size:9px; // original: 18px
+    }
+    > .learn-more{
+      background-color: #032269;
+      color: #fff;
+    }
+    > .no-thanks{
+      cursor: pointer; 
+    }
+  }
+}
+div.vg-paypal-popup.show{
+  bottom: 0;
+}

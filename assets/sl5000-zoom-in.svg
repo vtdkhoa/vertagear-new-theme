@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23.311" height="23.311" viewBox="0 0 23.311 23.311">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#4e4cf7;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px}
+        </style>
+    </defs>
+    <g id="zoom-in" transform="translate(-2.25 -2.25)">
+        <circle id="Ellipse_61" cx="8" cy="8" r="8" class="cls-1" transform="translate(3 3)"/>
+        <path id="Line_20" d="M7.85 7.85L0 0" class="cls-1" transform="translate(16.65 16.65)"/>
+        <path id="Line_21" d="M0 0L0 6" class="cls-1" transform="translate(11 8)"/>
+        <path id="Line_22" d="M0 0L6 0" class="cls-1" transform="translate(8 11)"/>
+    </g>
+</svg>

@@ -1,0 +1,59 @@
+<div id="shopify-section-index-top" class="block-video">
+  <div class="page-index__top-outer">
+    <div class="page-index__top-swiper" :options="options" key="index-top-swiper">
+      <div class="page-index__top-swiper-slide">
+        <div class="js-parallax-section full-image-intro -text-top-mobile -text-left">
+          <div class="js-parallax-section__bg full-image-intro__bg">
+            <video
+              autoplay
+              playsinline
+              muted
+              defaultMuted
+              loop
+              class="full-image-intro__bg-video lazy"
+              preload="metadata"
+              data-poster=""
+            >
+              <source src="https://cdn.shopify.com/videos/c/o/v/e4d8c36a1e7d44ecb80104c1b07ed2d6.mp4" type="video/mp4">
+            </video>
+            <video
+              id="videohero_mobile"
+              autoplay
+              muted
+              defaultMuted
+              loop
+              controls
+              class="full-image-intro__bg-video lazy"
+              preload="metadata"
+              data-poster=""
+            >
+              <source
+                data-src="https://cdn.shopify.com/videos/c/o/v/18fe82fe9bd64c8b9e76eef754551d1a.mp4"
+                type="video/mp4"
+              >
+            </video>
+            {%- comment -%} <div class="buttonpause js-pausevideo"></div> {%- endcomment -%}
+          </div>
+
+          <div class="full-image-intro__text vertagear-container">
+            <div class="full-image-intro__title">A New Breed of Ergonomics</div>
+            <div class="full-image-intro__desc">
+              Let the new Vertagear 800 Series take your breath away. Our new line adapts to your body, providing
+              maximum ergonomic comfort tailored just to you.
+            </div>
+
+            <div class="buttonplay js-pausevideo">
+              <svg width="184" height="52" viewBox="0 0 184 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="184" height="52" fill="#4E4CF7" />
+                <circle cx="30.2" cy="26.2" r="10.0804" fill="white" stroke="white" stroke-width="0.239216" />
+                <path d="M27.901 30.1998C27.7513 30.1995 27.6043 30.1628 27.4744 30.0932C27.1819 29.938 27 29.6367 27 29.3096V22.6901C27 22.362 27.1819 22.0617 27.4744 21.9064C27.6074 21.8349 27.7585 21.7981 27.9119 21.7999C28.0653 21.8017 28.2154 21.842 28.3464 21.9167L34.3886 25.3032C34.5145 25.3771 34.6183 25.4798 34.6903 25.6015C34.7623 25.7233 34.8 25.8602 34.8 25.9994C34.8 26.1385 34.7623 26.2754 34.6903 26.3972C34.6183 26.519 34.5145 26.6216 34.3886 26.6956L28.3454 30.0829C28.2113 30.1588 28.0577 30.1992 27.901 30.1998Z" fill="black" />
+                <path d="M53.8522 32.016L56.4762 32L58.6682 24.048L60.7642 32H63.4042L66.5242 20.832H64.1082L62.1242 29.456L59.9802 20.832H57.4842L55.2122 29.504L53.2442 20.832H50.8442L53.8522 32.016ZM75.5708 32H77.9388L73.9228 20.816H71.3148L67.2988 32H69.6508L70.3868 29.872H74.8348L75.5708 32ZM74.2268 28.08H70.9948L72.6108 23.408L74.2268 28.08ZM78.8479 22.64H81.8239V32H84.0639V22.64H87.0399V20.832H78.8479V22.64ZM88.1303 26.4C88.1303 29.744 90.5783 32.096 93.7943 32.096C96.2743 32.096 98.2903 30.784 99.0423 28.48H96.4663C95.9383 29.568 94.9783 30.096 93.7783 30.096C91.8263 30.096 90.4343 28.656 90.4343 26.4C90.4343 24.128 91.8263 22.704 93.7783 22.704C94.9783 22.704 95.9383 23.232 96.4663 24.304H99.0423C98.2903 22.016 96.2743 20.688 93.7943 20.688C90.5783 20.688 88.1303 23.056 88.1303 26.4ZM107.98 32H110.22V20.832H107.98V25.424H103.196V20.832H100.956V32H103.196V27.248H107.98V32ZM120.829 29.712L117.757 20.832H115.357L119.453 32H122.173L126.269 20.832H123.885L120.829 29.712ZM127.612 32H129.852V20.832H127.612V32ZM135.969 20.832H132.065V32H135.969C139.537 32 141.857 29.808 141.857 26.432C141.857 23.04 139.537 20.832 135.969 20.832ZM134.305 30.096V22.72H135.889C138.241 22.72 139.569 24.112 139.569 26.432C139.569 28.752 138.241 30.096 135.889 30.096H134.305ZM150.014 20.816H143.534V32H150.014V30.176H145.774V27.216H149.534V25.44H145.774V22.64H150.014V20.816ZM162.945 26.384C162.945 23.04 160.417 20.672 157.233 20.672C154.081 20.672 151.505 23.04 151.505 26.384C151.505 29.744 154.081 32.112 157.233 32.112C160.401 32.112 162.945 29.744 162.945 26.384ZM153.809 26.384C153.809 24.112 155.201 22.688 157.233 22.688C159.249 22.688 160.641 24.112 160.641 26.384C160.641 28.656 159.249 30.112 157.233 30.112C155.201 30.112 153.809 28.656 153.809 26.384Z" fill="white" />
+              </svg>
+            </div>
+            {%- comment -%} <div class="buttonpause js-pausevideo"></div> {%- endcomment -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

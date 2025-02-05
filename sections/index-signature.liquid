@@ -1,0 +1,117 @@
+<div class="index-signature">
+    <div class="index-signature__top">
+        <div class="vertagear-container index-signature__top-inner">
+            <div class="index-signature__title">
+               {{section.settings.title}}
+            </div>
+            <div class="index-signature__tab" :class="'-current-' + current ">
+              	{% for block in section.blocks %}
+                  	<div class="index-signature__tab-btn" @click="slideTo({{forloop.index0}})" v-bind:class="{'-active' : current === {{forloop.index0}} }" :key="current + '{{forloop.index0}}'">{{block.settings.title}}</div>
+              	{% endfor %}  
+            </div>
+        </div>
+    </div>
+    <div class="index-signature__main vertagear-container">
+        <div class="index-signature__main-inner">
+            <div class="index-signature__swiper-arrow swiper-arrow -prev vertagear-icon -icon-left"></div>
+            <div class="index-signature__swiper-arrow swiper-arrow -next vertagear-icon -icon-right"></div>
+            <swiper class="index-signature__swiper" :options="options" key="index-signature-swiper" ref="signatureSwiper">
+              	{% for block in section.blocks %}
+                    <swiper-slide class="index-signature__swiper-slide">
+                        <div class="index-signature__swiper-slide-inner">
+                          	<div class="index-signature__swiper-slide-center">
+                              <div class="index-signature__swiper-slide-title">
+                                  {{block.settings.title}}
+                              </div>
+                              <div class="index-signature__swiper-slide-desc">
+                                  {{block.settings.desc}}
+                              </div>
+                              <div class="index-signature__swiper-slide-img-box">
+                                  <picture>
+                                      <source srcSet="{{block.settings.image | img_url: 'master' }}" media="(min-width: 1351px)">
+                                      <source srcSet="{{block.settings.image | img_url: '1200x' }}" media="(min-width: 768px)">
+                                      <source srcSet="{{block.settings.image_m | img_url: '270x' }}, {{block.settings.image_m | img_url: '540x' }} 2x" media="(max-width: 767px)">
+                                      <img src="{{block.settings.image | img_url: '1000x' }}" alt="title" loading="lazy" class="index-signature__swiper-slide-img">
+                                  </picture>
+                                  <div class="index-signature__swiper-slide-btn-box">
+                                      {% if block.settings.youtube != blank %}
+                                          <div class="index-signature__swiper-slide-btn -blue vertagear-btn -desktop" data-youtube="{{block.settings.youtube}}">{{block.settings.btn_txt}}</div>
+		                                  <div class="index-signature__swiper-slide-btn -white-border vertagear-btn -mobile" data-youtube="{{block.settings.youtube}}">{{block.settings.btn_txt}}</div>
+                                      {% else %}
+                                    	  {% if block.settings.link %}
+                                          <a class="index-signature__swiper-slide-btn -blue vertagear-btn -desktop" href="{{block.settings.link}}" target="_blank">{{block.settings.btn_txt}}</a>
+                                    	  <a class="index-signature__swiper-slide-btn -white-border vertagear-btn -mobile" href="{{block.settings.link}}" target="_blank">{{block.settings.btn_txt}}</a>
+                                    	  {% endif %}
+                                      {% endif %}
+                                  </div>
+                              </div>                              
+                            </div>
+                        </div>
+                    </swiper-slide>
+                {% endfor %}  
+            </swiper>
+        </div>
+    </div>
+
+</div>
+
+
+{% schema %}
+  {
+  "name": "Vertagear Signature",
+  "blocks":[ 
+    { 
+        "type":"text",
+        "name":"Signature",
+        "settings":[ 
+            { 
+                "type":"text",
+                "id":"title",
+                "label":"Title",
+                "default":"Title"
+            },
+            { 
+                "type":"text",
+                "id":"desc",
+                "label":"Description",
+                "default":"Description"
+            },
+            { 
+                "type":"text",
+                "id":"btn_txt",
+                "label":"Button Text",
+                "default":"Button Text"
+            },
+            { 
+                "type":"url",
+                "id":"link",
+                "label":"Button Link"
+            },
+            { 
+                "type":"url",
+                "id":"youtube",
+                "label":"Youtube Embed Url"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Background"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_m",
+                "label": "Background Mobile"
+            }
+        ]
+    }
+  ],
+  "settings": [
+      {
+          "id": "title",
+          "type": "text",
+          "label": "Title",
+          "default":"Vertagear Signature"
+      }
+    ]
+  }
+{% endschema %}

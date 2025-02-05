@@ -1,0 +1,208 @@
+<style>
+  a.scroll {
+   display: block;
+  }
+
+  a.scroll:hover {
+    opacity: 1;
+  }
+  @media only screen and (min-width: 1921px){
+    a.scroll{
+      background-color: #000;
+    }
+    .promotion-earlyaccessblackfriday{
+      background-size: contain;
+      background-position: center;
+      background-color: #000;
+      background-repeat: no-repeat;
+    }
+    .promotion-earlyaccessblackfriday .desktop{
+      display: flex;
+    }
+    .promotion-earlyaccessblackfriday .desktop .responsive-image__wrapper {
+      width: 100%;
+    }
+    .promotion-earlyaccessblackfriday .ipad,.promotion-earlyaccessblackfriday .mobile{
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1920px){
+    {% if section.settings.type_media == "image" %}
+    .promotion-earlyaccessblackfriday{
+      background-size: contain;
+      background-position: center;
+      background-color: #000;
+      background-repeat: no-repeat;
+    }
+    {% endif %}
+    .promotion-earlyaccessblackfriday .desktop{
+      display: flex;
+    }
+    .promotion-earlyaccessblackfriday .desktop .responsive-image__wrapper{
+      width: 100%;
+    }
+    .promotion-earlyaccessblackfriday .ipad,.promotion-earlyaccessblackfriday .mobile{
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px){
+/*     .promotion-earlyaccessblackfriday{
+      background-image: url('{{ section.settings.ipad_image | img_url: '991x' }}');
+      background-size: contain;
+      background-position: center;
+      height: calc(100vh - 75px);
+    } */
+    .promotion-earlyaccessblackfriday .ipad{
+      display: flex;
+    }
+    .promotion-earlyaccessblackfriday .ipad .responsive-image__wrapper{
+      width: 100%;
+    }
+    .promotion-earlyaccessblackfriday .desktop,.promotion-earlyaccessblackfriday .mobile{
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 767px){
+/*     .promotion-earlyaccessblackfriday{
+      background-image: url('{{ section.settings.mobile_image | img_url: '767x' }}');
+      background-size: contain;
+      background-position: center;
+      height: calc(100vh - 75px);
+    } */
+    .promotion-earlyaccessblackfriday .mobile{
+      display: flex;
+    }
+    .promotion-earlyaccessblackfriday .desktop,.promotion-earlyaccessblackfriday .ipad{
+      display: none;
+    }
+  }
+  .promotion-earlyaccessblackfriday video{
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .display-none-desktop {
+    display: none;
+  }
+  .display-none-mobile {
+    display: block;
+  }
+    
+    .ld-md-hero {
+      height: calc(100vh - 210px);
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover; /* Resize the background image to cover the entire container */
+      background-image: url("{{ 'promotion-summer-sales-desk-us.jpg' | asset_url }}");
+    }	
+  }
+</style>
+  <section class="block block-visualcontent-fullscreen promotion-earlyaccessblackfriday">
+    <div class="inner">
+      <div class="desktop">
+        {% if section.settings.type_media == "image" %}
+          {% render 'responsive-image' with
+            image: section.settings.desktop_image,
+            wrapper_class: "",
+          auto_scale: true,
+          ratio: '1920x'
+          %}
+        {% else %}
+          {{ section.settings.desktop_video | video_tag: image_size: '600x', loop: true, autoplay: true, muted: true }}
+        {% endif %}
+      </div>
+      <div class="ipad">
+        {% if section.settings.type_media == "image" %}
+          {% render 'responsive-image' with
+            image: section.settings.ipad_image,
+            wrapper_class: "",
+          auto_scale: true,
+          ratio: '991x'
+          %}
+        {% else %}
+          {{ section.settings.mobile_video | video_tag: image_size: '600x', loop: true, autoplay: true, muted: true }}
+        {% endif %}
+      </div>
+      <div class="mobile">
+        {% if section.settings.type_media == "image" %}
+          {% render 'responsive-image' with
+            image: section.settings.mobile_image,
+            wrapper_class: "",
+          auto_scale: true,
+          ratio: '767x'
+          %}
+        {% else %}
+          {{ section.settings.mobile_video | video_tag: image_size: '600x', loop: true, autoplay: true, muted: true }}
+        {% endif %}
+      </div>
+      
+    </div>
+  </section>
+{% schema %}
+{
+  "presets": [
+    {
+      "category": "Image",
+      "name": "Hero"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "type_media",
+      "label": "Type media",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "ipad_image",
+      "label": "Ipad image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image"
+    },
+    {
+      "type": "image_picker",
+      "id": "square_image",
+      "label": "Square image"
+    },
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "video",
+      "id": "desktop_video",
+      "label": "Desktop video"
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Mobile video"
+    }
+  ],
+  "templates": ["collection"]
+}
+{% endschema %}

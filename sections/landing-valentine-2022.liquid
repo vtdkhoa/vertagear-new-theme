@@ -1,0 +1,263 @@
+<style>
+    .ld-hero {
+        width: 100%;
+        background-color: #222;
+        position: relative;
+        background-image: url({{ section.settings.mobile_banner | image_url }});
+        background-size: cover;
+        background-position: center;
+        font-family: texgyreadventor;
+        margin-top: -30px;
+        height: 800px;
+    }
+    @media screen and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1){
+        .ld-hero {
+            height: 1000px;
+            background-image: url({{ section.settings.desktop_banner | image_url }});
+        }
+    }
+</style>
+<div class="ld-page">
+    <div class="ld-hero">
+
+        <div class="ld-hero__width">
+            <div class="ld-hero__text">
+                <p class="ld-hero__text__slogan">Thoughtful gestures for the one <br class="display-none-mobile" />who’s always there with you!</p>
+                
+                <div class="ld-hero__text__cta">
+                    <a class="ld-hero__text__cta__btn" href="#collection-product">
+                        <div class="ld-hero__text__cta__btn__title">Save up to $150!</div>
+                    </a>
+                </div>
+                
+                <div class="ld-hero__text__klarna" style="display: none;">
+                <img src="{{ 'klarna-logo.svg' | asset_url }}" alt="klarna" />
+                <div class="ld-hero__text__klarna_text">
+                    <b>Buy now Pay later</b>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ld-collections">
+        <div class="ld-collections__text">
+                <img src="{{ 'ld-va-gift-box.svg' | asset_url }}" alt="gift-box" />
+            <div class="ld-collections__text__title">Valentine Collections</div>
+            <div class="ld-collections__text__desc">Not Sure Where To Start? Let us help</div>
+        </div>
+        <div class="ld-collections__main">
+            <div class="ld-collections__main__col" id="ldColletionForHimBanner">
+            <img src="{{ section.settings.his_collection | image_url: width: 300 }}" alt="col man" />
+            <div class="ld-collections__main__col__text">His Collection</div>
+            </div>
+            <div class="ld-collections__main__col" id="ldColletionForHerBanner">
+            <img src="{{ section.settings.hers_collection | image_url: width: 300 }}" alt="col woman" />
+            <div class="ld-collections__main__col__text">Hers Collection</div>
+            </div>
+            <div class="ld-collections__main__col" id="ldColletionForCoupleBanner">
+            <img src="{{ section.settings.his_hers_collection | image_url: width: 300 }}" alt="col couple" />
+            <div class="ld-collections__main__col__text">His & Hers Collection</div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'index-support' %}
+
+    <div class="ld-reason">
+        <div class="ld-reason__width">
+        </div>
+
+        <div class="ld-reason__why" id="ldReasonWhy">
+            <div class="ld-reason__why__line">
+            </div>
+            <div class="ld-reason__why__header">
+                <p>WHY <span class="ld-reason__why__header__strong">VERTAGEAR CHAIR?</span>
+                </p>
+            </div>
+
+            <div class="ld-reason__why__videos ld-max-width">
+                <div class="ld-reason__why__videos__item ">
+                    <div class="ld-reason__why__videos__item__video-wrapper">
+                        <video id="ldVideo4" width="320" height="180" poster="//cdn.shopify.com/s/files/1/1759/4609/t/82/assets/lumbar-poster.jpeg?v=157219980569360679251669728371">
+                        <source src="https://cdn.shopify.com/videos/c/o/v/0318db31ffd043e496a6f62810977d81.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video>
+                        <img id="ldVideoPlayBtn4" src="{{ 'video-play-btn.svg' | asset_url }}" alt="video play btn">
+                    </div>
+                    <div class="ld-reason__why__videos__item__text">
+                        <div class="ld-reason__why__videos__item__text__header">ContourMax™ Lumbar</div>
+                        <div class="ld-reason__why__videos__item__text__desc">The ContourMax™ Lumbar is Vertagear’s groundbreaking new lumbar support that alleviates tension throughout your body by contouring itself to your back’s shape and movement, keeping you in a healthy posture for gaming, studying, or work from home.</div>
+                    </div>
+                </div>
+                <div class="ld-reason__why__videos__item ld-order-opposite ld-max-width">
+                    <div class="ld-reason__why__videos__item__video-wrapper">
+                        <video id="ldVideo5" width="320" height="180" poster="//cdn.shopify.com/s/files/1/1759/4609/t/82/assets/seat-poster.jpeg?v=172208990351849198851669728524">
+                        <source src="https://cdn.shopify.com/videos/c/o/v/113b50eb6d0f4d11a76831a6b0a16ff4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video>
+                        <img id="ldVideoPlayBtn5" src="{{ 'video-play-btn.svg' | asset_url }}" alt="video play btn">
+                    </div>
+                    <div class="ld-reason__why__videos__item__text">
+                        <div class="ld-reason__why__videos__item__text__header">VertaAir™️ Seat</div>
+                        <div class="ld-reason__why__videos__item__text__desc">The VertaAir™ seat boasts features that improve support, comfort, and relief from chronic back pain. The seat is embedded with eight hexagonal air pillars, inspired by Bernoulli’s Principle, all designed with smaller air intake tunnels and 4-way air emission tunnels to provide pressure relief for your bones and superior back support.</div>
+                    </div>
+                </div>
+                <div class="ld-reason__why__videos__item">
+                    <div class="ld-reason__why__videos__item__video-wrapper">
+                    <video id="ldVideo1" width="320" height="180" poster="{{ 'ld-rgb-thumbnail.jpg' | asset_url }}">
+                        <source src="{{ 'ld-rgb-v2.mp4' | asset_url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <img id="ldVideoPlayBtn1" src="{{ 'video-play-btn.svg' | asset_url }}" alt="video play btn" />
+                    </div>
+                    <div class="ld-reason__why__videos__item__text">
+                        <div class="ld-reason__why__videos__item__text__header">RGB LED KITS</div>
+                        <div class="ld-reason__why__videos__item__text__desc">The RGB LED Upgrade kit allows you to mix and match your beloved gaming chair to your
+                            setup in color, or in experience. RGB LED Top Kit and Bottom Kits are available for
+                            our PL4500 and SL5000 models.</div>
+                    </div>
+                </div>
+                <div class="ld-reason__why__videos__item ld-order-opposite">
+                    <div class="ld-reason__why__videos__item__video-wrapper">
+                        <video id="ldVideo2" width="320" height="180" poster="{{ 'ld-hygenn-thumbnail.jpg' | asset_url }}">
+                        <source src="{{ 'ld-hygennx-skype.mp4' | asset_url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video>
+                        <img id="ldVideoPlayBtn2" src="{{ 'video-play-btn.svg' | asset_url }}" alt="video play btn" />
+                    </div>
+                    <div class="ld-reason__why__videos__item__text">
+                        <div class="ld-reason__why__videos__item__text__header">HygennX</div>
+                        <div class="ld-reason__why__videos__item__text__desc">HygennX uses patented coffee ground nanotechnology to deliver natural odor control
+                            with quick-drying functionality and silver-coated embroidery to neutralize bacteria
+                            growth.</div>
+                    </div>
+                </div>
+                <div class="ld-reason__why__videos__item">
+                    <div class="ld-reason__why__videos__item__video-wrapper">
+                        <video id="ldVideo3" width="320" height="180" poster="{{ 'ld-puc-thumbnail.jpg' | asset_url }}">
+                        <source src="{{ 'ld-puc.mp4' | asset_url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video>
+                        <img id="ldVideoPlayBtn3" src="{{ 'video-play-btn.svg' | asset_url }}" alt="video play btn" />
+                    </div>
+                    <div class="ld-reason__why__videos__item__text">
+                        <div class="ld-reason__why__videos__item__text__header">PUC Synthetic Faux Leather</div>
+                        <div class="ld-reason__why__videos__item__text__desc">PUC combines the best attributes of PVC and PU leather into one. It retains the
+                            durability of PVC for everyday use while maintaining the softness of PU for a
+                            low-maintenance solution without sacrificing comfort.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ld-reason__why__slide ld-reason__why__fade">
+                <img src="{{ 'ld-reason__why__videos__1-thumbnail-compressed.jpg' | asset_url }}" style="width:100%">
+                <div class="ld-reason__why__slide__text">
+                    <h3>RGB LED KITS</h3>
+                    <p>The RGB LED Upgrade kit allows you to mix and match your beloved gaming chair to your
+                        setup in color, or in experience. RGB LED Top Kit and Bottom Kits are available for
+                        our PL4500 and SL5000 models.</p>
+                </div>
+            </div>
+
+            <div class="ld-reason__why__slide ld-reason__why__fade">
+                <img src="{{ 'ld-reason__why__videos__2-thumbnail-compressed.jpg' | asset_url }}" style="width:100%">
+                <div class="ld-reason__why__slide__text">
+                    <h3>HygennX</h3>
+                    <p>HygennX uses patented coffee ground nanotechnology to deliver natural odor control
+                        with quick-drying functionality and silver-coated embroidery to neutralize bacteria
+                        growth.</p>
+                </div>
+            </div>
+
+            <div class="ld-reason__why__slide ld-reason__why__fade">
+                <img src="{{ 'ld-reason__why__videos__3-thumbnail-compressed.jpg' | asset_url }}" style="width:100%">
+                <div class="ld-reason__why__slide__text">
+                    <h3>Effortless Assembly</h3>
+                    <p>Our patented “Slide-in” hardware allows for a quick and easy one-person assembly.
+                        Removing any alignment and hardware complexities for a hassle-free, one-person
+                        process.</p>
+                </div>
+            </div>
+
+            <div class="ld-reason__why__slide ld-reason__why__fade">
+                <img src="{{ 'ld-reason__why__videos__4-thumbnail-compressed.jpg' | asset_url }}" style="width:100%">
+                <div class="ld-reason__why__slide__text">
+                    <h3>PUC Synthetic Faux Leather</h3>
+                    <p>PUC combines the best attributes of PVC and PU leather into one. It retains the
+                        durability of PVC for everyday use while maintaining the softness of PU for a
+                        low-maintenance solution without sacrificing comfort.</p>
+                </div>
+            </div>
+        </div>
+        <div class="ld-reason__rgb"></div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page content",
+  "tag": "section",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Hero"
+    },
+    {
+        "type": "image_picker",
+        "id": "desktop_banner",
+        "label": "Desktop banner"
+    },
+    {
+        "type": "image_picker",
+        "id": "mobile_banner",
+        "label": "Mobile banner"
+    },
+    {
+        "type": "header",
+        "content": "Index support"
+    },
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"You don't get just the chair:"
+    },
+    {
+        "id": "desc",
+        "type": "text",
+        "label": "Description",
+        "default":"The Vertagear Experience includes a Wear&Tear protection program, a 10-year Limited Warranty, and an affordable payment plan supported by Affirm."
+    },     
+    { 
+        "type":"url",
+        "id":"youtube",
+        "label":"Youtube Embed Url"
+    },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Youtube Thumb"
+    },
+    {
+        "type": "header",
+        "content": "Valentine Collections"
+    },
+    {
+        "type": "image_picker",
+        "id": "his_collection",
+        "label": "His Collection"
+    },
+    {
+        "type": "image_picker",
+        "id": "hers_collection",
+        "label": "Hers Collection"
+    },
+    {
+        "type": "image_picker",
+        "id": "his_hers_collection",
+        "label": "His & Hers Collection"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,25 @@
+<div id="rgbModal" class="nam-modal" style="height: 0;">
+  <div class="nam-modal__wrapper">
+    <div class="nam-modal__background" onclick="namRgbModalClose()"></div>
+    <div class="nam-modal__content">
+      <div class="nam-modal__content__header">
+        <button class="close-btn" onclick="namRgbModalClose()"><img src="{{ 'ld-rgb-close-modal.svg' | asset_url }}" /></button>
+      </div>
+      {% include 'landing-rgb-v2' %}
+    </div>
+  </div>
+</div>
+
+<script>
+  const rgbModal = document.getElementById("rgbModal");
+  const namRgbModalClose = () => {
+    rgbModal.style.height = "0px";
+    const body = document.getElementsByTagName("body")[0];
+  body.classList.remove("noscroll");
+  }
+  const namRgbModalOpen = () => {
+    rgbModal.style.height = "100vh";
+    const body = document.getElementsByTagName("body")[0];
+    body.classList.add("noscroll");
+  }
+</script>

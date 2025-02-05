@@ -1,0 +1,146 @@
+<div class="section-specifications">
+    <div class="vertagear-container">
+        <div class="title">Specifications</div>
+
+        <div class="info">
+            <div class="col">
+                <div class="detail_title">MODEL</div>
+                <div class="detail_data">{{ section.settings.model }}</div>
+            </div>
+            <div class="col">
+                <div class="detail_title">Colors</div>
+                <div class="detail_data">{{ section.settings.colors }}</div>
+            </div>
+            <div class="col">
+                <div class="detail_title">Max Load</div>
+                <div class="detail_data">{{ section.settings.maxload }}</div>
+            </div>
+            <div class="col">
+                <div class="detail_title">Materials</div>
+                <div class="detail_data">{{ section.settings.materials }}</div>
+            </div>
+            <div class="col">
+                <div class="detail_title">Recommended Height</div>
+                <div class="detail_data">{{ section.settings.recommended_height }}</div>
+            </div>
+            <div class="col">
+                <div class="detail_title">Recommended Weight</div>
+                <div class="detail_data">{{ section.settings.recommended_weight }}</div>
+            </div>
+            <div class="col">
+                <div class="detail_title">Package Dimension</div>
+                <div class="detail_data">{{ section.settings.package_dimension }}</div>
+            </div>
+            <div class="col">
+                <div class="detail_title">Overall height (incl. base)</div>
+                <div class="detail_data">{{ section.settings.overall_height }}</div>
+            </div>
+        </div>
+        <div class="info-and-img">
+            <div class="info2">
+                <div class="col">
+                    <div class="detail_title">Backrest Width (shoulder)</div>
+                    <div class="detail_data">{{ section.settings.backrest_width_shoulder }}</div>
+                </div>
+                <div class="col">
+                    <div class="detail_title">Backrest Width (lumbar)</div>
+                    <div class="detail_data">{{ section.settings.backrest_width_lumbar }}</div>
+                </div>
+                <div class="col">
+                    <div class="detail_title">Seat Width</div>
+                    <div class="detail_data">{{ section.settings.seat_width }}</div>
+                </div>
+                <div class="col">
+                    <div class="detail_title">Seat Depth</div>
+                    <div class="detail_data">{{ section.settings.seat_depth }}</div>
+                </div>
+                <div class="col">
+                    <div class="detail_title">Net Weight</div>
+                    <div class="detail_data">{{ section.settings.net_weight }}</div>
+                </div>
+                <div class="col">
+                    <div class="detail_title">Gross Weight</div>
+                    <div class="detail_data">{{ section.settings.gross_weight }}</div>
+                </div>
+            </div>
+            <img alt="dimension" src="{{ 'PL6800.png' | asset_img_url: '800x' }}" />
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "class": "fp-auto-height",
+  "settings": [
+    {
+        "type": "text",
+        "id": "model",
+        "label": "MODEL"
+    },
+    {
+        "type": "text",
+        "id": "colors",
+        "label": "COLORS"
+    },
+    {
+        "type": "text",
+        "id": "maxload",
+        "label": "MAX LOAD"
+    },
+    {
+        "type": "text",
+        "id": "materials",
+        "label": "MATERIALS"
+    },
+    {
+        "type": "text",
+        "id": "recommended_height",
+        "label": "RECOMMENDED HEIGHT"
+    },
+    {
+        "type": "text",
+        "id": "recommended_weight",
+        "label": "RECOMMENDED WEIGHT"
+    },
+    {
+        "type": "text",
+        "id": "package_dimension",
+        "label": "PACKAGE DIMENSION"
+    },
+    {
+        "type": "text",
+        "id": "overall_height",
+        "label": "OVERALL HEIGHT (INCL. BASE)"
+    },
+    {
+        "type": "text",
+        "id": "backrest_width_shoulder",
+        "label": "BACKREST WIDTH (SHOULDER)"
+    },
+    {
+        "type": "text",
+        "id": "backrest_width_lumbar",
+        "label": "BACKREST WIDTH (LUMBAR)"
+    },
+    {
+        "type": "text",
+        "id": "seat_width",
+        "label": "SEAT WIDTH"
+    },
+    {
+        "type": "text",
+        "id": "seat_depth",
+        "label": "SEAT DEPTH"
+    },
+    {
+        "type": "text",
+        "id": "net_weight",
+        "label": "NET WEIGHT"
+    },
+    {
+        "type": "text",
+        "id": "gross_weight",
+        "label": "GROSS WEIGHT"
+    }
+  ]
+}
+{% endschema %}

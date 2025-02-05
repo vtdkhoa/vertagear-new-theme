@@ -1,0 +1,92 @@
+{{ 'page.ces2018.scss.css' | asset_url | stylesheet_tag }}
+
+<div class="ces-wrapper">
+  <div class="hero">
+    <video preload="auto">
+      <source src="{{ 'index.pl4500-upgrade.webm' | asset_url }}" type="video/webm">
+      <source src="{{ 'index.pl4500-upgrade.mp4' | asset_url }}" type="video/mp4">
+      <p>
+        Your browser doesn't support HTML5 video.
+        <a href="{{ 'index.pl4500-upgrade.mp4' | asset_url }}">Download</a> the video instead.
+      </p>
+    </video>
+    <div class="content">
+      <h1>
+      	PL4500 LED/RGB Upgrade Kits
+      </h1>
+      <p>
+        The World's First Wirelessly Controlled LED/RGB Gaming Chair
+      </p>
+    </div>
+    <div class="play-button">
+      <!--
+      <img src="{{ 'ces2018.play-button.png' | asset_url }}">
+	  -->
+      Watch Video
+    </div>
+  </div>
+  <script>
+    var $hero = jQuery(".hero");
+    var heroVideo = $hero.find("video")[0];
+    var videoPlayButton = $hero.find(".play-button")[0];
+        
+    jQuery(videoPlayButton).on("click", function(){
+      // play fx
+      $hero.addClass("playing");
+      heroVideo.play();
+    });
+    var closeVideo = function(){
+      // pause fx
+      $hero.removeClass("playing");
+      heroVideo.pause();
+    };
+    jQuery(heroVideo).on("click", closeVideo);
+    jQuery(heroVideo).on("ended", function(){
+      heroVideo.currentTime = 0;
+      closeVideo(); 
+    });
+  </script>
+  <div class="main-features">
+    <h2 class="header">
+      Fine tune your experience...
+    </h2>
+    <div class="features">
+      <div class="feature">
+        <img src="{{ 'ces2018.icon-wireless.png' | asset_url }}">
+        Wireless
+      </div>
+      <div class="feature">
+        <img src="{{ 'ces2018.icon-audio-syncing.png' | asset_url }}">
+        Audio 
+        Syncing
+      </div>
+      <div class="feature">
+        <img src="{{ 'ces2018.icon-individual-channel-control.png' | asset_url }}">
+        Individual 
+        Channel 
+        Control
+      </div>
+      <div class="feature">
+        <img src="{{ 'ces2018.icon-phone-pc-applications.png' | asset_url }}">
+        Phone & PC 
+        Applications
+      </div>
+    </div>
+  </div>
+  <div class="led-features">
+    <h2>
+      LED Lighting Features
+    </h2>
+    <div class="features">
+      <img src="{{ 'ces2018.led-casters.jpg' | asset_url }}">
+      <img src="{{ 'ces2018.led-front.jpg' | asset_url }}">
+      <img src="{{ 'ces2018.led-back.jpg' | asset_url }}">
+    </div>
+  </div>
+  <div class="rgb-lighting">
+    <h2>
+      Full Spectrum
+      RGB Lighting
+    </h2>
+  </div>
+</div>

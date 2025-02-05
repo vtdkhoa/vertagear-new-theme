@@ -1,0 +1,238 @@
+<div id="reviews-tab">
+    <section id="ag-vg-product-detail-mobile-tabs">
+        {% if product.metafields.custom_fields["product_features_mobile"] != blank and sl5000 == blank %}
+        <div data-ag-vg-tab-mobile="#ag-vg-tab-features-mobile" class="ag-vg-tab-toggle-mobile">
+            <span class="expanded-collapsed-icon expanded-collapsed-icon-features"><i class="fa fa-plus"></i></span>
+            Features
+        </div>
+        <div id="ag-vg-tab-features-mobile">
+            <div class="ag-vg-tab-features-mobile-slider-container">
+                {% assign separator = "|###|" %}
+                {% assign product_feature_image_array = product.metafields.custom_fields["product_feature_image"] | split: separator %}
+                {% assign product_feature_title_array = product.metafields.custom_fields["product_feature_title"] | split: separator %}
+                {% assign product_feature_description_array = product.metafields.custom_fields["product_feature_description"] | split: separator %}
+                {% assign fc_keys = product.metafields.custom_fields["product_features_mobile"] | split: "," %}
+                {% for i in fc_keys %}
+                {% assign index = i | plus: 0 %}
+                <div class="ag-vg-standard-mobile-slide">
+                    <img loading="lazy" data-src="{{ product_feature_image_array[index] }}" />
+                    <div class="ag-vg-standard-mobile-slide-description">
+                        <span class="ag-vg-standard-mobile-slide-title">{{ product_feature_title_array[index] }}</span>
+                        {{ product_feature_description_array[index] }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% if product.metafields.custom_fields["product_adjustability_mobile"] != blank and sl5000 == blank %}
+        <div data-ag-vg-tab-mobile="#ag-vg-tab-adjustability-mobile" class="ag-vg-tab-toggle-mobile">
+            <span class="expanded-collapsed-icon expanded-collapsed-icon-adjustability"><i
+                    class="fa fa-plus"></i></span> Adjustability
+        </div>
+        <div id="ag-vg-tab-adjustability-mobile">
+            <div class="ag-vg-tab-adjustability-slider-container">
+                {% assign separator = "|###|" %}
+                {% assign product_adjustability_mobile_i_array = product.metafields.custom_fields["product_adjustability_mobile_i"] | split: separator %}
+                {% assign product_adjustability_mobile_t_array = product.metafields.custom_fields["product_adjustability_mobile_t"] | split: separator %}
+                {% assign product_adjustability_mobile_d_array = product.metafields.custom_fields["product_adjustability_mobile_d"] | split: separator %}
+                {% assign fc_keys = product.metafields.custom_fields["product_adjustability_mobile"] | split: "," %}
+                {% for i in fc_keys %}
+                {% assign index = i | plus: 0 %}
+                <div class="ag-vg-standard-mobile-slide">
+                    <img loading="lazy" data-src="{{ product_adjustability_mobile_i_array[index] }}" />
+                    <div class="ag-vg-standard-mobile-slide-description">
+                        <span
+                            class="ag-vg-standard-mobile-slide-title">{{ product_adjustability_mobile_t_array[index] }}</span>
+                        {{ product_adjustability_mobile_d_array[index] }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% if product.metafields.custom_fields["product_dimensions_mobile"] != blank %}
+        <div data-ag-vg-tab-mobile="#ag-vg-tab-dimensions-mobile" class="ag-vg-tab-toggle-mobile">
+            <span class="expanded-collapsed-icon expanded-collapsed-icon-dimensions"><i class="fa fa-plus"></i></span>
+            Dimensions
+        </div>
+        <div id="ag-vg-tab-dimensions-mobile">
+            <div class="ag-vg-tab-dimensions-slider-container">
+                {% assign separator = "|###|" %}
+                {% assign product_dimension_image_array = product.metafields.custom_fields["product_dimension_image"] | split: separator %}
+                {% assign fc_keys = product.metafields.custom_fields["product_dimensions_mobile"] | split: "," %}
+                {% for i in fc_keys %}
+                {% assign index = i | plus: 0 %}
+                <div><img loading="lazy" data-src="{{ product_dimension_image_array[index] }}" /></div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% if product.metafields.custom_fields["product_specifications"] != blank %}
+        <div data-ag-vg-tab-mobile="#ag-vg-tab-specifications-mobile" class="ag-vg-tab-toggle-mobile">
+            <span class="expanded-collapsed-icon expanded-collapsed-icon-specifications"><i
+                    class="fa fa-plus"></i></span> Specifications
+        </div>
+        <div id="ag-vg-tab-specifications-mobile">
+            {% assign separator = "|###|" %}
+            {% assign product_specification_type_array = product.metafields.custom_fields["product_specification_type"] | split: separator %}
+            {% assign product_specification_details_array = product.metafields.custom_fields["product_specification_details"] | split: separator %}
+            {% assign fc_keys = product.metafields.custom_fields["product_specifications"] | split: "," %}
+            {% for i in fc_keys %}
+            {% assign index = i | plus: 0 %}
+            <div class="ag-vg-specifications-container">
+                <div class="ag-vg-specifications-type">
+                    {{ product_specification_type_array[index] }}
+                </div>
+                <div class="ag-vg-specifications-details">
+                    {{ product_specification_details_array[index] }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div data-ag-vg-tab-mobile="#ag-vg-tab-reviews-mobile" class="ag-vg-tab-toggle-mobile">
+            <span class="expanded-collapsed-icon expanded-collapsed-icon-reviews"><i class="fa fa-plus"></i></span>
+            Reviews
+        </div>
+        <div id="ag-vg-tab-reviews-mobile">
+            <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}"
+                data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}"
+                data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+                data-description="{{ product.description | escape }}"></div>
+        </div>
+        {% if product.metafields.custom_fields["product_warranty"] != blank %}
+        <div data-ag-vg-tab-mobile="#ag-vg-tab-warranty-mobile" class="ag-vg-tab-toggle-mobile">
+            <span class="expanded-collapsed-icon expanded-collapsed-icon-warranty"><i class="fa fa-plus"></i></span>
+            Warranty
+        </div>
+        <div id="ag-vg-tab-warranty-mobile">
+            {{ product.metafields.custom_fields["product_warranty"] }}
+        </div>
+        {% endif %}
+    </section>
+    <section id="ag-vg-product-detail-tabs">
+        <ul id="ag-vg-product-detail-tab-links">
+            <li data-ag-vg-tab="#ag-vg-tab-reviews">Reviews</li>
+            {% if product.metafields.custom_fields["product_features"] != blank and sl5000 == blank %}
+            <li data-ag-vg-tab="#ag-vg-tab-features" class="">Features</li>
+            {% endif %}
+            {% if product.metafields.custom_fields["product_adjustability"] != blank or product.metafields.custom_fields["product_adjustability_slider"] != blank %}
+            {% if sl5000 == blank %}
+            <li data-ag-vg-tab="#ag-vg-tab-adjustability">Adjustability</li>
+            {% endif %}
+            {% endif %}
+            {% if product.metafields.custom_fields["product_dimensions"] != blank %}
+            <li data-ag-vg-tab="#ag-vg-tab-dimensions">Dimensions</li>
+            {% endif %}
+            {% if product.metafields.custom_fields["product_specifications"] != blank %}
+            <li data-ag-vg-tab="#ag-vg-tab-specifications">Specifications</li>
+            {% endif %}
+            {% if product.metafields.custom_fields["product_warranty"] != blank %}
+            <li data-ag-vg-tab="#ag-vg-tab-warranty">Warranty</li>
+            {% endif %}
+        </ul>
+        <div id="ag-vg-product-detail-tab-content">
+            {% if product.metafields.custom_fields["product_features"] != blank and sl5000 == blank %}
+            <div id="ag-vg-tab-features" class="ag-vg-tab">
+                <div class="feature-slick-slider">
+                    {% assign separator = "|###|" %}
+                    {% assign feature_image_array = product.metafields.custom_fields["feature_img"] | split: separator %}
+                    {% assign feature_description_array = product.metafields.custom_fields["feature_description"] | split: separator %}
+                    {% assign feature_title_array = product.metafields.custom_fields["feature_title"] | split: separator %}
+                    {% assign feature_description_top_pos_array = product.metafields.custom_fields["feature_description_top_pos"] | split: separator %}
+                    {% assign feature_description_left_pos_array = product.metafields.custom_fields["feature_description_left_pos"] | split: separator %}
+                    {% assign feature_description_bot_pos_array = product.metafields.custom_fields["feature_description_bot_pos"] | split: separator %}
+                    {% assign feature_description_right_pos_array = product.metafields.custom_fields["feature_description_right_pos"] | split: separator %}
+                    {% assign text_color_array = product.metafields.custom_fields["text_color"] | split: separator %}
+                    {% assign fc_keys = product.metafields.custom_fields["product_features"] | split: "," %}
+                    {% for i in fc_keys %}
+                    {% assign index = i | plus: 0 %}
+                    {% if feature_description_top_pos_array[index] != '0' %}
+                    {% assign top_pos_vw = feature_description_top_pos_array[index] | divided_by: 1920.0 | times: 100.0 | append: "vw" %}
+                    {% endif %}
+                    {% if feature_description_left_pos_array[index] != '0' %}
+                    {% assign left_pos_vw = feature_description_left_pos_array[index] | divided_by: 1920.0 | times: 100.0 | append: "vw" %}
+                    {% endif %}
+                    {% if feature_description_bot_pos_array[index] != '0' %}
+                    {% assign bottom_pos_vw = feature_description_bot_pos_array[index] | divided_by: 1920.0 | times: 100.0 | append: "vw" %}
+                    {% endif %}
+                    {% if feature_description_right_pos_array[index] != '0' %}
+                    {% assign right_pos_vw = feature_description_right_pos_array[index] | divided_by: 1920.0 | times: 100.0 | append: "vw" %}
+                    {% endif %}
+                    <div class="feature-slide">
+                        <img loading="lazy" data-src="{{ feature_image_array[index] }}" />
+                        <div class="feature-content"
+                            style="top:{{ top_pos_vw }}; left: {{ left_pos_vw }}; bottom: {{ bottom_pos_vw }}; right: {{ right_pos_vw }}; {% if text_color_array[index] != "" %}color:#{{ text_color_array[index] }};{% endif %}">
+                            <span class="feature-title">{{ feature_title_array[index] }}</span>
+                            <p class="feature-description">
+                                {{ feature_description_array[index] }}
+                            <p>
+                        </div>
+                    </div>
+                    {% assign top_pos_vw = '' %}
+                    {% assign left_pos_vw = '' %}
+                    {% assign bottom_pos_vw = '' %}
+                    {% assign right_pos_vw = '' %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% if product.metafields.custom_fields["product_adjustability"] != blank and sl5000 == blank %}
+            <div id="ag-vg-tab-adjustability" class="ag-vg-tab">
+                {{ product.metafields.custom_fields["product_adjustability"] }}
+            </div>
+            {% endif %}
+            {% if product.metafields.custom_fields["product_adjustability_slider"] != blank and sl5000 == blank %}
+            <div id="ag-vg-tab-adjustability" class="ag-vg-tab">
+                <div class="adjustability-slick-slider">
+                    {% assign separator = "|###|" %}
+                    {% assign product_adjustability_slide_array = product.metafields.custom_fields["product_adjustability_slide"] | split: separator %}
+                    {% assign fc_keys = product.metafields.custom_fields["product_adjustability_slider"] | split: "," %}
+                    {% for i in fc_keys %}
+                    {% assign index = i | plus: 0 %}
+                    <div class="adjustability-slide">
+                        <img loading="lazy" data-src="{{ product_adjustability_slide_array[index] }}" />
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% if product.metafields.custom_fields["product_dimensions"] != blank %}
+            <div id="ag-vg-tab-dimensions" class="ag-vg-tab">
+                {{ product.metafields.custom_fields["product_dimensions"] }}
+            </div>
+            {% endif %}
+            {% if product.metafields.custom_fields["product_specifications"] != blank %}
+            <div id="ag-vg-tab-specifications" class="ag-vg-tab">
+                {% assign separator = "|###|" %}
+                {% assign product_specification_type_array = product.metafields.custom_fields["product_specification_type"] | split: separator %}
+                {% assign product_specification_details_array = product.metafields.custom_fields["product_specification_details"] | split: separator %}
+                {% assign fc_keys = product.metafields.custom_fields["product_specifications"] | split: "," %}
+                {% for i in fc_keys %}
+                {% assign index = i | plus: 0 %}
+                <div class="ag-vg-specifications-container">
+                    <div class="ag-vg-specifications-type">
+                        {{ product_specification_type_array[index] }}
+                    </div>
+                    <div class="ag-vg-specifications-details">
+                        {{ product_specification_details_array[index] }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div id="ag-vg-tab-reviews" class="ag-vg-tab">
+                <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}"
+                    data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}"
+                    data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+                    data-description="{{ product.description | escape }}"></div>
+            </div>
+            {% if product.metafields.custom_fields["product_warranty"] != blank %}
+            <div id="ag-vg-tab-warranty" class="ag-vg-tab">
+                {{ product.metafields.custom_fields["product_warranty"] }}
+            </div>
+            {% endif %}
+        </div>
+    </section>
+</div>

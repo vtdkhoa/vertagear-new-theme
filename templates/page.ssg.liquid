@@ -1,0 +1,120 @@
+{{ 'ssg.scss.css' | asset_url | stylesheet_tag }}
+{{ 'ssg.js' | asset_url | script_tag }}
+
+
+<div class="fazeclan-container">
+  <div class="hero-wrapper">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <div class="hero-logo">
+          <img src="{{ 'SSG-Page-Header-logo-min.png' | asset_url }}" class="img-responsive absolute_center">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="hero-product">
+          <img src="{{ 'SSG-Page-Header-chair-min.png' | asset_url }}" class="img-responsive absolute_center">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="product-wrapper red-alert red-border">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          	<div class="buy-now">
+              <h1>SPACESTATION NEBULA</h1>
+          	</div>
+          	<div class="row">
+              <div class="col-md-9">
+                <div class="buy-now-link">
+                	<a href="/products/spacestation-nebula" class="hidden-sm hidden-xs">BUY NOW</a>
+                </div>
+                <div class="red-alert-product">
+                    <img src="{{ 'SSG-Page-Product_Main-min.png' | asset_url }}" class="img-responsive" id="red-alert-product-main">
+                    <div class="node node1" data-target="data-gal1"></div>
+                    <div class="node node2" data-target="data-gal2"></div>
+                    <div class="node node3" data-target="data-gal3"></div>
+                    <div class="node node4" data-target="data-gal4"></div>
+                    <div class="node node5" data-target="data-gal5"></div>
+                    <div class="node node6" data-target="data-gal6"></div>
+                    <div class="node node8" data-target="data-gal8"></div>
+                  	<div class="buy-now-bottom hidden-lg hidden-md">
+                        <a href="/products/spacestation-nebula">BUY NOW</a>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-3 hidden-sm hidden-xs">
+              	<h4 class="text-center">Adjustbulity Features</h4>
+                <!-- THUMBNAILS -->
+                <div class="slider-nav-thumbnails">
+                    <div><img src="{{ 'SL1000-UPHRFoam.jpg' | asset_url }}" class="data-gal1"></div>
+                    <div><img src="{{ 'SL1000-PUSyntheticFauxLeather.jpg' | asset_url }}" class="data-gal3"></div>
+                    <div><img src="{{ 'SL1000-Frame.jpg' | asset_url }}" class="data-gal4"></div>
+                    <div><img src="{{ 'SL1000-EffortlessAssembly.jpg' | asset_url }}" class="data-gal5"></div>
+                    <div><img src="{{ 'SL1000-GasLift.jpg' | asset_url }}" class="data-gal6"></div>
+                    <div><img src="{{ 'SL1000-Caster.jpg' | asset_url }}" class="data-gal8"></div>
+                  	<div><img src="{{ 'SL1000-pillows-desktop.jpg' | asset_url }}" class="data-gal2"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="red-alert-feat">
+          	<div class="row">
+              <div class="col-md-4 hidden-sm hidden-xs"></div>
+              <div class="col-md-8 col-sm-8 red-alert-feat-slider">
+                <!-- MAIN SLIDES -->
+                  <div class="slider">	
+                      <figure>
+                          <img src="{{ 'SL1000-UPHRFoam.jpg' | asset_url }}" class="data-gal1">
+                        <div class="text">
+                        	Our Ultra Premium High Resiliency Foam boasts a density well above industry standard. The foam prolongs the lifespan of the chair by preventing deformities from long periods of use, inching it closest to the characteristics of memory foam.
+                        </div>
+                      </figure>
+                      <figure>
+                            <img src="{{ 'SL1000-PUSyntheticFauxLeather.jpg' | asset_url }}" class="data-gal3">
+                    	<div class="text">
+                        	As the marriage of PVC and PU faux-leather, PUC was introduced to combine the best attributes of both materials to merge into one. PUC retains the durability of PVC for everyday use while maintaining the softness of PU for a low maintenance solution without sacrificing comfort.
+                        </div>    
+                    </figure>
+                      <figure>
+                            <img src="{{ 'SL1000-Frame.jpg' | asset_url }}" class="data-gal4">
+                    	<div class="text">
+                        	The classic shape of the gaming chair we all love was crafted with a steel skeleton to ensure long-term durability.
+                        </div>  
+                    </figure>
+                    <figure>
+                      	<img src="{{ 'SL1000-EffortlessAssembly.jpg' | asset_url }}" class="data-gal5">
+                    	<div class="text">
+                        	Our 'Slide-in' hardware allows for a quick and easy single person assembly. The chair can be assembled in seconds by simply sliding the backrest into the seat, removing any alignment and hardware complexities for a pain-free, single person process.
+                        </div>  
+                    </figure>
+					<figure>
+                      	<img src="{{ 'SL1000-GasLift.jpg' | asset_url }}" class="data-gal6">
+                    	<div class="text">
+                        	The Spacestation Nebula is fitted with an industrial quality Class-4 Gas Lift cylinders for extra durability and ease of use, while keeping your seat maintained at the proper height.
+                        </div>  
+                    </figure>
+                    <figure>
+                      	<img src="{{ 'SL1000-Caster.jpg' | asset_url }}" class="data-gal8">
+                    	<div class="text">
+                        	Inspired by motorsports influence, the racing style extends all the way down to the casters. Engineered to be carefree, the Penta RS1 Casters coated with polyurethane (PU) for soft and smooth gliding on any surface. (color matching chair).
+                        </div>  
+                    </figure>
+                    <figure>
+                          <img src="{{ 'SL1000-pillows-desktop.jpg' | asset_url }}" class="data-gal2">
+                      	<div class="text">
+                        	Our memory foam neck support and lumbar support comes standard with the Spacestation Nebula to give you the extra padding you need for every position. Both cushions are easily removable for increased adjustability and correct posture.
+                        </div>
+                      </figure>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

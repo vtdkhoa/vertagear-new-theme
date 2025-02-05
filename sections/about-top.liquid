@@ -1,0 +1,63 @@
+{% assign banner = section.settings.banner | img_url : 'master' %}
+{% assign banner_m = section.settings.banner_m | img_url : 'master' %}
+
+
+<div class="about-top">
+    <picture class="about-top__bg">
+        <source srcSet="{{banner}}" media="(min-width: 768px)">
+        <source srcSet="{{banner_m}}" media="(max-width: 767px)">
+        <img src="{{banner}}" class="about-top__bg-img" alt>
+    </picture>
+    <div class="about-top__center vertagear-container">
+        <div class="about-top__text">
+            <div class="about-top__slogan">
+                {{section.settings.slogan}}
+            </div>
+            <div class="about-top__title">
+               {{section.settings.top_title}}
+            </div>
+            <div class="about-top__desc">
+                {{section.settings.desc}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+  {
+  "name": "Top",
+  "settings": [
+    {
+        "id": "slogan",
+        "type": "text",
+        "label": "Slogan",
+        "default":"Story of"
+    },
+    {
+        "id": "top_title",
+        "type": "text",
+        "label": "Title",
+        "default":"Boundless Ingenuity"
+    },
+    {
+        "id": "desc",
+        "type": "text",
+        "label": "Description",
+        "default":"The Journey was brought to life in 2015 by a mixture of computer hardware veterans, furniture specialists, designers and gamers. Leading the industry in innovation and game changing designs."
+    },
+
+    {
+        "id": "banner",
+        "type": "image_picker",
+        "label": "Banner"
+    },
+    {
+        "id": "banner_m",
+        "type": "image_picker",
+        "label": "Banner Mobile"
+    }
+  ]
+  }
+{% endschema %}

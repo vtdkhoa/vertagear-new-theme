@@ -1,0 +1,151 @@
+{% include 'gravityadmin' %}
+<div style="display: none !important;  visibility: hidden !important;" class="cmspro-section" id="cmspro-ca3ed62a"></div>
+<div class="grid-uniform{% if section.settings.match-height %} products--match-height{% endif %}">
+
+  <div class="grid__item large--one-quarter collection-sidebar-mobile-wrapper">
+
+    {% if collection.image %}
+    <img src="{{ collection.image | img_url: 'large' }}" alt="{{ collection.title }}" />
+    {% endif %}
+
+    {% if collection.description != blank %}
+    <header class="section-header">
+      <h1 class="collection-sidebar__title">{{ collections['S-line'].title }}</h1>
+      <div class="rte rte--header collection-sidebar__description">
+        {{ collections['S-line'].description }}
+      </div>
+    </header>
+
+    {% else %}
+
+    <div class="sitewide--title-wrapper">
+      <h1 class="page--title">{{ collection.title }}</h1>
+    </div>
+
+    {% endif %}
+  </div>
+  <div class="grid__item large--three-quarters collection-main-body">
+
+
+    <div class="small--grid--full collection-main-body-inner collection-main-body-inner--sidebar">
+
+      {% if section.settings.collection-products-per-row == '4' %}
+      {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+      {% else %}
+      {% assign grid_item_width = 'large--one-third medium--one-half small--one-half' %}
+      {% endif %}
+
+      {% for product in collections['S-Line'].products %}
+      {% include 'sca_freegift_price' with product %}
+      {% comment %}
+      Set the default grid_item_width if no variable is set
+      {% endcomment %}
+      {% unless grid_item_width %}
+      {% assign grid_item_width = 'large--one-third medium--one-half' %}
+      {% endunless %}
+
+      {% comment %}
+      Check if the product is on sale and set a variable to be used below.
+      {% endcomment %}
+      {% assign on_sale = false %}
+      {% if sca_compare_at_price > sca_price %}
+      {% assign on_sale = true %}
+      {% endif %}
+
+      {% comment %}
+      Check if the product is sold out and set a variable to be used below.
+      {% endcomment %}
+      {% assign sold_out = true %}
+      {% if product.available %}
+      {% assign sold_out = false %}
+      {% endif %}
+
+      <div class="grid__item {{ grid_item_width }}">
+
+        {% include 'grid-view-item-custom' %}
+
+      </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="grid-uniform{% if section.settings.match-height %} products--match-height{% endif %}">
+
+  <div class="grid__item large--one-quarter collection-sidebar-mobile-wrapper">
+
+    {% if collection.image %}
+    <img src="{{ collection.image | img_url: 'large' }}" alt="{{ collection.title }}" />
+    {% endif %}
+
+    {% if collection.description != blank %}
+    <header class="section-header">
+      <h1 class="collection-sidebar__title">{{ collections['P-line'].title }}</h1>
+      <div class="rte rte--header collection-sidebar__description">
+        {{ collections['P-line'].description }}
+      </div>
+    </header>
+
+    {% else %}
+
+    <div class="sitewide--title-wrapper">
+      <h1 class="page--title">{{ collection.title }}</h1>
+    </div>
+
+    {% endif %}
+  </div>
+  <div class="grid__item large--three-quarters collection-main-body">
+
+
+    <div class="small--grid--full collection-main-body-inner collection-main-body-inner--sidebar">
+
+      {% if section.settings.collection-products-per-row == '4' %}
+      {% assign grid_item_width = 'large--one-quarter medium--one-half small--one-half' %}
+      {% else %}
+      {% assign grid_item_width = 'large--one-third medium--one-half small--one-half' %}
+      {% endif %}
+
+      {% for product in collections['P-Line'].products %}
+       {% unless product.title contains 'Copy of SL5000 Midnight Blue' %}
+      {% include 'sca_freegift_price' with product %}
+      {% comment %}
+      Set the default grid_item_width if no variable is set
+      {% endcomment %}
+      {% unless grid_item_width %}
+      {% assign grid_item_width = 'large--one-third medium--one-half' %}
+      {% endunless %}
+
+      {% comment %}
+      Check if the product is on sale and set a variable to be used below.
+      {% endcomment %}
+      {% assign on_sale = false %}
+      {% if sca_compare_at_price > sca_price %}
+      {% assign on_sale = true %}
+      {% endif %}
+
+      {% comment %}
+      Check if the product is sold out and set a variable to be used below.
+      {% endcomment %}
+      {% assign sold_out = true %}
+      {% if product.available %}
+      {% assign sold_out = false %}
+      {% endif %}
+
+      <div class="grid__item {{ grid_item_width }}">
+
+        {% include 'grid-view-item-custom' %}
+
+      </div>
+      {% endunless %}
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,462 @@
+{% comment %}
+{% if template == 'product' %}
+{% include 'announcement-bar-custom' %}
+{% endif %}
+{% endcomment %}
+
+
+<div data-section-id="{{ section.id }}" data-section-type="header-section">
+
+  <header class="site-header">
+    <div class="wrapper">
+      <div class="site-header__main">
+        <div class="grid__item site-header__left">
+          <div class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+
+            {% if template == 'index' %}
+            <h1 class="site-header__logo" id="site-title" itemscope itemtype="http://schema.org/Organization">
+              {% else %}
+              <div class="site-header__logo h1" id="site-title" itemscope itemtype="http://schema.org/Organization">
+                {% endif %}
+                {% if section.settings.logo %}
+                <a href="/" itemprop="url" class="site-header__logo-image">
+                  {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+                  <img src="{{ section.settings.logo | img_url: image_size }}"
+                       alt="{{ section.settings.logo.alt | default: shop.name }}"
+                       itemprop="logo">
+                </a>
+                {% else %}
+                <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+                {% endif %}
+                {% if template == 'index' %}
+                </h1>
+              {% else %}
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+        <div class="grid__item site-header__center">
+          {% comment %}
+          Show number of items in the cart and total cost in the /cart link
+
+          Ajax Cart Notes:
+          - #cartCount updates the total number of items in the cart
+          - #cartCost updates the total cost of the cart
+          - Documentation:  http://shopify.com/timber#ajax-cart
+          {% endcomment %}
+          <div class="top-links header-font">
+
+            <ul class="site-nav" id="AccessibleNav">
+              {% for link in linklists[section.settings.main_linklist].links %}
+
+              {% assign child_list_handle = link.title | handleize %}
+
+              {% if linklists[child_list_handle].links != blank %}
+              <li class="site-nav--has-dropdown" aria-haspopup="true">
+                <a href="{{ link.url }}" class="site-nav__link vertagear_nav">
+                  {{ link.title }}
+                  <span class="icon icon-arrow-down" aria-hidden="true"></span>
+                </a>
+
+                <ul class="site-nav__dropdown">
+                  {% for childlink in linklists[child_list_handle].links %}
+                  <li>
+                    <a href="{{ childlink.url }}" class="site-nav__link vertagear_nav">{{ childlink.title | escape }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </li>
+
+              {% else %}
+              {% if link.title contains 'Products' %}
+              <li class="site-nav--has-dropdown product_mega" aria-haspopup="true">
+                <a href="#" class="site-nav__link" id="product_mega">{{ link.title }}
+                  <span class="icon icon-arrow-down" aria-hidden="true"></span>
+                </a>
+              </li>
+              {% else %}
+              <li>
+                <a href="{{ link.url }}" class="site-nav__link vertagear_nav">{{ link.title }}</a>
+              </li>
+              {% endif %}
+
+
+              {% endif %}
+
+              {% endfor %}
+            </ul>
+          </div>
+
+          {% comment %}
+          If customer accounts are enabled, provide login and create account links
+          {% if shop.customer_accounts_enabled %}
+          <div>
+            {% if customer %}
+            {% if customer.first_name != blank %}
+            {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+            {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+            {% else %}
+            <a href="/account">{{ 'layout.customer.account' | t }}</a>
+            {% endif %}
+            | {{ 'layout.customer.log_out' | t | customer_logout_link }}
+            {% else %}
+            {{ 'layout.customer.log_in' | t | customer_login_link }}
+            | {{ 'layout.customer.create_account' | t | customer_register_link }}
+            {% endif %}
+          </div>
+          {% endif %}
+          {% endcomment %}
+
+          {% comment %}
+          <div class="site-header__search">
+            <!-- /snippets/search-bar.liquid -->
+            {% comment %}
+
+            A snippet to include a search bar anywhere in your theme.
+            Note we are using 'input-group' for the layout. Look under Forms > Input Groups for some demos.
+
+            More information:
+            - http://docs.shopify.com/themes/liquid-variables/search
+
+            To return only products in results:
+            - http://docs.shopify.com/manual/configuration/store-customization/return-only-product-in-storefront-search-results
+            - Or manually add type=product to the search URL as a query parameter
+            - Uncomment hidden input with value="product" below
+
+            {% endcomment %}
+
+            <form action="/search" method="get" class="input-group search-bar" role="search">
+              {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
+              <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="input-group-field" aria-label="{{ 'general.search.placeholder' | t }}">
+              <span class="input-group-btn">
+                <button type="submit" class="btn icon-fallback-text">
+                  <i class="fa fa-search"></i>
+                  <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
+                </button>
+              </span>
+            </form>
+
+          </div>
+          {% endcomment %}
+
+        </div>
+        <div class="top-links grid__item">
+
+          <ul class="top-links--icon-links">
+
+            {% if shop.customer_accounts_enabled %}
+            {% if customer %}
+            <li>
+              <a href="/account" title="{{ 'layout.customer.account' | t }}">
+                <i class="fa fa-user fa-lg"></i>
+              </a>
+            </li>
+            {% else %}
+            <li>
+              <a href="/account/login" title="{{ 'layout.customer.log_in' | t }}">
+                <i class="fa fa-user fa-lg"></i>
+              </a>
+            </li>
+            {% endif %}
+            {% endif %}
+
+            <li>
+              <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false">
+                <i class="fa fa-shopping-cart fa-lg"></i>
+                <span class="site-header__cart-indicator {% if cart.item_count == 0 %}hide{% endif %}"></span>
+              </a>
+            </li>
+
+          </ul>
+          <div id="global-header-search">
+            <div class="search-block-wrapper">
+              <div class="search-form-wrapper">
+                <form action="/search" method="get" class="ccm-search-block-form" id="vg-search">
+                  <input name="submit" type="button" class="btn btn-default ccm-search-block-submit">
+                  <input name="q" type="text" value="" placeholder="Search VERTAGEAR" class="ccm-search-block-text" id="vg-search-input"> </form>
+              </div>
+            </div>
+          </div>
+          <script>
+            window.addEventListener("load",function() {
+              $("#vg-search").submit(function(e) {
+                var $input = $(this).find("#vg-search-input");
+                switch($input.val().toLowerCase()) {
+                  case "tam":
+                  case "tsk":
+                  case "team solo mid":
+                    $input.val("tsm");
+                    break;
+                  case "space station gaming":
+                  case "space station":
+                    $input.val("spacestation");
+                    break;
+                  case "pl 4500":
+                  case "4500":
+                  case "pl5000":
+                    $input.val("pl4500");
+                    break;
+                  case "sillas gamer":
+                    $input.val("chair selection tool");
+                    break;
+                  case "sl200":
+                    $input.val("sl2000");
+                    break;
+                  case "sl4500":
+                    $input.val("sl4000 OR sl5000");
+                    break;
+                  case "pl4000":
+                    $input.val("pl4500 OR pl6000");
+                    break;
+                  case "method edition":
+                    $input.val("method");
+                    break;
+                  case "sl6000":
+                    $input.val("sl2000 OR sl4000 OR sl5000");
+                    break;
+                  case "pl 6000":
+                    $input.val("pl6000");
+                    break;
+                  default:
+                    break;
+                }
+              });
+            });
+          </script>
+
+        </div>
+      </div>
+      <div class="megamenu" style="height:635px">
+        <a href="https://www.vertagear.com/pages/chair-selection-tool"><img src="{{ "chair-selection-banner.jpg" | asset_url }}" /></a>
+        <ul class="mega-wrap">
+          <li class="mega-nav-item" style="margin: 0 10px 0 0">
+            <a href="/collections/racing-series" class="link_cat">
+              <center><img src="{{'menu-racing-series-min.jpg' | asset_url }}"></center>
+
+            </a>
+            <div class="sub-item-left-wrap left-sline">
+              <h4>
+                <a href="/collections/s-line">
+                  S-Line <i class="fa fa-caret-right"></i>
+                </a>
+              </h4>
+              <ul class="sub-item">
+                {% for product in collections['S-Line'].products %}
+                {% unless product.title contains 'Copy of SL5000 Midnight Blue' %}
+                <li><i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <a href="{{ product.url | within: collection }}">{{ product.title }}</a></li>
+                {% endunless %}
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="sub-item-right-wrap right-pline">
+              <h4>
+                <a href="/collections/p-line">
+                  P-Line
+                  <i class="fa fa-caret-right"></i>
+                </a>
+              </h4>
+              <ul class="sub-item">
+                {% assign plineList = collections['P-Line'].products %}
+                {% for product in plineList %}
+                    <li>
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                    </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+          <li class="mega-nav-item" style="margin: 0 10px 0 0">
+            <a href="/collections/gaming-series" class="link_cat">
+              <center><img src="{{'menu-gaming-series-min.jpg' | asset_url }}"></center>
+            </a>
+            <div class="sub-item-left-wrap" style="width:100%">
+              <h4>
+                <a href="/collections/triigger">
+                  Triigger Line <i class="fa fa-caret-right"></i>
+                </a>
+              </h4>
+              <ul class="sub-item">
+                {% for product in collections['Gaming-Series'].products %}
+                <li><i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <a href="{{ product.url | within: collection }}">{{ product.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+          <li class="mega-nav-item">
+            <a href="/collections/accessories" class="link_cat">
+              <center><img src="{{'menu-accessories-min.jpg' | asset_url }}"></center>
+              <!--                   <h3>ACCESSORIES<div class="border"></div></h3> -->
+            </a>
+            <div class="sub-item-left-wrap" style="width: 100%;">
+
+              <h4><a href="/collections/accessories">Accessories Collection <i class="fa fa-caret-right"></i></a></h4>
+              <!--<ul class="sub-item">
+                {% for product in collections['Accessories'].products %}
+                <li><i class="fa fa-caret-right" aria-hidden="true"></i>
+                  <a href="{{ product.url | within: collection }}">{{ product.title }}</a></li>
+                {% endfor %}
+              </ul>-->
+              <ul class="sub-item">
+                {% assign accessoriesList = collections['Accessories'].products %}
+                {% for product in accessoriesList %}
+                {% if product.title contains "Penta RS1 Casters" %}
+                    <li>
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+                {% for product in accessoriesList %}
+                {% if product.title contains "Racing Series Pillow Sc" %}
+                    <li>
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+                {% for product in accessoriesList %}
+                {% if product.title contains "Triigger 275 Headrest" %}
+                    <li>
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+                {% for product in accessoriesList %}
+                {% if product.title contains "Triigger 350 Sc Headrest/Neck Support" %}
+                    <li>
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+                <li>
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    <a href="/pages/rgb-led-top-kit">
+                      PL4500 RGB LED Top Upgrade Kit
+                    </a>
+                </li>
+                <li>
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    <a href="/pages/rgb-led-bottom-kit">
+                      RGB Led Bottom Kit
+                    </a>
+                </li>
+                <li>
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    <a href="/pages/rgb-top-kit">
+                      SL5000 RGB LED Top Upgrade Kit 
+                    </a>
+                </li>
+                {% for product in accessoriesList %}
+                {% if product.title contains "Wear and Tear Program" %}
+                    <li>
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+              </ul> 
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </header>
+  <div id="header_submenu_wrapper" class="row">
+    <div class="row">
+      <div class="col-sm-12">
+        <hr/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4  col-xl-3">                    </div>
+      <div id="header_submenu" class="col-sm-12 col-xl-9" align="center">                    
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav-bar mobile-nav-bar-wrapper d-lg-none">
+    <div class="wrapper">
+      <div class="">
+        <div class="mobile-grid--table">
+          <div class="grid__item one-third">
+            <div class="site-nav--mobile">
+              <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left" aria-controls="NavDrawer" aria-expanded="false">
+                <i class="fa fa-bars fa-2x"></i>
+                <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid__item one-third">
+            {% if template == 'index' %}
+            <h1 class="site-header__logo" id="site-title" itemscope itemtype="http://schema.org/Organization">
+              {% else %}
+              <div class="site-header__logo h1" id="site-title" itemscope itemtype="http://schema.org/Organization">
+                {% endif %}
+                {% if section.settings.logo %}
+                <a href="/" itemprop="url" class="site-header__logo-image">
+                  {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+                  <img src="{{ section.settings.logo | img_url: image_size }}"
+                       srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                       alt="{{ section.settings.logo.alt | default: shop.name }}"
+                       itemprop="logo">
+                </a>
+                {% else %}
+                <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+                {% endif %}
+                {% if template == 'index' %}
+                </h1>
+              {% else %}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="grid__item one-third text-right">
+            <div class="site-nav--mobile">
+              <a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
+                <span class="icon-fallback-text">
+                  <i class="fa fa-shopping-cart fa-2x"></i>
+                  <span class="site-header__cart-indicator {% if cart.item_count == 0 %}hide{% endif %}"></span>
+                  <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</div>
+
+{% schema %}
+{
+"name": "Header",
+"settings": [
+{
+"type": "image_picker",
+"id": "logo",
+"label": "Logo image"
+},
+{
+"type": "text",
+"id": "logo_max_width",
+"label": "Custom logo width (in pixels)",
+"default": "100"
+},
+{
+"type": "link_list",
+"id": "main_linklist",
+"label": "Main menu",
+"default": "main-menu"
+}
+]
+}
+{% endschema %}

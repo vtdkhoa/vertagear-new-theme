@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/vertagear.myshopify.com/products/edit-field/7841
+{% endcomment %}
+{% if product.metafields.custom_fields["assembly_video"] != blank %}
+  <div class="custom-field custom-field__assembly-video custom-field__type--text">
+    <h3 class="custom-field--title">Assembly Video</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["assembly_video"] }}
+    </div>
+  </div>
+{% endif %}

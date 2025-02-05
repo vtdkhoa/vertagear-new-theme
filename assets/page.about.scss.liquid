@@ -1,0 +1,73 @@
+
+$mobile-margin: 6.3vw;
+$desktop-margin: 18vw; //22.1 original
+
+$mobile-breakpoint: 768px;
+
+.wrapper.main-content{
+  padding: 0;
+  max-width: none;
+}
+.shopify-section#shopify-section-footer-custom{
+  @media (min-width: 1200px){
+    position: relative !important;
+  }
+}
+
+.about-wrapper{
+  width:100%;
+  display: inline-block;
+  .main-hero{
+    width: 100%;
+    height: 63.5vw;
+    background-image: url({{ 'about.mobile.hero.jpg' | asset_url }});
+    background-size: cover;
+    @media screen and (min-width: $mobile-breakpoint) {
+      height: 27.4vw;
+      background-image: url({{ 'about.desktop.hero.jpg' | asset_url }});
+    }
+  }
+  .content{
+    $content-p-padding: 1.8vw;
+    padding: 10.4vw $mobile-margin 0;
+    font-size: 3.5vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    @media screen and (min-width: $mobile-breakpoint) {
+      width: 768px;
+      height: 450px; // 22.4 original
+      padding: 0;
+      margin: 4.2vw ($desktop-margin - $content-p-padding) (7.9vw + 3.8vw);
+      margin: 4vw auto;
+      font-size: 1.4vw; // 1 original
+      font-size: 16px;
+    }
+    .big-image{
+      width: 100%;
+      padding-bottom: 14.6vw;
+      @media screen and (min-width: $mobile-breakpoint) {
+        width: 700px;
+        height: 16.8vw;
+        height: 250px;
+        padding-bottom: 0;
+        position: absolute;
+        bottom: -30px; // -8vw original
+        right: -150px;
+        z-index: 99;
+      }
+    }
+    // shopify content editor
+    p{
+      margin-bottom: 6.3vw;
+      @media screen and (min-width: $mobile-breakpoint) {
+        width:50%;
+        padding: 0 $content-p-padding;
+        margin-bottom: 1.5vw;
+        margin-bottom: 10px;
+        z-index: 100;
+      }
+    }
+  }
+}

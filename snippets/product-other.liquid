@@ -1,0 +1,27 @@
+<div class="other-cate">
+  {% assign cats = '' %}
+  {% assign category_blocks = section.blocks | where: "type","category" %}
+  {% for block in category_blocks %}
+    {% unless cats contains block.settings.name %}
+      {% assign cats = cats | append: block.settings.name | append: ','%}
+    {% endunless %}
+    <div class="other-cate-item {% if block.settings.name == cat_selected %}active{% endif %}">{{ block.settings.name }}</div>
+  {% endfor %}
+  {% assign cats = cats | split: "," %}
+</div>
+<div class="other-line"></div>
+<div class="other-product">
+  {% for cat in cats %}
+    <div class="product-review-tabs {% if cat == cat_selected %}active{% endif %}" data-category="{{ cat }}">
+      {% assign product_blocks = section.blocks | where: "type","product" | map: "settings" | where: "category",cat %}
+      {% for block in product_blocks %}
+        <div class="product-review-tab {% if block.product_title == product_selected %}active{% endif %}" data-product="{{ block.product_title }}">
+          <div class="product_text">{{ block.product_title }}</div>
+          <div class="product_image">
+            <img src="{{ block.product_image | img_url: '40x' }}">
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>

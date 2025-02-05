@@ -1,0 +1,97 @@
+@media only screen and (max-width: 768px) {
+.grid__item {
+    margin-top: 0;
+    padding-left: 0;
+  }
+}
+.grid-view-item {
+    max-width: 270px;
+ 	margin: 0 auto;
+    @media screen and (min-width: 768px) {
+/*       margin-left: 67px; */
+      padding-top:25px;
+/*       padding-top: 91px;  */
+      padding-bottom: 12px;
+    }
+  	text-align: left;
+      
+  a.collection-product-image {
+    width: 100%;
+    height: 270px;
+    background-size: cover !important;
+    @media screen and (min-width: 768px) {
+      width: 270px;
+      background-size: 100%!important;
+    }
+    
+    display:block;
+    background-repeat: no-repeat;
+    margin: 0 auto 20px;
+  }
+  .product-headline-price, .product-headline-title {
+    text-align: left;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.56;
+    letter-spacing: 0.9px;
+    color: #000000;
+  }
+  .product-headline-title {
+    font-weight: bold;
+  	letter-spacing: 0.9px;
+    margin-bottom: -5px;
+  }
+  .vertagear-jump-list-container {
+    margin-top: 10px;
+    ul {
+      width: 51px;
+      margin-left: 0;
+      list-style-type: none;
+
+      li {
+        cursor: pointer;
+        display: block;
+        height: 40px;
+        a:hover {
+          text-decoration: none;
+        }
+        .vertagear-learn-more {
+          cursor:pointer;
+          display: block;
+          width: 150px;
+          height: 40px;
+          line-height: 36px;
+          vertical-align: middle;
+          color: white;
+          text-decoration: none;
+          text-align: left;
+          font-family: Lato;
+          font-size: 16px;
+          font-weight: 500;
+          font-style: normal;
+          font-stretch: normal;
+          letter-spacing: normal;
+          color: #000;
+          &:before {
+            display: block;
+            content: '';
+            position: absolute;
+            margin-top: 39px;
+            width: 123px;
+            height: 1px;
+            background-color: black;
+          }
+        }
+      }
+	}
+  }
+}
+.collection-main-body .collection-main-body-inner div {
+ margin-bottom: 0; 
+}
+.grid__item__custom.collection-main-body {
+ margin-bottom: 24px; 
+}

@@ -1,0 +1,38 @@
+<div class="page-top">
+    <img src='{{section.settings.banner | img_url: 'master'}}' alt>
+</div>
+
+{% schema %}
+  {
+  "name": "Page top",
+  "settings": [
+        {
+            "id": "banner",
+            "type": "image_picker",
+            "label": "Banner"
+        },
+        {
+            "id": "btn",
+            "type": "text",
+            "label": "Button Text",
+            "default": "View warranty Statement"
+        },
+        {
+            "id": "desc",
+            "type": "text",
+            "label": "Description",
+            "default": "Vertagear chairs are designed and certified for safety and durability. We have tested our chairs based on the industry standards."
+        }
+    ],
+    "presets": [
+        {
+            "name": "Page top",
+            "settings": {
+            }
+        }
+    ],
+    "enabled_on": {
+        "templates": ["page"]
+    }
+  }
+{% endschema %}

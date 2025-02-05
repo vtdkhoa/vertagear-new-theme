@@ -1,0 +1,38 @@
+var ldRgbLightUpBtns = document.getElementsByClassName(
+  "light-logo__selection__btns__img"
+);
+var ldRgbLightLogoImg = document.getElementById("lightLogoImg");
+
+var ldRgbLightUpBtnSrc = [
+	"{{ 'ld-rgb-light-up-icon-1.svg' | asset_url }}",
+	"{{ 'ld-rgb-light-up-icon-2.svg' | asset_url }}",
+	"{{ 'ld-rgb-light-up-icon-3.svg' | asset_url }}",
+	"{{ 'ld-rgb-light-up-icon-4.svg' | asset_url }}",
+	"{{ 'ld-rgb-light-up-icon-5.svg' | asset_url }}",
+]
+var ldRgbLightUpBlueBtnSrc = [
+	"{{ 'ld-rgb-light-up-icon-active-1.svg' | asset_url }}",
+	"{{ 'ld-rgb-light-up-icon-active-2.svg' | asset_url }}",
+	"{{ 'ld-rgb-light-up-icon-active-3.svg' | asset_url }}",
+	"{{ 'ld-rgb-light-up-icon-active-4.svg' | asset_url }}",
+	"{{ 'ld-rgb-light-up-icon-active-5.svg' | asset_url }}",
+]
+var ldRgbLightUpMainImgSrc = [
+  "{{ 'ld-rgb-light-up-desk-1.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-desk-2.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-desk-3.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-desk-4.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-desk-5.svg' | asset_url }}",
+]
+
+for (let i = 0; i < ldRgbLightUpBtns.length; i++) {
+  var element = ldRgbLightUpBtns[i];
+  element.addEventListener("click", () => {
+    for (let m = 0; m < ldRgbLightUpBtns.length; m++) {
+      var e = ldRgbLightUpBtns[m];
+      e.src = ldRgbLightUpBtnSrc[m];
+    }
+    element.src = ldRgbLightUpBlueBtnSrc[i];
+    ldRgbLightLogoImg.src = ldRgbLightUpMainImgSrc[i];
+  });
+}

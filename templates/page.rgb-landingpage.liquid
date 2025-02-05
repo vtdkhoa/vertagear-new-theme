@@ -1,0 +1,23 @@
+{{ 'fe800-all.css' | asset_url | stylesheet_tag }}
+{% include 'fe800-all-custom' %}
+{{ 'rgbpage-all.css' | asset_url | stylesheet_tag }}
+{% section 'rgbpage-herobanner' %}
+<div class="page-fe800 page-rgb">
+    {% section 'rgbpage-viewallproduct' %}
+    {% section 'rgbpage-popup-herobanner' %}
+    
+    {% section 'rgbpage-vertagearsignature' %}
+    
+    {% section 'rgbpage-features' %}
+    {% section 'rgbpage-mediareview' %}
+    {% section 'rgbpage-lightupyourlogo' %}
+    {% section 'rgbpage-gallery' %}
+    {% section 'rgbpage-simplecontrol' %}
+    {% section 'fe800-series_collection' %}
+</div>
+
+<link rel="stylesheet" href="{{ 'flickity-v2.3.0.css' | asset_url }}" />
+<script src="{{ 'flickity-v2.3.0.js' | asset_url }}"></script>
+<script type="module" src="{{ 'fe800-model-viewer.min.js' | asset_url }}" crossorigin="anonymous"></script>
+<script src="{{ 'fe800-custom.src.js' | asset_url }}" type="text/javascript" async defer="defer"></script>
+<script src="{{ 'clsRGBpage.js' | asset_url }}" type="text/javascript" async defer></script>

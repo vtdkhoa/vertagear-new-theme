@@ -1,0 +1,73 @@
+<!-- /snippets/search-bar.liquid -->
+{% comment %}
+
+  A snippet to include a search bar anywhere in your theme.
+  Note we are using 'input-group' for the layout. Look under Forms > Input Groups for some demos.
+
+  More information:
+   - http://docs.shopify.com/themes/liquid-variables/search
+
+  To return only products in results:
+    - http://docs.shopify.com/manual/configuration/store-customization/return-only-product-in-storefront-search-results
+    - Or manually add type=product to the search URL as a query parameter
+    - Uncomment hidden input with value="product" below
+
+{% endcomment %}
+
+<form action="/search" method="get" class="input-group search-bar" role="search" id="vg-search-bar-liquid" style="width: 100%; margin: 0 16px; padding: 0 15px;">
+  {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
+  <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="input-group-field" aria-label="{{ 'general.search.placeholder' | t }}" id="vg-search-input-liquid" style="width: 94%; padding-right: 2px;">
+  <span class="input-group-btn">
+    <button type="submit" class="btn icon-fallback-text">
+      <i class="fa fa-search"></i>
+      <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
+    </button>
+  </span>
+</form>
+
+<script>
+  window.addEventListener("load",function() {
+    $("#vg-search-bar-liquid").submit(function(e) {
+      var $input = $(this).find("#vg-search-input-liquid");
+      switch($input.val().toLowerCase()) {
+        case "tam":
+        case "tsk":
+        case "team solo mid":
+          $input.val("tsm");
+          break;
+        case "space station gaming":
+        case "space station":
+          $input.val("spacestation");
+          break;
+        case "pl 4500":
+        case "4500":
+        case "pl5000":
+          $input.val("pl4500");
+          break;
+        case "sillas gamer":
+          $input.val("chair selection tool");
+          break;
+        case "sl200":
+          $input.val("sl2000");
+          break;
+        case "sl4500":
+          $input.val("sl4000 OR sl5000");
+          break;
+        case "pl4000":
+          $input.val("pl4500 OR pl6000");
+          break;
+        case "method edition":
+          $input.val("method");
+          break;
+        case "sl6000":
+          $input.val("sl2000 OR sl4000 OR sl5000");
+          break;
+        case "pl 6000":
+          $input.val("pl6000");
+          break;
+        default:
+          break;
+      }
+    });
+  });
+</script>

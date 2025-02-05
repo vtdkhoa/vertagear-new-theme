@@ -1,0 +1,46 @@
+<div class="about-center">
+    <div class="about-center__container vertagear-container">
+        <div class="about-center__title">
+             {{section.settings.title}}
+        </div>
+        <div class="about-center__desc">
+             {{page.content}}
+        </div>
+        <div class="about-center__bottom">
+            <div class="about-center__bottom-slogan">
+                {{section.settings.quote}}
+            </div>
+            <div class="about-center__bottom-slogan-author">
+               {{section.settings.author}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+  {
+  "name": "Our Story",
+  "settings": [
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"Our Story"
+    },
+    {
+        "id": "quote",
+        "type": "text",
+        "label": "Quote",
+        "default":"“Ingenuity never ceases, and neither do we.”"
+    },
+    {
+        "id": "author",
+        "type": "text",
+        "label": "Author",
+        "default":"Mike Ma - Founder of Vertagear"
+    }
+  ]
+  }
+{% endschema %}

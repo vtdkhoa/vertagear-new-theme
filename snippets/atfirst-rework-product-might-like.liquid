@@ -1,0 +1,30 @@
+{% assign size = '350x350' %}
+<div class="product-might-like-section">
+    <div class="product-might-like-section__title">
+        You might also like
+    </div>
+    <div class="product-might-like-section__btn-group">
+        <div class="product-might-like-section__btn" @click = "current = 'products'" :class="{'-active':current === 'products'}">Products</div>
+        <div class="product-might-like-section__btn" @click = "current = 'accessories'" :class="{'-active':current === 'accessories'}">Accessories</div>
+    </div>
+    {% assign collectionsArray = 'S-Line|P-Line|Gaming-Series' | split: "|" %}
+
+    <div class="product-might-like-section__container vertagear-container">
+        <div class="product-might-like-section__container-inner">
+            <div class="vertagear-icon -icon-left product-might-like-section__swiper-prev js-product-prev"></div>
+            <div class="vertagear-icon -icon-right product-might-like-section__swiper-next js-product-next"></div>
+            <swiper class="product-might-like-section__swiper" :options="options" v-if="current === 'products'" key="product-swiper">
+                {% for _product in collections['800-series'].products %}
+                    {% assign image = _product.featured_image.src | img_url: size %}
+                    {% include 'product-might-like-slide',prod: _product, title: _product.title,price:_product.price,image,url:_product.url %}
+                {% endfor %}
+            </swiper>
+            <swiper class="product-might-like-section__swiper" :options="options" v-else key="acc-swiper">
+                {% for _product in collections['Accessories'].products %}
+                    {% assign image = _product.featured_image.src | img_url: size %}
+                    {% include 'product-might-like-slide',prod: _product, title: _product.title,price:_product.price,image,url:_product.url %}
+                {% endfor %}
+            </swiper>
+        </div>
+    </div>
+</div>

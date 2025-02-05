@@ -1,0 +1,297 @@
+<style>
+  .main-footer {
+    padding: 80px 40px;
+    background: #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    gap: 128px;
+  }
+
+  .main-footer__first-container {
+    display: flex;
+    gap: 128px;
+  }
+
+  .main-footer__first-section {
+    display: flex;
+    width: 50%;
+    gap: 16px;
+  }
+  .main-footer__first-section__subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .main-footer__first-section__subscribe__title {
+    color: #000;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.58px;
+  }
+  .main-footer__first-section__subscribe__sub {
+    margin: 0;
+    color: #5d5d5d;
+    width: 328px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+  }
+  .main-footer__subscribe-group {
+    width: 328px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-footer__subscribe-group-input {
+    border: 1px solid #d1d1d1;
+    background-color: #d1d1d1;
+    border-radius: 80px;
+    color: #5d5d5d;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.14px;
+    font-weight: 500;
+  }
+
+  .main-footer__second-section {
+    display: flex;
+    gap: 16px;
+  }
+  .main-footer__second-section__product,
+  .main-footer__second-section__support,
+  .main-footer__second-section__contact {
+    width: 213px;
+  }
+
+  ul {
+    list-style: none;
+  }
+  li:first-child {
+    margin-top: auto;
+  }
+  li {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+    margin-top: 16px;
+    color: #4f4f4f;
+  }
+  .row-title {
+    color: #000;
+    font-weight: 700;
+  }
+
+  .main-footer__logo-contact {
+    position: relative;
+    width: 100%;
+  }
+  .main-footer__logo {
+    margin-bottom: 16px;
+  }
+  .main-footer__social-info {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+  .main-footer__social-info__contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  .contact-info {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+  }
+  .main-footer__social-info__items {
+    margin-left: auto;
+  }
+  .main-footer__social-info__media {
+    display: flex;
+    gap: 16px;
+  }
+  .media-info {
+    color: #4f4f4f;
+  }
+  .main-footer__terms {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+  }
+  @media (max-width: 576px) {
+    .main-footer {
+      padding: 40px 16px;
+      gap: 64px;
+    }
+    .main-footer__first-container {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .main-footer__first-section__subscribe {
+      gap: 24px;
+    }
+    .main-footer__second-section,
+    .main-footer__social-info {
+      flex-direction: column;
+    }
+    .main-footer__social-info__media {
+      margin-top: 32px;
+      flex-direction: column;
+    }
+    .main-footer__terms {
+      flex-direction: column-reverse;
+    }
+  }
+</style>
+
+<footer class="main-footer">
+  {% comment %} first container {% endcomment %}
+  <div class="main-footer__first-container">
+    <div class="main-footer__first-section">
+      {% comment %} subscribe section {% endcomment %}
+      <div class="main-footer__first-section__subscribe">
+        {% comment %} title {% endcomment %}
+        <h3 class="main-footer__first-section__subscribe__title">Subscribe to our newsletter</h3>
+        <p class="main-footer__first-section__subscribe__sub">
+          Be the first to hear about the latest news, product launches and events from VertaGear
+        </p>
+        {% comment %} form enter email to subscribe {% endcomment %}
+        {% form 'customer' %}
+          {{ form.errors | default_errors }}
+          {% if form.posted_successfully? %}
+            <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+          {% else %}
+            <div class="main-footer__subscribe-group">
+              <input
+                type="text"
+                name="contact[email]"
+                value="{% if customer %}{{ customer.email }}{% endif %}"
+                class="main-footer__subscribe-group-input"
+                id="Email"
+                aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}"
+                placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}"
+              >
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <button class="main-footer__subscribe-group-submit ccm-input-submit" data-enabled="enabled">
+                <img
+                  src="{{'new_email_subscribe_icon.svg' | asset_url }}"
+                  alt="submit"
+                  class="main-footer__subscribe-group-submit-img"
+                  width="auto"
+                  height="auto"
+                >
+              </button>
+            </div>
+          {% endif %}
+        {% endform %}
+      </div>
+    </div>
+    {% comment %} contact section {% endcomment %}
+    <div class="main-footer__second-section">
+      {% comment %} product info {% endcomment %}
+      <div class="main-footer__second-section__product">
+        <ul>
+          <li class="row-title">Product</li>
+          <li>
+            <a href="/pages/800-ergonomic-gaming-chairs">New 800 Series (2023)</a>
+          </li>
+          <li>
+            <a href="/collections/small-size-gaming-chair">S-Line</a>
+          </li>
+          <li>
+            <a href="/collections/special-edition">Special Edition</a>
+          </li>
+          <li>
+            <a href="/collections/rgb-led-updgrade-kit">RGB LED Upgrade Kit</a>
+          </li>
+        </ul>
+      </div>
+      {% comment %} support info {% endcomment %}
+      <div class="main-footer__second-section__support">
+        <ul>
+          <li class="row-title">Support</li>
+          <li>
+            <a href="/pages/faq">FAQs</a>
+          </li>
+          <li>
+            <a href="/pages/warranty">Warranty</a>
+          </li>
+          <li>
+            <a href="/pages/store-locator">Find a Retailer</a>
+          </li>
+        </ul>
+      </div>
+      {% comment %} company info {% endcomment %}
+      <div class="main-footer__second-section__company">
+        <ul>
+          <li class="row-title">Company</li>
+          <li>
+            <a href="/pages/about-us">About Us</a>
+          </li>
+          <li>
+            <a href="/blogs/press-room">Press Release</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  {% comment %} second container {% endcomment %}
+  <div class="main-footer__second-container">
+    <div class="main-footer__logo-contact">
+      {% comment %} logo {% endcomment %}
+      <img
+        src="{{ 'new_vertagear_logo_footer.svg' |  asset_url  }}"
+        class="main-footer__logo"
+        alt="footer-logo"
+        width="auto"
+        height="auto"
+      >
+      {% comment %} social info {% endcomment %}
+      <div class="main-footer__social-info">
+        <div class="main-footer__social-info__contact">
+          <b class="contact-info" style="color: #000; font-weight: 700;">Contact us</b>&nbsp;
+          <p class="contact-info" style="color: #4f4f4f; margin: auto;">Support@vertagear.com</p>
+        </div>
+        <div class="main-footer__social-info__media">
+          <b class="contact-info media-info" style="font-weight: 700;">Social</b>
+          <a href="https://www.facebook.com/Vertagear" target="_blank">
+            <p class="contact-info media-info">Facebook</p>
+          </a>
+          <a href="https://twitter.com/vertagear" target="_blank">
+            <p class="contact-info media-info">X</p>
+          </a>
+          <a href="https://www.instagram.com/vertagear" target="_blank">
+            <p class="contact-info media-info">Instagram</p>
+          </a>
+          <a href="https://www.youtube.com/channel/UCI66wUzTqsp-_4woLcKHH9g?gl=US" target="_blank">
+            <p class="contact-info media-info">Youtube</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="main-footer__terms">
+      <p class="contact-info" style="color: #000;">© Vertagear 2024. All rights reserved</p>
+      <p class="contact-info media-info">
+        <a href="/pages/privacy-policy">Privacy Policy</a>
+      </p>
+      <p class="contact-info media-info">
+        <a href="/pages/terms-and-conditions">Terms & Conditions</a>
+      </p>
+      <p class="contact-info media-info">
+        <a href="/pages/return-policy">Return Policy</a>
+      </p>
+      <p class="contact-info media-info">
+        <a href="/pages/ccpa-compliance">CCPA Compliance</a>
+      </p>
+      <p class="contact-info media-info">
+        <a href="/pages/gdpr-compliance">GDPR Compliance</a>
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/vertagear.myshopify.com/products/configure/241766/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["open_graph_image"] != blank %}
+  <div class="custom-field custom-field__open-graph-image custom-field__type--image">
+    <h3 class="custom-field--title">Open Graph Image</h3>
+    <div class="custom-field--value">  
+      {% include 'cf-image' with image: product.metafields.custom_fields["open_graph_image"], print: 'url' %}
+    </div>
+  </div>
+{% endif %}

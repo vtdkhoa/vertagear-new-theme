@@ -1,0 +1,7 @@
+<vue-form-generator ref="contactForm" :model="model" :schema="schema" :options="formOptions"></vue-form-generator>
+<div class="form-submit-box">
+    <div class="vertagear-btn -blue form-submit-btn" @click="validateInfoForm()" v-if="submit === 'false' ">{{button_text}}</div>
+    <div class="vertagear-btn -blue form-submit-btn" @click="validateInfoForm()" v-else-if="submit === 'error' ">ERROR</div>
+    <div class="vertagear-btn -blue form-submit-btn" v-else-if="submit === 'ing' ">SENDING...</div>
+    <div class="vertagear-btn -blue form-submit-btn" v-else-if="submit === 'true' ">SUCCESS</div>
+</div>

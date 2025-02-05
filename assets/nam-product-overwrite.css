@@ -1,0 +1,36 @@
+body #wrapper main {
+    padding-top: 75px !important;
+}
+
+.nam-spec {
+  background: #000;
+}
+.nam-spec__title {
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  line-height: 150%;
+}
+.nam-spec__detail__data {
+  color: #fff;
+}
+
+.product-detail-section__accordion {
+  display: none;
+}
+#review-section {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  body #wrapper main {
+    padding-top: 80px !important;
+}
+  
+  .nam-spec__title {
+    text-align: center;
+    font-weight: 700 !important;
+    font-size: 35px !important;
+    line-height: 130%;
+  }
+}

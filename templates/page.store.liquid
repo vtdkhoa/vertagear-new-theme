@@ -1,0 +1,105 @@
+{{ 'preorder-custom.js' | asset_url | script_tag }}
+{{ 'store.scss.css' | asset_url | stylesheet_tag }}
+{{ 'new-store.scss.css' | asset_url | stylesheet_tag }}
+{{ 'store-page-popup.scss.css' | asset_url | stylesheet_tag }}
+{{ 'jquery.absolveGa.js' | asset_url | script_tag }}
+<!-- /templates/page.liquid -->
+<a href='{{ settings.store_page_hero_url }}'>
+<div class='hero'>
+  <img class='hero-img' src="{{ settings.store_page_hero | img_url: 'master' }}" />
+  <div class='hero_info'>
+    <h1>{{ settings.store_page_hero_heading }}</h1>
+    <p>{{ settings.store_page_hero_desc }}</p>
+    <!--
+    <div class='main_button'>
+      <a href='{{ settings.store_page_hero_button_url }}'>
+        <div class='button_text'>{{ settings.store_page_hero_button_text }}</div>
+      </a>
+    </div>
+    -->
+  </div>
+  <!--<img class='promo-mobile no-drag' src="{{'promo-mobile.png' | asset_url }}" />-->
+</div>
+</a>
+    <div class='seat_grid_container'>
+      <ul class='seat_grid'>
+        <li class='seat_container'>
+          <img class='seat' src="{{ settings.store_page_panel_left_image | img_url:"632x424" }}" />
+          <div class='seat_info'>
+            <h2>{{ settings.store_page_panel_left_header }}</h2>
+            <p>{{ settings.store_page_panel_left_desc }}</p>
+            <div class='smaller_button'>
+              <a href='{{ settings.store_page_panel_left_button_url }}'>
+                <div class='button_text'>{{ settings.store_page_panel_left_button_text }}</div>
+              </a>
+            </div>
+          </div>
+          <!--<div class='logo_container'>
+              <img class='logo' src="{{ 'vertagear-seat-logo.png' | asset_url }}" />
+          </div>-->
+        </li>
+        <li class='seat_container'>
+          <img class='seat' src="{{ settings.store_page_panel_middle_image | img_url:"632x424" }}" />
+          <div class='seat_info'>
+            <h2>{{ settings.store_page_panel_middle_header }}</h2>
+            <p>{{ settings.store_page_panel_middle_desc }}</p>
+            <div class='smaller_button'>
+              <a href='{{ settings.store_page_panel_middle_button_url }}'>
+                <div class='button_text'>{{ settings.store_page_panel_middle_button_text }}</div>
+              </a>
+            </div>
+          </div>
+          <!--<div class='logo_container'>
+            <img class='logo' src="{{ 'vertagear-seat-logo.png' | asset_url }}" />
+          </div>-->
+        </li>
+        <li class='seat_container'>
+          <img class='seat' src="{{ settings.store_page_panel_right_image | img_url:"632x424" }}" />
+          <div class='seat_info'>
+            <h2>{{ settings.store_page_panel_right_header }}</h2>
+            <p>{{ settings.store_page_panel_right_desc }}</p>
+            <div class='smaller_button'>
+              <a href='{{ settings.store_page_panel_right_button_url }}'>
+                <div class='button_text'>{{ settings.store_page_panel_right_button_text }}</div>
+              </a>
+            </div>
+          </div>
+          <!--<div class='logo_container'>
+            <img class='logo' src="{{ 'vertagear-seat-logo.png' | asset_url }}" />
+          </div>-->
+        </li>
+      </ul>
+    </div>
+<div class='info'>
+  <div class='warranty'>
+    <div class='warranty_icon'></div>
+    <h2>Warranty</h2>
+    Up to 10 years manufacturer warranty
+    <div class='relative_smaller_button'>
+      <a href='https://www.vertagear.com/pages/warranty'>
+        <div class='button_text'>LEARN MORE</div>
+      </a>
+    </div>
+  </div>
+  <div class='assembly'>
+    <div class='assembly_icon'></div>
+    <h2>Easy Assembly</h2>
+    Vertagear S-Line Racing Series Rev. 2 assembly
+    <div class='relative_smaller_button'>
+      <a href='https://www.youtube.com/watch?v=Au67-Vk5p1I'>
+        <div class='button_text'>WATCH VIDEO</div>
+      </a>
+    </div>
+  </div>
+</div>
+<script>
+  jQuery(document).ready(function(){
+    jQuery(".zero-product-display qv").on("click", function(){
+      console.log("quickview click");
+      jQuery().absolveGa("virtual_pageview", {path: "store/quick-view", title: "Store: Open quick view"});
+    });
+    jQuery(".add-to-cart-btn").on("click", function(){
+      jQuery().absolveGa("virtual_pageview", {path: "store/quick-view/add-to-cart", title: "Store/QuickView: Add To Cart"});
+    });
+  });
+</script>

@@ -1,0 +1,341 @@
+<link rel="stylesheet" href="{{ 'pl4500-info.css' | asset_url }}" />
+<link rel="stylesheet" href="{{ 'flickity-v2.3.0.css' | asset_url }}" />
+<link rel="stylesheet" href="{{ 'image-selection-flickity.css' | asset_url }}" />
+
+<div class="nam-product-intro-container">
+  <div class="nam-product-images">
+    <div class="nam-product-images__wrapper">
+      <div id="namProductBigContentWrapper">
+            <img id="ProductTopBarImage" alt="product image" />
+            <video
+              width="100%"
+              height="100%"
+              controls
+              style="display: none"
+              id="namProductBigVideo"
+            >
+              <source
+                src="https://cdn.shopify.com/videos/c/vp/963a7a2c95b6459dbcf5b4147f624a1e/963a7a2c95b6459dbcf5b4147f624a1e.HD-720p-2.1Mbps.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div
+            class="nam-product-images__selection"
+            id="namProductImagesSelection"
+          >
+            <img
+              id="npiSelectionBaseImg"
+              class="nam-product-images__selection__img base"
+            />
+            <div class="separator"></div>
+            <div
+              id="npiSelectionStaticImgs"
+              class="nam-product-images__selection__static-imgs"
+            ></div>
+          </div>
+    </div>
+  </div>
+
+  <div class="nam-product-info">
+    <div class="nam-product__header">
+      <div class="nam-product__header__title">{{ product.title }}</div>
+      <div class="nam-product__header__reviews">
+        <div class="nam-product__header__reviews__stars">
+          <img
+               src="{{ 'nam-pl4500-review-star.svg' | file_url }}"
+               alt="review star"
+               />
+          <img
+               src="{{ 'nam-pl4500-review-star.svg' | file_url }}"
+               alt="review star"
+               />
+          <img
+               src="{{ 'nam-pl4500-review-star.svg' | file_url }}"
+               alt="review star"
+               />
+          <img
+               src="{{ 'nam-pl4500-review-star.svg' | file_url }}"
+               alt="review star"
+               />
+          <img
+               src="{{ 'nam-pl4500-review-star.svg' | file_url }}"
+               alt="review star"
+               />
+        </div>
+        <div class="nam-product__header__reviews__text">15 reviews</div>
+      </div>
+    </div>
+    
+    <div class="nam-product__wh__highlight">
+          <img src="{{ 'nam-pl4500-chair.svg' | file_url }}" />
+          <div class="text">
+            <div class="highlight">
+              The product line is suitable for big and fat people
+            </div>
+<!--             <div class="learn-more">Learn more</div> -->
+          </div>
+        </div>
+
+    <div class="nam-product__wh">
+      <div class="nam-product__info__limits">
+        <img
+             src="{{ 'nam-pl4500-weight.svg' | file_url }}"
+             alt="product weight limit"
+             />
+        <div class="nam-product__info__limits__text">
+          <div class="nam-product__info__limits__title">WEIGHT</div>
+          <div class="nam-product__info__limits__data">
+            Up to 240 lbs / 110 kg
+          </div>
+        </div>
+      </div>
+      <div class="nam-product__info__limits">
+        <img
+             src="{{ 'nam-pl4500-height.svg' | file_url }}"
+             alt="product weight limit"
+             />
+        <div class="nam-product__info__limits__text">
+          <div class="nam-product__info__limits__title">HEIGHT</div>
+          <div class="nam-product__info__limits__data">
+            Up to 6’2” / 188 cm
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nam-product__key-features">
+      <div class="nam-product__key-features__title">KEY FEATURES</div>
+      <ul class="nam-product__key-features__list">
+        <li>
+          RGB Led Upgrade.
+          <a onclick="namRgbModalOpen()">Learn more</a>
+        </li>
+        <li>
+          Light-up your logo.
+          <a href="/products/pl4500-rgb-led-acrylic-personalized-service?variant=32306735644783" target="_blank">Learn more</a>
+        </li>
+        <li>
+          HygennX.
+          <a onclick="namOpenHygennPopup()">Learn more</a>
+        </li>
+        <li>
+          Effortless Assembly.
+          <a data-youtube="https://www.youtube.com/embed/Vr_OXiEFJYA">Learn more</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="nam-product__select-color">
+      <div class="nam-product__select-color__title">
+        Select chair color
+      </div>
+      <div class="nam-prouct__select-color__subtitle">
+        Please select the color of the product.
+      </div>
+      <div
+            id="namProductSelectColorOptions"
+            class="nam-product__select-color__options"
+          ></div>
+    </div>
+
+    <div class="nam-product__rgb-options">
+      <div class="nam-product__rgb-options__title">
+        RGB LED KIT UPGRADE OPTIONS
+      </div>
+      <div class="nam-product__rgb-options__subtitle">
+        Please select an option below to add to the chair
+      </div>
+
+      <div class="nam-product__rgb-options__list">
+        <div class="nam-product__rgb-option">
+          <img
+               class="display-desktop"
+               src="{{ 'nam-pl4500-rgb-option-1.jpg' | file_url }}"
+               alt="product rgb option image"
+               />
+          <img
+               class="display-mobile"
+               src="{{ 'nam-pl4500-rgb-option-mob-1.jpg' | file_url }}"
+               alt="product rgb option image"
+               />
+          <div class="nam-product__rgb-option__content">
+            <div class="nam-product__rgb-option__title">
+              Stock Chair with RGB Led kit upgrade
+            </div>
+            <div class="nam-product__rgb-option__details">
+              The RGB LED Upgrade kit allows you to mix and match your
+              gaming chair. <a onclick="namRgbModalOpen()">More details...</a>
+            </div>
+            <div class="nam-product__rgb-option__price">
+              <button>
+                <img
+                     class="nam-product__rgb-option__added-icon"
+                     style="display: none"
+                     src="{{ 'tick.svg' | file_url }}"
+                     />
+                <div class="nam-product__rgb-option__add-to-chair-text">
+                  Add to chair
+                </div>
+              </button>
+              <div>+$299</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="namProductRgbOption2" style="max-height: 0">
+          <div class="nam-product__rgb-option">
+            <img
+                 class="display-desktop"
+                 src="{{ 'nam-pl4500-rgb-option-2.jpg' | file_url }}"
+                 alt="product rgb option image"
+                 />
+            <img
+                 class="display-mobile"
+                 src="{{ 'nam-pl4500-rgb-option-mob-2.jpg' | file_url }}"
+                 alt="product rgb option image"
+                 />
+            <div class="nam-product__rgb-option__content">
+              <div class="nam-product__rgb-option__title">
+                Light Up Your Logo
+              </div>
+              <div class="nam-product__rgb-option__details">
+                Our high-quality laser engraving technology will allow you
+                to personalize any logo. <a href="/products/pl4500-rgb-led-acrylic-personalized-service" target="_blank">More details...</a>
+              </div>
+              <div class="nam-product__rgb-option__price">
+                <button>
+                  <img
+                       class="nam-product__rgb-option__added-icon"
+                       style="display: none"
+                       src="{{ 'tick.svg' | file_url }}"
+                       />
+                  <div class="nam-product__rgb-option__add-to-chair-text">
+                    Add to chair
+                  </div>
+                </button>
+                <div>+$22.99</div>
+              </div>
+            </div>
+          </div>
+          <button
+                  class="nam-product-button nam-product__rgb-option__engrave"
+                  id="namProductRgbEngraveBtn"
+                  style="display: none"
+                  onclick="namRgbModalEngraveLogoOpen()"
+                  >
+            Engrave Your Logo
+          </button>
+        </div>
+
+        <div class="nam-product__rgb-option">
+          <img
+               class="display-desktop"
+               src="{{ 'nam-pl4500-rgb-option-3.jpg' | file_url }}"
+               alt="product rgb option image"
+               />
+          <img
+               class="display-mobile"
+               src="{{ 'nam-pl4500-rgb-option-mob-3.jpg' | file_url }}"
+               alt="product rgb option image"
+               />
+          <div class="nam-product__rgb-option__content">
+            <div class="nam-product__rgb-option__title">
+              RGB LED Bottom Kit
+            </div>
+            <div class="nam-product__rgb-option__details">
+              Designed to be a seamless experience, the RGB LED kit is the
+              world’s first wirelessly. <a href="/products/rgb-led-bottom-kit" target="_blank">More details...</a>
+            </div>
+            <div class="nam-product__rgb-option__price">
+              <button>
+                <img
+                     class="nam-product__rgb-option__added-icon"
+                     style="display: none"
+                     src="{{ 'tick.svg' | file_url }}"
+                     />
+                <div class="nam-product__rgb-option__add-to-chair-text">
+                  Add to chair
+                </div>
+              </button>
+              <div>+$229.99</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nam-product__total-price">
+      <div class="nam-product__total-price__header">
+        <div class="nam-product__total-price__title">
+          PL4500 Price with Black Carbon color
+        </div>
+        <div class="nam-product__total-price__pl4500-price">$499.99</div>
+      </div>
+      {% form 'product', product %}
+        <div class="shopify-payment-terms">
+          {{ form | payment_terms }}
+        </div>
+      {% endform %}
+
+      <div
+           id="namProductTotalPriceWithOptions"
+           class="nam-product__total-price__options"
+           style="display: none"
+           >
+        <div class="nam-product__total-price__title">WITH OPTIONS</div>
+        <ul class="nam-product__total-price__options__list"></ul>
+      </div>
+
+      <div class="nam-product__total-price__total">
+        <div class="nam-product__total-price__total_title">Total</div>
+        <div id="namProductTotalPrice" class="nam-product__total-price__total__number">$499.99</div>
+      </div>
+
+      <div class="nam-product__total-price__actions">
+        <div class="nam-product__total-price__quantity">
+          <button id="namProductCartQuantityDownBtn">
+            <img src="{{ 'minus-icon.svg' | file_url }}" />
+          </button>
+          <div id="namProductCartQuantity">1</div>
+          <button id="namProductCartQuantityUpBtn">
+            <img src="{{ 'plus-icon.svg' | file_url }}" />
+          </button>
+        </div>
+        
+        <div class="nam-product-__total-price__atc-btn-wrapper">
+          <button class="nam-product-button" id="namProductAtcBtn">
+            <img src="{{ 'cart-icon.svg' | file_url }}" />ADD TO CART
+          </button>
+        </div>
+        
+        <form class="no-display" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+          <div>
+            <select name="id">
+              <option id="namProductVariantId" value="null"></option>
+            </select>
+            <input
+                   id="namProductQuantity"
+                   name="quantity"
+                   value="1" />
+          </div>
+        </form>
+        
+      </div>
+    </div>
+
+    <div class="nam-product__support">
+      <img src="{{ 'support-icon.svg' | file_url }}" />
+      <div>You need to support. <a href="#">Contact us</a></div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'flickity-v2.3.0.js' | asset_url }}"></script>
+<script>
+  const globalNamProduct = {{ product | json }};
+  console.log(JSON.stringify(globalNamProduct));
+</script>
+<script src="{{ 'pl4500-rgb-select.js' | asset_url }}"></script>
+<script src="{{ 'pl4500-info2.js' | asset_url }}"></script>

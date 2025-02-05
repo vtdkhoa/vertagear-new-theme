@@ -1,0 +1,112 @@
+{% assign top_img = section.settings.img | img_url : 'master' %}
+<div class="about-history">
+  	<div class="vertagear-container">
+    	<img src="{{top_img}}" class="about-history__top-img" alt>
+    </div>
+  	{% if page.metafields.custom_fields["about_history"] != blank %}
+      <div class="about-history__main vertagear-container">
+		{% for item in page.metafields.custom_fields["about_history"] %}
+            <div class="about-history__card">
+                <div class="about-history__card-text -mobile">
+                  	{% if item["year"] != blank %}
+                      <div class="about-history__card-year">
+                           {{ item["year"] }}
+                      </div>
+                  	{% endif %}
+                  	 {% if item["title"] != blank %}
+                      <div class="about-history__card-title">
+                           {{ item["title"] }}
+                      </div>
+                    {% endif %}
+                  	{% if item["main_link"] != blank %}
+                      <div class="about-history__card-link">
+                          <a href="{{ item["main_link"] }}" class="about-history__card-link-inner">Learn More</a>
+                      </div>
+                  	{% endif %}
+                </div>
+                <div class="about-history__card-text">
+                  	{% if item["year"] != blank %}
+                      <div class="about-history__card-year -desktop">
+                           {{ item["year"] }}
+                      </div>
+                    {% endif %}
+                  	{% if item["year"] != blank %}
+                      <div class="about-history__card-title -desktop">
+                          {{ item["title"] }}
+                      </div>
+                  	{% endif %}
+                  	{% if item["main_link"] != blank %}
+                      <div class="about-history__card-link -desktop">
+                          <a href="{{ item["main_link"] }}" class="about-history__card-link-inner">Learn More</a>
+                      </div>
+                  	{% endif %}
+                  	{% if item["sub_history"] != blank %}
+                      <div class="about-history__card-list">
+                          {% for sub_history_item in item["sub_history"] %}
+                          <div class="about-history__card-list-li">
+                              <div class="about-history__card-list-li-year">{{sub_history_item['year']}}</div>
+                              <div class="about-history__card-list-li-content">{{sub_history_item['content']}}</div>
+                          </div>
+                          {% endfor %}
+                      </div>
+                  	{% endif %}
+                  	{% if item["content"] != blank %}
+                    <div class="about-history__card-desc">
+                        {{item["content"]}}
+                    </div>
+                  	{% endif %}
+                </div>
+                <div class="about-history__card-img">
+                  	{% if item["main_video"] != blank %}
+                  		<div class="about-history__card-img-main">
+                          <video autoplay muted defaultMuted playsinline loop class="about-history__card-img-main-img" preload="metadata" poster="{{item["main_image"]}}">
+                              <source src="{{item["main_video"]}}" type="video/mp4">
+                          </video>
+                        </div> 
+                   {% else %}
+                  	  {% if item["main_image"] != blank %}
+                        <div class="about-history__card-img-main">
+                            <img src='{{item["main_image"]}}' class="about-history__card-img-main-img" loading="lazy" alt>
+                        </div>                  
+                  	  {% endif %}
+                   {% endif %}
+                   {% if item["sub_image"] != blank %}
+                      <div class="about-history__card-img-sub">
+                          {% for sub_image_item in item["sub_image"] %}
+                          <div class="about-history__card-img-sub-single">
+                              <img src="{{sub_image_item.img}}" alt="{{sub_image_item.description}}" class="about-history__card-img-sub-single-img" loading="lazy">
+                              <div class="about-history__card-img-sub-single-text" aria-hidden="true">
+                                  {{sub_image_item.description}}
+                              </div>
+                          </div>
+                          {% endfor %}
+                      </div>
+                  	{% endif %}
+                </div>
+            </div>
+      	{% endfor %}
+        <div class="about-history__final">
+            <div class="about-history__final-text">
+                <div class="about-history__final-title">
+                    To be continued...
+                </div>
+            </div>
+            <div class="about-history__final-img">
+            </div>
+        </div>
+      </div>
+    {% endif %}
+</div>
+
+{% schema %}
+  {
+  "name": "History",
+  "settings": [
+    {
+        "id": "img",
+        "type": "image_picker",
+        "label": "Top Image"
+    }
+  ]
+  }
+{% endschema %}

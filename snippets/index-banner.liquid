@@ -1,0 +1,39 @@
+<div class="js-parallax-section index-banner -text-{{ mobile_text_position }}-mobile -text-{{ text_position }} -{{bannerTypeString}} {{other_class}}">
+    <img src="{{ banner }}" alt="{{ title }}" class="js-parallax-section__bg index-banner__bg -desktop" loading="lazy">
+    <img src="{{ banner_mobile }}" alt="{{ title }}" class="js-parallax-section__bg index-banner__bg -mobile" loading="lazy">
+    <div class="index-banner__text">
+        {% if slogan %}
+        <div class="index-banner__slogan-box">
+            <div class="index-banner__slogan">
+                {{slogan}}
+            </div>
+        </div>
+        {% endif %}
+        <div class="index-banner__title" data-scroll="fade-up" data-scroll-duration="600">
+            {{ title }}
+            {% if title_sub != '' %}
+            <!-- <div class="index-banner__title-small">{{ title_sub }}</div> -->
+            {% endif %}
+        </div>
+        {% if desc %}
+            <div class="index-banner__desc" data-scroll="fade-up" data-scroll-duration="600">
+                {{ desc }}
+            </div>
+        {% endif %}
+        {% if price %}
+            <div class="index-banner__price" data-scroll="fade-up" data-scroll-duration="600">
+                {{ price }}
+            </div>
+        {% endif %}
+        {% if btn != blank %}
+            <div class="index-banner__btn-box" data-scroll="fade-up" data-scroll-duration="600">
+                <a class="vertagear-btn index-banner__btn {% if btn_class %}{{btn_class}}{% else %}-blue{% endif %}" href="{{ btn }}" target="_blank" rel="noopener">{% if btn_text %}{{btn_text}}{% else %}learn more{% endif %}</a>
+                {% if rgb == 1 and best_rgb_link %}
+                    <a href="{{best_rgb_link}}" class="index-banner__rgb" target="_blank">
+                        <img src='{{ 'rgb-led.png' | asset_url}}' class="index-banner__rgb-img">
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>

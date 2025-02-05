@@ -1,0 +1,31 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/vertagear.myshopify.com/products/configure/240221/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["posture_perfect_ergonomics"] != blank %}
+  <div class="custom-field custom-field__posture-perfect-ergonomics custom-field__type--field-collection">
+    <h3 class="custom-field--title">Posture Perfect Ergonomics</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign p_p_e_image_array = product.metafields.custom_fields["p_p_e_image"] | split: separator %}
+      {% assign p_p_e_title_array = product.metafields.custom_fields["p_p_e_title"] | split: separator %}
+      {% assign p_p_e_desc_array = product.metafields.custom_fields["p_p_e_desc"] | split: separator %}
+      {% assign fc_keys = product.metafields.custom_fields["posture_perfect_ergonomics"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item-- fc-index--{{ index }}">
+          <div class="fc-field field__p-p-e-image">
+            {{ p_p_e_image_array[index] }}
+          </div>
+          <div class="fc-field field__p-p-e-title">
+            {{ p_p_e_title_array[index] }}
+          </div>
+          <div class="fc-field field__p-p-e-desc">
+            {{ p_p_e_desc_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,124 @@
+{% include 'gravityadmin' %}
+<div style="display: none !important;  visibility: hidden !important;" class="cmspro-section" id="cmspro-47cd0d66">
+</div>
+<link rel="stylesheet" href="{{ 'ag-vertagear-product-template.scss.css' | asset_url }}">
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign sl5000 = true  %}
+{% assign separator = "|###|" %}
+{% assign collectionsArray = 'S-Line|P-Line|Gaming-Series' | split: "|" %}
+{% assign is_rgb_kit_product = product.metafields.custom_fields["is_rgb_kit_product"] %}
+{% assign youtube_embed_url  = product.metafields.custom_fields["youtube_embed_url"] %}
+{% assign youtube_section_image   = product.metafields.custom_fields["youtube_section_image"] %}
+{% if youtube_embed_url != blank and youtube_section_image != blank %}
+{% include 'youtube-popup' %}
+{% endif %}
+
+<div itemscope itemtype="http://schema.org/Product" class="TEST2">
+  <meta itemprop="name" content="{{ product.title | escape }} - {{ product.selected_variant.title }}">
+  <meta itemprop="image" content="https:{{ product.selected_variant.image.src | img_url: 'grande' }}">
+  <meta itemprop="description" content="{{ product.description | strip_html }}">
+  <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="sku" content="{{ product.selected_variant.sku }}">
+  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <meta itemprop="price"
+      content="{{ current_variant.price | money_without_currency | remove: "." | replace: ',', '.' }}">
+    <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+    <link itemprop="availability"
+      href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="seller" content="{{ shop.domain }}">
+    <div  class="form-vertical">
+      <div id="ag-vg-product">
+        {% include 'atfirst-rework-product-top'%}
+        <div id="new-edit-main" class="main-wrapper">
+          {% if is_rgb_kit_product == 1  %}
+          	{% if product.type != 'Personalized Service' %}
+            {% include 'rgb-feature' , class: '' %}
+          	{% if youtube_embed_url != blank and youtube_section_image != blank %}
+          	  {% include 'youtube-section', youtube: youtube_embed_url,img:youtube_section_image %}
+            {% endif %}
+            {% endif %}
+          {% endif %}
+   	      {% assign full_image_banner  =  product.metafields.custom_fields["full-image-banner"] | split: ','  %}
+          {% if full_image_banner != blank %}
+            {% assign fullImageTitle = product.metafields.custom_fields["full-image-banner-title"] | split: separator  %}
+            {% assign fullImageTitleSub = product.metafields.custom_fields["full-image-banner-sub-title"] | split: separator  %}
+            {% assign fullImageBanner = product.metafields.custom_fields["banner_desktop"] | split: separator %}
+            {% assign fullImageBannerMobile = product.metafields.custom_fields["banner_mobile"] | split: separator %}
+            {% assign fullImageBannerVideoMobile =  product.metafields.custom_fields["video_mobile"] | split: separator%}
+            {% assign fullImageBannerVideo =  product.metafields.custom_fields["video_desktop"] | split: separator%}
+            {% assign fullImageBtn =  product.metafields.custom_fields["full-image-banner-btn-url"] | split: separator%}
+            {% assign fullImageDesc = product.metafields.custom_fields["full-image-banner-description"] | split: separator %}
+            {% assign mobile_text_position_array = product.metafields.custom_fields["mobile_text_position"] | split: separator %}
+            {% assign text_position_array = product.metafields.custom_fields["text_position"] | split: separator %}
+            {% assign bannerType =  product.metafields.custom_fields["banner_type"] | split: separator %}
+            {% include 'atfirst-rework-full-image-section' with banner_amount:full_image_banner,fullImageTitle,fullImageTitleSub,fullImageBanner,fullImageBannerMobile,fullImageBannerVideoMobile,fullImageBannerVideo,fullImageBtn,fullImageDesc,mobile_text_position_array,text_position_array,bannerType%}
+          {% endif %}          
+          {% if product.id == 4589522288751 %}
+          	<div class="pl4500-wrapper">
+            	{% include 'atfirst-pl4500-component' %}
+          	</div>
+          {% endif %}
+          
+          {% if product.id == 6972358819951 %}
+          	{% include 'nam-product-highlights' %}
+          {% endif %}
+          
+          {% include 'atfirst-rework-product-dimension'%}
+          
+
+          {% assign separator = "|###|" %}
+          {% assign productFeatureThumb1 = product.metafields.custom_fields["c_m_image"] | split: separator %}
+          {% assign productFeatureTitle1 = product.metafields.custom_fields["c_m_title"] | split: separator %}
+          {% assign productFeatureDesc1 = product.metafields.custom_fields["c_m_desc"] | split: separator %}
+          {% assign productFeatureThumb2 = product.metafields.custom_fields["p_p_e_image"] | split: separator %}
+          {% assign productFeatureTitle2 = product.metafields.custom_fields["p_p_e_title"] | split: separator %}
+          {% assign productFeatureDesc2 = product.metafields.custom_fields["p_p_e_desc"] | split: separator %}
+
+          {% if productFeatureThumb1 != blank %}
+          {% include 
+          'atfirst-rework-product-feature',  
+            productFeatureBigTitle : 'Construction & Materials', 
+            productFeatureThumb:productFeatureThumb1, 
+            productFeatureTitle:productFeatureTitle1, 
+            productFeatureDesc:productFeatureDesc1 
+          %}
+          {% endif %}
+
+          {% if productFeatureThumb2 != blank %}
+          {% include 
+            'atfirst-rework-product-feature',  
+            productFeatureBigTitle : 'Posture Perfect Ergonomics', 
+            productFeatureThumb:productFeatureThumb2, 
+            productFeatureTitle:productFeatureTitle2, 
+            productFeatureDesc:productFeatureDesc2 
+          %}
+          {% endif %}
+          {% comment %}
+          	{% if is_rgb_kit_product == 1 %}
+          		{% include 'rgb-shop' %}
+            	{% include 'product-detail'%}
+          	{% endif %}
+          {% endcomment %}
+            {% if is_rgb_kit_product == 1 %}
+          		{% include 'rgb-shop' %}
+          	{% endif %}
+            {% include 'product-detail'%}
+        {% if collectionsArray contains product.type %}
+          {% include 'atfirst-rework-product-chart'%}
+        {% endif %}
+          
+        {% comment %}
+        	{% unless is_rgb_kit_product == 1 %}
+        	{% include 'atfirst-rework-product-old-tab' %}
+       	 	{% endunless %}
+        	{% if is_rgb_kit_product == 1 %}
+        	{% include 'atfirst-rework-product-might-like'%}
+        	{% endif %}
+        {% endcomment %}
+        {% include 'atfirst-rework-product-might-like'%}
+      </div>
+    </div>
+  </div>
+</div>

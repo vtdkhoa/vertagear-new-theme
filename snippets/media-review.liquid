@@ -1,0 +1,321 @@
+{% assign hasReview = false %}
+{% for block in section.blocks %}
+  {% if block.type == 'media-review' %}
+    {% assign hasReview = true %}
+  {% endif %}
+{% endfor %}
+{% if hasReview %}
+  <div class="media-review">
+    <div
+      class="media-review__brands"
+      style="{% if product.id == 7025941348463 %}gap: 20px;align-items: center;{% endif %}"
+    >
+      {% if product.id == 7024401154159 %}
+        <div class="media-review__brands-item">
+          <a target="_blank" href="https://www.androidguys.com/reviews/vertagear-sl3800-gaming-chair/">
+            <div class="media-review__brands-item__icon">
+              <img src="{{ 'AndroidGuys_EC2.png' | asset_img_url }}">
+            </div>
+            <div class="media-review__brands-item__text"></div>
+          </a>
+        </div>
+        {% comment %} <div class="media-review__brands-vector" style="height: 96px;"></div> {% endcomment %}
+        <div class="media-review__brands-item" style="max-width: 100px;margin-left: 30px;">
+          <a target="_blank" href="https://www.youtube.com/watch?v=PlDWx-X99MA">
+            <div class="media-review__brands-item__icon" style="margin-bottom: 0;">
+              <img src="{{ 'Techroom_UK_logo.png' | asset_img_url }}" style="margin-left: 0;max-width: 80px;">
+            </div>
+
+            <div
+              class="media-review__brands-item__text"
+              style="
+                display: flex;
+                font-weight: 700;
+                align-items: center;
+              "
+            >
+              <span class="media-review__brands-item__icon-absolute" style="width: 25px;">
+                <img src="{{ 'Youtube_logo.png' | asset_img_url }}"> </span
+              ><span style="text-decoration: none;max-width: 70px;line-height: 1; font-size: 12px;"
+                >Uboxing & Looks</span
+              >
+            </div>
+          </a>
+        </div>
+      {% else %}
+        {% if product.id == 7025941446767 %}
+          <div class="media-review__brands-item">
+            <a target="_blank" href="https://gamerant.com/best-gaming-chairs-big-tall-gamers/">
+              <div class="media-review__brands-item__icon">
+                <img src="{{ 'Gamerant_PL6800.png' | asset_img_url }}">
+              </div>
+              <div class="media-review__brands-item__text">
+                {% if product.id == 7025941446767 %}
+                  <span>"Best Ergonomic Gaming Chair for Big and Tall Gamers"</span>
+                {% else %}
+                  <span>"Best Ergonomic Gaming Chair"</span>
+                {% endif %}
+              </div>
+            </a>
+          </div>
+          {% comment %} <div class="media-review__brands-vector" style="height: 96px;"></div> {% endcomment %}
+        {% endif %}
+        {% if product.id == 7025941348463 %}
+          <div class="media-review__brands-item" style="text-align: center;">
+            <a target="_blank" href="https://www.wepc.com/gaming-chair/are-gaming-chairs-comfortable/">
+              <div class="media-review__brands-item__icon">
+                <img src="{{ 'WePC-Awards-Recommended.png' | asset_img_url }}">
+              </div>
+              <div class="media-review__brands-item__text"></div>
+            </a>
+          </div>
+          {% comment %} <div class="media-review__brands-vector" style="height: 96px;"></div> {% endcomment %}
+        {% endif %}
+        {% if product.id != 7025941348463 %}
+          <div class="media-review__brands-item">
+            <a
+              target="_blank"
+              href="https://www.ign.com/articles/best-big-and-tall-gaming-chairs"
+            >
+              <div class="media-review__brands-item__icon" style="min-height: 23px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="62" height="18" viewBox="0 0 62 18" fill="none">
+                  <g clip-path="url(#clip0_837_3888)">
+                  <path d="M31.8737 10.5916V7.35525L40.554 7.35756C41.4352 7.35756 42.1538 8.07158 42.1538 8.95255V12.799C42.1538 14.7788 40.5712 16.4172 38.5595 16.4185L33.0025 16.4225C28.884 16.4225 25.5518 13.0984 25.5518 8.99037C25.5518 4.88575 28.9043 1.55859 33.0089 1.55859H41.6127V4.97317H33.0071C30.7885 4.97317 28.9667 6.77197 28.9667 8.99037C28.9667 11.2056 30.7619 13.0056 33.0013 13.0053H38.7419V10.5916H31.8737Z" fill="#231F20"/>
+                  <path d="M24.4238 1.54102H21.0469V14.8451C21.0469 15.7198 21.7615 16.4296 22.6361 16.4296H24.4258V2.64054C24.4258 2.63361 24.4238 1.54102 24.4238 1.54102Z" fill="#231F20"/>
+                  <path d="M58.0689 1.5495H56.2562L56.2578 13.0185C56.2553 13.0528 56.2492 13.0849 56.2313 13.1122C56.1908 13.1804 56.1164 13.2264 56.0308 13.2264C55.9583 13.2264 55.8941 13.1934 55.8229 13.0999L50.1434 3.14265C49.512 2.08453 48.3536 1.38867 47.055 1.38867H46.9941C45.0123 1.38867 43.4053 2.99528 43.4053 4.97705V14.8451C43.4053 15.7197 44.1173 16.4295 44.9917 16.4295H46.7899L46.7889 4.97705C46.7889 4.93836 46.8037 4.90205 46.8227 4.87164C46.8624 4.80125 46.9379 4.75372 47.0241 4.75372C47.0952 4.75372 47.1776 4.77968 47.2247 4.86702L52.9386 14.8892C53.5695 15.9473 54.7022 16.5927 56.0004 16.5927H56.0617C58.0435 16.5927 59.6529 14.9859 59.6529 13.004V3.13453C59.6529 2.26001 58.9438 1.5495 58.0689 1.5495Z" fill="#231F20"/>
+                  <path d="M61.2199 2.2854H61.069V2.02712H61.2199C61.3006 2.02712 61.3555 2.08604 61.3555 2.15634C61.3555 2.22672 61.3006 2.2854 61.2199 2.2854ZM61.36 2.35897C61.4348 2.32863 61.5012 2.2612 61.5012 2.15634C61.5012 2.02855 61.4018 1.91406 61.2437 1.91406H60.9229V2.70976H61.069V2.38564H61.1915L61.3437 2.70976H61.5103L61.36 2.35897Z" fill="#231F20"/>
+                  <path d="M61.19 2.94441C60.8391 2.94441 60.5696 2.67403 60.5696 2.31328C60.5696 1.95229 60.8391 1.68183 61.19 1.68183C61.5406 1.68183 61.8108 1.95229 61.8108 2.31328C61.8108 2.67403 61.5406 2.94441 61.19 2.94441ZM61.19 1.54688C60.7667 1.54688 60.4238 1.88971 60.4238 2.31328C60.4238 2.73661 60.7667 3.07936 61.19 3.07936C61.6134 3.07936 61.9564 2.73661 61.9564 2.31328C61.9564 1.88971 61.6134 1.54688 61.19 1.54688Z" fill="#231F20"/>
+                  <path d="M4.05859 5.73791C4.5035 5.06395 5.08128 4.48608 5.75533 4.0411C5.85278 3.15551 5.98519 2.34714 6.14856 1.63281C4.09251 2.43648 2.45405 4.07493 1.65039 6.13107C2.36496 5.96753 3.17324 5.83513 4.05859 5.73791Z" fill="#D42029"/>
+                  <path d="M12.2768 4.0217C12.2779 4.02799 12.2782 4.03372 12.2792 4.04001C12.9541 4.48508 13.5325 5.06326 13.978 5.73802C14.8634 5.83524 15.6718 5.96764 16.3862 6.13102C15.5804 4.06971 13.9356 2.42831 11.8721 1.62695C12.0374 2.33746 12.1739 3.14089 12.2768 4.0217Z" fill="#D42029"/>
+                  <path d="M5.75538 13.9586C5.08086 13.5133 4.50276 12.9349 4.05777 12.2605C4.05132 12.2593 4.04511 12.2591 4.03858 12.2578C3.14702 12.1529 2.34869 12.0182 1.64551 11.8555C2.44726 13.9177 4.08803 15.5615 6.14862 16.3669C5.98532 15.6527 5.85276 14.8443 5.75538 13.9586Z" fill="#D42029"/>
+                  <path d="M13.9978 12.2589C13.9913 12.2601 13.9851 12.2605 13.9786 12.2616C13.5332 12.9371 12.9545 13.5156 12.2792 13.9609C12.278 13.9675 12.2777 13.9737 12.2765 13.9804C12.1737 14.8608 12.0372 15.6637 11.8721 16.3739C13.9397 15.571 15.5869 13.9245 16.3906 11.8574C15.6868 12.0204 14.8886 12.1548 13.9978 12.2589Z" fill="#D42029"/>
+                  <path d="M18.0111 7.53011C16.614 6.88361 14.5193 6.63847 13.8073 6.56252C13.6588 6.53704 13.5247 6.5247 13.3969 6.5247L11.1822 9.00042L13.3969 11.4757C13.5487 11.4757 13.7054 11.4608 13.8732 11.4292C14.5688 11.3485 16.6289 11.093 18.0111 10.4539V7.53011ZM4.64036 6.5247C4.51234 6.5247 4.37842 6.53704 4.22914 6.56252C3.51751 6.63847 1.42261 6.88361 0.0253906 7.53083V10.4531C1.4078 11.093 3.46847 11.3481 4.16385 11.4292C4.33105 11.4608 4.48837 11.4757 4.64036 11.4757L6.85446 9.00042L4.64036 6.5247ZM6.54299 13.3791C6.54299 13.5065 6.55525 13.6415 6.58025 13.7897C6.65637 14.5012 6.90135 16.5964 7.54841 17.993H10.4709C11.11 16.6109 11.3665 14.5504 11.4469 13.8554C11.4786 13.6878 11.494 13.5308 11.494 13.3791L9.01871 11.1644L6.54299 13.3791ZM7.54841 0.0078125H10.4709C11.11 1.3907 11.3665 3.45073 11.4469 4.14619C11.4786 4.31371 11.494 4.47 11.494 4.62183L9.01871 6.8372L6.54299 4.62183C6.54299 4.49492 6.55525 4.36028 6.58025 4.21188C6.65637 3.49993 6.90135 1.40487 7.54841 0.0078125Z" fill="#D42029"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_837_3888">
+                  <rect width="61.949" height="18" fill="white" transform="translate(0.0253906)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <div class="media-review__brands-item__text">
+                {% if product.id == 7025941446767 %}
+                  <span>"Best Ergonomic Big and Tall Gaming Chair"</span>
+                {% else %}
+                  <span>"Best Ergonomic Gaming Chair"</span>
+                {% endif %}
+              </div>
+            </a>
+          </div>
+        {% endif %}
+        {% if product.id != 7025941348463 and product.id != 7025941446767 %}
+          {% comment %} <div class="media-review__brands-vector"></div> {% endcomment %}
+          <div class="media-review__brands-item">
+            <a
+              target="_blank"
+              href="https://youtu.be/CvElIM1P_rw?si=Y4XsAtN6_FZ7K8Vk"
+            >
+              <div class="media-review__brands-item__icon">
+                <img src="{{ 'iconx3.png' | asset_img_url }}">
+              </div>
+              <div class="media-review__brands-item__text">
+                <span>As seen on</span>
+                <span>ShortCircuit</span>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+        {% if product.id != 7025941446767 and product.id != 7025941348463 %}
+          {% comment %} <div class="media-review__brands-vector"></div> {% endcomment %}
+          <div class="media-review__brands-item">
+            <a
+              target="_blank"
+              href="https://www.esquire.com/lifestyle/g44900532/best-gaming-chairs/"
+            >
+              <div class="media-review__brands-item__icon">
+                <img src="{{ 'Esquire-logo.png' | asset_img_url: '100x' }}">
+              </div>
+              <div class="media-review__brands-item__text">“Most Comfortable Gaming Chair”</div>
+            </a>
+          </div>
+        {% elsif product.id != 7025941348463 %}
+          {% comment %} <div class="media-review__brands-vector" style="height: 96px;"></div> {% endcomment %}
+          <div class="media-review__brands-item only-pl6800">
+            <a target="_blank" href="https://screenrant.com/10-best-gaming-chairs/">
+              <div class="media-review__brands-item__icon" style="min-height: 23px;">
+                <img src="https://cdn.shopify.com/s/files/1/1759/4609/files/Screen_rant.png?v=1686950168">
+              </div>
+              <div class="media-review__brands-item__text">"Best Gaming Chair for Plus Size Gamer"</div>
+            </a>
+          </div>
+          {% comment %} <div class="media-review__brands-vector" style="height: 96px;"></div> {% endcomment %}
+          <div class="media-review__brands-item only-pl6800">
+            <a target="_blank" href="https://youtu.be/MkbbOc7utVE?si=k5z5MAnKCi-Dawaj">
+              <div class="media-review__brands-item__icon" style="min-height: 23px;width: 120px;">
+                <img src="{{ 'Award_04.png' | asset_img_url: '120x' }}">
+              </div>
+              <div class="media-review__brands-item__text"></div>
+            </a>
+          </div>
+        {% endif %}
+        {% if product.id == 7025941348463 %}
+          <div class="media-review__brands-item" style="max-width: fit-content;align-self: flex-start;">
+            <a
+              target="_blank"
+              href="https://www.askmen.com/gear/tech/askmen-guy-gear-awards-best-man-cave-essentials.html"
+            >
+              <div class="media-review__brands-item__title" style="font-size: 15px;">Man Cave Essentials</div>
+              <div class="media-review__brands-item__logo">
+                <img src="{{ 'Ask_men.png' | asset_img_url }}" style="width: 100px;">
+              </div>
+            </a>
+          </div>
+          {% comment %} <div class="media-review__brands-vector" style="height: 108px"></div> {% endcomment %}
+          <div class="media-review__brands-item" style="flex: initial;">
+            <a
+              target="_blank"
+              href="https://www.tweaktown.com/reviews/10377/vertagear-line-racing-series-pl4800-big-and-tall-rgb-gaming-chair/index.html"
+            >
+              <div class="media-review__brands-item__icon" style="margin-bottom: 0;">
+                <img src="{{ 'badge_recommended.webp' | asset_url }}" style="width: 61px;">
+              </div>
+              <div class="media-review__brands-item__text"></div>
+            </a>
+          </div>
+          {% comment %} <div class="media-review__brands-vector" style="height: 108px"></div> {% endcomment %}
+          <div class="media-review__brands-item" style="max-width: 160px;">
+            <a target="_blank" href="https://www.youtube.com/watch?v=t_kF6eQMpbA">
+              <div class="media-review__brands-item__title" style="font-size: 15px;">One of the best!</div>
+              <div class="media-review__brands-item__logo">
+                <img src="{{ 'GadgetryTech.png' | asset_img_url }}" style="width: 114px;">
+              </div>
+            </a>
+          </div>
+          {% comment %} <div class="media-review__brands-vector" style="height: 108px"></div> {% endcomment %}
+          <div class="media-review__brands-item" style="max-width: 160px;">
+            <a target="_blank" href="https://www.techpowerup.com/review/vertagear-pl4800/6.html">
+              <div class="media-review__brands-item__logo">
+                <img src="{{ 'recommended.png' | asset_img_url }}" style="width: 114px;">
+              </div>
+            </a>
+          </div>
+          {% comment %} <div class="media-review__brands-vector" style="height: 108px"></div> {% endcomment %}
+          <div class="media-review__brands-item" style="max-width: 160px;">
+            <a target="_blank" href="https://cybernews.com/gaming-accessories/best-gaming-chair-for-big-guys/">
+              <div class="media-review__brands-item__logo">
+                <img src="{{ 'Award_10.png' | asset_img_url }}" style="width: 114px;">
+              </div>
+            </a>
+          </div>
+        {% endif %}
+        {% if product.id == 7024816291951 %}
+          {% comment %} <div class="media-review__brands-vector"></div> {% endcomment %}
+          <div class="media-review__brands-item">
+            <a
+              target="_blank"
+              href="https://gamerant.com/best-gaming-chair-chairs/"
+            >
+              <div class="media-review__brands-item__icon">
+                <img src="{{ 'Gamerant_PL6800.png' | asset_img_url }}">
+              </div>
+              <div class="media-review__brands-item__text">
+                <span>"Best Ergonomic Gaming Chair"</span>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+
+    {% if product.id != 7024401154159 %}
+      <div class="media-review__reviews">
+        <div class="media-review__reviews-title">media reviews</div>
+        <div class="media-review__reviews-wrapper">
+          <div class="media-review__reviews-container">
+            {% for block in section.blocks %}
+              {% assign index = forloop.index %}
+              {% assign index0 = forloop.index0 %}
+              <div class="media-review__reviews-item">
+                {% if block.settings.image_2 != blank %}
+                  <style>
+                    @media only screen and (min-width: 1025px){
+                        {% for i in (1..index) %}
+                        .media-review__reviews-item:nth-child({{i}}){
+                            margin-bottom: 50px;
+                        }
+                        {% endfor %}
+                    }
+                    @media only screen and (max-width: 1024px){
+                        .media-review__reviews-item:nth-child({{index0}}){
+                            margin-bottom: 50px;
+                        }
+                    }
+                  </style>
+                {% endif %}
+                <div
+                  class="media-review__reviews-item__media {% if block.settings.image_2 != blank %}has-image-2{% endif %}"
+                >
+                  <img src="{{ block.settings.image | image_url }}">
+                  {% if block.settings.image_2 != blank %}
+                    <img src="{{ block.settings.image_2 | image_url }}">
+                  {% endif %}
+                </div>
+                <div class="media-review__reviews-item__content">
+                  <p>{{ block.settings.content }}</p>
+                  <a target="_blank" href="{{ block.settings.link }}">
+                    <p class="read-more">Read more</p>
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
+
+<script>
+  let reviewsWrapper = document.querySelector('.media-review__reviews-wrapper');
+  let reviewsContainer = document.querySelector('.media-review__reviews-container');
+
+  let pressed = false;
+  let startX;
+  let x;
+
+  reviewsWrapper.addEventListener('mousedown', (e) => {
+    pressed = true;
+    startX = e.offsetX - reviewsContainer.offsetLeft;
+    reviewsWrapper.style.cursor = 'grabbing';
+  });
+
+  reviewsWrapper.addEventListener('mouseenter', () => {
+    reviewsWrapper.style.cursor = 'grab';
+  });
+
+  reviewsWrapper.addEventListener('mouseup', () => {
+    reviewsWrapper.style.cursor = 'grab';
+    pressed = false;
+  });
+
+  reviewsWrapper.addEventListener('mousemove', (e) => {
+    if (!pressed) return;
+    e.preventDefault();
+    x = e.offsetX;
+    reviewsContainer.style.left = `${x - startX}px`;
+    checkBoundary();
+  });
+
+  const checkBoundary = () => {
+    let outer = reviewsWrapper.getBoundingClientRect();
+    let inner = reviewsContainer.getBoundingClientRect();
+
+    if (parseInt(reviewsContainer.style.left) > 0) {
+      reviewsContainer.style.left = '0px';
+    }
+
+    if (inner.right < outer.right) {
+      reviewsContainer.style.left = `-${inner.width - outer.width}px`;
+    }
+  };
+</script>

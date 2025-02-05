@@ -1,0 +1,19 @@
+<div class="text-right-banner">
+    <img src='{{banner}}' class="text-right-banner__img" alt>
+    <div class="text-right-banner__container vertagear-container">
+        <div class="text-right-banner__right">
+            {% if slogan %}
+                <div class="text-right-banner__slogan {{slogan_class}}">{{slogan}}</div>
+            {% endif %}
+            <h1 class="text-right-banner__title">{{title}}</h1>
+            {% if btn_text %}
+                <a class="text-right-banner__btn vertagear-btn -blue" href="{{btn_link}}">{{btn_text}}</a>
+            {% endif %}
+        </div>
+    </div>
+    {% if anchor %}
+        <a class="text-right-banner__scroll" href="{{anchor}}">
+            <img src="{{'scroll.svg' | asset_url}}" alt="scroll">
+        </a>
+    {% endif %}
+</div>

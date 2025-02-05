@@ -1,0 +1,387 @@
+{% if product.type contains 'S-Line' or product.type contains 'P-Line' or product.type contains 'Triigger'%}
+{% unless product.title == 'PL4500 Swarovski' %}
+{% include 'product-learn-more-wear-and-tear-alert' %}
+{% include 'product-learn-more-wear-and-tear-popup' %}
+{% endunless %}
+{% endif %}
+{% if product.type == 'Personalized Service' %}
+<div class="battle-station__popup -in-active" id="popup-image">
+    <div class="battle-station__popup-bg" onclick="document.querySelector('#popup-image').classList.add('-in-active')"></div>
+    <div class="battle-station__popup-center">
+        <div class="battle-station__popup-close" onclick="document.querySelector('#popup-image').classList.add('-in-active')"></div>
+        <img src='{{product.metafields.custom_fields["personalized_service_image"] }}' class="battle-station__popup-img" loading="lazy" alt="Close Popup">
+    </div>
+</div>
+{% endif %}
+<div id="new-edit-top" class="new-edit-top">
+    <div class="new-edit-top__container">
+        <ul class="new-edit-top__breadcrumb">
+            <li class="new-edit-top__breadcrumb-li"><a class="new-edit-top__breadcrumb-link" href="/">Home</a></li>
+            {% if product.type %}
+            <li class="new-edit-top__breadcrumb-li"><a class="new-edit-top__breadcrumb-link" style="pointer-events:none">{{ product.type }}</a></li>
+<!--            href="{{ collections[product.type].url }}" -->
+            {% endif %}
+            <li class="new-edit-top__breadcrumb-li"><a class="new-edit-top__breadcrumb-link  -current"
+                    href="{{ product.url }}">{{ product.title }}</a></li>
+        </ul>
+        <div class="new-edit-top__main">
+            <div class="new-edit-top__left">
+                <div class="product-single__photo-wrapper" id="ProductPhotoImgWrapper">
+                    {% if product.metafields.custom_fields["isrgb"] == 1 %}
+                        <a href="{{product.metafields.custom_fields["rgb_kit_link"]}}" class="product-single__photo-wrapper-rgbled-link" target="_blank" rel="noopener">
+                            <img src="{{ 'rgbled.png' | asset_url}}" alt="RGB LED Upgrade Kit Compatible" class="product-single__photo-wrapper-rgbled">
+                        </a>
+                    {% endif %}
+                    <div class="product-single__photo-wrapper-inner" id="ProductPhotoImg">
+                        <div class="product-image-slider-container-main"></div>
+                    </div>
+                </div>
+                {% if product.type contains 'S-Line' or product.type contains 'P-Line' or product.type contains 'Triigger'%}
+                <div class="new-edit-top__recommend">
+                    <div class="new-edit-top__recommend-title">
+                        Recommended For
+                    </div>
+                    <div class="new-edit-top__recommend-group">
+                        <div class="new-edit-top__recommend-info">
+                            <div class="new-edit-top__recommend-info-icon"><img
+                                    src="{{ 'sl5000-weight.svg' | asset_url}}" alt="Recommended Weight:"></div>
+                            <div class="new-edit-top__recommend-info-text">{{ product.metafields.custom_fields["recommended_weight"] }}</div>
+                        </div>
+                        <div class="new-edit-top__recommend-info">
+                            <div class="new-edit-top__recommend-info-icon"><img
+                                    src="{{ 'sl5000-height.svg' | asset_url}}" alt="Recommended Height:"></div>
+                            <div class="new-edit-top__recommend-info-text">{{product.metafields.custom_fields["recommended_height"]}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="new-edit-top__btn-box">
+                    <a href="/pages/chair-selection-tool" class="new-edit-top__btn" target="_blank" rel="noopener">Chair Selection Tool</a>
+                </div> 
+              	{% endif %}
+                <div class="product-image-slider-container"></div>
+            </div>
+            <div class="new-edit-top__right">
+            {% form 'product', product %}
+              <form  action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+                    <div class="new-edit-top__title-group">
+
+                        <div class="new-edit-top__title -rgbled {% if product.title.size > 10 %}-smaller-text{% endif %}">
+
+                            <div class="new-edit-top__title-inner">
+                                <span class="new-edit-top__title-text">{{ product.title }}</span>
+                                {% if product.type == "Gift Cards" %}
+                                <a class="fe800-reviews-js" data-oke-reviews-product-listing-rating style="display:block"
+                                class="bottomLine ag-vg-product-rating">
+                                {%- if product.metafields.okendo.ProductListingSnippet -%}
+                                {{ product.metafields.okendo.ProductListingSnippet }}
+                                {%- else -%}
+                                <span class="visually-hidden">There are no reviews yet.</span>
+                                {%- endif -%}
+                                </a>
+                                {% endif %}
+                                {% if product.metafields.custom_fields["isrgb"] == 1 %}
+                                <a href="{{product.metafields.custom_fields["rgb_kit_link"]}}" class="new-edit-top__title-rgbled-link" target="_blank" rel="noopener">
+                                    <img src="{{ 'rgbled.png' | asset_url}}" alt="RGB LED Upgrade Kit Compatible" class="new-edit-top__title-rgbled">
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="new-edit-top__info-price  -mobile">
+                            <span class="ag-vg-product-section-label"></span>
+                            <span class="new-product-initial-price custom_product_price" data-product-id="{{product.id}}">
+                                <span class="new-product-final-price-sale">{{ current_variant.price | money }}</span>
+                                {% if current_variant.price < current_variant.compare_at_price %}
+                                <span class="new-product-final-price-compare-at">{{ current_variant.compare_at_price | money }}</span>
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="new-edit-top__info">
+                        <div class="new-edit-top__info-price  -desktop">
+                            <span class="new-product-initial-price custom_product_price" data-product-id="{{product.id}}">
+                                <span class="new-product-final-price-sale">{{ current_variant.price | money }}</span>
+                                {% if current_variant.price < current_variant.compare_at_price %}
+                                <span class="new-product-final-price-compare-at">{{ current_variant.compare_at_price | money }}</span>
+                                {% endif %}
+                            </span>
+                        </div>
+                        <a href="#review-section" data-oke-reviews-product-listing-rating style="display:inline-block" class="bottomLine ag-vg-product-rating" data-oke-reviews-scroll-target-id="bottom-review">
+                          {%- if product.metafields.okendo.ProductListingSnippet -%}
+                          	{{ product.metafields.okendo.ProductListingSnippet }}
+                          {%- else -%}
+                          	<span class="visually-hidden">There are no reviews yet.</span>
+                          {%- endif -%}
+                      	</a>
+                    </div>            
+                
+                    {% if product.variants.size > 0 %}
+                      {% for option in product.options %}
+                          {% if option == "Base-colors" %}
+                            <div class="new-edit-top__swatch-color">
+                              {% include 'swatch' with 'Base-colors' %}
+                            </div>
+                          {% elsif option == "Base-Color" %}
+                            <div class="new-edit-top__swatch-color">
+                              {% include 'swatch' with 'Base-Color' %}
+                            </div>
+                          {% else %}
+
+                          {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                    {% unless product.type contains 'S-Line' or product.type contains 'P-Line' or product.type contains 'Triigger'%}
+                      <div class="new-edit-top__description {% unless product.handle == "e-gift-cards" %}-less{% endunless %}">
+                        <div class="new-edit-top__description-inner">{{product.description}}</div>
+                        <div class="new-edit-top__description-more">Read More</div>
+                      </div>
+                      <script>
+                        const topMoreBtn = document.querySelector('.new-edit-top__description-more')
+                        topMoreBtn.addEventListener('click',()=>{
+                            document.querySelector('.new-edit-top__description').classList.remove('-less')
+                            topMoreBtn.style = 'display:none'
+                        })
+                        {% if product.handle == "e-gift-cards" %}
+                        topMoreBtn.addEventListener('click',()=>{
+                            document.querySelector('.new-edit-top__description .faq').classList.remove('hide')
+                            topMoreBtn.style = 'display:none'
+                        })
+                        {% endif %}
+                      </script>
+                    {% endunless %}                
+                
+                    {% if product.available and product.variants.size > 0 %}
+                        {% for option in product.options %}
+                            {% if option == "Base-colors" %}
+                                <div class="new-edit-top__choosed-color" aria-hidden="true"></div>
+                            {% elsif option == "Base-Color" %}
+                                <div class="new-edit-top__choosed-color" aria-hidden="true"></div>
+                            {% endif %}
+                        {% endfor %}
+                	{% endif %}
+<!--                 	{% if product.title contains 'PL1000' %}
+                		<a class="new-edit-top__pl1000-refer" href="/products/pl1000-white-pink?variant=40631765827695">
+                          White Pink x Susan G. Komen (Limited edition)
+                		</a>
+                	{% endif %} -->
+                    {% assign variants_size = product.variants | size %}
+                    {% unless variants_size > 1 %}<style>.selector-wrapper{display:none !important;}</style>{% endunless %}
+                    <div class="new-edit-top__options" >
+                        <select id="ag-vg-product-select" name="id">
+                            {% for variant in product.variants %}
+                            <option value="{{ variant.id }}"> {{ variant.title }} - {{ variant.price | money}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                <div id="klarna-product"></div>
+                	
+                    <div class="new-edit-top__quantity">
+                        <label for="Quantity">Quantity</label>
+                        <input type="number" id="Quantity" name="quantity" value="1" min="1" class="ag-vg-product-quantity-selector">
+                    </div>
+                    {% if product.title contains 'PL4500 RGB LED Top Upgrade Kit' or product.title contains 'SL5000 RGB LED Top Upgrade Kit' %}
+                        <div class="new-edit-top__quantity new-edit-top__engrave new-edit-top__options">
+                          <label for="engrave" class="new-edit-top__engrave-label">
+
+                              {% if product.first_available_variant.inventory_quantity > 0%}
+                                Engrave your Logo
+                              {% else %}
+                                {% if product.title contains 'PL4500 RGB LED Top Upgrade Kit' %}
+                                    {% assign  link = '/products/pl4500-rgb-led-acrylic-personalized-service' %}
+                                {% else %}
+                                    {% assign  link = '/products/sl5000-rgb-led-acrylic-personalized-service' %}
+                                {% endif %}
+                                <a href="{{link}}"  class="new-edit-top__engrave-label-link">Engrave your Logo</a>
+                              {% endif %}
+                              <div class="new-edit-top__engrave-tip">
+                                  ?
+                                  <div class="new-edit-top__engrave-tip-content">
+                                      <div class="new-edit-top__engrave-tip-content-inner">
+                                          <div class="new-edit-top__engrave-tip-content-title">
+                                              Customiztion Service
+                                          </div>
+                                          <div class="new-edit-top__engrave-tip-content-main">
+                                              Take the personalization of your chair to the next level! Our high-quality laser engravement technology is available for you to personalize the logotype on the RGB acrylics of your RGB Kit.
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </label>
+                            {% if product.first_available_variant.inventory_quantity > 0%}
+                              <select id="engrave" class="single-option-selector">
+                                  <option value="no">No</option>
+                                  <option value="yes">Yes</option>
+                              </select>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    <span class="ag-vg-product-section-label"></span>
+                    <span class="ag-vg-product-initial-price"></span>
+                    {% if product.type == 'Personalized Service' %}
+                    <div  class="new-edit-top__read new-edit-top__description-more" onclick="document.querySelector('#popup-image').classList.remove('-in-active')">
+                        Read Instructions
+                    </div>
+                    {% endif %}
+                    <style>.-hide-btn #AddToCart{ display:none!important; }</style>
+                    <div class="new-edit-top__submit {% if product.type == 'Personalized Service' %} -hide-btn{% endif %}" >
+                    {% if product.available == false and product.variants[0].sku contains "Parts:RGB" %}
+                        <input type="submit" class="ag-vg-product-add-to-cart" id="AddToCart" value="SOLD OUT" disabled></input>
+                    {% else %}
+                        <input type="submit" class="ag-vg-product-add-to-cart {% if product.tags contains 'hide-add-to-cart' %}disabled{% endif %}" id="AddToCart" value="ADD TO CART" ></input>
+                    {% endif %}
+                    </div>
+              </form>
+              {% endform %}
+          		
+                <div class="new-edit-top__bottom">
+                    
+                  	{% if product.type contains 'S-Line' or product.type contains 'P-Line' or product.type contains 'Triigger'%}
+                  	{% unless product.id == 4589522288751 %}
+                    <div class="new-edit-top__bottom-single" onclick="document.querySelector('.product-learn-more-wear-and-tear-popup').classList.remove('-in-active')">
+                        <div class="new-edit-top__bottom-single-left">
+                            <div class="new-edit-top__bottom-single-left-text">
+                                <b>Free<br>protection</b><br>program
+                            </div>
+                            <div class="new-edit-top__bottom-single-left-detail">
+                                See Details
+                            </div>
+                        </div>
+                        <div class="new-edit-top__bottom-single-right">
+                            <div class="new-edit-top__bottom-single-img">
+                                <img src="{{ 'wear-and-tear-icon.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner" alt="">
+                                <img src="{{ 'wear-and-tear-icon-outline.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner -absolute" alt="">
+                            </div>
+                        </div>
+                    
+                    </div>
+                    {% endunless %}
+                    {% endif %}
+                  	<div class="new-edit-top__bottom-single new-edit-top__bottom-single-second" style="cursor:default;">
+                        <div class="new-edit-top__bottom-single-left">
+                            <div class="new-edit-top__bottom-single-left-text">
+                              <b>0% APR<br>6 months</b><br>or Pay in 4
+                            </div>
+                        </div>
+                        <div class="new-edit-top__bottom-single-right">
+                            <div class="new-edit-top__bottom-single-img">
+                                <img src="{{ 'product-paypal.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner" alt="">
+                            </div>
+                        </div>
+                    
+                    </div>
+                  
+<!--                   		<div class="new-edit-top__bottom-single" style="cursor:default;">
+                          <div class="new-edit-top__bottom-single-left">
+                              <div class="new-edit-top__bottom-single-left-text">
+                                <b>Buy now<br>Pay later</b>
+                              </div>
+                          </div>
+                          <div class="new-edit-top__bottom-single-right">
+                              <div class="new-edit-top__bottom-single-img" style="width: 64px;">
+                                  <img src="{{ 'klarna-logo.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner" alt="">
+                              </div>
+                          </div>
+
+                      </div> -->
+                  
+                 </div>
+          
+          		{% if product.title contains 'PL1000 test' %}
+					 <div class="new-edit-top__bottom nam-product-programs">
+                    
+                      {% if product.type contains 'S-Line' or product.type contains 'P-Line' or product.type contains 'Triigger'%}
+                      {% unless product.id == 4589522288751 %}
+                       <div class="nam-product-program new-edit-top__bottom-single" onclick="document.querySelector('.product-learn-more-wear-and-tear-popup').classList.remove('-in-active')">
+                          <div class="nam-product-program__img-wrapper nam-product-program__free-protection new-edit-top__bottom-single-img">
+                              <img src="{{ 'wear-and-tear-icon.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner" alt="">
+                              <img src="{{ 'wear-and-tear-icon-outline.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner -absolute" alt="">
+                          </div>
+                          <div class="nam-product-program__text">
+                          	<b>Free protection program</b>
+                            <span class="new-edit-top__bottom-single-left-detail nam-program-see-detail">
+                              See Details
+                          </span>
+                          </div>
+                      </div>
+                      {% endunless %}
+                      {% endif %}
+                      <div class="nam-product-program">
+                          <div class="nam-product-program__img-wrapper">
+                              <img src="{{ 'product-paypal.svg' | asset_url }}" alt="">
+                          </div>
+                          <div class="nam-product-program__text">
+                            <b>0% APR 6 months or Pay in 4</b>
+                          </div>
+                      </div>
+                  
+                 </div>         		
+          		{% endif %}
+          
+                 {% if product.type contains 'Personalized Service'%}
+                     <div class="new-edit-top__final">
+                  		<a  class="new-edit-top__read new-edit-top__description-more" href="/pages/privacy-policy">
+                            Privacy Policy
+                        </a>
+          			</div>
+                 {% endif%}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/*   .new-edit-top__bottom-single-second {
+      padding-right: 40px;
+   }
+  
+  @media only screen and (max-width: 500px) {
+  	.new-edit-top__bottom-single-second {
+      padding-right: 0;
+    }
+  } */
+  @media only screen and (max-width: 500px) {
+   .slick-track {
+      margin: 0 auto;
+    }
+  }
+ 
+  .new-edit-top__pl1000-refer {
+    padding: 14px;
+    border: 1px solid #ED74B2;
+    color: #ED74B2;
+    width: fit-content;
+    margin-top: 20px;
+  }
+  .new-edit-top__pl1000-refer:hover {
+    background: #ED74B2;
+    color: white;
+  }
+  
+  .nam-product-programs {
+  	padding-top: 0;
+  }
+  .nam-product-program {
+  	display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 0;
+    margin-top: 30px;
+  }
+  .nam-product-program__img-wrapper {
+  	width: 53px;
+  }
+  .nam-product-program__text {
+    font-size: 16px;
+    font-weight: 500;
+    width: 80%;
+  }
+  .nam-program-see-detail {
+    margin-left: 6px;
+    font-weight: 400;
+  }
+/*   @media only screen and (max-width: 768px) {
+  	.nam-product-program__free-protection {
+      width: 77px;
+    }
+  } */
+</style>

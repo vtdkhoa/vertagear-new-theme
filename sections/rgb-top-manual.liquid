@@ -1,0 +1,39 @@
+{% include 'gravityadmin' %}
+<div style="display: none !important;  visibility: hidden !important;" class="cmspro-section" id="cmspro-64761ab2"></div>
+<style>
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+</style>
+<div class="customer-reviews-wrapper manuals">
+  <div class="grid-container">
+    <h3>Manuals</h3>  
+	<div class="row">
+      <div class="col-sm-10 col-centered">
+        <div class="col-sm-4 text-center">
+          <a href="https://1drv.ms/u/s!AutN3B5suyTZge1qR1SMJX663xD9vQ?e=7jSoOY" target="_blank">CAM Software &rarr;</a>
+        </div>
+        <div class="col-sm-4 text-center">
+          <a href="{{ 'RGB_LED_Upgrade_Kit_-_QUICKSTART.pdf' | asset_url }}" target="_blank">QuickStart &rarr;</a>
+        </div>
+        <div class="col-sm-4 text-center">
+          <a href="{{ 'LED_KIT_FAQ.docx' | asset_url }}" target="_blank">FAQ &rarr;</a>
+        </div>
+      </div>
+    </center>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

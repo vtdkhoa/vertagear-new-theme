@@ -1,0 +1,49 @@
+{{ 'fe800-all.css' | asset_url | stylesheet_tag }}
+{{ 'ls.css' | asset_url | stylesheet_tag }}
+{% include 'fe800-all-custom' %}
+
+<div class="page-fe800">
+  {% comment %} {% section 'fe800-viewallproduct' %} {% endcomment %}
+  {% section 'fe800-popup_3d_viewer' %}
+  {% section 'fe800-popup-herobanner' %}
+
+  <div id="popup-reviews" style="display: none;">{% section 'fe800-popup-reviews-modal' %}</div>
+  <div class="fe800-popup" loading-popup="0"><div class="popup-inner"></div></div>
+
+  <div id="fullpage">
+    {% section 'fe800-herobanner' %}
+    {% section 'fe800-campagin_review' %}
+    {% section 'new-fe800-sign-contourmax-lumbar' %}
+    {% section 'new-fe800-sign-vertaair-seat' %}
+    {% section 'new-fe800-sign-rgb-led-kit' %}
+    {% section 'new-fe800-sign-hygennx' %}
+    {% section 'new-fe800-sign-coffee-bean' %}
+    {% section 'new-fe800-sign-coma-ppe.liquid' %}
+    {% section 'new-fe800-sign-usable' %}
+    {% section 'new-fe800-sign-series-comparison' %}
+    {% comment %} {% include 'fe800-signatures_4', order: 10 %} {% endcomment %}
+    {% comment %}
+      {% include 'fe800-signatures_1', _page: 800, order: 3 %}
+      {% include 'fe800-signatures_1_1', _page: 800, order: 4 %}
+      {% include 'fe800-signatures_1_2', _page: 800, order: 5 %}
+
+      {% include 'fe800-signatures_2', _page: 800, order: 6 %}
+      {% include 'fe800-signatures_2_1', _page: 800, order: 7 %}
+      {% include 'fe800-signatures_2_2', _page: 800, order: 8 %}
+
+      {% include 'fe800-signatures_3', order: 9 %}
+      {% include 'fe800-signatures_4', order: 10 %}
+
+      {% section 'fe800-moreproduct_features' %}
+      {% section 'fe800-wps_in_comfort' %}
+      {% section 'fe800-warranty' %}
+      {% section 'fe800-series_collection' %}
+    {% endcomment %}
+  </div>
+  {% render 'fe800-product_comparison' %}
+</div>
+
+<link rel="stylesheet" href="{{ 'flickity-v2.3.0.css' | asset_url }}">
+{% comment %} <script src="{{ 'flickity-v2.3.0.js' | asset_url }}"></script> {% endcomment %}
+<!-- <script type="module" src="{{ 'fe800-model-viewer.min.js' | asset_url }}" crossorigin="anonymous"></script> -->
+{% comment %} <script src="{{ 'fe800-custom.src.js' | asset_url }}" type="text/javascript" async defer="defer"></script> {% endcomment %}

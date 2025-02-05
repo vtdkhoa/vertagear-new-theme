@@ -1,0 +1,23 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. YOU CAN COPY AND PASTE INTO A NEW SNIPPET.
+  THIS FILE WILL BE OVERWRITTEN.
+{% endcomment %}
+<div class="custom-fields-wrapper">
+
+            {% if page.metafields.custom_fields["store_page_products"] != blank %}
+            <div class="custom-field custom-field__store-page-products custom-field__type--product-reference">
+                <h3 class="custom-field--title">Store Page Products</h3>
+                <div class="custom-field--value">
+      {% assign product_refs = page.metafields.custom_fields["store_page_products"] | split: "|" %}
+      <ul>
+      {% for product_handle in product_refs %}
+        <li>
+          {% assign product_ref = all_products[product_handle] %}
+          {{ product_ref.title | link_to: product_ref.url }}
+        </li>
+      {% endfor %}
+      </ul>
+      </div>
+              </div>
+            {% endif %}
+</div>

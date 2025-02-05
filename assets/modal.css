@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  --main-color: #4e4cf7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+.display-desktop {
+  display: none;
+}
+
+.main-btn {
+  background-color: var(--main-color);
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.popup-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000
+}
+.popup-background {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.8);
+}
+.popup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  color: #fff;
+  overflow-y: scroll;
+  margin: auto;
+  scroll-behavior: smooth;
+}
+.popup::-webkit-scrollbar {
+  display: none;
+}
+
+.pop-header {
+  position: sticky;
+  top: 0;
+  background-color: #000;
+  z-index: 10;
+}
+.pop-header .collapse {
+  width: 100%;
+  height: 60px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pop-header img {
+  display: block;
+}
+.pop-header .close-btn {
+  border: 1px solid #fff;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+}
+.pop-header .collapse .close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+  border: none;
+  padding: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .display-desktop {
+    display: block;
+  }
+  .display-mobile {
+    display: none;
+  }
+
+  .popup {
+    left: 2.5%;
+    width: 95%;
+  }
+  .popup-wrapper .up-btn {
+    position: absolute;
+    bottom: 0;
+    left: 97.5%;
+    background-color: var(--main-color);
+    border: none;
+    padding: 10px 7px;
+    cursor: pointer;
+    display: none;
+  }
+  .popup-wrapper .up-btn img {
+    width: 20px;
+  }
+
+  .pop-header .collapse .title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 130%;
+  }
+  .pop-header .full {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pop-header .full .logo {
+    width: 28%;
+    margin-right: 20px;
+  }
+  .pop-header .full .logo .signature {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+  }
+  .pop-header .full .logo .title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+  }
+  .pop-header .full .desc {
+    width: 57%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .popup {
+    width: 1728px;
+    left: calc(50% - 864px);
+  }
+}
+
+/* For quick modal application */
+
+.nam-modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  bottom: 0;
+  top: unset !important;
+  left: 0;
+  z-index: 1000;
+  transition: .5s;
+}
+.nam-modal__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.nam-modal__background {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, .8);
+}
+.nam-modal__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.nam-modal__content::-webkit-scrollbar {
+  display: none;
+}
+.nam-modal__content__header {
+  position: sticky;
+  top: 0;
+  background: #000;
+  z-index: 1;
+  height: 50px;
+  color: #fff;
+  text-align: right;
+  padding: 10px;
+}
+.nam-modal__content__header .close-btn img {
+  width: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .nam-modal__content {
+    width: 90%;
+    left: 5%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .nam-modal__content {
+    width: 1728px;
+    left: calc(50% - 864px);
+  }
+}

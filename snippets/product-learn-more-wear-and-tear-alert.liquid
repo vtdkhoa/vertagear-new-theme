@@ -1,0 +1,14 @@
+<div class="product-learn-more-wear-and-tear-alert" >
+    <img src="{{ 'product-learn-more-wear-and-tear-alert-icon.svg' | asset_url}}" class="product-learn-more-wear-and-tear-alert__icon" alt="" onclick="document.querySelector('.product-learn-more-wear-and-tear-popup').classList.remove('-in-active')">
+    <div class="product-learn-more-wear-and-tear-alert__text" onclick="document.querySelector('.product-learn-more-wear-and-tear-popup').classList.remove('-in-active')">
+        Learn more about our <b>Free</b> protection program
+    </div >
+    <div class="product-learn-more-wear-and-tear-alert__close" onclick="document.querySelector('.product-learn-more-wear-and-tear-alert').classList.add('-in-active')"></div>
+</div>
+<script>
+    jQuery(function () {
+        setTimeout(() => {
+            document.querySelector('.product-learn-more-wear-and-tear-alert').classList.add('-in-active')
+        }, 10000);
+  });
+</script>

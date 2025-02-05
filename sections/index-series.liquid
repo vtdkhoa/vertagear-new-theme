@@ -1,0 +1,138 @@
+<div class="index-series vertagear-container">
+    <div class="index-series__main">
+        <swiper class="index-series__swiper" :options="options" key="index-series-swiper">
+          {% for block in section.blocks %}
+              <swiper-slide class="index-series__swiper-slide">
+                  <div class="index-series__card">
+                      <div class="index-series__card-inner">
+                          <div class="index-series__card-center">
+                            <a class="nam-hover-opacity-1" href="{{block.settings.link}}">
+                              <picture>
+                                  <source srcSet="{{block.settings.image | img_url: 'master' }}" media="(min-width: 1351px)">
+                                  <source srcSet="{{block.settings.image | img_url: '360x' }}" media="(min-width: 768px)">
+                                  <source srcSet="{{block.settings.image_m | img_url: '195x' }}, {{block.settings.image_m | img_url: '390x' }} 2x" media="(max-width: 767px)">
+                                  <img src="{{block.settings.image | img_url: 'master' }}" class="index-series__card-bg" alt="{{block.settings.title}}" loading="lazy">
+                              </picture>                            
+                              <div class="index-series__card-top">
+                               	  {% if block.settings.slogan != blank %}
+                                  	<div class="index-series__card-slogan">{{block.settings.slogan}}</div>
+                                  {% endif %}
+                                  <div class="index-series__card-title">{{block.settings.title}}</div>
+                                  {% if block.settings.desc != blank %}
+                                    <div class="index-series__card-desc">{{block.settings.desc}}</div>
+                                  {% endif %}
+                                  <div class="index-series__card-gap"></div>
+                                  <div class="index-series__card-bottom">
+                                      <a href="{{block.settings.link}}" class="vertagear-btn -blue">{{block.settings.btn_txt}}</a>
+                                  </div>                              
+                              </div>
+                            </a>
+                          </div>
+                      </div>
+                  </div>
+              </swiper-slide>
+          {% endfor %} 
+        </swiper>
+      	<div class="index-series__mobile">
+          	{% for block in section.blocks %}
+               <div class="index-series__card">
+                    <div class="index-series__card-inner">
+                        <div class="index-series__card-center">
+                          	<img src="{{block.settings.image | img_url: '388x' }}" class="index-series__card-bg" alt="{{block.settings.title}}" loading="lazy">
+                            <div class="index-series__card-top">
+                              {% if block.settings.slogan != blank %}
+                              	<div class="index-series__card-slogan">{{block.settings.slogan}}</div>
+                              {% endif %}
+                              <div class="index-series__card-title">{{block.settings.title}}</div>
+                              {% if block.settings.desc != blank %}
+                                <div class="index-series__card-desc">{{block.settings.desc}}</div>
+                              {% endif %}
+                              <div class="index-series__card-gap"></div>
+                              <div class="index-series__card-bottom">
+                                  <a href="{{block.settings.link}}" class="vertagear-btn -blue">{{block.settings.btn_txt}}</a>
+                              </div>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          	{% endfor %} 
+        </div>
+    </div>
+    <div class="index-series__bottom">
+       <a href="{{section.settings.link}}" class="index-series__btn">{{section.settings.btn_txt}}</a>
+    </div>  
+</div>
+
+
+{% schema %}
+  {
+  "name": "Vertagear Series",
+  "blocks":[ 
+    { 
+        "type":"text",
+        "name":"Collection",
+        "settings":[ 
+            { 
+                "type":"text",
+                "id":"title",
+                "label":"Title",
+                "default":"Title"
+            },
+            { 
+                "type":"text",
+                "id":"slogan",
+                "label":"Slogan",
+                "default":"Slogan"
+            },
+            { 
+                "type":"text",
+                "id":"desc",
+                "label":"Description",
+                "default":"Description"
+            },
+            { 
+                "type":"text",
+                "id":"btn_txt",
+                "label":"Button Text",
+                "default":"shop"
+            },
+            { 
+                "type":"url",
+                "id":"link",
+                "label":"Button Link"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Background"
+            }
+        ]
+    }
+  ],
+  "settings": [
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"Vertagear Series"
+    },
+    {
+        "id": "desc",
+        "type": "text",
+        "label": "Description",
+        "default":"Award-winning Professional Chairs"
+    },
+    {
+        "id": "link",
+        "type": "url",
+        "label": "Link"
+    },
+    {
+        "id": "btn_txt",
+        "type": "text",
+        "label": "Button Text",
+ 		"default":"find your chair"
+    }
+    ]
+  }
+{% endschema %}

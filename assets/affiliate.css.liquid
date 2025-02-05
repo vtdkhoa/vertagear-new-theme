@@ -1,0 +1,133 @@
+@font-face {
+  font-family: 'Conv_Ubuntu-M';
+  src: url({{ 'Ubuntu-M.eot' | asset_url}});
+  src: local('☺'), url({{ 'Ubuntu-M.woff' | asset_url}}) format('woff'), url({{ 'Ubuntu-M.ttf' | asset_url}}) format('truetype'), url({{ 'Ubuntu-M.svg' | asset_url}}) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Conv_Ubuntu-B';
+  src: url({{ 'Ubuntu-B.eot' | asset_url}});
+  src: local('☺'), url({{ 'Ubuntu-B.woff' | asset_url}}) format('woff'), url({{ 'Ubuntu-B.ttf' | asset_url}}) format('truetype'), url({{ 'Ubuntu-B.svg' | asset_url}}) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Conv_Ubuntu-L';
+  src: url({{ 'Ubuntu-L.eot' | asset_url}});
+  src: local('☺'), url({{ 'Ubuntu-L.woff' | asset_url}}) format('woff'), url({{ 'Ubuntu-L.ttf' | asset_url}}) format('truetype'), url({{ 'Ubuntu-L.svg' | asset_url}}) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body#affiliate,body#join-affiliate{
+  background-color:#000;
+}
+body#affiliate .grid,body#join-affiliate .grid{
+  margin-left:-15px;
+}
+body#affiliate .main-content{
+  padding-top:0;
+  background: #000 url({{ 'Vertagear-affiliate-bg-min.jpg' | asset_url}}) no-repeat center -35px;
+}
+
+body#join-affiliate .main-content{
+  padding-top:0;
+  background: #000 url({{ 'Vertagear-affiliate-bg_form-min.jpg' | asset_url}}) no-repeat center -35px;
+}
+
+body#affiliate .page-main--wrapper .container,body#join-affiliate .page-main--wrapper .container{
+  max-width:995px;
+}
+body#affiliate .header h1,body#join-affiliate .header h1{
+  font-family: 'Conv_Ubuntu-M';
+  font-size:51px;
+  color:#FFF;
+}
+@media screen and (min-width: 992px) {
+  body#affiliate .header h1,body#join-affiliate .header h1{
+    margin-bottom:145px;
+  }
+  body#affiliate .header h1 span,body#join-affiliate .header h1 span{
+    display:block;
+  }
+}
+body#affiliate .header h2,body#join-affiliate .header h2{
+  font-family: 'Conv_Ubuntu-B';
+  font-size:26px;
+  color:#FFF;
+  text-transform:uppercase;
+}
+body#affiliate .header .text,body#join-affiliate .header .text{
+  max-width:710px;
+
+}
+body#affiliate .join,body#join-affiliate .join-form{
+  font-family: 'Conv_Ubuntu-L';
+  width:100%;
+  max-width:600px;
+  font-size:12px;
+  color:#8e8c8c;
+}
+#join-affiliate .join-form p{
+	color:#FFF;
+  	text-transform:uppercase;
+}
+body#affiliate .join h3{
+  font-family: 'Conv_Ubuntu-B';
+  font-size:16px;
+  color:#FFF;
+}
+.btn-join{
+  border-radius: 4px;
+  font-family: 'Conv_Ubuntu-B';
+  font-size:16px;
+  color:#000;
+  display:block;
+  padding:6px;
+  width:100%;
+  background-color:#e8e8e8;
+  text-align:center;
+  text-decoration:none;
+  margin:20px 0;
+  cursor:pointer;
+}
+.btn-join:hover{
+  text-decoration:none;
+  color:#000;
+}
+
+#lead .form-group{
+  margin-bottom:15px;
+}
+#lead .form-group label{
+  display:block;
+  font-size:15px;
+  color:#535151;
+  margin-bottom:10px;
+}
+#lead .form-group input[type="text"],#lead .form-group input[type="email"],#lead .form-group input[type="password"]{
+  background-color:#333131;
+  border:1px solid #6c6969;
+  width:100%;
+  color:#FFF;
+}
+ 
+#lead .message{
+  font-size:12px;
+  color:#535151;
+  margin-top:3px;
+}
+.message_success{
+  font-size:14px;
+  color:#FFF;
+  margin-top:3px;
+}
+#lead .message.error{
+	color:red;
+}
+.form-wrapper{
+	padding-left:30px;
+  	border-left:1px solid #535151;
+  	margin-top: 45px;
+  	margin-bottom:100px
+}

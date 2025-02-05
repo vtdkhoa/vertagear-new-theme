@@ -1,0 +1,19 @@
+       {% for section in fullImageBanner %}
+              <div class="full-image-intro {{ fullImageClass[forloop.index0] }}">
+                <div class="full-image-intro__bg -desktop"
+                  style="background-image:url({{ fullImageBanner[forloop.index0] | asset_url }});"></div>
+                <div class="full-image-intro__bg -mobile"
+                  style="background-image:url({{ fullImageBannerMobile[forloop.index0] | asset_url }});"></div>
+                <div class="full-image-intro__text">
+                  <div class="full-image-intro__title" data-scroll="fade-up" data-scroll-duration="600">
+                    {{ fullImageTitle[forloop.index0] }}
+                    {% if fullImageTitleSub[forloop.index0] != '' %}
+                      <div class="full-image-intro__title-small">{{ fullImageTitleSub[forloop.index0] }}</div>
+                    {% endif %}
+                  </div>
+                  <div class="full-image-intro__desc" data-scroll="fade-up" data-scroll-duration="600">
+                    {{ fullImageDesc[forloop.index0] }}
+                  </div>
+                </div>
+              </div>
+          {% endfor %}

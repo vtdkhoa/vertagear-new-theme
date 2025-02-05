@@ -1,0 +1,63 @@
+{% include 'gravityadmin' %}
+<div style="display: none !important;  visibility: hidden !important;" class="cmspro-section" id="cmspro-50665984"></div>
+{% if section.settings.message_text != empty %}
+
+  <style>
+
+    .notification-bar{
+      background-color: {{ section.settings.notification-bar--background-colour }};
+      color: {{ section.settings.notification-bar--text-colour }};
+    }
+
+    .notification-bar a{
+      color: {{ section.settings.notification-bar--text-colour }};
+    }
+
+    #site-title{
+    	padding: {{ section.settings.logo_padding }}px;
+    }
+
+</style>
+
+  <div class="notification-bar">
+      {% if section.settings.message_link != blank %}
+        <a href="{{ section.settings.message_link }}" class="notification-bar__message custom-font">
+          {{ section.settings.message_text }}
+        </a>
+      {% else %}
+        <div class="notification-bar__message custom-font">{{ section.settings.message_text }}</div>
+      {% endif %}
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+	{
+	  "type": "richtext",
+	  "id": "message_text",
+	  "label": "Announcement text",
+	  "default": "<p>Announce something here</p>"
+	},
+	{
+	  "type": "url",
+	  "id": "message_link",
+	  "label": "Announcement link",
+	  "info": "Optional"
+	},
+	{
+	  "type": "color",
+	  "id": "notification-bar--background-colour",
+	  "label": "Announcement background",
+	  "default": "#f1f1f1"
+	},
+	{
+	  "type": "color",
+	  "id": "notification-bar--text-colour",
+	  "label": "Announcement text",
+	  "default": "#8e8e8e"
+	}
+  ]
+}
+{% endschema %}

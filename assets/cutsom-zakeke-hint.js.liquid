@@ -1,0 +1,74 @@
+const html = `
+<style>
+.-mobile .vertagear-custom-intro-popup__main-element {max-width: 320px;}.vertagear-custom-intro-popup__main-element{display: block;margin:0 auto 20px;}.vertagear-custom-intro-popup{position:fixed;top:0;left:0;overflow:auto;width:100%;height:100%;background:#fff;opacity:0;z-index:9999999999;-webkit-transition:opacity .3s ease;transition:opacity .3s ease;pointer-events:none}@media (min-width:768px){.vertagear-custom-intro-popup{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;display:-webkit-box;display:-ms-flexbox;display:flex}.vertagear-custom-intro-popup:after,.vertagear-custom-intro-popup:before{content:"";-webkit-box-flex:1;-ms-flex:1 0 auto;flex:1 0 auto;min-height:60px}}.vertagear-custom-intro-popup .vertagear-container{position:relative;margin-right:auto;margin-left:auto;width:100%;padding-right:27px;padding-left:27px;max-width:100%}.vertagear-custom-intro-popup .vertagear-container.-grid{padding-right:27px;padding-left:27px}@media (min-width:768px){.vertagear-custom-intro-popup .vertagear-container{padding-right:calc(38.8px + 2.5vw);padding-left:calc(38.8px + 2.5vw);max-width:720px}.vertagear-custom-intro-popup .vertagear-container.-grid{padding-right:0calc(38.8px + 2.5vw);padding-left:0calc(38.8px + 2.5vw)}}@media (min-width:1200px){.vertagear-custom-intro-popup .vertagear-container{padding-right:calc(-50px + 10vw);padding-left:calc(-50px + 10vw);max-width:1280px}.vertagear-custom-intro-popup .vertagear-container.-grid{padding-right:16pxcalc(-50px + 10vw);padding-left:16pxcalc(-50px + 10vw)}}@media (min-width:1920px){.vertagear-custom-intro-popup .vertagear-container{padding-right:calc(-50px + 10vw);padding-left:calc(-50px + 10vw);max-width:1440px}.vertagear-custom-intro-popup .vertagear-container.-grid{padding-right:20pxcalc(-50px + 10vw);padding-left:20pxcalc(-50px + 10vw)}}.vertagear-custom-intro-popup.-active{opacity:1;pointer-events:auto}.vertagear-custom-intro-popup__close{position:absolute;top:0;right:0;width:60px;height:60px;z-index:3;cursor:pointer}.vertagear-custom-intro-popup__close:after,.vertagear-custom-intro-popup__close:before{content:"";position:absolute;top:0;bottom:0;right:0;left:0;margin:auto;width:35px;height:4px;background:#000;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.vertagear-custom-intro-popup__close:after{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.vertagear-custom-intro-popup__content{margin:auto}@media (max-width:767px){.vertagear-custom-intro-popup__content{padding-top:75px;padding-bottom:75px}}@media (min-width:768px){.vertagear-custom-intro-popup__content{padding-right:0;padding-left:0}}.vertagear-custom-intro-popup__title{margin:auto;padding-top:25px;padding-bottom:40px;max-width:400px;font-size:32px;font-weight:700;text-align:center;color:#000;line-height:1.16;letter-spacing:.05em}@media (max-width:767px){.vertagear-custom-intro-popup__title{padding-top:40px;padding-bottom:55px;font-size:24px}}@media (min-width:768px){.vertagear-custom-intro-popup__main{display:-ms-grid;display:grid;-ms-grid-rows:auto;grid-template-rows:auto;-ms-grid-columns:60fr 40px 30fr;grid-template-columns:60fr 30fr;gap:0 40px}.vertagear-custom-intro-popup__main>:first-child{-ms-grid-row:1;-ms-grid-column:1}.vertagear-custom-intro-popup__main>:nth-child(2){-ms-grid-row:1;-ms-grid-column:3}.vertagear-custom-intro-popup__main.-video{display:block;padding-bottom:45px}}@media (min-width:768px) and (max-width:767px){.vertagear-custom-intro-popup__main.-video{padding-bottom:15px}}.vertagear-custom-intro-popup__main-element{width:100%;-o-object-fit:cover;object-fit:cover}.vertagear-custom-intro-popup.-default .vertagear-custom-intro-popup__main[data-index="2"],.vertagear-custom-intro-popup:not(.-default) .vertagear-custom-intro-popup__main[data-index="1"]{display:none!important}.vertagear-custom-intro-popup__main-right{font-size:18px;color:#000;letter-spacing:.9px;line-height:1.67}@media (max-width:767px){.vertagear-custom-intro-popup__main-right{padding-top:40px;font-size:14px}}.vertagear-custom-intro-popup__main-right-title{padding-bottom:12px;font-weight:700;color:#5452f7;line-height:1.83}.vertagear-custom-intro-popup__tab,.vertagear-custom-intro-popup__tab-btn{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.vertagear-custom-intro-popup__tab-btn{width:134px;height:40px;font-size:16px;font-family:TeXGyreAdventor,sans-serif;font-weight:700;text-align:center;color:#272727;border-radius:20px;letter-spacing:.15em;cursor:pointer}.vertagear-custom-intro-popup.-default .vertagear-custom-intro-popup__tab-btn[data-index="1"],.vertagear-custom-intro-popup:not(.-default) .vertagear-custom-intro-popup__tab-btn[data-index="2"]{color:#fff;background-color:#5755f7;pointer-events:none}.vertagear-custom-intro{position:fixed;bottom:20px;right:20px;display:-webkit-box;display:-ms-flexbox;display:flex}@media (max-width:767px){.vertagear-custom-intro{-webkit-transform:scale(.75);transform:scale(.75);top:54px;bottom:auto;right:5px;z-index:9999999998;-webkit-transform-origin:100% 0;transform-origin:100% 0}}.vertagear-custom-intro__btn{margin-right:3px;margin-left:3px;padding:8px;font-size:12px;font-family:TeXGyreAdventor,sans-serif;font-weight:700;text-align:center;color:#fff;background-color:#a7a7a7;border-radius:5px;line-height:1.17;letter-spacing:1.8px;cursor:pointer}@media (min-width:768px){.vertagear-custom-intro__btn{padding:17px 10px;min-width:194px}}
+</style>        
+<div class="vertagear-custom-intro">
+    <div class="vertagear-custom-intro__btn" onclick="document.querySelector('.vertagear-custom-intro-popup.-video').classList.add('-active')">HOW TO CUSTOMIZE</div>
+    <div class="vertagear-custom-intro__btn" onclick="document.querySelector('.vertagear-custom-intro-popup.-prepare').classList.add('-active')">PREPARE YOUR LOGO</div>
+</div>
+<div class="vertagear-custom-intro-popup -prepare -default">
+    <div class="vertagear-custom-intro-popup__close" onclick="document.querySelector('.vertagear-custom-intro-popup.-prepare').classList.remove('-active')"></div>
+    <div class="vertagear-custom-intro-popup__content vertagear-container">
+        <div class="vertagear-custom-intro-popup__tab">
+            <div class="vertagear-custom-intro-popup__tab-btn" data-index="1" onclick="document.querySelector('.vertagear-custom-intro-popup.-prepare').classList.add('-default')">SL5000</div>
+            <div class="vertagear-custom-intro-popup__tab-btn" data-index="2" onclick="document.querySelector('.vertagear-custom-intro-popup.-prepare').classList.remove('-default')">PL4500</div>
+        </div>
+        <div class="vertagear-custom-intro-popup__title">
+            Instuctions to prepare your logo
+        </div>
+        <div class="vertagear-custom-intro-popup__main" data-index="1">
+            <div class="vertagear-custom-intro-popup__main-left">
+                <img src='{{ 'SL5000_instructions.jpg' | asset_img_url }}'>
+            </div>
+            <div class="vertagear-custom-intro-popup__main-right">
+                <div class="vertagear-custom-intro-popup__main-right-title">
+                    Instuctions to prepare your logo
+                </div>
+                <div class="vertagear-custom-intro-popup__main-right-content">
+                    1. Your logo will shown only in the visible area (Exposed area when installing an acrylic in the kit)<br>
+                    2. Black(#00000) means transparency, whereas white (#FFFFF) means no-transparency.<br>
+                    3. Less details will guarantee a much clear visibility of your logo.<br>
+                    4. Vectorial graphics will result in a better output.
+                </div>
+            </div>
+        </div>
+        <div class="vertagear-custom-intro-popup__main" data-index="2">
+            <div class="vertagear-custom-intro-popup__main-left">
+                <img class="lazyload" data-src='{{ 'PL4500-instructions.jpg' | asset_img_url }}' >
+            </div>
+            <div class="vertagear-custom-intro-popup__main-right">
+                <div class="vertagear-custom-intro-popup__main-right-title">
+                    Instuctions to prepare your logo
+                </div>
+                <div class="vertagear-custom-intro-popup__main-right-content">
+                    1. Your logo will shown only in the visible area (Exposed area when installing an acrylic in the kit)<br>
+                    2. Black(#00000) means transparency, whereas white (#FFFFF) means no-transparency.<br>
+                    3. Less details will guarantee a much clear visibility of your logo.<br>
+                    4. Vectorial graphics will result in a better output.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="vertagear-custom-intro-popup -video -default">
+    <div class="vertagear-custom-intro-popup__close" onclick="document.querySelector('.vertagear-custom-intro-popup.-video').classList.remove('-active')"></div>
+    <div class="vertagear-custom-intro-popup__content">
+        <div class="vertagear-custom-intro-popup__main -video vertagear-container -desktop" data-index="1">
+            <video controls="controls" muted="true" defaultmuted="true" playsinline="true" loop="false" class="vertagear-custom-intro-popup__main-element" preload="metadata" poster="{{ 'VG-desktop-loader_product-personalization-2x.jpg' | asset_img_url }}">
+                <source src="{{ 'personalized-service-desktop.mp4' | asset_url }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="vertagear-custom-intro-popup__main -video vertagear-container -mobile" data-index="2">
+            <video controls="controls" muted="true" defaultmuted="true" playsinline="true" loop="false" class="vertagear-custom-intro-popup__main-element" preload="metadata" poster="{{ 'VG-mobile-loader_product-personalization-2x.jpg' | asset_img_url }}">
+                <source src="{{ 'personalized-service-mobile.mp4' | asset_url }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="vertagear-custom-intro-popup__tab">
+            <div class="vertagear-custom-intro-popup__tab-btn" data-index="1" onclick="document.querySelector('.vertagear-custom-intro-popup.-video').classList.add('-default')">Desktop</div>
+            <div class="vertagear-custom-intro-popup__tab-btn" data-index="2" onclick="document.querySelector('.vertagear-custom-intro-popup.-video').classList.remove('-default')">Mobile</div>
+        </div>
+    </div>
+</div>`
+if (document.querySelector('#zakeke-container')) {
+    document.body.insertAdjacentHTML("beforeend", html);
+}

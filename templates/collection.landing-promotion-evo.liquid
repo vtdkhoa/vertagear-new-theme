@@ -1,0 +1,75 @@
+<link type="text/css" href="{{ 'landing-default.css' | asset_url }}" rel="stylesheet"> 
+
+{% include 'product-navigation' %}
+
+<style>
+  .display-none-mobile {
+  display: none;
+}
+  
+  .ld-md-hero a {
+  	width: 100%;
+    height: 100%;
+    margin-bottom: -10px;
+  }
+  .ld-md-hero a:hover {
+  	opacity: 1;
+  }
+  .ld-md-hero img {
+  	width: 100%;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .display-none-desktop {
+    display: none;
+  }
+  .display-none-mobile {
+    display: block;
+  }
+    
+    .ld-md-hero {
+      height: calc(100vh - 210px);
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+  	background-size: cover; /* Resize the background image to cover the entire container */
+      background-image: url("{{ 'promotion-summer-sales-desk-us.jpg' | asset_url }}");
+    }	
+  }
+</style>
+
+<section class="block block-visualcontent-fullscreen promotion-evoday">
+  <div class="inner">
+      <div class="inner-contents contents-left contents-promotion">
+          <h1>SUMMER SALES</h1>
+          <h5>Best deals of the season</h5>
+          <div class="shortline"></div>
+          <p>
+            Order before August 31st while supplies last
+          </p>
+
+          <a class="cta cta-learn" href="#collection-product" target="_blank">SAVE UP TO $200 <span>0% APR Interest</span></a>
+
+
+      </div>
+  </div>
+  
+</section>
+
+{% include 'landing-evo' %}
+{% section 'index-support-dark' %}
+
+<div class="ld-featured-products-header">
+  <div class="ld-featured-products-title">
+    Featured Products
+  </div>
+  <div class="ld-featured-products-desc">
+    'The Best Ergonomic Gaming Chairs' by IGN
+  </div>
+</div>
+{% include 'collection-product-grid', products, tag: "Default" %}
+
+{% include 'collection-bottom' %}
+{% render 'product_infox' %}
+
+{% section 'index-reviews' %}
+{% section 'index-alliance' %}

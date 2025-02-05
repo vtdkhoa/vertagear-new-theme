@@ -1,0 +1,634 @@
+<style>
+  .fe800-series-comparison {
+    display: flex;
+    padding: 128px 40px;
+    flex-direction: column;
+    background: #f6f6f6;
+  }
+  .fe800-series-comparison__container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .fe800-series-comparison__header {
+    display: flex;
+    padding-right: 24px;
+    gap: 120px;
+    margin-bottom: 32px;
+  }
+  .fe800-series-comparison__header-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .fe800-series-comparison__header-products__wrapper {
+    display: flex;
+    gap: 120px;
+  }
+  .fe800-series-comparison__header-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .fe800-series-comparison__specs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px 16px 16px;
+    gap: 120px;
+  }
+  .odd-bg {
+    background: #e7e7e7;
+  }
+  .header-title {
+    font-size: 59px;
+    font-weight: 700;
+    line-height: 96%;
+    letter-spacing: -1.18px;
+    width: 656px;
+  }
+  .header-products-name {
+    margin: 0;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+  }
+  .specs-text {
+    margin: 0;
+    color: #4f4f4f;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+    width: 640px;
+  }
+  .specs-checked {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+  .specs-checked img {
+    width: auto;
+  }
+  .shop-now-btn {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 40px;
+    background-color: #4e4cf7;
+    color: #edf1ff;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+  }
+  @media (max-width: 576px) {
+    .fe800-series-comparison {
+      padding: 64px 0px;
+    }
+    .fe800-series-comparison__container {
+      width: 375px;
+    }
+    .fe800-series-comparison__header {
+      display: unset;
+      height: 174px;
+      flex-direction: column;
+      padding: 0px 16px;
+    }
+    .fe800-series-comparison__header-products__wrapper {
+      margin-top: 32px;
+      gap: 8px;
+    }
+    .fe800-series-comparison__specs {
+      gap: unset;
+      flex-wrap: wrap;
+    }
+    .header-title {
+      width: 343px;
+      position: relative;
+      text-align: center;
+      font-size: 29px;
+      left: 5px;
+      line-height: 100%;
+      letter-spacing: -0.58px;
+    }
+    .specs-text {
+      margin-bottom: 16px;
+    }
+    .specs-checked {
+      width: 17px;
+      margin: auto;
+      display: block;
+      font-size: 12px;
+    }
+    .shop-now-btn {
+      font-size: 12px;
+      letter-spacing: -0.12px;
+      color: #4e4cf7;
+      background-color: transparent;
+      padding: 0;
+      white-space: nowrap;
+    }
+  }
+</style>
+
+<div class="fe800-series-comparison">
+  <div class="fe800-series-comparison__container">
+    <div class="fe800-series-comparison__header">
+      <div class="fe800-series-comparison__header-title header-title">800 Series Comparison</div>
+      <div class="fe800-series-comparison__header-products__wrapper">
+        <div class="fe800-series-comparison__header-products">
+          <img
+            src="{{ 'new-fe800-sign-series-comparison-sl1800.png' |  asset_url }}"
+            alt="series-comparison-sl1800"
+            width=""
+            height=""
+          >
+          <p class="header-products-name">SL1800</p>
+        </div>
+        <div class="fe800-series-comparison__header-products">
+          <img
+            src="{{ 'new-fe800-sign-series-comparison-sl3800.png' |  asset_url }}"
+            alt="series-comparison-sl3800"
+            width=""
+            height=""
+          >
+          <p class="header-products-name">SL3800</p>
+        </div>
+        <div class="fe800-series-comparison__header-products">
+          <img
+            src="{{ 'new-fe800-sign-series-comparison-sl5800.png' |  asset_url }}"
+            alt="series-comparison-sl5800"
+            width=""
+            height=""
+          >
+          <p class="header-products-name">SL5800</p>
+        </div>
+        <div class="fe800-series-comparison__header-products">
+          <img
+            src="{{ 'new-fe800-sign-series-comparison-pl4800.png' |  asset_url }}"
+            alt="series-comparison-pl4800"
+            width=""
+            height=""
+          >
+          <p class="header-products-name">PL4800</p>
+        </div>
+        <div class="fe800-series-comparison__header-products">
+          <img
+            src="{{ 'new-fe800-sign-series-comparison-pl6800.png' |  asset_url }}"
+            alt="series-comparison-pl6800"
+            width=""
+            height=""
+          >
+          <p class="header-products-name">PL6800</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% comment %} ContourMax Lumbar {% endcomment %}
+  <div class="fe800-series-comparison__specs odd-bg">
+    <p class="specs-text">ContourMax Lumbar</p>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+  </div>
+  {% comment %} VertaAirTM Seat  {% endcomment %}
+  <div class="fe800-series-comparison__specs">
+    <p class="specs-text">VertaAirTM Seat</p>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+  </div>
+  {% comment %} RGB LED Kit (Sold Separately) {% endcomment %}
+  <div class="fe800-series-comparison__specs odd-bg">
+    <p class="specs-text">RGB LED Kit (Sold Separately)</p>
+    <span class="specs-checked"></span>
+    <span class="specs-checked"></span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked"></span>
+  </div>
+  {% comment %} HygennX™ {% endcomment %}
+  <div class="fe800-series-comparison__specs">
+    <p class="specs-text">HygennX™</p>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+  </div>
+  {% comment %} Heavy Duty Base {% endcomment %}
+  <div class="fe800-series-comparison__specs odd-bg">
+    <p class="specs-text">Heavy Duty Base</p>
+    <span class="specs-checked"></span>
+    <span class="specs-checked"></span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+  </div>
+  {% comment %} PUC {% endcomment %}
+  <div class="fe800-series-comparison__specs">
+    <p class="specs-text">PUC</p>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+  </div>
+  {% comment %} Effortless Assembly {% endcomment %}
+  <div class="fe800-series-comparison__specs odd-bg">
+    <p class="specs-text">Effortless Assembly</p>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+  </div>
+  {% comment %} Steel Frame {% endcomment %}
+  <div class="fe800-series-comparison__specs">
+    <p class="specs-text">Steel Frame</p>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+  </div>
+  {% comment %} UPHR Foam {% endcomment %}
+  <div class="fe800-series-comparison__specs odd-bg">
+    <p class="specs-text">UPHR Foam</p>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+    <span class="specs-checked">
+      <img
+        src="{{ 'new-fe800-series-comparison-checked-icon.svg' |  asset_url }}"
+        alt="comparison-checked-icon"
+        width="auto"
+        height="auto"
+      >
+    </span>
+  </div>
+  {% comment %} 5-Star Base {% endcomment %}
+  <div class="fe800-series-comparison__specs">
+    <p class="specs-text">5-Star Base</p>
+    <span class="specs-checked specs-text">Metal</span>
+    <span class="specs-checked specs-text">Metal</span>
+    <span class="specs-checked specs-text">Aluminum Alloy</span>
+    <span class="specs-checked specs-text">Aluminum Alloy</span>
+    <span class="specs-checked specs-text">Aluminum Alloy</span>
+  </div>
+  {% comment %} Penta RS1 Caster {% endcomment %}
+  <div class="fe800-series-comparison__specs odd-bg">
+    <p class="specs-text">Penta RS1 Caster</p>
+    <span class="specs-checked specs-text">65mm / 2.5”</span>
+    <span class="specs-checked specs-text">65mm / 2.5”</span>
+    <span class="specs-checked specs-text">65mm / 2.5”</span>
+    <span class="specs-checked specs-text">65mm / 2.5”</span>
+    <span class="specs-checked specs-text">65mm / 2.5”</span>
+  </div>
+  {% comment %} Armrests {% endcomment %}
+  <div class="fe800-series-comparison__specs">
+    <p class="specs-text">Armrests</p>
+    <span class="specs-checked specs-text">3D</span>
+    <span class="specs-checked specs-text">3D</span>
+    <span class="specs-checked specs-text">4D</span>
+    <span class="specs-checked specs-text">4D</span>
+    <span class="specs-checked specs-text">4D</span>
+  </div>
+  {% comment %} Gas Lift {% endcomment %}
+  <div class="fe800-series-comparison__specs odd-bg">
+    <p class="specs-text">Gas Lift</p>
+    <span class="specs-checked specs-text">Class4</span>
+    <span class="specs-checked specs-text">Class4</span>
+    <span class="specs-checked specs-text">Class4</span>
+    <span class="specs-checked specs-text">Class4</span>
+    <span class="specs-checked specs-text">Class4</span>
+  </div>
+  {% comment %} Recommended Height {% endcomment %}
+  <div class="fe800-series-comparison__specs">
+    <p class="specs-text">Recommended Height</p>
+    <span class="specs-checked specs-text">178cm / 5’10”</span>
+    <span class="specs-checked specs-text">178cm / 5’10”</span>
+    <span class="specs-checked specs-text">183cm / 6’</span>
+    <span class="specs-checked specs-text">175cm-198cm / 5’9”-6’6”</span>
+    <span class="specs-checked specs-text">175cm-203cm / 5’9”-6’8”</span>
+  </div>
+  {% comment %} Recommended Weight {% endcomment %}
+  <div class="fe800-series-comparison__specs odd-bg">
+    <p class="specs-text">Recommended Weight</p>
+    <span class="specs-checked specs-text">100kg / 220lb</span>
+    <span class="specs-checked specs-text">100kg / 220lb</span>
+    <span class="specs-checked specs-text">113kg / 250lb</span>
+    <span class="specs-checked specs-text">163kg / 360lb</span>
+    <span class="specs-checked specs-text">181kg / 400lb</span>
+  </div>
+  {% comment %} Show Now button {% endcomment %}
+  <div class="fe800-series-comparison__specs">
+    <p class="specs-text"></p>
+    <span class="specs-checked specs-text">
+      <a class="shop-now-btn" href="/pages/800-ergonomic-gaming-chairs" target="_blank">Shop Now</a>
+    </span>
+    <span class="specs-checked specs-text">
+      <a class="shop-now-btn" href="/products/sl3800-best-budget-comfortable-gaming-chair" target="_blank">Shop Now</a>
+    </span>
+    <span class="specs-checked specs-text">
+      <a class="shop-now-btn" href="/products/sl5800-ergonomic-gaming-chair" target="_blank">Shop Now</a>
+    </span>
+    <span class="specs-checked specs-text">
+      <a class="shop-now-btn" href="/products/pl4800-ergonomic-gaming-chair" target="_blank">Shop Now</a>
+    </span>
+    <span class="specs-checked specs-text">
+      <a class="shop-now-btn" href="/products/pl6800-big-and-tall-ergonomic-gaming-chair" target="_blank">Shop Now</a>
+    </span>
+  </div>
+</div>

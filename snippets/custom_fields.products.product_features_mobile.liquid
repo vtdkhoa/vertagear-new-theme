@@ -1,0 +1,31 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/vertagear.myshopify.com/products/edit-field/47485
+{% endcomment %}
+{% if product.metafields.custom_fields["product_features_mobile"] != blank %}
+  <div class="custom-field custom-field__product-features-mobile custom-field__type--field-collection">
+    <h3 class="custom-field--title">Product Features Mobile</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign product_feature_title_array = product.metafields.custom_fields["product_feature_title"] | split: separator %}
+      {% assign product_feature_description_array = product.metafields.custom_fields["product_feature_description"] | split: separator %}
+      {% assign product_feature_image_array = product.metafields.custom_fields["product_feature_image"] | split: separator %}
+      {% assign fc_keys = product.metafields.custom_fields["product_features_mobile"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item-- fc-index--{{ index }}">
+          <div class="fc-field field__product-feature-title">
+            {{ product_feature_title_array[index] }}
+          </div>
+          <div class="fc-field field__product-feature-description">
+            {{ product_feature_description_array[index] }}
+          </div>
+          <div class="fc-field field__product-feature-image">
+            {{ product_feature_image_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

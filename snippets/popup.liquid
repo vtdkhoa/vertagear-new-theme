@@ -1,0 +1,102 @@
+{% if settings.popup--enable %}
+
+<div id="popup">
+    <input type="hidden" id="pop-up-time" value="{{ settings.pop-up-time }}" />
+	<div class="wrapper">
+	
+		<a class="popup--close-btn"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>	
+
+		<div class="grid">
+
+			{%- assign img_url = '' -%}
+			
+			{% if settings.popup-newsletter-top != blank %}
+				{%- assign img_url = settings.popup-newsletter-top | img_url: '300x' -%}
+			{% else %}
+				{%- assign img_url = '' -%}
+			{% endif %}
+			
+			{% if settings.popup--show-image %} 
+			<div class="grid__item large--one-half hidden-xs popup--image-wrapper">
+				<div class="popup--image">
+					{% if img_url == blank %}
+						{{ 'image' | placeholder_svg_tag: 'icon icon--placeholder' }}
+					{% else %}
+						<img src="{{ img_url }}" class="img-responsive" />
+					{% endif %}
+				</div>
+			</div>
+			{% endif %}
+			
+			<div class="grid__item large--one-third">
+				<div class="popup--body">
+					{% if settings.settings.pop-up-text-header-text != empty %}
+						<h3 class="custom-font">{{ settings.pop-up-text-header-text }}</h3>
+					{% endif %}
+					{% if settings.pop-up-text-description-text != empty %}
+						{{ settings.pop-up-text-description-text }}
+					{% endif %}
+					
+					{% if settings.popup--show-newsletter %}
+						<div id="subs-container" class="clearfix">
+							<div id="mc_embed_signup">
+								<form action="{{ settings.mailchimp-url }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+									<input type="email" value="" name="EMAIL" class="newsletter--popup-full-width" id="mce-EMAIL" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" required>
+									<input type="submit" value="{{ 'general.newsletter_form.submit' | t }}" name="subscribe" id="mc-embedded-subscribe" class="btn account-section--btn">
+								</form>
+							</div>
+						</div>
+					{% endif %}
+					
+					{% if settings.popup--show-social-icons %}
+					{% if settings.sm_facebook_link != blank or if settings.sm_twitter_link != blank or if settings.sm_youtube_link != blank or if settings.sm_flickr_link != blank or settings.sm_pinterest_link != blank or if settings.sm_instagram_link != blank %}
+					<div class="social-media-footer">
+					<ul id="sm-icons" class="clearfix">
+						{% if settings.sm_facebook_link != blank %}<li id="sm-facebook"><a href="{{settings.sm_facebook_link}}"><i class="fa fa-facebook fa-2x"></i></a></li>{% endif %}
+						{% if settings.sm_twitter_link != blank %}<li id="sm-twitter"><a href="{{settings.sm_twitter_link}}"><i class="fa fa-twitter fa-2x"></i></a></li>{% endif %}	  
+					  {% if settings.sm_youtube_link != blank %}<li id="sm-youtube"><a href="{{settings.sm_youtube_link}}"><i class="fa fa-youtube fa-2x"></i></a></li>{% endif %}	  
+					  {% if settings.sm_flickr_link != blank %}<li id="sm-flickr"><a href="{{settings.sm_flickr_link}}"><i class="fa fa-flickr fa-2x"></i></a></li>{% endif %}	    		
+						{% if settings.sm_pinterest_link != blank %}<li id="sm-pinterest"><a href="{{settings.sm_pinterest_link}}"><i class="fa fa-pinterest fa-2x"></i></a></li>{% endif %}
+					  {% if settings.sm_instagram_link != blank %}<li id="sm-instagram"><a href="{{settings.sm_instagram_link}}"><i class="fa fa-instagram fa-2x"></i></a></li>{% endif %}
+					  {% endif %}	    
+					</ul>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+	
+		</div>
+	
+	</div>
+
+</div>
+
+{% endif %}
+
+<script type="text/javascript">
+	window.addEventListener('load', function() {
+		var show_popup = false;
+		var pop_up_time = $('#pop-up-time').val();
+		var popup_enabled = pop_up_time !== undefined;
+		var has_popup_cookie = $.cookie('popup-cookie') === 'true';
+
+		if (!popup_enabled) {
+			// popup is disabled
+			return;
+		} else if (pop_up_time === '0') {
+			// popup is shown every time
+			show_popup = true;
+		} else if (!has_popup_cookie) {
+			// popup cookie is not set, show popup this time
+			show_popup = true;
+			$.cookie('popup-cookie', 'true', {expires: parseInt(pop_up_time)});
+		}
+		if (show_popup) {
+			document.querySelector('#popup').classList.add('visible');
+		}
+
+		$('.popup--close-btn').on('click', function () {
+			document.querySelector('#popup').classList.remove('visible');
+		});
+	});
+</script>

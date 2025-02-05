@@ -1,0 +1,79 @@
+<div class="hygennx-product">
+    <div class="hygennx-product__title vertagear-container">{{section.settings.title}}</div>
+    <div class="hygennx-product__main vertagear-container">
+        <div class="hygennx-product__left">
+            <div class="hygennx-product__navigation">
+              {% for block in section.blocks %}
+              	{% assign product = all_products[block.settings.product] %}
+                <div class="hygennx-product__navigation-btn" @click="slideTo({{forloop.index0}})" :class="{'-active' : current === {{forloop.index0}}}">
+                    <div class="hygennx-product__navigation-btn-main">
+                      	{% if block.settings.title != blank %}
+                        	{{block.settings.title}}
+                      	{% else %}
+                      		{{product.title}}
+                      	{% endif %}
+                    </div>
+                  	{% if block.settings.desc != blank %}
+                      <div class="hygennx-product__navigation-btn-desc">
+                          {{block.settings.desc}}
+                      </div>
+                  	{% endif %}
+                </div>
+               {% endfor %}
+            </div>
+        </div>
+        <div class="hygennx-product__right" aria-hidden="true">
+
+            <div class="hygennx-product__right-inner">
+                <div class="hygennx-product__swiper-arrow swiper-arrow -prev vertagear-icon -icon-left"></div>
+                <div class="hygennx-product__swiper-arrow swiper-arrow -next vertagear-icon -icon-right"></div>
+                <swiper class="hygennx-product__swiper" :options="options" key="hygennx-product-swiper" ref="hygennxProductSwiper">
+                  {% for block in section.blocks %}
+                    {% assign product = all_products[block.settings.product] %}
+                  	{% assign image = product.featured_image.src | img_url: '840x840' %}
+                    <swiper-slide class="hygennx-product__swiper-slide">
+                        <img src='{{image}}' class="hygennx-product__swiper-slide-img" alt>
+                    </swiper-slide>
+                  {% endfor %}
+                </swiper>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Compatible Products",
+  "blocks":[ 
+    { 
+        "type":"text",
+        "name":"Product",
+        "settings":[ 
+            { 
+                "type":"product",
+                "id":"product",
+                "label":"Product"
+            },
+            { 
+                "type":"text",
+                "id":"desc",
+                "label":"Description"
+            },
+            { 
+                "type":"text",
+                "id":"title",
+                "label":"Custom Title"
+            }
+        ]
+    }
+  ],
+  "settings": [
+      {
+          "id": "title",
+          "type": "text",
+          "label": "Title",
+          "default":"Compatible<br>Products"
+      }
+    ]
+  }
+{% endschema %}

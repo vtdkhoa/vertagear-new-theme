@@ -1,0 +1,33 @@
+{% comment %}
+<script>SPOCustom = {}; SPOCustom.customVariantSelectors = true;</script>
+{% endcomment %}
+
+<link href="{{ 'gift-card.css' | asset_url }}" rel="stylesheet" />
+<link type="text/css" href="{{ 'landing-christmas-2021.css' | asset_url }}" rel="stylesheet"> 
+{{ 'fe800-all.css' | asset_url | stylesheet_tag }}
+<div class="vnt-gc-image-wrapper">
+  <img id="vntGiftCardImage" src="{{ product.featured_image | image_url }}" alt="Gift card" />
+</div>
+<div id="popup-reviews" style="display: none;">{% section 'fe800-productdetail-popup-reviews' %}</div>
+
+<!-- <div class="vnt-gc-video-wrapper">
+  <video autoplay muted loop >
+    <source id="vntGiftCardVideo" src="{{ 'gift-card-mobile.mp4' | asset_url }}" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
+</div> -->
+
+{% section 'product-template-rework-sl5000' %}
+{% include 'gift-card-how' %}
+
+{% section 'custom-fields-products' %}
+
+{% comment %}
+{% include 'webyze-swatches' %}
+{% render 'product_infox' %}
+{% endcomment %}
+
+{% if product.type == "Gift Cards" %}
+<script src="{{ 'gift-card-all-one-image.js' | asset_url }}" type="text/javascript" async defer ></script>
+<script src="{{ 'fe800-custom.src.js' | asset_url }}" type="text/javascript" async defer="defer"></script>
+{% endif %}

@@ -1,0 +1,59 @@
+<div class="page-faq">
+  {% unless template == 'page.klarna' %}
+    <h1 class="page-faq__title vertagear-container">{{ page.title }}</h1>
+  {% endunless %}
+  <div class="page-faq__container vertagear-container -small js-faq" data-length="{{section.blocks | size }}">
+    {% for block in section.blocks %}
+      <div class="page-faq__question">
+        <div class="page-faq__question-title" @click="modalChoose().toggle('current',{{forloop.index0}})">
+          {{ block.settings.title }}
+          <div
+            class="page-faq__question-arrow vertagear-icon -icon-down"
+            :class="{'-active': current === {{forloop.index0}} }"
+          ></div>
+        </div>
+        <div
+          class="page-faq__question-content"
+          data-parent="{{forloop.index0}}"
+          :class="{'-active': current === {{forloop.index0}} }"
+        >
+          <div class="page-faq__question-content-inner" data-index="{{forloop.index0}}">
+            {{ block.settings.desc }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "blocks": [
+    {
+      "type": "text",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question",
+          "default": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Answer",
+          "default": "<p>Description</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

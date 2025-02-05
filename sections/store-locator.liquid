@@ -1,0 +1,76 @@
+{% assign array = '' | split: ',' %}
+{% assign blocks = section.blocks | map: "settings" | sort: "name" %}
+{% assign blocks_location = section.blocks | map: "settings" | sort: "location" %}
+{% for block in blocks_location %}
+    {% unless array contains block.location %}
+        {% assign controllerName = block.location | append: ',' | split: ',' %}
+        {% assign array = array | concat: controllerName %}
+    {% endunless %}
+{% endfor %}
+
+<div class="page-store-locator">
+    <div class="page-store-locator__title vertagear-container">
+        {{page.title}}
+    </div>
+    <div class="vertagear-container -small page-store-locator__filter-box">
+        <label class="page-store-locator__filter-label" for="page-store-locator__filter">
+            Filter:
+        </label>
+        <multiselect class="page-store-locator__filter" id="page-store-locator__filter" v-model="category" :show-labels="false" placeholder="Select a Location" :options="[
+            {% for block in array %}
+                '{{block}}',
+            {% endfor %}
+        ]">
+        </multiselect>
+    </div>
+    <div class="page-store-locator__container vertagear-container -small">
+        <transition-group name="card-fade" tag="div" class="page-store-locator__main">
+            {% for block in blocks %}
+                <a href="{{block.url}}" target="_blank" class="page-store-locator__card" v-if="category === null || category === '{{block.location}}'" :key="'card-{{item}}-{{forloop.index0}}'">
+                    <div class="page-store-locator__card-thumb">
+                        <img src="{{block.image | img_url: '1024x1024'}}" alt=" {{block.name}}" loading="lazy" class="page-store-locator__card-thumb-img">
+                    </div>
+                    <div class="page-store-locator__card-title">
+                        {{block.name}}
+                    </div>
+                </a>
+            {% endfor %}
+        </transition-group>
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Main",
+  "blocks":[ 
+      { 
+         "type":"text",
+         "name":"Stores",
+         "settings":[ 
+			{
+				"type":"text",
+				"id":"name",
+                "label":"Name",
+                "default": "Name"
+            },
+            {
+				"type":"url",
+				"id":"url",
+                "label":"Url"
+            },
+            {
+				"type":"text",
+				"id":"location",
+                "label":"Location",
+                "default": "Location"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            }
+         ]
+      }
+  ]
+  }
+{% endschema %}

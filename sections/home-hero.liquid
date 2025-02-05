@@ -1,0 +1,405 @@
+{% include 'gravityadmin' %}
+<div style="display: none !important;  visibility: hidden !important;" class="cmspro-section" id="cmspro-6a2269a6"></div>
+<div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+
+<div class="hero--{{ section.settings.hero_size }}{% if section.settings.homepage-hero--full-width %} homepage-hero--full-width{% else %} wrapper{% endif %}">
+
+<div class="homepage-indiv-section-wrapper grid--full homepage-hero-wrapper">
+
+		{% if section.blocks.size > 0 %}
+			<div class="grid__item large--two-thirds">
+		{% else %}
+			<div class="grid__item large--one-whole">
+		{% endif %}
+
+		<div class="homepage-hero-content-overlay-wrapper">
+
+			{% if section.settings.homepage-hero-featured-content == 'homepage-hero-image-selection' %}
+
+				{% if section.settings.homepage-hero-featured-content.size > 0 %}
+					{% if section.settings.homepage-hero-image-link %}
+						<a href="{{ section.settings.homepage-hero-image-link }}" class="homepage-hero-image--link-wrapper">
+					{% endif %}
+
+					<div class="homepage-hero-content-link-wrapper">
+
+					<div class="homepage-hero-content-image-text-block">
+
+						{% if section.settings.homepage-hero-image-heading != empty %}
+							<h2 class="hero-header-fit">{{ section.settings.homepage-hero-image-heading }}</h2>
+						{% endif %}
+
+						{% if section.settings.homepage-hero-image-description != empty %}
+							<p>{{ section.settings.homepage-hero-image-description }}</p>
+						{% endif %}
+
+						{% if section.settings.homepage-hero-image-button-label != empty %}
+						<span href="{{ section.settings.homepage-hero-image-link }}" class="btn btn-default">
+							{{ section.settings.homepage-hero-image-button-label }}
+						</span>
+						{% endif %}
+
+					</div>
+
+				</div>
+
+					<div class="zoom-effect--inner">
+						{% if section.settings.home-page-hero-image == blank %}
+						    {{ 'lifestyle-1' | placeholder_svg_tag: 'icon icon--placeholder' }}
+						{% else %}
+							{{ section.settings.home-page-hero-image | img_url: '1500x' | img_tag: section.settings.home-page-hero-image.alt, 'img-responsive' }}
+						{% endif %}
+								</div>
+
+					{% if section.settings.homepage-hero-image-link %}
+						</a>
+					{% endif %}
+
+				{% endif %}
+
+			{% endif %}
+
+
+
+			{% for block in section.blocks %}
+				{% if block.settings.hero-menu-image != blank %}
+					<div class="homepage-hero-content-overlay homepage-hero-content-overlay-menu-item" style="background-image: url('{{ block.settings.hero-menu-image | img_url: '1500x' }}');" id="overlay-block-{{ block.id }}"></div>
+				{% endif %}
+			{% endfor %}
+
+			{% if section.settings.home-page-hero-advert-image %}
+			<div class="homepage-hero-content-overlay-advert homepage-hero-content-overlay-menu-item" style="background-image: url('{{ section.settings.home-page-hero-advert-image | img_url: '1500x' }}');" id="overlay-advert-{{ section.id }}"></div>
+			{% endif %}
+
+			{% if section.settings.homepage-hero-featured-content == 'homepage-hero-video-selection' and section.settings.video_url.type == 'youtube' %}
+				<div class="embed-container">
+					<div class="homepage-hero-youtube-video" id="homepage-hero-youtube-video-{{ section.id }}"
+						data-homepage-hero-video-link="{{ section.settings.video_url.id }}"
+						data-homepage-hero-video-autoplay="{% if section.settings.homepage-hero-video-autoplay %}true{% else %}false{% endif %}"
+						data-homepage-hero-video-loop="{% if section.settings.homepage-hero-video-loop %}true{% else %}false{% endif %}"
+						data-homepage-hero-video-mute="{% if section.settings.homepage-hero-video-mute %}true{% else %}false{% endif %}">
+					</div>
+				</div>
+			{% endif %}
+
+			{% if section.settings.homepage-hero-featured-content == 'homepage-hero-video-selection' and section.settings.video_url.type == 'vimeo' %}
+				<div class="embed-container">
+					<div class="homepage-hero-vimeo-video" id="homepage-hero-vimeo-video-{{ section.id }}"
+						data-vimeo-id="{{ section.settings.video_url.id }}"
+						data-vimeo-autoplay="{% if section.settings.homepage-hero-video-autoplay %}true{% else %}false{% endif %}"
+						data-vimeo-loop="{% if section.settings.homepage-hero-video-loop %}true{% else %}false{% endif %}"
+						data-vimeo-width="746"
+						data-homepage-hero-video-mute="{% if section.settings.homepage-hero-video-mute %}true{% else %}false{% endif %}">
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+
+	{% if section.blocks.size > 0 %}
+	<div class="grid__item large--one-third">
+		<div class="homepage-hero-menu-wrapper{% if section.blocks.size == 0 %} no-menu-mobile{% endif %}">
+
+				<div class="homepage-hero-menu">
+					<ul>
+
+						{% for block in section.blocks %}
+
+								<li data-overlay-id="overlay-block-{{ block.id }}" {% unless block.settings.hero-menu-link %}class="no-link"{% endunless %}>
+									{% if block.settings.hero-menu-link %}
+										<a href="{{ block.settings.hero-menu-link }}" class="homepage-hero-menu-link">
+									{% endif %}
+										{% if block.settings.featured_image %}
+											<div class="homepage-hero-menu-indiv-image homepage-hero-menu-indiv-image--{{ block.settings.featured_image_size }}" style="background-image: url('{{ block.settings.featured_image | img_url: '600x' }}')"></div>
+										{% endif %}
+										<div class="homepage-hero-menu--indiv-text">
+											<span class="h4">{{ block.settings.hero-menu-heading }}</span>
+											<p>{{ block.settings.hero-menu-subheading }}</p>
+										</div>
+									{% if block.settings.hero-menu-link%}
+									</a>
+									{% endif %}
+								</li>
+
+						{% endfor %}
+
+					</ul>
+				</div>
+
+		</div>
+
+	</div>
+	{% endif %}
+
+</div>
+
+</div>
+
+</div>
+
+{% if section.settings.homepage-hero-featured-content != 'homepage-hero-video-selection' %}
+	<style>
+		.homepage-hero-content-overlay-wrapper::before{
+		    background-color: #000;
+		    bottom: 0;
+		    content: "";
+		    left: 0;
+		    opacity: {{ section.settings.image_overlay_opacity }};
+		    position: absolute;
+		    right: 0;
+		    top: 0;
+		    z-index: 1;
+		}
+	</style>
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "Hero",
+  "class": "hero-wrapper",
+  "settings": [
+		{
+		  "type": "header",
+		  "content": "Featured content"
+		},
+		{
+		  "type": "select",
+		  "id": "homepage-hero-featured-content",
+		  "label": "Content",
+		  "options": [
+		    {
+		      "value": "homepage-hero-video-selection",
+		      "label": "Video"
+		    },
+		    {
+		      "value": "homepage-hero-image-selection",
+		      "label": "Image"
+		    }
+		  ],
+		  "default": "homepage-hero-image-selection"
+		},
+		{
+		  "type": "header",
+		  "content": "Video settings"
+		},
+		{
+		  "id": "video_url",
+		  "type": "video_url",
+		  "label": "Video URL",
+		  "accept": ["youtube", "vimeo"],
+		  "default": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc"
+		},
+		{
+		  "type": "checkbox",
+		  "id": "homepage-hero-video-autoplay",
+		  "label": "Autoplay",
+		  "default": true
+		},
+		{
+		  "type": "checkbox",
+		  "id": "homepage-hero-video-loop",
+		  "label": "Loop",
+		  "default": true
+		},
+		{
+		  "type": "checkbox",
+		  "id": "homepage-hero-video-mute",
+		  "label": "Mute",
+		  "default": false
+		},
+		{
+		  "type": "header",
+		  "content": "Image settings"
+		},
+		{
+		  "type": "image_picker",
+		  "id": "home-page-hero-image",
+		  "label": "Image"
+		},
+		{
+      "type": "select",
+      "id": "image_overlay_opacity",
+      "label": "Opacity",
+      "default": "0",
+      "options": [
+        {
+          "label": "95%",
+          "value": "0.95"
+        },
+        {
+          "label": "90%",
+          "value": "0.9"
+        },
+        {
+          "label": "85%",
+          "value": "0.85"
+        },
+        {
+          "label": "80%",
+          "value": "0.8"
+        },
+        {
+          "label": "75%",
+          "value": "0.75"
+        },
+        {
+          "label": "70%",
+          "value": "0.7"
+        },
+        {
+          "label": "65%",
+          "value": "0.65"
+        },
+        {
+          "label": "60%",
+          "value": "0.6"
+        },
+        {
+          "label": "55%",
+          "value": "0.55"
+        },
+        {
+          "label": "50%",
+          "value": "0.5"
+        },
+        {
+          "label": "45%",
+          "value": "0.45"
+        },
+        {
+          "label": "40%",
+          "value": "0.4"
+        },
+        {
+          "label": "35%",
+          "value": "0.35"
+        },
+        {
+          "label": "30%",
+          "value": "0.3"
+        },
+        {
+          "label": "25%",
+          "value": "0.25"
+        },
+        {
+          "label": "20%",
+          "value": "0.2"
+        },
+        {
+          "label": "0%",
+          "value": "0"
+        }
+      ]
+    },
+		{
+			"type": "text",
+			"id": "homepage-hero-image-heading",
+			"label": "Heading"
+		},
+		{
+			"type": "text",
+			"id": "homepage-hero-image-description",
+			"label": "Description"
+		},
+		{
+			"type": "text",
+			"id": "homepage-hero-image-button-label",
+			"label": "Button label",
+			"info": "Optional"
+		},
+		{
+		  "type": "url",
+		  "id": "homepage-hero-image-link",
+		  "label": "Link",
+		  "info": "Optional"
+		}
+
+  ],
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Menu item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "hero-menu-heading",
+          "label": "Heading"
+        },
+				{
+          "type": "text",
+          "id": "hero-menu-subheading",
+          "label": "Subheading"
+        },
+        {
+          "type": "url",
+          "id": "hero-menu-link",
+          "label": "Link"
+        },
+				{
+					"type": "image_picker",
+					"id": "featured_image",
+					"label": "Featured image",
+					"info": "500 x 250px (recommended)"
+				},
+				{
+		      "type": "select",
+		      "id": "featured_image_size",
+		      "label": "Image height",
+		      "default": "medium",
+		      "options": [
+		        {
+		          "label": "Extra Small",
+		          "value": "x-small"
+		        },
+		        {
+		          "label": "Small",
+		          "value": "small"
+		        },
+		        {
+		          "label": "Medium",
+		          "value": "medium"
+		        },
+		        {
+		          "label": "Large",
+		          "value": "large"
+		        },
+		        {
+		          "label": "Extra Large",
+		          "value": "x-large"
+		        }
+		      ]
+		    },
+        {
+          "type": "image_picker",
+          "id": "hero-menu-image",
+          "label": "Hover image",
+          "info": "1500 x 1000px (recommended)"
+        }
+      ]
+    }
+  ],
+	"presets": [{
+		"name": "Hero",
+		"category": "Advanced layout",
+		"blocks": [
+			{
+				"type": "text",
+				"settings": {
+          "hero-menu-heading": "Title",
+					"hero-menu-subheading": "Link to any collection, product or page"
+        }
+			},
+			{
+				"type": "text",
+				"settings": {
+					"hero-menu-heading": "Title",
+					"hero-menu-subheading": "Link to any collection, product or page"
+				}
+			}
+		]
+	}]
+}
+{% endschema %}

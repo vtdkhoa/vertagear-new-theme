@@ -1,0 +1,95 @@
+<style>
+  .engrave-logo-modal .nam-modal__content {
+    background: #fff;
+  }
+  .vertagear-custom-intro {
+      display: none !important;
+    }
+
+  @media screen and (max-width: 767px) { 
+    body {
+      overflow: unset !important;
+    }
+    #zakeke-container {
+      display: none;
+    }
+    #zakeke-container #zakeke-frame {
+      top: 50px !important;
+    }
+    .vertagear-custom-intro {
+      top: 104px !important;
+    }
+    .display-flex {
+      display: flex !important;
+    }
+  }
+</style>
+
+<div id="rgbModalEngraveLogo" class="nam-modal engrave-logo-modal" style="height: 0;">
+  <div class="nam-modal__wrapper">
+    <div class="nam-modal__background js-zakeke_close"></div>
+    <div class="nam-modal__content">
+      <div class="nam-modal__content__header">
+        <button class="close-btn js-zakeke_close"><img src="{{ 'ld-rgb-close-modal.svg' | asset_url }}" /></button>
+      </div>
+
+        <div>
+          <link
+            href="https://portal.zakeke.com/Content/css/integration/shopify/customizer.css?v=4"
+            rel="stylesheet"
+            type="text/css"
+            media="all"
+          />
+
+          <div id="zakeke-container"></div>
+
+          <form
+            id="zakeke-addtocart"
+            action="/cart/add"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <input type="hidden" name="id" />
+            <input type="hidden" name="quantity" />
+          </form>
+
+          <script>
+            window.zakekeTranslatedProduct = 0;
+          </script>
+
+          <script id="tdf_pxrscript" class="tdf_script5">
+            Shopify = window.Shopify || {};
+            Shopify.shop = Shopify.shop || "vertagear.myshopify.com";
+          </script>
+          <script
+            src="https://d5zu2f4xvqanl.cloudfront.net/4/fe/loader_2.js?shop=vertagear.myshopify.com"
+            async=""
+          ></script>
+          <script>
+            !(function (t) {
+              var e = function (e) {
+                var n, a;
+                ((n = t.createElement("script")).type = "text/javascript"),
+                  (n.async = !0),
+                  (n.src = e),
+                  (a =
+                    t.getElementsByTagName(
+                      "script"
+                    )[0]).parentNode.insertBefore(n, a);
+              };
+              setTimeout(function () {
+                window.tdfInited ||
+                  ((window.altcdn = 1),
+                  e(
+                    "https://cdn.shopify.com/s/files/1/0013/1642/1703/t/1/assets/loader_2.js?shop=vertagear.myshopify.com"
+                  ));
+              }, 1689);
+            })(document);
+          </script>
+
+          <noscript class="endOfLayoutContentX" type="text/mark"></noscript>
+        </div>
+      
+    </div>
+  </div>
+</div>

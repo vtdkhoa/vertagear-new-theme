@@ -1,0 +1,117 @@
+.rgb__fearure {
+  margin-top: 40px;
+}
+
+.rgb__fearure img {
+  width: 100%;
+}
+
+.cell__content {
+  position: relative;
+}
+
+.cell__content__text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(18, 18, 18, 0.8);
+  padding: 40px;
+}
+.cell__content__text .header {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 150%;
+}
+.cell__content__text .desc {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 150%;
+  margin-top: 13px;
+}
+.cell__content__text .see-more {
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+/* flickity */
+.flickity-page-dots .dot {
+  background: #c4c4c4;
+}
+.flickity-page-dots .dot.is-selected {
+  background: var(--main-color);
+}
+
+@media screen and (min-width: 768px) {
+  .rgb__feature__position {
+    position: relative;
+    height: 600px;
+  }
+
+  .rgb__feature__container .each {
+    position: relative;
+  }
+  .rgb__feature__container .each:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .rgb__feature__container .each img {
+    width: 450px;
+    height: 100%;
+  }
+  .rgb__feature__container .each:hover .content {
+    height: fit-content;
+    background: rgba(18, 18, 18, 0.8);
+  }
+  .rgb__feature__container .each:hover .desc {
+    opacity: 1;
+  }
+
+  .rgb__feature__container .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 40px;
+    height: 150px;
+    transition: 0.5s;
+  }
+  .rgb__feature__container .title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+  }
+  .rgb__feature__container .desc {
+    opacity: 0;
+    transition: 0.5s;
+    margin-top: 13px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .rgb__feature__carousel_btn {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+  }
+  .rgb__feature__carousel_btn.left {
+    left: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+  }
+  .rgb__feature__carousel_btn.right {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    right: 0;
+  }
+  .rgb__feature__carousel_btn.left:hover,
+  .rgb__feature__carousel_btn.right:hover {
+    background: var(--main-color);
+  }
+}

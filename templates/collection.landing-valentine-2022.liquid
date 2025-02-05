@@ -1,0 +1,244 @@
+<link type="text/css" href="{{ 'landing-valentine-2022.css' | asset_url }}" rel="stylesheet"> 
+
+{% assign products = collection.products %}
+
+{% section 'landing-valentine-2022' %}
+
+<div class="ld-featured-products-header">
+  <div class="ld-featured-products-title">
+    Wondering Where To Start?
+  </div>
+  <div class="ld-featured-products-desc">
+    Handpicked gifts for the one and only.
+  </div>
+<!--   <div class="ld-featured-products-promo">
+    <div>Order by February 14th for delivery on or before Valentine’s Day</div>
+  </div> -->
+</div>
+{% include 'collection-product-grid', products, tag: "Default" %}
+
+{% include 'collection-bottom' %}
+{% render 'product_infox' %}
+
+{% section 'index-reviews' %}
+
+<!-- <div class="ld-reason">
+            <div class="ld-reason__width">
+				<div class="ld-reason__why" id="ldGiftCards">
+                    <div class="ld-reason__why__line">
+                    </div>
+                    <div class="ld-reason__why__header">
+                        <p><span class="ld-reason__why__header__strong">eGift Card</span><br />
+                            <span>For Your Loved Ones</span>
+                        </p>
+                    </div>
+  					<div class="ld-giftcard-image-wrapper">
+                      <a href="/products/gift-cards?variant=40703210815599">
+                        <img class="display-none-desktop" src="{{ 'egift-card-mobile-2x.png' | asset_url }}" alt="eGift Card" />
+                        <img id="ldEGiftCardDesktop" class="display-none-mobile" src="{{ 'egift-card-desktop-2x.png' | asset_url }}" alt="eGift Card" />
+                      </a>
+  					</div>
+
+                    {% include 'gift-card-how' %}
+                </div>
+              <div class="ld-reason__rgb"></div>
+  </div>
+</div> -->
+
+{% include 'landing-gallery' %}
+
+{% section 'index-alliance' %}
+
+<style>
+  .ld-max-width {
+  	max-width: 1200px;
+    margin: auto;
+  }
+  .ld-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh; 
+    overflow-y: scroll;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 75px;
+  }
+  
+  .ld-modal__content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 1400px;
+  }
+  
+  .ld-modal__title {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    color: #3A4C55;
+  }
+  
+  .ld-modal__promo-text {
+    font-size: 15px;
+    text-align: center;
+    color: #4E4CF7;
+    background: rgba(40, 85, 201, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px 0px;
+  }
+  
+  .ld-modal-btn-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .ld-modal__btn {
+    width: 100%;
+    padding: 14px;
+    background: #4E4CF7;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;	
+  }
+  
+  @media only screen and (min-width: 1366px) {
+    .ld-modal {	
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    
+    .ld-modal__content {
+      height: 100%;
+      padding: 20px 60px;
+      width: 90%;
+    }
+    
+    .ld-modal__title {
+      font-size: 30px;
+      height: 7%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .ld-modal__promo-text {
+      font-size: 16px;
+      height: 5%;
+    }
+    
+    .ld-modal-btn-container {
+      height: 7%;
+      position: unset;
+    }
+    .ld-modal__btn {
+      color: #4E4CF7;
+      background: white;
+      border: 1px solid #4E4CF7;
+      height: 100%;
+      padding: 0;
+    }
+    .ld-modal__btn:hover {
+      background: #4E4CF7;
+    	color: white;
+      border: none;
+    }
+    
+    .ld-modal__collection-container {
+    	height: 81%;
+      padding: 20px 0;
+    }
+    .ld-modal__collection {
+    	height: 100%;
+      overflow: auto;
+    }
+    .ld-modal__collection .collection-product__main{
+      width: 100%;
+      grid-gap: 0;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  
+/*   @media only screen and (min-width: 1200px) {
+    .ld-modal__content {
+    	font-size: 30px;
+    }
+  } */
+</style>
+
+{% assign productsForHim = collection.products %}
+{% assign productsForHer = collection.products %}
+{% assign productsForCouple = collection.products %}
+{% include 'collection-valentine-modal', products: productsForHim, tag: "Him" %}
+{% include 'collection-valentine-modal', products: productsForHer, tag: "Her" %}
+{% include 'collection-valentine-modal', products: productsForCouple, tag: "Couple" %}
+
+<script>
+  const disableBodyScroll = () => {
+  	document.body.style.overflow = "hidden";
+  }
+  const unsetBodyScroll = () => {
+  	document.body.style.overflow = "unset";
+  }
+  const ldCollectionForHimBanner = document.getElementById("ldColletionForHimBanner");
+  const ldCollectionForHimModal = document.getElementById("ldModalHim");
+  const ldCollectionForHerBanner = document.getElementById("ldColletionForHerBanner");
+  const ldCollectionForHerModal = document.getElementById("ldModalHer");
+  const ldCollectionForCoupleBanner = document.getElementById("ldColletionForCoupleBanner");
+  const ldCollectionForCoupleModal = document.getElementById("ldModalCouple");
+  
+  ldCollectionForHimBanner.onclick = () => {
+    ldCollectionForHimModal.style.display = "block";
+    disableBodyScroll();
+  }
+  
+  ldCollectionForHerBanner.onclick = () => {
+    ldCollectionForHerModal.style.display = "block";
+    disableBodyScroll();
+  }
+  
+  ldCollectionForCoupleBanner.onclick = () => {
+    ldCollectionForCoupleModal.style.display = "block";
+    disableBodyScroll();
+  }
+  
+  const ldModalCloseBtnHim = document.getElementById("ldModalCloseBtnHim");
+  ldModalCloseBtnHim.onclick = () => {
+    ldCollectionForHimModal.style.display = "none";
+    unsetBodyScroll();
+  }
+  const ldModalCloseBtnHer = document.getElementById("ldModalCloseBtnHer");
+  ldModalCloseBtnHer.onclick = () => {
+    ldCollectionForHerModal.style.display = "none";
+    unsetBodyScroll();
+  }
+  const ldModalCloseBtnCouple = document.getElementById("ldModalCloseBtnCouple");
+  ldModalCloseBtnCouple.onclick = () => {
+    ldCollectionForCoupleModal.style.display = "none";
+    unsetBodyScroll();
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == ldCollectionForHimModal) {
+      ldCollectionForHimModal.style.display = "none";
+      unsetBodyScroll();
+    } else if (event.target == ldCollectionForHerModal) {
+      ldCollectionForHerModal.style.display = "none";
+      unsetBodyScroll();
+    } else if (event.target == ldCollectionForCoupleModal) {
+      ldCollectionForCoupleModal.style.display = "none";
+      unsetBodyScroll();
+    }
+  }
+</script>
+
+<script src="{{ 'landing-valentine-2022.js' | asset_url }}" type="text/javascript" async defer></script>

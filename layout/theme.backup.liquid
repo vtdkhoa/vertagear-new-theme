@@ -1,0 +1,465 @@
+{% if template contains 'article' and blog.metafields.blogfeeder.use_canonical == 'yes' %}{% assign canonical_url = article.metafields.blogfeeder.canonical %}{% endif %}
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+{% render 'geolizr-init' %}
+  <meta name="google-site-verification" content="NGwYXA5KBD61Vr1PlNHwBfhQqFUAYpJXJn7Dl4BcQCE" />  
+  
+
+  <!-- Logical Position 10/11/2019 -->
+  <meta name="google-site-verification" content="5y3OHSn7Pf3NFJVexHNgV73y9IbV9OkI8UHAAqXCK7c" />
+
+  <!-- New mike@vertagear.com meta verification -->
+  <meta name="google-site-verification" content="Xd4zRCydwzbHrKyTrjgTAm_FeRooloOT9LEMMceaCE0" />
+  <!-- Old alirazan@absolvegaming.com meta verification -->
+  <!-- <meta name="google-site-verification" content="rXIJnHxPikaxAPsqz8ziBeK0AbIqeciZQb7i1WZXmrg" /> -->
+  <!--<meta name="google-site-verification" content="Xd4zRCydwzbHrKyTrjgTAm_FeRooloOT9LEMMceaCE0" />-->
+  
+
+
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  {% if settings.favicon != blank %}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {% endif %}
+
+  <!-- Title and description ================================================== -->
+  <title>
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Helpers ================================================== -->
+  {% include 'social-meta-tags' %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  {% if template contains 'product' %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  {% else %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% endif %}
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+  <style>
+      body.-loading #wrapper {
+          opacity: 0;
+      }
+
+      body.-loading .loading-shape {
+          opacity: 1;
+          pointer-events: auto; 
+      }
+
+      .loading-shape {
+          position: fixed;
+          top: 0;
+          left: 0;
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
+          background: #ffffff;
+          opacity: 0;
+          z-index: 100000;
+          transition: opacity 0.8s ease;
+          pointer-events: none;
+      }
+  </style>
+
+  <!-- CSS ================================================== -->
+  
+
+  {{ 'timber.css' | asset_url | stylesheet_tag }}
+
+
+  {% comment %}
+    {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  	{{ 'bootstrap.css' | asset_url | stylesheet_tag }}
+    {{ 'plugins.css' | asset_url | stylesheet_tag }}
+  	{{ 'alliances.scss.css' | asset_url | stylesheet_tag }}
+  	{{ 'product-tab.scss.css' | asset_url | stylesheet_tag }}
+  {% endcomment %}
+  {% render 'okendo-reviews-json-ld' %}
+  
+  {% comment %}
+
+  {% include 'font-links' %}
+  {% endcomment %}
+
+  <!-- Header hook for plugins ================================================== -->
+  {% comment %}
+  {% render 'treedify' %}
+  {% endcomment %}
+  
+  
+  {{ content_for_header }}
+  
+  
+  {% comment %}
+  		{% include 'oldIE-js' %}
+  {% endcomment %}
+
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+  
+  
+  {% comment %}
+      {% if template != 'product.custom-sl5000' %}
+        {{ 'owlCarousel.js' | asset_url | script_tag }}
+        {{ 'izimodal.min.js' | asset_url | script_tag }}
+        {{ 'izimodal.min.css' | asset_url | stylesheet_tag }}
+      {% endif %}
+  	  {{ 'fontawesome.js' | asset_url | script_tag }}
+  {% endcomment %}
+  
+  
+
+  {% if template contains 'customers' %}
+  		{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {% endif %}
+
+  
+
+
+  
+  {% comment %}
+  {{ 'custom-min.scss' | asset_url | stylesheet_tag }}
+  {{ 'collections.scss' | asset_url | stylesheet_tag }}
+  
+  {{ 'custom-messages.scss' | asset_url | stylesheet_tag }}
+  
+  
+  {{ 'storelocator.scss' | asset_url | stylesheet_tag }}
+  {{ 'store.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'new-store.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'shop.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'pillow-sc.scss.css' | asset_url | stylesheet_tag }}
+  
+  {{ 'my-custom.js' | asset_url | script_tag }}
+  
+  {{ 'student-discount.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'store-page-popup.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'buy-now-template.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'jquery.elevatezoom.js' | asset_url | script_tag }}
+  {{ 'military-discount.scss.css' | asset_url | stylesheet_tag }}
+    <style>
+    #shopify-section-announcement-bar{
+      z-index:9999;
+      position: relative;
+    }
+  </style>
+
+  {% endcomment %}
+  
+  
+
+  
+  
+
+
+  
+  
+  
+  {% if template contains 'chair-selection-tool'%}
+      {{ 'jquery-ui.min.css' | asset_url | stylesheet_tag }}
+  	  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" defer="defer"></script>
+  {% endif %}
+
+  
+
+
+
+
+  
+  {% comment %}
+
+    {% if handle == "support" or handle == "warranty" or handle == "faq" %}
+    {% include "zendesk-widget" %}
+    {% endif %}
+  
+  {% endcomment %}
+
+  
+
+{% render 'weglot_hreftags' %}
+{% render 'weglot_switcher' %}
+</head>
+
+
+<body id="{{ page_title | handle }}" class="-loading {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >{% render 'geolizr-api' %}
+
+   <datalist id="products_recommend" style="display:none">
+    <option value="SL5000">
+    <option value="SL4000">
+    <option value="PL1000">
+    <option value="PL6000">
+    <option value="SL2000">
+  </datalist>
+  <div  class="loading-shape"><div class="loading-shape__circle"></div></div>
+  {% if settings.ajax_cart_method == "drawer" %}
+      <div id="CartDrawer" class="drawer drawer--right">
+        <div id="CartContainer"></div>
+      </div>
+  {% endif %}
+  {% section 'header-new' %}
+  <div id="wrapper">
+    {% include 'youtube-popup' %}
+    
+    <main>
+      <div id="PageContainer" class="is-moved-by-drawer">
+          {% comment %}
+            {% if template != 'product' %}
+              {% section 'announcement-bar' %}
+            {% endif %}
+          {% endcomment %}
+          {% assign class_name = 'full-width-content' %}
+          <div class="{{class_name}}">
+            {{ content_for_layout }}
+	        <noscript class="endOfLayoutContentX" type="text/mark"></noscript>
+            {% comment %}
+            {% render 'treedify_script' %}
+            {% endcomment %}
+          </div>
+       </div>
+     </main>
+    {% section 'footer-new' %}
+   </div>
+  		{{ 'main.css' | asset_url | stylesheet_tag }}
+        {{ 'main-assets.css' | asset_url | stylesheet_tag }}
+  		{% if template contains 'page.contact' or  template contains 'page.warranty' %}
+            {{ 'form.js' | asset_url | script_tag }}
+        {% else %}
+            {{ 'main.js' | asset_url | script_tag }}
+        {% endif %}
+   
+  		{% comment %}
+  		{% include 'sca.freegifts' %}
+        {% endcomment %}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-845916327"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-845916327');
+
+        (function(a,b,c,d,e,f,g){e['ire_o']=c;e[c]=e[c]||function(){(e[c].a=e[c].a||[]).push(arguments)};f=d.createElement(b);g=d.getElementsByTagName(b)[0];f.async=1;f.src=a;g.parentNode.insertBefore(f,g);})('https://d.impactradius-event.com/A2597169-1c2d-40b9-913b-d08b75c97ac41.js','script','ire',document,window);
+        ire('identify', {customerId: '', customerEmail: '' });
+        </script>
+  		{{ shop.metafields.okendo.ReviewsWidgetStyleTag }}
+        {{ shop.metafields.okendo.StyleCustomizations }}
+  		{% comment %}
+        {{ 'fastclick.min.js' | asset_url | script_tag }}
+  		{{ 'instafeed.js' | asset_url | script_tag }}
+        {% include 'popup' %}
+  		{{ 'plugins.js' | asset_url | script_tag }}
+  		
+  		{% endcomment %}
+  		
+        {{ 'custom.js' | asset_url | script_tag }}
+        
+        {{ 'timber.js' | asset_url | script_tag }}
+  		{{ 'jquery.absolveGa.js' | asset_url | script_tag }}
+
+        {% if template == 'product' %}
+
+        <script>
+          document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+
+        {% endif %}
+
+        <script>
+          {% if resetPassword %}
+          $(function() {
+            timber.resetPasswordSuccess();
+          });
+          {% endif %}
+        </script>
+
+        {% comment %}
+        Ajaxify your cart with this plugin.
+        Documentation:
+        - http://shopify.com/timber#ajax-cart
+        {% endcomment %}
+        {% if settings.ajax_cart_method == "drawer" %}
+        {{ 'handlebars.min.js' | asset_url | script_tag }}
+        {% include 'ajax-cart-template' %}
+        {{ 'ajax-cart.js' | asset_url | script_tag }}
+        <script>
+          var shopifyAjaxCartContainer = "#CartContainer";
+          function init() {
+            ajaxCart.init({
+              formSelector: '#AddToCartForm',
+              cartContainer: shopifyAjaxCartContainer,
+              addToCartSelector: '#AddToCart',
+              cartCountSelector: '#CartCount',
+              moneyFormat: {{ shop.money_format | json }},
+            });
+          }
+          jQuery(init);
+          document.addEventListener('shopify:section:load', init);
+
+          jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
+            // Bind to 'afterCartLoad.ajaxCart' to run any javascript after the cart has loaded in the DOM
+            timber.RightDrawer.open();
+            console.log("cartLoad - cart", cart);
+
+            shopifyAjaxCartContainer+" "
+
+            jQuery(cart.items).each(function(index, lineItem){
+              var line = index+1;
+              var lineItemPrice = lineItem.line_price;
+
+              var lineItemAffirmElement = jQuery(".ajaxcart__row[data-line='"+line+"'] .affirm-as-low-as");
+              jQuery(lineItemAffirmElement).attr('data-amount', lineItemPrice);
+            });
+
+            jQuery(".ajaxcart__footer .affirm-as-low-as").attr("data-amount", cart.total_price);
+            affirm.ui.refresh();
+          });
+        </script>
+        {% endif %}
+  		{% comment %}
+  
+     
+        {% endcomment %}
+          
+          
+
+
+          {% include 'geolizr-redirect' %}
+          {% include 'geolizr-popup' %} 
+  		  {{ 'geolizr-lib.js' | asset_url | script_tag }}
+          {{ 'geolizr-lib.css' | asset_url | stylesheet_tag }}
+
+        <!-- Twitter universal website tag code -->
+        <script>
+          !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+                                                           },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+                                         a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+          // Insert Twitter Pixel ID and Standard Event data below
+          twq('init','o0kzs');
+          twq('track','PageView');
+        </script>
+        <!-- End Twitter universal website tag code -->              
+
+        <!-- google dynamic remarketing tag for theme.liquid -->
+        {% if template contains 'product' %}<!-- EVENT NOT DONE -->
+            <script type="text/javascript">
+              var json_product = {{ product | json }};
+            </script>
+            <script>
+              var ecomm_prodid=[];
+              for(var i=0;i<json_product.variants.length;i++)
+                ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
+            </script>
+            <script type="text/javascript">
+              var google_tag_params = {
+                ecomm_prodid: ecomm_prodid,
+                ecomm_pagetype: 'product',
+                ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}')
+                                             };
+            </script>
+        {% elsif template contains 'collection' %}<!-- EVENT NOT DONE -->
+            <script type="text/javascript">
+              var google_tag_params = {
+                ecomm_pagetype: 'category'
+              };
+            </script>
+        {% elsif template contains 'cart' %}<!-- EVENT NOT DONE -->
+            <script type="text/javascript">
+              var id = new Array();
+              {% for item in cart.items %}
+              id.push('shopify_US_{{item.product.id}}_{{item.variant.id}}');
+                      {% endfor %}
+
+                      var google_tag_params = {
+                      ecomm_prodid: id,
+                      ecomm_pagetype: 'cart',
+                      ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+                      };
+        		</script>
+        {% elsif template contains 'search' %}<!-- EVENT NOT DONE -->
+            <script type="text/javascript">
+              var google_tag_params = {
+                ecomm_pagetype: 'searchresults'
+              };
+            </script>
+        {% elsif template contains 'index' %}
+            <script type="text/javascript">
+              var google_tag_params = {
+                ecomm_pagetype: 'home'
+              };
+            </script>
+        {% else %}
+            <script type="text/javascript">
+              var google_tag_params = {
+                ecomm_pagetype: 'other'
+              };
+            </script>
+        {% endif %}
+
+            <script> 
+              gtag('event', 'page_view', {
+                'send_to': 'AW-845916327',
+                'ecomm_pagetype': google_tag_params.ecomm_pagetype, 
+                'ecomm_prodid': google_tag_params.ecomm_prodid,
+                'ecomm_totalvalue': google_tag_params.ecomm_totalvalue 
+              });
+            </script>
+
+  			{% if template contains 'product'%}
+  				  {{ 'slick.min.js' | asset_url | script_tag }}
+                  {{ 'slick.css' | asset_url | stylesheet_tag }}
+                  {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+                  <script>
+                          // affirm js start
+                        _affirm_config = {
+                          public_api_key:  "DLXEZ99LU8GC296I",
+                          script:          "https://cdn1.affirm.com/js/v2/affirm.js"
+                        };
+                        (function(l,g,m,e,a,f,b){var d,c=l[m]||{},h=document.createElement(f),n=document.getElementsByTagName(f)[0],k=function(a,b,c){return function(){a[b]._.push([c,arguments])}};c[e]=k(c,e,"set");d=c[e];c[a]={};c[a]._=[];d._=[];c[a][b]=k(c,a,b);a=0;for(b="set add save post open empty reset on off trigger ready setProduct".split(" ");a<b.length;a++)d[b[a]]=k(c,e,b[a]);a=0;for(b=["get","token","url","items"];a<b.length;a++)d[b[a]]=function(){};h.async=!0;h.src=g[f];n.parentNode.insertBefore(h,n);delete g[f];d(g);l[m]=c})(window,_affirm_config,"affirm","checkout","ui","script","ready");
+                        // affirm js end
+
+                  </script>
+  				  
+                  <script async type='text/javascript' src='{{ 'preorder-custom.js' | asset_url }}'></script>
+  				  <script async type='text/javascript' src='//s3.amazonaws.com/shopify-apps/pre-order/store/31384590e883789d8be3c612ae3523ad.js'></script>
+  				{% include 'atfirst-rework-product-bottom-script' %}
+  			{% endif %}
+  	
+
+  			{{ 'cutsom-zakeke-hint.js' | asset_url | script_tag }}
+            <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js"></script>
+            <script>
+            var lazyLoadInstance = new LazyLoad({
+            // Your custom settings go here
+          	});
+            </script>
+
+
+
+        {% comment %}
+        IF WE WANT REGION SPECIFIC POP UPS
+        include 'custom-message-bar'
+        {% endcomment %}                
+
+
+        <!-- **BEGIN** Hextom SPM Integration // Main Include - DO NOT MODIFY -->
+        {% include 'hextom_spm_main' %}
+        <!-- **END** Hextom SPM Integration // Main Include - DO NOT MODIFY -->
+        {% render 'spurit_po2_theme_snippet' %}
+		<!-- **BEGIN** Hextom QAB Integration // Main Include - DO NOT MODIFY -->
+    	{% render 'hextom_qab_main', product: product, customer: customer %}
+    	<!-- **END** Hextom QAB Integration // Main Include - DO NOT MODIFY -->
+  		<script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "EkArLlZaV1");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
+        <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=RY98J4"></script>
+<!--   		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> -->
+{{ '//cdn.shopify.com/s/files/1/0194/1736/6592/t/1/assets/booster-page-speed-optimizer.js?23' | script_tag }}
+</body>
+</html>

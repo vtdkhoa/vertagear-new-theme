@@ -1,0 +1,17 @@
+{% assign rgb_led_kit_other_product = product.metafields.custom_fields["rgb_led_kit_other_product"] %}
+<div class="page-rgb-led-kit__shop">
+  		{% for item in rgb_led_kit_other_product %}
+        <div class="page-rgb-led-kit__shop-split">
+            <img src=" {{item.background}}" alt="" class="page-rgb-led-kit__shop-split-img">
+            <div class="page-rgb-led-kit__shop-split-center vertagear-container">
+                <div class="page-rgb-led-kit__shop-split-title">
+                    {{item.title}}
+                </div>
+                <div class="page-rgb-led-kit__shop-split-wrap">
+                    <a href="{{all_products[item.product].url}}" class="vertagear-btn page-rgb-led-kit__shop-split-btn -white-border">SHOP NOW</a>
+<!--                     <a href="{{pages[item.learn_more].url}}" class="page-rgb-led-kit__shop-split-learn">Learn more</a> -->
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+</div>

@@ -1,0 +1,40 @@
+<div class="espost-reviews">
+  <div class="esport-reviews_container">
+    <div class="esport-reviews_title">
+      {{ section.settings.title }}
+    </div>
+    <div class="esport-reviews_list">
+      {% for block in section.blocks %}
+        <div class="esport-reviews_logo">
+          <img src="{{ block.settings.image | img_url: '100x' }}">
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Espost",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "espost team"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

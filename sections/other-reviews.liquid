@@ -1,0 +1,222 @@
+{% assign cat_selected = "P-Line" %}
+{% assign product_selected = "PL4500" %}
+<div class="other-reviews">
+  <div class="other-reviews_container">
+    <div class="other_title">
+      {{ section.settings.title }}
+    </div>
+    <div class="product-other">
+      {% render 'product-other',cat_selected: cat_selected,product_selected: product_selected %}
+    </div>
+    <div class="other-content">
+      <div class="other-content_title">
+        <div class="other-reviews__title">From the press</div>
+        <div class="slider-pagination reviews-pagination">
+            <div class="container">
+                <div class="slider-pagination__wrapper">
+                <button class="prev slick-arrow">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 20L13 16L18 12V20Z" fill="#161616"/>
+                    </svg>
+                </button>
+                {% assign review_blocks = section.blocks | where: "type", "review" %}
+                <ul id="slider-pagination-list">
+                    {% for block in review_blocks %}
+                        {% assign remainder = forloop.index0 | modulo: 6 %}
+                        {% if remainder == 0 %}
+                        <li>
+                            <a class="slider-page" slick-index="{{ forloop.index | divided_by: 6 | plus: 1 }}">{{ forloop.index | divided_by: 6 | plus: 1 }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <button class="next slick-arrow">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 9L16 13L11 17V9Z" fill="#161616"/>
+                    </svg>
+                </button>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="other-main_content">
+        {% assign product_blocks = section.blocks | where: "type", "product" %}
+        {% assign products = '' %}
+        {% for block in product_blocks %}
+          {% assign products = products | append: block.settings.product_title | append: ',' %}
+        {% endfor %}
+        {% assign products = products | split: ',' %}
+        {% for product_tab in products %}
+          <div class="other-review-tabs {% if product_tab == product_selected %}active{% endif %}" data-product="{{ product_tab }}">
+            {% assign review_blocks = section.blocks | where: "type", "review" | map: "settings" | where: "product",product_tab %}
+            {% for block in review_blocks %}
+              {% assign page_size = review_blocks | size %}
+              {% assign remainder = forloop.index0 | modulo: 6 %}
+              {% if remainder == 0 %}
+                <div class="other-review-page">
+              {% endif %}
+                <div class="other-review-item">
+                  <div class="image-review">
+                    <img src="{{ block.image | img_url: '150x' }}">
+                    <a href="{{block.link}}"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_670_3028)">
+                        <path d="M11.625 0.375L5.625 6.375" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6.375 0.375H11.625V5.625" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.375 7.125V10.5C9.375 10.7984 9.25647 11.0845 9.0455 11.2955C8.83452 11.5065 8.54837 11.625 8.25 11.625H1.5C1.20163 11.625 0.915483 11.5065 0.704505 11.2955C0.493526 11.0845 0.375 10.7984 0.375 10.5V3.75C0.375 3.45163 0.493526 3.16548 0.704505 2.9545C0.915483 2.74353 1.20163 2.625 1.5 2.625H4.875" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_670_3028">
+                        <rect width="12" height="12" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                    </a>                    
+                  </div>
+                  <div class="description-review">
+                    <p class="description-content">{{ block.description }}</p>
+                    <div class="overlay"></div>
+                  </div>
+                </div>
+              {% if remainder == 5 and forloop.index != page_size %}
+                </div>
+              {% endif %}
+              {% if forloop.index == page_size %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="slider-pagination-custom">
+            <div class="container">
+                <div class="slider-pagination__wrapper">
+                <button class="prev slick-arrow">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 20L13 16L18 12V20Z" fill="#161616"/>
+                    </svg>
+                </button>
+                <ul id="slider-pagination-list">
+                    {% for block in review_blocks %}
+                        {% assign remainder = forloop.index0 | modulo: 6 %}
+                        {% if remainder == 0 %}
+                        <li>
+                            <a class="slider-page {% if forloop.index0 == 0 %}active{% endif %}" slick-index="{{ forloop.index | divided_by: 6 | plus: 1 }}">{{ forloop.index | divided_by: 6 | plus: 1 }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <button class="next slick-arrow">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 9L16 13L11 17V9Z" fill="#161616"/>
+                    </svg>
+                </button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="other-content_title">
+        <div class="other-reviews__title">From the press</div>
+        <div class="slider-pagination reviews-pagination">
+            <div class="container">
+                <div class="slider-pagination__wrapper">
+                <button class="prev slick-arrow">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 20L13 16L18 12V20Z" fill="#161616"/>
+                    </svg>
+                </button>
+                {% assign review_blocks = section.blocks | where: "type", "review" %}
+                <ul id="slider-pagination-list">
+                    {% for block in review_blocks %}
+                        {% assign remainder = forloop.index0 | modulo: 6 %}
+                        {% if remainder == 0 %}
+                        <li>
+                            <a class="slider-page" slick-index="{{ forloop.index | divided_by: 6 | plus: 1 }}">{{ forloop.index | divided_by: 6 | plus: 1 }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <button class="next slick-arrow">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 9L16 13L11 17V9Z" fill="#161616"/>
+                    </svg>
+                </button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="line"></div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Other-reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Other models"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Review",
+      "type": "review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product",
+          "label": "Product name"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "type": "category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category name"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product title"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

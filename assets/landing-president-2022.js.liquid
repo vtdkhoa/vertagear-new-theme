@@ -1,0 +1,37 @@
+const ldPlayPlauseVideo = (video) => {
+  if (video.paused) {
+    video.play(); 
+    const ldVideoControlsAtt =  document.createAttribute("controls");
+  	video.setAttributeNode(ldVideoControlsAtt);
+  }
+  else 
+    video.pause(); 
+}
+
+const ldVideo1 = document.getElementById("ldVideo1");
+const ldVideoPlayBtn1 = document.getElementById("ldVideoPlayBtn1");
+ldVideoPlayBtn1.onclick = () => {
+	ldPlayPlauseVideo(ldVideo1);
+  	ldVideoPlayBtn1.style.display = "none";
+}
+
+const ldVideo2 = document.getElementById("ldVideo2");
+const ldVideoPlayBtn2 = document.getElementById("ldVideoPlayBtn2");
+ldVideoPlayBtn2.onclick = () => {
+	ldPlayPlauseVideo(ldVideo2);
+  	ldVideoPlayBtn2.style.display = "none";
+}
+
+const ldVideo3 = document.getElementById("ldVideo3");
+const ldVideoPlayBtn3 = document.getElementById("ldVideoPlayBtn3");
+ldVideoPlayBtn3.onclick = () => {
+	ldPlayPlauseVideo(ldVideo3);
+  	ldVideoPlayBtn3.style.display = "none";
+}
+
+const ldReviewElements = document.getElementsByClassName("ag-vg-product-rating");
+for (element of ldReviewElements) {
+  if (!element.hasChildNodes()) {
+    element.style.display = "none";
+  }
+}

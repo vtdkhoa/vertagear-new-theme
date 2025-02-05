@@ -1,0 +1,28 @@
+$mobile-breakpoint: 768px;
+
+.partners-bar {
+  width: 100%;
+  min-height: 10px;
+  //background: black;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: $mobile-breakpoint) {
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .partner-bar-partner {
+    flex: 1 0 calc(22% - 10px);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    img {
+      height: auto;
+      width: 200px;
+    }
+  }
+}
+
+/*@media screen and (min-width: $mobile-breakpoint) {*/

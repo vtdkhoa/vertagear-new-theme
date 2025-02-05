@@ -1,0 +1,157 @@
+<style>
+  .fe800-specs__rgb-led-kit {
+    padding: 128px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 128px;
+  }
+  .fe800-specs__rgb-led-kit__title {
+    color: #000;
+    text-align: center;
+    font-size: 59px;
+    font-weight: 700;
+    line-height: 96%;
+    letter-spacing: -1.18px;
+  }
+  .fe800-specs__rgb-led-kit__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sync-img {
+    content: url('../assets/new-fe800-sign-rgb-led-kit-sync.png');
+  }
+  .fe800-specs__rgb-led-kit__section__sync-specs {
+    display: flex;
+    padding: 80px 40px;
+    gap: 40px;
+  }
+  .fe800-specs__rgb-led-kit__section__sync-specs-item {
+    display: flex;
+    gap: 16px;
+  }
+  .fe800-specs__rgb-led-kit__section__sync-specs-item-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .fe800-specs__rgb-led-kit__section__sync-specs-item-col:last-child {
+    padding-top: 48px;
+  }
+  .sync-specs-item-card {
+    display: flex;
+    flex-direction: column;
+    width: 443px;
+    padding: 24px;
+    gap: 40px;
+    border-radius: 16px;
+    background: rgba(208, 208, 208, 0.5);
+    backdrop-filter: blur(20px);
+  }
+  .specs-desc {
+    margin: 0;
+    color: #4f4f4f;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+  }
+  @media (max-width: 576px) {
+    .sync-img {
+      content: url('../assets/new-fe800-sign-rgb-led-kit-sync-mobile.png');
+    }
+    .fe800-specs__rgb-led-kit__title {
+      font-size: 29px;
+      line-height: 100%;
+      letter-spacing: -0.58px;
+    }
+    .fe800-specs__rgb-led-kit__section__sync-specs {
+      padding: 40px 16px;
+      flex-direction: column;
+    }
+    .fe800-specs__rgb-led-kit__section__sync-specs-item {
+      flex-direction: column;
+    }
+    .fe800-specs__rgb-led-kit__section__sync-specs-item-col:last-child {
+      padding-top: 0;
+    }
+    .sync-specs-item-card {
+      width: 343px;
+    }
+  }
+</style>
+
+<div class="fe800-specs__rgb-led-kit">
+  <div class="fe800-specs__rgb-led-kit__title">RGB LED Kit</div>
+  <div class="fe800-specs__rgb-led-kit__section">
+    <div class="fe800-specs__rgb-led-kit__section__sync">
+      <img
+        class="sync-img"
+        alt="new-fe800-sign-rgb-led-kit-sync"
+        width="auto"
+        height="auto"
+      >
+    </div>
+    <div class="fe800-specs__rgb-led-kit__section__sync-specs">
+      <div class="fe800-specs__rgb-led-kit__section__sync-specs-item">
+        <div class="fe800-specs__rgb-led-kit__section__sync-specs-item-col">
+          <div class="sync-specs-item-card">
+            <img
+              src="{{ 'new-fe800-sign-rgb-led-kit-sync-gameplay-immerson.png' |  asset_url }}"
+              alt="gameplay-immerson"
+              width="auto"
+              height="auto"
+            >
+            <p class="specs-desc">
+              With the power of our interactive gameplay modes, your gaming experience extends beyond your monitor and
+              onto your chair.
+            </p>
+          </div>
+          <div class="sync-specs-item-card">
+            <img
+              src="{{ 'new-fe800-sign-rgb-led-kit-sync-color-combinations.png' |  asset_url }}"
+              alt="color-combinations"
+              width="auto"
+              height="auto"
+            >
+            <p class="specs-desc">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias accusamus perspiciatis consequuntur
+              voluptatibus esse maiores, a magnam nam incidunt atque asperiores eveniet reprehenderit velit magni, sint
+              corporis cupiditate cumque et?
+            </p>
+          </div>
+        </div>
+        <div class="fe800-specs__rgb-led-kit__section__sync-specs-item-col">
+          <div class="sync-specs-item-card">
+            <img
+              src="{{ 'new-fe800-sign-rgb-led-kit-sync-wireless-connectivity.png' |  asset_url }}"
+              alt="wireless-connectivity"
+              width="auto"
+              height="auto"
+            >
+            <p class="specs-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque nesciunt minima dolorum omnis debitis!
+              Nam saepe voluptatum quod vel reiciendis. Rem deserunt maiores ratione ex incidunt ullam amet minus
+              dolorem!
+            </p>
+          </div>
+          <div class="sync-specs-item-card">
+            <img
+              src="{{ 'ew-fe800-sign-rgb-led-kit-sync-magnetic-charger.png' |  asset_url }}"
+              alt="magnetic-charger"
+              width="auto"
+              height="auto"
+            >
+            <p class="specs-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non iure quae ipsa qui aliquam quia totam,
+              suscipit veniam architecto assumenda quam aliquid sequi. Voluptas ducimus ut amet quod quam minima!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

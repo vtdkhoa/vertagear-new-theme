@@ -1,0 +1,263 @@
+<style type="text/css">
+  #header-caption {
+    font-family: 'HelveticaNeue-Light';
+    position: absolute;
+    top: 60px;
+    left: 7%;
+    width: 520px;
+    text-align: center;
+    color: #e8e8e8;
+    margin:0 auto;
+  }
+  #header-caption h1{
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-weight: 400;
+  }
+
+  #second-caption {
+    font-family: 'HelveticaNeue-Light';
+    width: 475px;
+    position: absolute;
+    top: 10px;
+    right: 2%;
+    text-align: right;
+  }
+  #second-caption h3{
+    font-size: 27px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color:#000;
+  }
+
+  #chair-bottom {
+    font-family: 'HelveticaNeue-Light';
+    position: absolute;
+    top: 150px;
+    left: 10%;
+  }
+
+  #thirt-caption {
+    font-family: 'HelveticaNeue-Light';
+    width: 680px;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    text-align: left;
+  }
+  #thirt-caption h3{
+    font-size: 27px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color:#000;
+  }
+  #form-caption{
+    font-family: 'HelveticaNeue-Light';
+    width: 300px;
+    margin:40px auto 0;
+  }
+  .form-area{
+    color:#000;
+    font-size: 14px;
+    overflow:hidden;
+  }
+
+  .form-area .text p{
+    margin-top: 0;
+    color:#000;
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  @media screen and (max-width: 992px) { 
+    main .container { width: 100%; padding: 0px } 
+    #header-caption {
+      font-family: 'HelveticaNeue-Light';
+      position: absolute;
+      top: 4%;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  @media screen and (max-width: 767px) { 
+    main .container { width: 100%; padding: 0px } 
+    #header-caption {
+      font-family: 'HelveticaNeue-Light';
+      position: absolute;
+      top: 20%;
+      bottom: : 0;
+      width: auto;
+      padding: 0 35px;
+    }
+
+    #header-caption h1{
+      font-size: 15px;
+      margin-top: 0;
+    }
+
+    #header-caption img{
+      width:40%;
+    }
+
+    #second-caption {
+      top: 10%;
+      left: 0;
+      right: 0;
+      bottom: : 0;
+      text-align: center;
+      width: auto;
+      padding:10px;
+    }
+    #second-caption h3{
+      margin-top:0;
+      font-size: 15px;
+      text-shadow: 1px 1px 1px #FFF;
+    }
+
+    #thirt-caption {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: : 0;
+      text-align: center;
+      width: auto;
+      padding:10px;
+    }
+    #thirt-caption h3{
+      margin-top:0;
+      font-size: 15px;
+      text-shadow: 1px 1px 1px #FFF;
+    }
+  }
+  @media screen and (max-width: 320px) { 
+    #header-caption {
+      top: 10%;
+    }
+  }
+  .col-centered{
+    float: none;
+    margin: 0 auto;
+  }
+  @media (min-width: 1200px){
+    .container {
+    	width: 1000px;
+	}
+  }
+  .carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .main-content{
+    padding-top:0;
+  }
+  .page-main--wrapper{
+    padding-top: 0 !important;
+  }
+  
+  .visible-desktop{
+    display:none;
+  }
+  .visible-tablet{
+    display:none;
+  }
+  .visible-phone{
+      display:none;
+    }
+  @media (min-width: 992px){
+    .visible-desktop{
+      display:inline-block;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 992px){
+    .visible-tablet{
+      display:inline-block;
+    }
+  }
+  @media (max-width: 767px){
+    .visible-phone{
+      display:inline-block;
+    }
+  }
+  @media (max-width: 992px){
+    .page-main--wrapper .container {
+        width: 100%;
+      padding:0;
+    }
+    .wrapper.main-content{
+      padding:0;
+    }
+  }
+  
+  h1,h2,h3,h4{line-height: 1.2;}
+  p{margin:0 0 10px 0}
+</style>
+<!-- /templates/page.liquid -->
+<div class="page-main--wrapper">
+	
+  <div class="container">
+    <div class="row">
+   	 <div class="col-md-12">
+        <section class="carousel-inner" style="height:100%">
+          <div class="item active" style="height: 100%;">
+            <img src="{{ 'banner-section1.jpg' | asset_url }}" class="img-responsive" style="width: 100%;">
+            <div id="header-caption">
+              <img src="{{ 'vertagear-2.png' | asset_url }}">
+              <h1>Giving back to the men and women who gave their all for us. </h1>
+              <h1>Announcing our partnership with Stack-Up.org in support of veterans.</h1>
+              <img src="{{ 'up.png' | asset_url }}" class="visible-desktop visible-tb">
+            </div>
+          </div>
+        </section>
+
+        <section class="carousel-inner" style="height:100%">
+          <div class="item active" style="height: 100%;">
+            <img src="{{ 'banner-section2.jpg' | asset_url }}" class="img-responsive" style="width: 100%;">
+            <div id="second-caption">
+              <h3 class="visible-desktop visible-tablet">
+                As part of the gaming community,<br> we have a duty to support our own, especially the men and women who've made countless<br> sacrifices to defend our <br>way of life.
+              </h3>
+              <h3 class="visible-desktop visible-tablet">
+                At Vertagear, <br>we'd like to express<br> our gratitude <br>to our heroes.
+              </h3>
+              <h3 class="visible-phone">
+                <p>
+                  As part of the gaming community, we have a duty to support our own, especially the men and women who've made countless sacrifices to defend our way of life.
+                </p>
+                <p>At Vertagear, we'd like to express our gratitude to our heroes.</p>
+              </h3>
+            </div>
+          </div> 
+        </section>
+
+        <section class="carousel-inner" style="height:100%">
+          <div class="item active" style="height: 100%;">
+            <img src="{{ 'banner-section3.jpg' | asset_url }}" class="img-responsive" style="width: 100%;">
+            <div id="thirt-caption">
+              <h3 class="visible-desktop visible-tablet">
+                We're offering all military personnel and veterans a <br> 20% discount off all our gear - every single product.
+              </h3>
+              <h3 class="visible-desktop visible-tablet">
+                But it doesn't end there. We're going to deliver<br> more programs to support more<br> communities in the coming<br> months.
+              </h3>
+              <h3 class="visible-phone">
+                <p>We're offering all military personnel and veterans a 20% discount off all our gear - every single product.</p>
+                <p>But it doesn't end there. We're going to deliver more programs to support more communities in the coming months.</p>
+                <p>
+              </h3>
+            </div>
+          </div>
+        </section>
+
+        <section class="carousel-inner form-area" style="height:100%">
+          <div class="row item active" style="height: 100%;">
+            {{ page.content }}
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+</div>

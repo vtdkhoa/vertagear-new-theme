@@ -1,0 +1,45 @@
+{{ 'fe800-all.css' | asset_url | stylesheet_tag }}
+
+{% include 'fe800-all-custom' %}
+{% include 'product-learn-more-wear-and-tear-popup-request' %}
+<div class="page-fe800 layoutv1 product-800" fe800-product-detail="pl4800" loading-cart="0">
+  {% section 'fe800-viewproduct-preview' %}
+  <div id="popup-reviews" style="display: none;">{% section 'fe800-productdetail-popup-reviews' %}
+  </div>
+  {% section 'fe800-popup-herobanner' %}
+  {% section 'fe800-productdetail-popupgallery-preview' %}
+  {% section 'fe800-productdetail-topbar-info-preview' %}
+  {% section 'fe800-productdetail-popupzoom' %}
+  {% include 'zakeke-engravelogo.liquid' %}
+  <div class="fe800-popup" loading-popup="0">
+    <div class="popup-inner"></div>
+  </div>
+
+  <div id="fullpage">
+    {% section 'pl4800-info-updateV1-preview' %}
+    {% section 'fe800-warranty' %}
+    {% section 'fe800-signatures_1_pl4800' %}
+    {% section 'fe800-signatures_2_pl4800' %}
+    {% include 'fe800-signatures_3',order: 5 %}
+    {% include 'fe800-signatures_4',order: 6 %}
+    {% section 'fe800-moreproduct_features' %}
+    {% section 'fe800-productdetail-pl4800-specifications' %}
+  </div>
+  {% render 'fe800-product_comparison' %}
+  {% section 'fe800-productdetail-reviews' %}
+  {% section 'fe800-series_collection' %}
+
+
+</div>
+<script type="text/javascript" src="{{ 'jquery.zoom.min.js' | asset_url }}" />
+<script src="{{ 'flickity-v2.3.0.js' | asset_url }}"></script>
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" async defer="defer"></script>
+<script src="{{ 'fe800-custom.src.js' | asset_url }}" type="text/javascript" async defer="defer"></script>
+<script src="{{ 'clsProductsDetails-preview.js' | asset_url }}" type="text/javascript" async defer></script>
+<script src="{{ 'clsProductsDetails-UpdateV1.js' | asset_url }}" type="text/javascript" async defer></script>
+<script src="{{ 'jquery.mobile-events.min.js' | asset_url }}" crossorigin="anonymous"></script>
+
+<script src="{{ 'jquery.ez-plus.js' | asset_url }}" crossorigin="anonymous"></script>
+<script src="{{ 'image-zoom.min.js' | asset_url }}" crossorigin="anonymous"></script>
+
+{% render 'product_infox' %}

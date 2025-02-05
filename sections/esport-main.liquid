@@ -1,0 +1,98 @@
+<div class="esport-main" id="esport-main">
+    <div class="vertagear-container esport-main__container">
+        <div class="esport-main__title">
+            {{section.settings.title}}
+        </div>
+        <div class="esport-main__desc">
+            {{section.settings.desc}}
+        </div>
+        {% assign img_size = '480x480'%}
+
+        {% assign size = section.blocks | size %}
+        {% assign swiper_size = size | divided_by: 4 %}
+        {% assign last = size | modulo: 4 %}
+        <swiper class="esport-main__swiper" :options="options">
+            {% for item in (0..swiper_size) limit: swiper_size %}
+                {% assign offset = forloop.index0 | times: 4 %}
+                <swiper-slide class="esport-main__swiper-slide">
+                    <div class="esport-main__list">
+                        {% for block in section.blocks  offset: offset  limit:4 %}
+                            {% assign logo = block.settings.image | img_url: img_size %}
+                            {% include 'esport-card', logo: logo , title : block.settings.title , active : block.settings.active, product_slug : block.settings.product %}
+                        {% endfor %}
+                    </div>
+                </swiper-slide>
+            {% endfor %}
+            {% unless last == 0 %}
+                {% assign offset = swiper_size | times: 4 %}
+                <swiper-slide class="esport-main__swiper-slide">
+                    <div class="esport-main__list">
+                        {% for block in section.blocks  offset: offset  limit:4 %}
+                            {% assign logo = block.settings.image | img_url: img_size %}
+                            {% include 'esport-card', logo: logo , title : block.settings.title , active : block.settings.active, product_slug : block.settings.product %}
+                        {% endfor %}
+                    </div>
+                </swiper-slide>
+            {% endunless%}
+            <div class="swiper-pagination esport-main__swiper-pagination" slot="pagination"></div>
+        </swiper>
+        <div class="esport-main__list -desktop">
+            {% for block in section.blocks %}
+                {% assign logo = block.settings.image | img_url: img_size %}
+                {% include 'esport-card', logo: logo , title : block.settings.title , active : block.settings.active, product_slug : block.settings.product %}
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+
+{% schema %}
+  {
+  "name": "Main",
+  "settings": [
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"Vertagear Alliance"
+    },
+    {
+        "id": "desc",
+        "type": "text",
+        "label": "Description",
+        "default":"Dedication to peak performance and advancing play are attributes Vertagear shares with our alliance. We are proud and humbled to support the best players, in addition to all gamers, around the world."
+    }
+  ],
+  "blocks":[ 
+      { 
+         "type":"product",
+         "name":"Team Chair",
+         "settings":[ 
+            { 
+               "type":"text",
+               "id":"title",
+               "label":"Title",
+               "default":"Title"
+            },
+            {
+                "type": "checkbox",
+                "id": "active",
+                "default": true,
+                "label": "Active"
+             },
+            { 
+                "type":"product",
+                "id":"product",
+                "label":"Products"
+             },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Logo"
+            }
+         ]
+      }
+  ]
+  }
+{% endschema %}

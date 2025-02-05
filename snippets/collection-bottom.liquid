@@ -1,0 +1,24 @@
+{% if collection.metafields.custom_fields["bottom_banner"] != blank %}
+{% assign banner = collection.metafields.custom_fields["bottom_banner"]%}
+{% assign banner_mobile = collection.metafields.custom_fields["bottom_banner_mobile"]%}
+<div class="collection-bottom">
+  	<picture>
+      <source srcSet="{{banner}}" media="(min-width: 768px)">
+      <source srcSet="{{banner_mobile}}" media="(max-width: 767px)">
+      <img src="{{banner}}" loading="lazy" class="collection-bottom__bg" alt="">
+    </picture>
+    <div class="collection-bottom__text vertagear-container">
+        <div class="collection-bottom__text-inner">
+            <div class="collection-bottom__title">
+                {{collection.metafields.custom_fields["bottom_title"]}}
+            </div>
+            <div class="collection-bottom__desc">
+                {{collection.metafields.custom_fields["bottom_description"]}}
+            </div>
+            <div class="collection-bottom__btn-box">
+                <a href="{{collection.metafields.custom_fields["bottom_button_link"]}}" class="vertagear-btn -blue collection-bottom__btn">{{collection.metafields.custom_fields["bottom_button_text"]}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

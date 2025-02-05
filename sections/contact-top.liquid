@@ -1,0 +1,25 @@
+<div class="contact-top">
+    <div class="contact-top__container vertagear-container">
+        <div class="contact-top__title">
+            {{section.settings.title}}
+        </div>
+        <div class="contact-top__desc">
+            {{page.content}}
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+  "name": "Top",
+  "settings": [
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"What would you like to contact us about?"
+    }
+  ]
+  }
+{% endschema %}
