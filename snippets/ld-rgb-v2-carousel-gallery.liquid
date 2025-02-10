@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="{{ 'ld-rgb-v2-carousel-gallery.css' | asset_url }}">
+
+<div class="rgb__carousel-gallery-container">
+  <div class="rgb__carousel-gallery">
+    <div class="each">
+      <img
+           style="padding-left: 40px;"
+           src="{{ 'ld-rgb2-carousel-gallery-1.jpeg' | asset_url }}"
+           alt="grb gallery"
+           />
+    </div>
+    <div class="each">
+      <img
+           src="{{ 'ld-rgb2-carousel-gallery-2.jpeg' | asset_url }}"
+           alt="grb gallery"
+           />
+    </div>
+    <div class="each">
+      <img
+           src="{{ 'ld-rgb2-carousel-gallery-3.jpeg' | asset_url }}"
+           alt="grb gallery"
+           />
+    </div>
+    <div class="each">
+      <img
+           src="{{ 'ld-rgb2-carousel-gallery-4.jpeg' | asset_url }}"
+           alt="grb gallery"
+           />
+    </div>
+  </div>
+
+  <div class="display-desktop">
+    <div
+         id="rgbGalleryCarouselLeftBtn"
+         class="rgb__gallery__carousel_btn left"
+         >
+      <img src="{{ 'ld-rgb2-left.svg' | asset_url }}" />
+    </div>
+    <div
+         id="rgbGalleryCarouselRightBtn"
+         class="rgb__gallery__carousel_btn right"
+         >
+      <img src="{{ 'ld-rgb2-right.svg' | asset_url }}" />
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'ld-rgb-v2-carousel-gallery.js' | asset_url }}" async defer></script>

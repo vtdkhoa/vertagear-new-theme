@@ -1,0 +1,23 @@
+
+
+<link type="text/css" href="{{ 'collection-product-grid.css' | asset_url }}" rel="stylesheet"> 
+<div class="collection-product" id="collection-product">
+    <div class="collection-product__main vertagear-container -small">
+        {% for product in products %}
+			{% unless tag == "Him"" %}
+				{% assign collections_handle = product.collections | map: "handle" %}
+				{% if collections_handle contains collection.handle and product.handle != "pl1000-white-pink" or tag == "Him" %}
+						{% include 'collection-product-simple', product %}
+				{% elsif tag == "Her" and product.title == "PL1000" or product.title == "PL4500 Crystals from Swarovski" or product.title == "SL2000" %}
+						{% include 'collection-product-simple', product %}
+				{% elsif tag == "Couple" and product.title == "PL6000" or product.title == "SL5000" or product.title == "PL4500" or product.title == "SL4000" or product.title == "PL1000" or product.title == "PL4500 RGB LED Top Upgrade Kit" or product.title == "RGB LED Bottom Kit" or product.title == "SL5000 RGB LED Top Upgrade Kit" or product.title == "PL4500 Crystals from Swarovski" %}
+						{% include 'collection-product-simple', product %}
+				{% elsif tag == "Default" %}
+						{% include 'collection-product-simple', product %}
+					
+				{% endif %}
+			{% endunless %}
+      	{% endfor %}
+    </div>
+</div>
+

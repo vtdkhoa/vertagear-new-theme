@@ -1,0 +1,46 @@
+<div class="js-parallax-section full-image-intro -text-{{ mobile_text_position }}-mobile -text-{{ text_position }} -{{bannerTypeString}} {{other_class}}">
+    {% if bannerTypeString == 'image' %}
+        <picture class="js-parallax-section__bg full-image-intro__bg">
+            <source data-srcSet="{{ full_image_banner }}" media="(min-width: 768px)">
+            <source data-srcSet="{{ full_image_banner_mobile }}" media="(max-width: 767px)">
+            <img data-src="{{ full_image_banner }}" alt="{{ full_image_title }}" loading="lazy" class="lazy">
+        </picture>
+    {% else %}
+        <div class="js-parallax-section__bg full-image-intro__bg -desktop">
+            <video autoplay muted defaultMuted playsinline loop class="full-image-intro__bg-video lazy" preload="metadata" data-poster="{{ full_image_banner }}">
+                <source data-src="{{ full_image_banner_video }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="js-parallax-section__bg full-image-intro__bg -mobile">
+            <video autoplay muted defaultMuted playsinline loop class="full-image-intro__bg-video lazy" preload="metadata" data-poster="{{ full_image_banner_mobile }}">
+                <source data-src="{{ full_image_banner_video_mobile }}" type="video/mp4">
+            </video>
+        </div>
+    {% endif %}
+    <div class="full-image-intro__text {{text_class}}">
+      	{% if slogan != blank %}
+            <div class="full-image-intro__slogan">{{slogan}}</div>
+        {% endif %}
+        <div class="full-image-intro__title" data-scroll="fade-up" data-scroll-duration="600">
+            {{ full_image_title }}
+            {% if full_image_title_sub != '' and full_image_title_sub != blank %}
+            <div class="full-image-intro__title-small">{{ full_image_title_sub }}</div>
+            {% endif %}
+        </div>
+        <div class="full-image-intro__desc" data-scroll="fade-up" data-scroll-duration="600">
+            {{ full_image_desc }}
+        </div>
+        {% if full_image_btn != blank %}
+            <div class="full-image-intro__btn-box" data-scroll="fade-up" data-scroll-duration="600">
+                <a class="vertagear-btn full-image-intro__btn {% if btn_class %}{{btn_class}}{% else %}-blue{% endif %}" href="{{ full_image_btn }}" target="_blank" rel="noopener">{% if btn_text %}{{btn_text}}{% else %}learn more{% endif %}</a>
+            </div>
+        {% endif %}
+      	{% if btn_group != blank %}
+			<div class="full-image-intro__btn-box -home">
+              	{% for button in btn_group %}
+                <a class="vertagear-btn full-image-intro__btn -white-border -home" href="{{ button.button_link  }}" target="_blank" rel="noopener">{{ button.button_text }}</a>
+              	{% endfor %}
+            </div>
+      	{% endif %}
+    </div>
+</div>

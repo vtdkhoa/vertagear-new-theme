@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65">
+  <g fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="2">
+    <path d="M43.677 1H3.031A2.031 2.031 0 001 3.032v58.935a2.031 2.031 0 002.031 2.032H32.5L45.709 50.79V3.032A2.033 2.033 0 0043.677 1z" stroke-linecap="square"/>
+    <path d="M45.709 50.791H33.516a1.016 1.016 0 00-1.016 1.016v3.043" stroke-linecap="round"/>
+  </g>
+  <path d="M20.306 20.306v2.032H10.145V12.177h2.032" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  <path d="M14.209 16.241l1.012 2.033 4.064-5.081M26.403 16.242h5.081M26.403 22.338H37.58M20.306 36.564v2.032H10.145V28.435h2.032" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  <path d="M14.209 32.499l1.016 2.032 4.064-5.081M26.403 32.499h5.081M26.403 38.596H37.58M20.306 51.804v3.048H10.145V44.693" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M57.902 60.956l-6.1-10.161V16.242a5.081 5.081 0 015.084-5.086h2.032a5.081 5.081 0 015.081 5.081v34.549zM56.886 58.919h2.032M57.902 50.79V25.387M57.902 20.306h6.097M55.87 25.387h8.129M55.87 50.79h8.129"/>
+  </g>
+</svg>

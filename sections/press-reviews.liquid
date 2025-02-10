@@ -1,0 +1,329 @@
+<div class="press-reviews">
+  <div class="press-reviews_container">
+    <div class="page-title">
+      {{ page.title }}
+    </div>
+    <div class="product-review-tabs">
+      {% assign product_blocks = section.blocks | where: 'type','product' %}
+      {% for block in product_blocks %}
+        <div class="product-reviews-tab {% if forloop.index0 == 0 %}active{% endif %}" data-tab="{{ block.settings.product_title }}">
+          <div class="product_title">{{ block.settings.product_title }}</div>
+          <div class="product_image">
+            <img src="{{ block.settings.product_image | img_url: '48x' }}">
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="from-press_desktop">
+      <div class="press-review_title">
+        {{ section.settings.title }}
+      </div>
+      {% assign review_blocks = section.blocks | where: 'type','review' %}
+      {% assign tabs = '' %}
+      {% for block in review_blocks %}
+        {% assign tab = block.settings.product_title %}
+        {% unless tabs contains tab %}
+        {% assign tabs = tabs | append: tab | append: "," %}
+        {% endunless %}
+      {% endfor %}
+      {% assign tabs = tabs | split: "," %}
+      {% for tab in tabs %}
+      <div class="press-reviews_tab {% if forloop.index0 == 0 %}active{% endif %}" data-tab="{{ tab }}">
+        <div class="press-reviews_content">
+          {% for block in review_blocks %}
+            {% if block.settings.product_title == tab%}
+              <div class="press-reviews-item">
+                <div class="press-blog_one-row">
+                  <div class="image-blog_1">
+                    <img src="{{ block.settings.image_1 | img_url: '300x' }}">
+                    <a href="{{ section.settings.link_blog }}">
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_670_3028)">
+                        <path d="M11.625 0.375L5.625 6.375" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6.375 0.375H11.625V5.625" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.375 7.125V10.5C9.375 10.7984 9.25647 11.0845 9.0455 11.2955C8.83452 11.5065 8.54837 11.625 8.25 11.625H1.5C1.20163 11.625 0.915483 11.5065 0.704505 11.2955C0.493526 11.0845 0.375 10.7984 0.375 10.5V3.75C0.375 3.45163 0.493526 3.16548 0.704505 2.9545C0.915483 2.74353 1.20163 2.625 1.5 2.625H4.875" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_670_3028">
+                        <rect width="12" height="12" fill="white"/>
+                        </clipPath>
+                        </defs>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="description">
+                    <p>{{ block.settings.description_1 }}</p>
+                    <div class="overlay"></div>
+                  </div>
+                </div>
+                <div class="press-blog_two-row">
+                  <div class="press-blog_2">
+                    <div class="image-blog">
+                      <img src="{{ block.settings.image_2 | img_url: '300x' }}">
+                      <a href="{{block.settings.link_2}}">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_670_3028)">
+                          <path d="M11.625 0.375L5.625 6.375" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M6.375 0.375H11.625V5.625" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M9.375 7.125V10.5C9.375 10.7984 9.25647 11.0845 9.0455 11.2955C8.83452 11.5065 8.54837 11.625 8.25 11.625H1.5C1.20163 11.625 0.915483 11.5065 0.704505 11.2955C0.493526 11.0845 0.375 10.7984 0.375 10.5V3.75C0.375 3.45163 0.493526 3.16548 0.704505 2.9545C0.915483 2.74353 1.20163 2.625 1.5 2.625H4.875" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_670_3028">
+                          <rect width="12" height="12" fill="white"/>
+                          </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </div>
+                    <div class="description">
+                      <p>{{ block.settings.description_2 }}</p>
+                      <div class="overlay"></div>
+                    </div>
+                  </div>
+                  <div class="press-blog_3">
+                    <div class="image-blog">
+                      <img src="{{ block.settings.image_3 | img_url: '300x' }}">
+                      <a href="{{block.settings.link_2}}">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_670_3028)">
+                          <path d="M11.625 0.375L5.625 6.375" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M6.375 0.375H11.625V5.625" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M9.375 7.125V10.5C9.375 10.7984 9.25647 11.0845 9.0455 11.2955C8.83452 11.5065 8.54837 11.625 8.25 11.625H1.5C1.20163 11.625 0.915483 11.5065 0.704505 11.2955C0.493526 11.0845 0.375 10.7984 0.375 10.5V3.75C0.375 3.45163 0.493526 3.16548 0.704505 2.9545C0.915483 2.74353 1.20163 2.625 1.5 2.625H4.875" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_670_3028">
+                          <rect width="12" height="12" fill="white"/>
+                          </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </div>
+                    <div class="description">
+                      <p>{{ block.settings.description_3 }}</p>
+                      <div class="overlay"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="press-blog_two-row">
+                  <div class="press-blog_4">
+                    <div class="image-blog">
+                      <img src="{{ block.settings.image_4 | image_url }}">
+                      <a href="{{block.settings.link_4}}">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_670_3028)">
+                          <path d="M11.625 0.375L5.625 6.375" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M6.375 0.375H11.625V5.625" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M9.375 7.125V10.5C9.375 10.7984 9.25647 11.0845 9.0455 11.2955C8.83452 11.5065 8.54837 11.625 8.25 11.625H1.5C1.20163 11.625 0.915483 11.5065 0.704505 11.2955C0.493526 11.0845 0.375 10.7984 0.375 10.5V3.75C0.375 3.45163 0.493526 3.16548 0.704505 2.9545C0.915483 2.74353 1.20163 2.625 1.5 2.625H4.875" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_670_3028">
+                          <rect width="12" height="12" fill="white"/>
+                          </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </div>
+                    <div class="description">
+                      <p>{{ block.settings.description_4 }}</p>
+                      <div class="overlay"></div>
+                    </div>
+                  </div>
+                  <div class="press-blog_5">
+                    <div class="image-blog">
+                      <img src="{{ block.settings.image_5 | image_url }}">
+                      <a href="{{block.settings.link_5}}">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_670_3028)">
+                          <path d="M11.625 0.375L5.625 6.375" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M6.375 0.375H11.625V5.625" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M9.375 7.125V10.5C9.375 10.7984 9.25647 11.0845 9.0455 11.2955C8.83452 11.5065 8.54837 11.625 8.25 11.625H1.5C1.20163 11.625 0.915483 11.5065 0.704505 11.2955C0.493526 11.0845 0.375 10.7984 0.375 10.5V3.75C0.375 3.45163 0.493526 3.16548 0.704505 2.9545C0.915483 2.74353 1.20163 2.625 1.5 2.625H4.875" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_670_3028">
+                          <rect width="12" height="12" fill="white"/>
+                          </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </div>
+                    <div class="description">
+                      <p>{{ block.settings.description_5 }}</p>
+                      <div class="overlay"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% assign review_bloks_tab = section.blocks | where: "type","review" | map: "settings" | where: "product_title", tab %}
+        {% assign review_bloks_tab_size = review_bloks_tab | size %}
+        {% if review_bloks_tab_size > 1 %}
+        <div class="slider-pagination reviews-pagination">
+          <div class="container">
+            <div class="slider-pagination__wrapper">
+              <button class="prev slick-arrow">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 20L13 16L18 12V20Z" fill="#161616"/>
+                  </svg>
+              </button>
+              <ul id="slider-pagination-list">
+                {% for block in review_bloks_tab %}
+                  <li>
+                    <a class="slider-page {% if forloop.index0 == 0 %}active{% endif%}" slick-index="{{ forloop.index }}">{{ forloop.index }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+              <button class="next slick-arrow">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 9L16 13L11 17V9Z" fill="#161616"/>
+                </svg>              
+            </button>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    <div class="line"></div>
+
+  </div>
+</div>
+{% schema %}
+{
+  "name": "From press",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "From the press"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Press",
+      "type": "review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "For product"
+        },
+        {
+          "type": "header",
+          "content": "Press 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "description_1",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link_1",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Press 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "description_2",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link_2",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Press 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "description_3",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link_3",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Press 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "description_4",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link_4",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Press 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_5",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "description_5",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link_5",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

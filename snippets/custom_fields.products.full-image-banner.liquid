@@ -1,0 +1,58 @@
+{% if product.metafields.custom_fields["full-image-banner"] != blank %}
+  <div class="custom-field custom-field__full-image-banner custom-field__type--field-collection">
+    <h3 class="custom-field--title">Full Image Banner</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign full_image_banner_title_array = product.metafields.custom_fields["full-image-banner-title"] | split: separator %}
+      {% assign full_image_banner_sub_title_array = product.metafields.custom_fields["full-image-banner-sub-title"] | split: separator %}
+      {% assign full_image_banner_description_array = product.metafields.custom_fields["full-image-banner-description"] | split: separator %}
+      {% assign full_image_banner_btn_url_array = product.metafields.custom_fields["full-image-banner-btn-url"] | split: separator %}
+      {% assign banner_desktop_array = product.metafields.custom_fields["banner_desktop"] | split: separator %}
+      {% assign banner_mobile_array = product.metafields.custom_fields["banner_mobile"] | split: separator %}
+      {% assign video_desktop_array = product.metafields.custom_fields["video_desktop"] | split: separator %}
+      {% assign video_mobile_array = product.metafields.custom_fields["video_mobile"] | split: separator %}
+      {% assign text_position_array = product.metafields.custom_fields["text_position"] | split: separator %}
+      {% assign mobile_text_position_array = product.metafields.custom_fields["mobile_text_position"] | split: separator %}
+      {% assign banner_type_array = product.metafields.custom_fields["banner_type"] | split: separator %}
+      {% assign fc_keys = product.metafields.custom_fields["full-image-banner"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item--full-image-banner fc-index--{{ index }}">
+          <div class="fc-field field__full-image-banner-title">
+            {{ full_image_banner_title_array[index] }}
+          </div>
+          <div class="fc-field field__full-image-banner-sub-title">
+            {{ full_image_banner_sub_title_array[index] }}
+          </div>
+          <div class="fc-field field__full-image-banner-description">
+            {{ full_image_banner_description_array[index] }}
+          </div>
+          <div class="fc-field field__full-image-banner-btn-url">
+            {{ full_image_banner_btn_url_array[index] }}
+          </div>
+          <div class="fc-field field__banner-desktop">
+            {{ banner_desktop_array[index] }}
+          </div>
+          <div class="fc-field field__banner-mobile">
+            {{ banner_mobile_array[index] }}
+          </div>
+          <div class="fc-field field__video-desktop">
+            {{ video_desktop_array[index] }}
+          </div>
+          <div class="fc-field field__video-mobile">
+            {{ video_mobile_array[index] }}
+          </div>
+          <div class="fc-field field__text-position">
+            {{ text_position_array[index] }}
+          </div>
+          <div class="fc-field field__mobile-text-position">
+            {{ mobile_text_position_array[index] }}
+          </div>
+          <div class="fc-field field__banner-type">
+            {{ banner_type_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,32 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .img-zoom-container {
+    position: relative;
+  }
+
+  .img-zoom-lens {
+    position: absolute;
+    /*set the size of the lens:*/
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    background-image: url({{'lens.gif'|asset_url}});
+  }
+  /* New UI: 800 series */
+  .img-zoom-result {
+    border: 1px solid #d4d4d4;
+    /*set the size of the result div:*/
+    width: 35vw;
+    height: 35vw;
+    position: fixed;
+    top: calc((100vh - 35vw) / 2);
+    /* Modified: change 'left' to 'right' */
+    right: 50%;
+    z-index: 99;
+  }
+</style>
+<div id="myresult" class="img-zoom-result hide"></div>
+<script></script>

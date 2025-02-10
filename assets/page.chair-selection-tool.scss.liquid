@@ -1,0 +1,281 @@
+$light-gray-bg-color: #F3F3F3;
+$mobile-breakpoint: 768px;
+
+@mixin mobile-style() {
+  @media screen and (max-width: $mobile-breakpoint) {
+  	@content;
+  }
+}
+
+@mixin general-wrapper() {
+  padding: 80px 0;
+  border-bottom: 1px solid #000;
+}
+
+$subheading-font-size: 26px;
+@mixin subheading-style() {
+  font-size: $subheading-font-size;
+  font-weight: 600;
+}
+
+$orange-cta-button-color: #C36900;
+$light-orange-cta-button-color: #DBA566;
+@mixin cta-button-style() {
+  padding: 10px;
+  background-color: $orange-cta-button-color;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  &:hover {
+    text-decoration: none;
+  }
+  &[disabled] {
+    background-color: $light-orange-cta-button-color;
+    pointer-events: none;
+  }
+}
+
+.wrapper.main-content {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+.chair-selection-tool-page-wrapper {
+  .hero-wrapper {
+    @include general-wrapper();
+    background-image: url({{'page.chair-selection.header.jpg' | asset_url }});
+    background-size: 100% 100%;
+    background-position: center;
+    background-color: $light-gray-bg-color;
+    text-align: center;
+    padding: 160px 0;
+    @include mobile-style() {
+    	background-image: url({{'page.chair-selection.header-mobile.jpg' | asset_url }});
+    }
+    .hero-heading {
+      margin-bottom: 30px;
+	  font-size: 40px;
+      font-weight: 600;
+    }
+    .hero-content {
+      font-size: 22px;
+      @media screen and (min-width: $mobile-breakpoint) {
+        max-width: 50%;
+        margin: auto;
+      }
+    }
+  }
+  .tool-input-wrapper {
+    @include general-wrapper();
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .input-title {
+      @include subheading-style();
+      margin-bottom: 10px;
+      display: block;
+    }
+    @mixin input-checkboxes() {
+      .input-checkbox {
+        width: 26px;
+        height: 26px;
+        margin-right: 10px;
+        border: 1px solid #000;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        .checkbox-square {
+          width: 20px;
+          height: 20px;
+          background-color: #fff;
+        }
+        &.checked {
+          .checkbox-square {
+			background-color: #000;
+          }
+        }
+      }
+    }
+    @mixin checked-input-checkbox() { 
+      .input-checkbox {
+        .checkbox-square {
+          background-color: #000;
+        }
+      }
+    }
+    @mixin inputs-wrapper-styling() {
+      margin-bottom: 20px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    $input-width: 300px;
+    .input-measurements {
+      @include input-checkboxes();
+      width: $input-width;
+      margin-bottom: 20px;
+      .measurements-units {
+        @include inputs-wrapper-styling();
+        .units-option {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          &.active {
+          	@include checked-input-checkbox();
+          }
+        }
+      }
+      .measurements-values {
+        @include inputs-wrapper-styling();
+        flex-direction: column;
+        .values-set {
+          justify-content: space-between;
+          display: none;
+          &.active {
+          	display: flex; 
+          }
+          .value, .value-container {
+            width: 40%;
+          }
+          .value {
+            padding: 4px 12px; 
+          }
+          .value-container {
+            display: inline-flex;
+            justify-content: space-between;
+            .sub-value {
+              width: 50%;
+            } 
+          }
+        }
+      }
+    }
+    .input-gender {
+      @include input-checkboxes();
+      width: $input-width;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      .gender-option {
+        @include inputs-wrapper-styling();
+        cursor: pointer;
+        &.active {
+          @include checked-input-checkbox();
+        }
+      }
+    }
+    .find-my-chair-button {
+      @include cta-button-style();
+      width: 150px;
+      margin: auto;
+    }
+  }
+  .tool-recommendations-wrapper {
+    @include general-wrapper();
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .recommendations-heading {
+      margin-bottom: 40px;
+      text-align: center; 
+      font-size: 28px;
+      font-weight: 600;
+    }
+    .recommendations {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      .recommendation {
+        width: 350px;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 15px;
+        .recommendation-image {
+          width: 90%;
+        }
+        .recommendation-heading {
+          @include subheading-style();
+          margin-bottom: 0;
+        }
+        .recommendation-compare {
+          color: #ccc;
+          text-decoration: line-through;
+          &.hidden {
+            display: none;
+          }
+        }
+        .recommendation-price {
+          font-size: 22px;
+          font-weight: 600;
+          color: #F29628;
+        }
+        .cta-wrapper {
+          width: 100%;
+          margin-top: 15px;
+          display: flex;
+          justify-content: space-between;
+          .cta-shop-now, .cta-visualize-wrapper {
+            width: 49%;
+            text-align: center;
+          }
+          .cta-shop-now {
+            @include cta-button-style();
+          }
+          .cta-visualize-wrapper {
+            cursor: pointer;
+            .cta-visualize {
+              @include cta-button-style();
+              width: 100%;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+    .recommendation.template {
+      display: none;
+    }
+  }
+}
+.modal-container {
+  .visualization {
+    width: 520px; // confines of modal
+    display: flex;
+    justify-content: space-between;
+    .chair-wrapper {
+      width: 250px;
+      height: 250px;
+      #chair-side, #chair-front {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+      	position: relative;
+        svg {
+          position: absolute;
+        }
+      }
+      #chair-side {
+        svg {
+          bottom: -28px;
+          left: 46px;
+        }
+      }
+      #chair-front {
+        svg {
+          bottom: -28px;
+          left: 6px;
+        }
+      }
+    }
+  }
+}
+#visualization-assets {
+  display: none;
+}

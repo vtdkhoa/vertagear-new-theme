@@ -1,0 +1,21 @@
+<swiper-slide class="product-might-like-section__swiper-slide">
+    <div class="product-might-like-section__swiper-slide-inner" >
+        <a class="product-might-like-section__swiper-slide-thumb" href="{{url}}">
+            <img class="product-might-like-section__swiper-slide-img" src="{{image}}" alt="{{title}}" loading="lazy">
+        </a>
+        <a class="product-might-like-section__swiper-slide-title" href="{{url}}">
+            {{title}}
+        </a>
+        <div class="product-might-like-section__swiper-slide-rate-info">
+            <div class="product-might-like-section__swiper-slide-rate-info-view">
+                <div data-oke-reviews-product-listing-rating style="display:inline-block" class="bottomLine ag-vg-product-rating">{{ prod.metafields.okendo.ProductListingSnippet }}</div>
+            </div>
+        </div>
+        <div class="product-might-like-section__swiper-slide-price">
+          {% if prod.price < prod.compare_at_price %}
+                <s>{{ prod.compare_at_price | money }}</s>
+            {% endif %}
+            {{price | money }}
+        </div>
+    </div>
+</swiper-slide>

@@ -1,0 +1,51 @@
+<div class="grid blog-main--wrapper">
+  <div class="sitewide--title-wrapper">
+    {% if current_tags %}
+    <h1 class="page--title">{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}</h1>
+    {% else %}
+    <h1 class="page--title">{{ blog.title }} <a href="{{ shop.url }}{{ blog.url }}.atom"><i class="fa fa-rss" aria-hidden="true"></i></a></h1>
+    {% endif %}
+  </div>
+
+  <div class="grid__item community-index large--two-thirds push--large--one-sixth">
+    <div class="community-item">
+    {% for article in blog.articles %}
+      {% if forloop.first == true %}
+      <h3>Proffesional Teams</h3>
+      {% endif %}
+      {% if article.tags contains 'Proffesional Teams'%}
+      <a class="community__featured-image" href="{{ article.url }}">
+        {{ article | img_url: '150x150' | img_tag: article.title }}
+      </a>
+      {% endif %}
+    {% endfor %}
+    </div>
+    
+    <div class="community-item">
+    {% for article in blog.articles %}
+      {% if forloop.first == true %}
+      <h3>College Teams</h3>
+      {% endif %}
+      {% if article.tags contains 'College Teams'%}
+      <a class="community__featured-image" href="{{ article.url }}">
+        {{ article | img_url: '150x150' | img_tag: article.title }}
+      </a>
+      {% endif %}
+    {% endfor %}
+    </div>
+	
+    <div class="community-item">
+    {% for article in blog.articles %}
+      {% if forloop.first == true %}
+      <h3>Events</h3>
+      {% endif %}
+      {% if article.tags contains 'Events'%}
+      <a class="community__featured-image" href="{{ article.url }}">
+        {{ article | img_url: '150x150' | img_tag: article.title }}
+      </a>
+      {% endif %}
+    {% endfor %}
+    </div>
+    
+  </div>
+</div>

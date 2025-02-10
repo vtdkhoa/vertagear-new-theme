@@ -1,0 +1,183 @@
+<link rel="stylesheet" href="{{ 'landing-rgb.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'landing-rgb-v2.css' | asset_url }}">
+
+<link rel="stylesheet" href="{{ 'flickity-v2.3.0.css' | asset_url }}" media="screen" />
+
+<style>
+  .ld-rgb-container {
+    background: var(--background-color);
+  }
+
+  img {
+    display: unset;
+    width: unset;
+  }
+
+  @media screen and (min-width: 768px) {
+    .hero {
+      height: unset;
+    }
+
+    #ldRgbLightUpLogo {
+      margin-top: -200px;
+    }
+  }
+</style>
+
+<script src="{{ 'flickity-v2.3.0.js' | asset_url }} async defer"></script>
+
+<div class="ld-rgb-container">
+  {% unless _page == 800 %}
+  <div class="hero videodetectpercent">
+    <div class="display-on-mobile">
+      <!--       <div class="hero__img-wrapper">
+        <img alt="rgb hero" src="{{ 'ld-rgb-hero.jpeg' | asset_url }}" />
+      </div> -->
+      <div class="hero__text">
+        <div class="hero__title">Game Right with More Light</div>
+        <div class="hero__desc">
+          The world's only audio-synced, app-controlled RGB kit for your seated experience takes you beyond the
+          stratosphere.
+        </div>
+        <div class="hero__actions">
+          <a class="hero__shop-btn" href="#whichChair">SHOP NOW</a>
+        </div>
+      </div>
+      <div class="video">
+        <video width="100%" class="video-mobile" loop playsinline>
+          <source src="https://cdn.shopify.com/videos/c/o/v/4b8d53d41e784e4ba1ed9b9770faf219.mp4" type="video/mp4"
+            class="display-on-desktop" />
+          Your browser does not support the video tag.
+        </video>
+        <img class="play-btn" id="lumbarHeroVideoPlayBtn"
+        src="//cdn.shopify.com/s/files/1/1759/4609/files/ls-play-video.svg" />
+      </div>
+      
+
+      
+    </div>
+
+    <div class="display-on-desktop">
+      <div class="video">
+        <div class="video__play">
+          <video class="video-desktop" id="ldRgbLightUpLogo" width="100%" loop muted playsinline>
+            <source src="{{ 'light-up-logo-desktop.mp4' | asset_url }}" type="video/mp4" class="display-on-desktop" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <img class="play-btn" id="lumbarHeroVideoPlayBtn"
+          src="//cdn.shopify.com/s/files/1/1759/4609/files/ls-play-video.svg" />
+      </div>
+    </div>
+  </div>
+  {% endunless %}
+
+
+  <link rel="stylesheet" href="{{ 'ld-rgb-v2-rgb-features.css' | asset_url }}">
+  <div class="nam-features f800-featurescontents">
+    <div class="display-on-mobile">
+      <div class="nam-feature__img-wrapper">
+        <img id="namFeatureImg" src="{{ 'ld-rgb-feature-1.jpeg' | asset_url }}" alt="feature img" />
+      </div>
+      <div class="nam-feature__text">
+        <div id="namFeatureTitle" class="nam-feature__title">
+          Sync Your Game and Audio
+        </div>
+        <div id="namFeatureDesc" class="nam-feature__desc">
+          Blast or destroy, bass or highs—those around you will vibe to the sounds of your gameplay and music through
+          your lights. The party starts with your every move.
+        </div>
+      </div>
+      <div class="nam-feature__actions">
+        <a id="ldRgbExploreBtn" href="#ldRgbCarouselFeature" class="nam-feature__action__explore nam-product-main-btn">
+          Explore
+        </a>
+        <div class="nam-feature__action__switch">
+          <button class="nam-feature__action__switch__btn nam-product-main-btn">
+            <div class="nam-feature__action__btn-container">
+              <img src="{{ 'ld-rgb-feature-1-icon.svg' | asset_url }}" alt="btn icon" />
+              <div class="nam-feature__action__btn__text">
+                Sync Your Game and Audio
+              </div>
+            </div>
+          </button>
+          <button class="nam-feature__action__switch__btn nam-product-sec-btn">
+            <div class="nam-feature__action__btn-container">
+              <img src="{{ 'ld-rgb-feature-2-icon.svg' | asset_url }}" alt="btn icon" />
+              <div class="nam-feature__action__btn__text">
+                Light Up Your Logo
+              </div>
+            </div>
+          </button>
+          <button class="nam-feature__action__switch__btn nam-product-sec-btn">
+            <div class="nam-feature__action__btn-container">
+              <img src="{{ 'ld-rgb-feature-3-icon.svg' | asset_url }}" alt="btn icon" />
+              <div class="nam-feature__action__btn__text">Simple Controls via SignalRGB</div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="namFeatureContainer" class="nam-feature-container display-on-desktop">
+      <div class="feature__bg feature__bg1"></div>
+      <div class="feature__bg feature__bg2" style="display: none;"></div>
+      <div class="feature__bg feature__bg3" style="display: none;"></div>
+
+      <div class="nam-feature__content">
+
+        <div class="nam-feature__text">
+          <div id="namFeatureTitleDesk" class="nam-feature__title">
+            Sync Your Game <br class="mb-hide" /> and Audio
+          </div>
+          <div id="namFeatureDescDesk" class="nam-feature__desc">
+            Blast or destroy, bass or highs—those around you will vibe to the sounds of your gameplay and music through
+            your lights. The party starts with your every move.
+          </div>
+        </div>
+        <div class="nam-feature__actions">
+          <div class="nam-feature__action-wrapper active">
+            <button class="nam-feature__action__switch__btn-desk nam-feature-fade-btn">
+              <div class="nam-feature__action__btn-container">
+                {% include "ld-rgb-feature-icon-1" %}
+                <div class="nam-feature__action__btn__text">
+                  Sync Your Game and Audio
+                </div>
+              </div>
+            </button>
+            <a href="#ldRgbCarouselFeature" style="display: flex;"
+              class="nam-product-main-btn nam-feature__action__explore nam-feature__action__explore-desktop">Explore</a>
+          </div>
+          <div class="nam-feature__action-wrapper">
+            <button class="nam-feature__action__switch__btn-desk nam-feature-fade-btn">
+              <div class="nam-feature__action__btn-container">
+                {% include "ld-rgb-feature-icon-2" %}
+                <div class="nam-feature__action__btn__text">
+                  Light Up Your Logo
+                </div>
+              </div>
+            </button>
+            <a href="#ldRgbLightLogo"
+              class="nam-product-main-btn nam-feature__action__explore nam-feature__action__explore-desktop">Explore</a>
+          </div>
+          <div class="nam-feature__action-wrapper">
+            <button class="nam-feature__action__switch__btn-desk nam-feature-fade-btn">
+              <div class="nam-feature__action__btn-container">
+                {% include "ld-rgb-feature-icon-3" %}
+                <div class="nam-feature__action__btn__text">Simple Controls via SignalRGB</div>
+              </div>
+            </button>
+            <a href="#ldRgbApps"
+              class="nam-product-main-btn nam-feature__action__explore nam-feature__action__explore-desktop">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include 'fe800-rgbcontent-feature' %}
+  {% include 'fe800-rgbcontent-review' %}
+  {% include 'ld-rgb-v2-light-logo' %}
+  {% include 'fe800-rgbcontent-carouselgallery' %}
+  {% include 'fe800-rgbcontent-controls' %}
+</div>

@@ -1,0 +1,36 @@
+<div id="shopify-section-fe800-signatures_1" class="shopify-section fp-section fp-table fe800-signatures">
+    <div class="signatures-item origin" id="signatures-{{ order }}">
+        <div class="signatures-topbar" popip="lumbar">
+            <div class="title"><span>VERTAGEAR SIGNATURES</span> ContourMax<sup>TM</sup> Lumbar</div>
+            <div class="description">
+                What if you could prevent back pain before it comes an issue? Our new ContourMax<sup>TM</sup> Lumbar embedded within the backrest works like magic, adapting itself to your body to support a healthy posture as you game or work for countless hours. Prevention is better than treatment.
+            </div>
+            {% unless _page == 800 %}
+            <div class="cta">
+                <a class="index-signature__swiper-slide-btn -blue vertagear-btn ">Learn More</a>
+            </div>
+            {% endunless %}
+        </div>
+        <div class="signatures-visual">
+            <img class="lazyload" data-src="{{ 'ContourMax_Lumbar.jpg' | asset_img_url: '2000x' }}" />
+            <div class="scroll-to-play"><img src="{{'fe800-scroll-to-play.svg'| asset_url}}" /> <span>Scroll
+                    to discover more</span></div>
+        </div>
+        <div class="signatures-video ">
+            <video muted defaultMuted playsinline loop class="full-image-intro__bg-video lazy video-desktop" preload="metadata" data-poster="">
+                <source data-src="https://cdn.shopify.com/videos/c/o/v/373dded13c804d05bb2a7797059e2cb1.mp4" type="video/mp4">
+            </video>
+
+            <video muted defaultMuted playsinline loop class="full-image-intro__bg-video lazy video-mobile" preload="metadata" data-poster="">
+                <source data-src="https://cdn.shopify.com/videos/c/o/v/c98403f929034479bb8083effd58b62c.mp4" type="video/mp4">
+            </video>
+
+            {% unless _page == 800 %}
+            <div class="cta">
+                <a class="index-signature__swiper-slide-btn js-popups" popip="lumbar">Learn More</a>
+            </div>
+            {% endunless %}
+        </div>
+
+    </div>
+</div>

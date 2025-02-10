@@ -1,0 +1,75 @@
+{% for product in collections.all.products %}
+  {% if product.id == 3874717401199 %}
+    {% assign globalProductLEDBottom = product %}
+  {% endif %}
+
+  {% if product.id == 7033534546031 %}
+    {% assign globalProductLEDTop = product %}
+  {% endif %}
+
+  {% if product.id == 7033535037551 %}
+    {% assign globalLightUpYourLogo = product %}
+  {% endif %}
+
+  {%- comment -%} price pl4800  {%- endcomment -%}
+  {% if product.id == 7025941348463 %}
+    {% assign product_review_tmp = product %}
+    {% assign product_temp1 = product %}
+  {% endif %}
+
+  {% if product.id == 7024816291951 %}
+    {% assign product_review_tmp1 = product %}
+    {% assign product_temp2 = product %}
+  {% endif %}
+
+  {% if product.id == 7024401154159 %}
+    {% assign product_review_tmp2 = product %}
+    {% assign product_temp3 = product %}
+  {% endif %}
+
+  {% if product.id == 7025941446767 %}
+    {% assign product_review_tmp3 = product %}
+    {% assign product_temp4 = product %}
+  {% endif %}
+  
+  
+{% endfor %} 
+
+  {% if product.title == 'PL4800 Update' %}
+    {% assign product_review = product_review_tmp %}
+    {% assign product_temp = product_temp1 %}
+  {% endif %}
+  {% if product.title == 'SL5800 Update' %}
+    {% assign product_review = product_review_tmp1 %}
+    {% assign product_temp = product_temp2 %}
+  {% endif %}
+  {% if product.title == 'SL3800 Update' %}
+    {% assign product_review = product_review_tmp2 %}
+    {% assign product_temp = product_temp3 %}
+  {% endif %}
+  {% if product.title == 'PL6800 Update' %}
+    {% assign product_review = product_review_tmp3 %}
+    {% assign product_temp = product_temp4 %}
+  {% endif %}
+
+
+<div class="productdetail-topbar">
+    <div class="topbar-inner">
+        <div class="topbar-img">
+            <img id="ProductMainImage" alt="product image"class="lazyload" data-src="//cdn.shopify.com/s/files/1/1759/4609/products/Black-White-base_99186103-cba7-415b-8a6f-ce1beff808d8.jpg?v=1664610592">
+        </div>
+        <div class="topbar-info">
+            <div class="title">{{ product.title }}</div>
+            <a class="fe800-reviews-js" data-oke-reviews-product-listing-rating style="display:inline-block"
+            class="bottomLine ag-vg-product-rating">
+            {%- if product_review.metafields.okendo.ProductListingSnippet -%}
+            {{ product_review.metafields.okendo.ProductListingSnippet }}
+            {%- else -%}
+            <span class="visually-hidden">There are no reviews yet.</span>
+            {%- endif -%}
+               </a>
+             <span id="custom_product_price" class="custom_product_price" data-product-id="{{ product_temp.id }}">{{product_temp.price | money}}</span>
+           <a class="vertagear-cta -blue cta-addtocard" goto=''>ADD TO CART</a>
+        </div>
+    </div>
+</div>

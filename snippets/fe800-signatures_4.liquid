@@ -1,0 +1,35 @@
+<div id="shopify-section-fe800-signatures_4" class="shopify-section fp-section fp-table fe800-signatures">
+    <div class="signatures-item" id="signatures-{{order}}">
+        <div class="signatures-topbar js-popups" popip="hygennx">
+            <div class="title"><span>VERTAGEAR SIGNATURES</span> HygennX<sup>TM</sup></div>
+            <div class="description">
+            HygennX<sup>TM</sup>, from Vertagear, uses patented coffee ground nanotechnology in breathable cloth to deliver natural odor control with quick-drying functionality and silver-coated embroidery to neutralize bacteria growth while prolonging the life of your chair and accessories.
+            </div>
+            {% unless _page == 800 %}
+            <div class="cta">
+                <a class="index-signature__swiper-slide-btn -blue vertagear-btn ">Learn More</a>
+            </div>
+            {% endunless %}
+        </div>
+        <div class="signatures-visual">
+            <img class="lazyload" data-src="{{ 'fe800-visual-HygennX.jpg' | asset_img_url: '1000x' }}" />
+            <div class="scroll-to-play"><img src="{{ 'fe800-scroll-to-play.svg' | asset_url }}" /> <span>Scroll to discover more</span></div>
+        </div>
+        <div class="signatures-video">
+            <video muted defaultMuted playsinline loop class="full-image-intro__bg-video lazy video-desktop" preload="metadata" data-poster="" {% if _page == 800 %}autoplay{% endif %}>
+                <source data-src="https://cdn.shopify.com/videos/c/o/v/868fcb60fbac463ea1a6ae5fec216645.mp4" type="video/mp4">
+            </video>
+
+            <video muted defaultMuted playsinline loop class="full-image-intro__bg-video lazy video-mobile" preload="metadata" data-poster="" {% if _page == 800 %}autoplay{% endif %}>
+                <source data-src="https://cdn.shopify.com/videos/c/o/v/868fcb60fbac463ea1a6ae5fec216645.mp4" type="video/mp4">
+            </video>
+
+            {% unless _page == 800 %}
+            <div class="cta">
+                <a class="index-signature__swiper-slide-btn js-popups" popip="hygennx">Learn More</a>
+            </div>
+            {% endunless %}
+        </div>
+
+    </div>
+</div>

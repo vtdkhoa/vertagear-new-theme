@@ -1,0 +1,228 @@
+<div class="collection-product" id="collection-product">
+    <div class="collection-product__main vertagear-container -small">
+        {% for product in products %}
+      {% if product.handle == 'sl5000-rgb-led-top-upgrade-kit' %}
+        <div class="collection-product__card" style="display: none;">
+            <div class="collection-product__card-container">
+                <div class="collection-product__card-left">
+                    <div class="collection-product__card-thumb">
+                      	{% if product.variants.size > 1  %}
+                      		{% assign color = false %}
+                            {% for option in product.options %}
+                              {% if option == "Base-colors" %}
+                                  {% include 'new-swatch' with swatch : 'Base-colors',thumb : true %}
+                      			  {% assign color = true %}
+                              {% elsif option == "Base-Color" %}
+                                  {% include 'new-swatch' with swatch : 'Base-Color', thumb : true %}
+                      			  {% assign color = true %}
+                              {% endif %}
+                            {% endfor %}
+                      		{% if color == false %}
+                      			{% assign image = product.featured_image.src | img_url: '500x' %}
+                                  <a class="collection-product__card-thumb-link" href="{{ product.url}}">
+                                    <img src="{{image}}" alt="{{product.title | escape }}" class="collection-product__card-thumb-img">
+                                  </a>
+                      		{% endif %}
+                      	{% else %}
+                             {% assign image = product.featured_image.src | img_url: '500x' %}
+                                <a class="collection-product__card-thumb-link" href="{{ product.url }}">
+                                  <img src="{{image}}" alt="{{product.title | escape}}" class="collection-product__card-thumb-img">
+                                </a>
+                        {% endif %} 
+                    </div>
+                    {% if product.type contains 'S-Line' or product.type contains 'P-Line' or product.type contains 'Triigger'%}
+                    <div class="new-edit-top__recommend">
+                        <div class="new-edit-top__recommend-title">
+                            Recommended For
+                        </div>
+                        <div class="new-edit-top__recommend-group">
+                            <div class="new-edit-top__recommend-info">
+                                <div class="new-edit-top__recommend-info-icon">
+                                  <img src="{{ 'sl5000-weight.svg' | asset_url}}" alt="Weight:">
+                              	</div>
+                                <div class="new-edit-top__recommend-info-text">{{ product.metafields.custom_fields.weight }}</div>
+                            </div>
+                            <div class="new-edit-top__recommend-info">
+                                <div class="new-edit-top__recommend-info-icon">
+                                  <img src="{{ 'sl5000-height.svg' | asset_url}}" alt="Height:">
+                              	</div>
+                                <div class="new-edit-top__recommend-info-text">{{ product.metafields.custom_fields.height }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="collection-product__card-right" style="position:relative">
+                    <div class="collection-product__card-right-center">
+                        <div class="collection-product__card-title-group">
+                            <div class="collection-product__card-title">
+                                {{product.title}}
+                            </div>
+                        </div>
+                        <div data-oke-reviews-product-listing-rating style="display:inline-block" class="bottomLine ag-vg-product-rating" data-oke-reviews-scroll-target-id="bottom-review">{{ product.metafields.okendo.ProductListingSnippet }}</div>
+                        <div class="collection-product__card-desc">
+                            {{product.description}}
+                        </div>
+                        <div class="collection-product__card-price">
+                          {% if product.compare_at_price > product.price %}
+                            <div class="b-product-price custom_product_price" data-product-id="{{ product.id }}">
+                              <span class="tdf_price_original">{{ product.compare_at_price | money }}</span>
+                              <span class="tdf_price_sales">{{ product.price | money }}</span>
+                            </div>
+                          {% else %}
+                            {% if product.variants[0].compare_at_price > product.variants[0].price %}
+                              <div class="b-product-price custom_product_price" data-product-id="{{ product.id }}">
+                                <span class="tdf_price_original">{{ product.variants[0].compare_at_price | money }}</span>
+                                <span class="tdf_price_sales">{{ product.variants[0].price | money }}</span>
+                              </div>
+                            {% else %}
+                              <div class="b-product-price custom_product_price" data-product-id="{{ product.id }}">{{ product.variants[0].price | money }}</div>
+                            {% endif %}
+                          {% endif %}
+                        </div>
+                      {%- if product.available and product.compare_at_price_min > product.price_min -%}
+                      {%- capture discount -%}{{ product.compare_at_price_min | minus:product.price_min | times:100.0 | divided_by:product.compare_at_price_min | round }}%{%- endcapture -%}
+                      <div class="hc-sale-tag"><span>{{ discount }}</span></div>
+                      {%- endif -%}
+                        <div class="collection-product__card-colors">
+                            {% if product.available and product.variants.size > 0 %}
+                          	  	
+                                  {% for option in product.options %}
+                                    {% if option == "Base-colors" %}
+                                        {% include 'new-swatch' with swatch : 'Base-colors' %}
+                                    {% elsif option == "Base-Color" %}
+                                        {% include 'new-swatch' with swatch : 'Base-Color' %}
+                                    {% endif %}
+                                  {% endfor %}
+                            {% endif %}                            
+
+                        </div>
+                        <div class="collection-product__card-btn-box">
+                            {% if product.available == false and product.variants[0].sku contains "Parts:RGB" %}
+                              <a class="vertagear-btn collection-product__card-btn sold-out" href="javascript:void(0);">SOLD OUT</a>
+                            {% else %}
+                              <a class="vertagear-btn collection-product__card-btn {% if product.tags contains 'hide-add-to-cart' %}disabled{% endif %}" :href="'{{product.url}}'+ (id ? '?variant=' + id : '')">Buy now</a>
+                            {% endif %}
+                          	{% unless product.type contains 'Accessories' %}
+                            <a href="/pages/chair-selection-tool" class="collection-product__card-link">Find Your Chair</a>
+                            {% endunless %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      {% else %}
+      <div class="collection-product__card">
+            <div class="collection-product__card-container">
+                <div class="collection-product__card-left">
+                    <div class="collection-product__card-thumb">
+                      	{% if product.variants.size > 1  %}
+                      		{% assign color = false %}
+                            {% for option in product.options %}
+                              {% if option == "Base-colors" %}
+                                  {% include 'new-swatch' with swatch : 'Base-colors',thumb : true %}
+                      			  {% assign color = true %}
+                              {% elsif option == "Base-Color" %}
+                                  {% include 'new-swatch' with swatch : 'Base-Color', thumb : true %}
+                      			  {% assign color = true %}
+                              {% endif %}
+                            {% endfor %}
+                      		{% if color == false %}
+                      			{% assign image = product.featured_image.src | img_url: '500x' %}
+                                  <a class="collection-product__card-thumb-link" href="{{product.url}}">
+                                    <img src="{{image}}" alt="{{product.title | escape }}" class="collection-product__card-thumb-img">
+                                  </a>
+                      		{% endif %}
+                      	{% else %}
+                             {% assign image = product.featured_image.src | img_url: '500x' %}
+                                <a class="collection-product__card-thumb-link" href="{{product.url}}">
+                                  <img src="{{image}}" alt="{{product.title | escape}}" class="collection-product__card-thumb-img">
+                                </a>
+                        {% endif %} 
+                    </div>
+                    {% if product.type contains 'S-Line' or product.type contains 'P-Line' or product.type contains 'Triigger'%}
+                    <div class="new-edit-top__recommend">
+                        <div class="new-edit-top__recommend-title">
+                            Recommended For
+                        </div>
+                        <div class="new-edit-top__recommend-group">
+                            <div class="new-edit-top__recommend-info">
+                                <div class="new-edit-top__recommend-info-icon">
+                                  <img src="{{ 'sl5000-weight.svg' | asset_url}}" alt="Weight:">
+                              	</div>
+                                <div class="new-edit-top__recommend-info-text">{{product.metafields.custom_fields.weight}}</div>
+                            </div>
+                            <div class="new-edit-top__recommend-info">
+                                <div class="new-edit-top__recommend-info-icon">
+                                  <img src="{{ 'sl5000-height.svg' | asset_url}}" alt="Height:">
+                              	</div>
+                                <div class="new-edit-top__recommend-info-text">{{product.metafields.custom_fields.height}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="collection-product__card-right" style="position:relative">
+                    <div class="collection-product__card-right-center">
+                        <div class="collection-product__card-title-group">
+                            <div class="collection-product__card-title">
+                                {{product.title}}
+                            </div>
+                        </div>
+                        <div data-oke-reviews-product-listing-rating style="display:inline-block" class="bottomLine ag-vg-product-rating" data-oke-reviews-scroll-target-id="bottom-review">{{ product.metafields.okendo.ProductListingSnippet }}</div>
+                        <div class="collection-product__card-desc">
+                            {{product.description}}
+                        </div>
+                        <div class="collection-product__card-price">
+                          {% if product.compare_at_price > product.price %}
+                            <div class="b-product-price custom_product_price" data-product-id="{{ product.id }}">
+                              <span class="tdf_price_original">{{ product.compare_at_price | money }}</span>
+                              <span class="tdf_price_sales">{{ product.price | money }}</span>
+                            </div>
+                          {% else %}
+                            {% if product.variants[0].compare_at_price > product.variants[0].price %}
+                              <div class="b-product-price custom_product_price" data-product-id="{{ product.id }}">
+                                <span class="tdf_price_original">{{ product.variants[0].compare_at_price | money }}</span>
+                                <span class="tdf_price_sales">{{ product.variants[0].price | money }}</span>
+                              </div>
+                            {% else %}
+                              <div class="b-product-price custom_product_price" data-product-id="{{ product.id }}">{{ product.variants[0].price | money }}</div>
+                            {% endif %}
+                          {% endif %}
+                        </div>
+                      {%- if product.available and product.compare_at_price_min > product.price_min -%}
+                      {%- capture discount -%}{{ product.compare_at_price_min | minus:product.price_min | times:100.0 | divided_by:product.compare_at_price_min | round }}%{%- endcapture -%}
+                      <div class="hc-sale-tag"><span>{{ discount }}</span></div>
+                      {%- endif -%}
+                        <div class="collection-product__card-colors">
+                            {% if product.available and product.variants.size > 0 %}
+                          	  	
+                                  {% for option in product.options %}
+                                    {% if option == "Base-colors" %}
+                                        {% include 'new-swatch' with swatch : 'Base-colors' %}
+                                    {% elsif option == "Base-Color" %}
+                                        {% include 'new-swatch' with swatch : 'Base-Color' %}
+                                    {% endif %}
+                                  {% endfor %}
+                            {% endif %}                            
+
+                        </div>
+                        <div class="collection-product__card-btn-box">
+                            {% if product.available == false and product.variants[0].sku contains "Parts:RGB" %}
+                              <a class="vertagear-btn collection-product__card-btn sold-out" href="javascript:void(0);">SOLD OUT</a>
+                            {% else %}
+                              <a class="vertagear-btn collection-product__card-btn {% if product.tags contains 'hide-add-to-cart' %}disabled{% endif %}" :href="'{{product.url}}'+ (id ? '?variant=' + id : '')">Buy now</a>
+                            {% endif %}
+                          	{% unless product.type contains 'Accessories' %}
+                            <a href="/pages/chair-selection-tool" class="collection-product__card-link">Find Your Chair</a>
+                            {% endunless %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      {%endif%}
+<!--<p>no matches</p> -->
+      {% endfor %}
+    </div>
+</div>

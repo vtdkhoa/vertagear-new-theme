@@ -1,0 +1,23 @@
+{% comment %}
+{{ 'page.about.scss.css' | asset_url | stylesheet_tag }}
+
+<div class="about-wrapper">
+  <div class="main-hero">
+    &nbsp;
+  </div>
+  <div class="content">
+    {{ page.content }}
+    <img src="{{ 'about.laptop.jpg' | asset_url }}"
+         class="big-image">
+  </div>
+</div>
+{% endcomment %}
+
+<div class="page-about">
+    {% section 'about-top' %}
+    {% section 'about-text' %}
+  	{% section 'about-history' %}
+    {% section 'about-newsletter' %}
+</div>
+
+

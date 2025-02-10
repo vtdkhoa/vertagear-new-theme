@@ -1,0 +1,93 @@
+<div class="index-reviews">
+    <div class="index-reviews__top">
+        <div class="vertagear-container index-reviews__top-inner">
+            <div class="index-reviews__title">
+                {{section.settings.title}}
+            </div>
+            <div class="index-reviews__tab">
+                <div class="index-reviews__tab-btn" v-bind:class="{'-active' : current === 0}" @click="current = 0" :key="current + '0'">From Media</div>
+                <div class="index-reviews__tab-btn" v-bind:class="{'-active' : current === 1}" @click="current = 1" :key="current + '1'">From Consumer</div>
+            </div>
+        </div>
+    </div>
+    <div class="index-reviews__main">
+        <div class="index-reviews__main-inner" :class="'-current-'+current">
+            <div class="index-reviews__swiper-arrow swiper-arrow -prev vertagear-icon -icon-left"></div>
+            <div class="index-reviews__swiper-arrow swiper-arrow -next vertagear-icon -icon-right"></div>
+            <div class="index-reviews__swiper-box index-reviews__main-tab" :class="{'-active' : current === 0}">
+              	<div class="vertagear-container">
+                  <div class="index-reviews__main-tab-inner">
+                    <swiper class="index-reviews__swiper" :options="options">
+                        {% for block in section.blocks %}
+                          <swiper-slide class="index-reviews__swiper-slide">
+                              <picture>
+                                  <source srcSet="{{block.settings.image | img_url: '600x' }}" media="(min-width: 1351px)">
+                                  <source srcSet="{{block.settings.image | img_url: '300x' }}" media="(min-width: 768px)">
+                                  <source srcSet="{{block.settings.image | img_url: '180x' }}" media="(max-width: 767px)">
+                                  <img src="{{block.settings.image | img_url: '300x' }}" class="index-reviews__swiper-slide-img" loading="lazy" alt="{{block.settings.title}}">
+                              </picture>
+                              <div class="index-reviews__swiper-slide-desc">
+                                  {{block.settings.desc}}
+                              </div>
+                              <a class="index-reviews__swiper-slide-read" href="{{block.settings.link}}" target="_blank">Read More</a>
+                          </swiper-slide>
+                        {% endfor %}
+                    </swiper>
+            	  </div>            	
+              </div>
+            </div>
+
+            <div class="index-reviews__main-tab" :class="{'-active' : current === 1}">
+				<div class="index-reviews__main-tab-inner -review">
+                	<div data-oke-media-carousel data-oke-reviews-autoplay="true" data-oke-reviews-arrow-position="inside" data-oke-reviews-slide-link-text="Read More" data-oke-reviews-min-images="1" data-oke-reviews-slide-size="x-large"></div>
+				</div>                  
+            </div>
+
+        </div>
+    </div>
+</div>
+<style>.index-signature,.index-support{overflow:hidden;}.okeReviews .okeReviews-modal-inner{width:100%;height:100%;}</style>
+
+{% schema %}
+  {
+  "name": "Reviews",
+  "blocks":[ 
+    { 
+        "type":"text",
+        "name":"Review",
+        "settings":[ 
+            { 
+                "type":"text",
+                "id":"title",
+                "label":"Title",
+                "default":"Title"
+            },
+            { 
+                "type":"text",
+                "id":"desc",
+                "label":"Description",
+                "default":"Description"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Logo"
+            },
+            {
+                "type": "url",
+                "id": "link",
+                "label": "link"
+            }
+        ]
+    }
+  ],
+  "settings": [
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"Reviews"
+    }
+    ]
+  }
+{% endschema %}

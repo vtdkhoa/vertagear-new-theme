@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/vertagear.myshopify.com/products/configure/240327/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["recommended_weight"] != blank %}
+  <div class="custom-field custom-field__recommended-weight custom-field__type--text">
+    <h3 class="custom-field--title">Recommended Weight</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["recommended_weight"] }}
+    </div>
+  </div>
+{% endif %}

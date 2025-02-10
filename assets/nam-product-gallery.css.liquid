@@ -1,0 +1,83 @@
+.ld-rgb__gallery {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 4px;
+}
+.ld-rgb__gallery img {
+  width: 100%;
+}
+
+.ld-rgb-carousel-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  padding: 0;
+  top: -100%;
+  transition: 0.5s;
+  background-color: #252531;
+  z-index: 10000;
+}
+.ld-rgb-carousel-container__wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.ld-rgb-carousel__close-btn {
+  position: absolute;
+  top: 23px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 26px;
+}
+
+.carousel-flickity2 {
+  width: 100%;
+}
+
+.carousel-flickity2-cell {
+  width: 100%;
+}
+.carousel-flickity2-cell img {
+  width: 100%;
+}
+
+.flickity-prev-next-button {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .ld-rgb__gallery {
+    grid-template-columns: auto auto auto;
+  }
+
+  .nam-carousel-desk__slides {
+    width: 100%;
+  }
+  .nam-carousel-desk__slide {
+    max-height: 600px;
+  }
+  #ldRgbCarousel {
+  	z-index: 1000;
+  } 
+  .flickity-prev-next-button {
+    display: block;
+  }
+  .ld-rgb-carousel__close-btn {
+    top: 46px;
+  	right: 53px;
+    width: 26px;
+    z-index: 1;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .nam-carousel-desk__slide {
+    max-height: 800px;
+  }
+}

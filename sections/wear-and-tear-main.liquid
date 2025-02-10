@@ -1,0 +1,102 @@
+{% include 'wear-and-tear-popup-text' %}
+
+
+<div class="wide-banner">
+  	<img src='{{section.settings.banner | img_url: 'master'}}' class="wide-banner__img" alt>
+    <div class="vertagear-container page-warranty__top-text">
+        <div class="wide-banner__slogan">
+            Vertagear Signature
+        </div>
+        <h1 class="wide-banner__title">
+            Protection Program
+        </h1>
+        <div class="wide-banner__desc">
+            Terms and conditions <span class="wide-banner__link" onclick="document.querySelector('#popup-text').classList.remove('-in-active')">HERE.</span>
+        </div>
+    </div>
+</div>
+<div class="wear-and-tear-card-outer">
+
+    <div class="wear-and-tear-card-container">
+
+        <div class="wear-and-tear-card">
+            <div class="wear-and-tear-card__top">
+                Free 2-Year Wear & Tear
+                Protection Program
+            </div>
+            <div class="wear-and-tear-card__bottom">
+                <div class="wear-and-tear-card__bottom-slogan">
+                    how to get?
+                </div>
+                <div class="wear-and-tear-card__bottom-title">
+                    Leave a Review
+                </div>
+                <div class="wear-and-tear-card__bottom-desc">
+                    As a Vertagear customer, your experience matters to us. Click the button below to leave a product and photo review of your newly purchased chair and receive your
+                    <div class="wear-and-tear-card__bottom-desc-free-box">
+                        <span class="wear-and-tear-card__bottom-desc-free">FREE</span>
+                        <a class="wear-and-tear-card__bottom-desc-link" href="{{section.settings.wlink_2year}}" target="_blank">2-year wear and tear protection plan.</a>
+                    </div>
+                    <div class="wear-and-tear-card__bottom-desc-bottom">($99.99 retail value!)</div>
+                </div>
+                <div class="wear-and-tear-card__btn-box">
+                    <a class="vertagear-btn wear-and-tear-card__btn" href="/pages/2-year-wear-and-tear">
+                        Go now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="wear-and-tear-card -purple">
+            <div class="wear-and-tear-card__top">
+                Free 3-Year Extended
+                Warranty Program
+            </div>
+            <div class="wear-and-tear-card__bottom">
+                <div class="wear-and-tear-card__bottom-slogan">
+                    how to get?
+                </div>
+                <div class="wear-and-tear-card__bottom-title">
+                    Post Your Story
+                </div>
+                <div class="wear-and-tear-card__bottom-desc">
+                    Share your newly purchased Vertagear chair to your social media and leave us a comment on our latest Instagram post to be fully eligible for an
+                    <div class="wear-and-tear-card__bottom-desc-free-box">
+                        <span class="wear-and-tear-card__bottom-desc-free">FREE</span>
+                        <a class="wear-and-tear-card__bottom-desc-link" href="{{section.settings.wlink_3year}}" target="_blank">3-year extended warranty.</a>
+                    </div>
+                    <div class="wear-and-tear-card__bottom-desc-bottom">($99.99 retail value!)</div>
+                </div>
+                <div class="wear-and-tear-card__btn-box">
+                    <a class="vertagear-btn wear-and-tear-card__btn" href="/pages/extended-warranty">
+                        Go now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Wear and Tear",
+  "settings": [
+        {
+            "id": "banner",
+            "type": "image_picker",
+            "label": "Banner"
+        },
+        {
+            "id": "wlink_3year",
+            "type": "url",
+            "label": "3-year extended warranty link"
+        },
+        {
+            "id": "wlink_2year",
+            "type": "url",
+            "label": "2-year extended warranty link"
+        }
+    ]
+  }
+{% endschema %}

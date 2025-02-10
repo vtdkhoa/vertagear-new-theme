@@ -1,0 +1,59 @@
+<div class="page-about__newsletter">
+    <img src="{{'about-newsletter-bg.png' | asset_url }}" class="page-about__newsletter-bg" alt>
+    <div class="page-about__newsletter-container vertagear-container -small">
+        <div class="page-about__newsletter-left">
+            <div class="page-about__newsletter-title">
+                {{section.settings.title}}
+            </div>
+            <div class="page-about__newsletter-desc">
+                {{section.settings.slogan}}
+            </div>
+        </div>
+        <div class="page-about__newsletter-right">
+            {% form 'customer' %}
+            {{ form.errors | default_errors }}
+            {% if form.posted_successfully? %}
+            <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+            {% else %}
+            <div class="page-about__newsletter-form">
+                <input type="text" class="page-about__newsletter-form-input" name="contact[email]" value="{% if customer %}{{ customer.email }}{% endif %}" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}">
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <button class="page-about__newsletter-form-submit ccm-input-submit" data-enabled="enabled">
+                    <img src="{{'send.svg' | asset_url }}" alt="{{ 'general.newsletter_form.submit' | t }}" class="page-about__newsletter-form-submit-img">
+                </button>
+            </div>
+            <div class="page-about__newsletter-form-desc">
+                {{section.settings.desc}}
+            </div>
+            {% endif %}
+            {% endform %}
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+  "name": "Newsletter",
+  "settings": [
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"Stay on the loop with us"
+    },
+    {
+        "id": "slogan",
+        "type": "text",
+        "label": "Slogan",
+        "default":"Be first to know about our special offers and our exclusive promotions."
+    },
+    {
+        "id": "desc",
+        "type": "text",
+        "label": "Description",
+        "default":"By signing up here I agree to receive Vertagear’s email newsletter and special promotion offers."
+    }
+  ]
+  }
+{% endschema %}

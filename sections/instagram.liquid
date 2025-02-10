@@ -1,0 +1,177 @@
+{% include 'gravityadmin' %}
+<div style="display: none !important;  visibility: hidden !important;" class="cmspro-section" id="cmspro-3fa71e0f"></div>
+{% case section.settings.colors %}
+  {% when 'white' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+  {% when 'light' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--light">
+  {% when 'accent' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--accent">
+  {% when 'dark' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--dark">
+{% endcase %}
+
+<div class="homepage-instagram-background homepage-indiv-section-wrapper">
+
+<div class="{% if section.settings.instagram-homepage-width == 'fixed' %}wrapper {% endif %}main-content" role="main">
+
+	<div class="instagram-wrapper" data-id="{{ section.id }}">
+
+{% case section.settings.grid %}
+
+{% when '4' %}
+	{% capture instagram_width %}one-quarter{% endcapture %}
+{% when '5' %}
+	{% capture instagram_width %}one-fifth{% endcapture %}
+{% when '6' %}
+	{% capture instagram_width %}one-sixth{% endcapture %}
+{% endcase %}
+
+{% if section.settings.instagram-access-token != empty %}
+		<input type="hidden" id="token-{{ section.id }}" value="{{ section.settings.instagram-access-token }}" />
+
+		<div class="sitewide--title-wrapper">
+			<h2 class="homepage-sections--title">{{ section.settings.title }}</h2>
+		</div>
+
+		<div id="instafeed-{{ section.id }}" class="grid--full"
+			data-grid="{{ section.settings.grid }}"
+			data-rows="{{ section.settings.rows }}"
+			data-grid-width="{{ instagram_width }}">
+
+		</div>
+{% else %}
+
+{% capture total_images %}{{ section.settings.grid | times: section.settings.rows }}{% endcapture %}
+
+		<div id="instafeed-{{ section.id }}" class="grid--full">
+			{% for i in (1..total_images) %}<div class="grid__item {{ instagram_width }} homepage-instagram-indiv">{{ 'image' | placeholder_svg_tag: 'icon icon--placeholder' }}<div class="homepage-instagram-hover"><span class="fa-stack fa-2x"><i class="fa fa-circle fa-stack-2x fa-inverse"></i><i class="fa fa-instagram fa-stack-1x"></i></span></div></div>{% endfor %}
+		</div>
+
+{% endif %}
+
+
+
+
+		</div>
+	</div>
+</div>
+
+</div>
+
+{% assign instaimage = '{{image}}' %}
+{% assign instaurl = '{{link}}' %}
+
+{% schema %}
+{
+  "name": "Instagram",
+  "class": "instagram-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Instagram"
+    },
+    {
+      "type": "select",
+      "id": "colors",
+      "label": "Color scheme",
+      "default": "light",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "accent",
+          "label": "Feature"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "instagram-access-token",
+      "label": "Access token [(?)](http:\/\/www.wetheme.com\/instagram-integration\/)"
+    },
+		{
+			"type": "select",
+			"id": "instagram-homepage-width",
+			"label": "Width",
+			"options": [
+				{
+					"value": "fixed",
+					"label": "Fixed"
+				},
+				{
+					"value": "full-width",
+					"label": "Full width"
+				}
+			],
+			"default": "full-width"
+		},
+    {
+      "type": "select",
+      "id": "grid",
+      "label": "Images per row",
+      "default": "6",
+      "options": [
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "rows",
+      "label": "Rows",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram",
+      "category": "Social media"
+    }
+  ]
+}
+{% endschema %}

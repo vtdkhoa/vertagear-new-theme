@@ -1,0 +1,43 @@
+{% if product.metafields.custom_fields["rgb_led_kit_other_product"] != blank %}
+  <div class="custom-field custom-field__rgb-led-kit-other-product custom-field__type--field-collection-json">
+    <h3 class="custom-field--title">RGB LED KIT Other Product</h3>
+    <div class="custom-field--value">
+      {% for item in product.metafields.custom_fields["rgb_led_kit_other_product"] %}
+        <div class="fc-item fc-index--{{ forloop.index0 }}">
+           {% if item["title"] != blank %}
+             <div class="fc-field field__title field-type--text">
+               <h4 class="custom-field--title">Title</h4>
+               <div class="custom-field--value">
+                 {{ item["title"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["product"] != blank %}
+             <div class="fc-field field__product field-type--product-reference">
+               <h4 class="custom-field--title">Product</h4>
+               <div class="custom-field--value">
+                 {{ item["product"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["learn_more"] != blank %}
+             <div class="fc-field field__learn-more field-type--page-reference">
+               <h4 class="custom-field--title">Learn More</h4>
+               <div class="custom-field--value">
+                 {{ item["learn_more"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["background"] != blank %}
+             <div class="fc-field field__background field-type--image">
+               <h4 class="custom-field--title">Background</h4>
+               <div class="custom-field--value">
+                 {{ item["background"] }}
+               </div>
+             </div>
+           {% endif %}
+         </div>
+       {% endfor %}
+    </div>
+  </div>
+{% endif %}

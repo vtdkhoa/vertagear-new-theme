@@ -1,0 +1,18 @@
+<div class="esport-main__card">
+    <img src='{{logo}}' class="esport-main__card-logo">
+    <div class="esport-main__card-title">
+        {{title}}
+    </div>
+    <div class="esport-main__card-bottom">
+        {% if active == true %}
+            {% assign product = all_products[product_slug] %}
+            <a class="esport-main__card-view" href="{{product.url}}">
+                VIEW CHAIR
+            </a>
+        {% else %}
+            <div class="esport-main__card-sold-out">
+                SOLD OUT
+            </div>
+        {% endif%}
+    </div>
+</div>

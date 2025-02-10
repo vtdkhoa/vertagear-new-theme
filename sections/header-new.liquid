@@ -1,0 +1,356 @@
+<style>
+  .sitemap .main-header__bannerfooter::after {
+      background-image: url("{{ 'header-bg_right-m.jpg' | asset_img_url }}")
+  }
+  .sitemap .main-header__bannerfooter::before {
+      left: 0;
+      background-image: url({{ 'header-bg_left-m.jpg' | asset_img_url }});
+      background-position: center left
+  }
+</style>
+<header
+  class="main-header {% if template == 'index' %}-index{% endif %}"
+  :class="{'-down':scrollTop > 0 || is_hover === true}"
+>
+  <div class="vertagear-container main-header__container" x-data="LazyLoad">
+    <div class="main-header__hamburger" :class="{'-active': header === true}" @click="toggleHeader()">
+      <div class="main-header__hamburger-line" :class="{'-active': header === true}"></div>
+      <div class="main-header__hamburger-line" :class="{'-active': header === true}"></div>
+      <div class="main-header__hamburger-line" :class="{'-active': header === true}"></div>
+    </div>
+    <div class="main-header__search -mobile vertagear-icon -icon-search" @click="toggleSearch()"></div>
+    <a class="main-header__logo" href="/">
+      <img src="{{'logo.svg' | asset_url }}" class="main-header__logo-img" alt="Vertagear">
+    </a>
+    <div class="main-header__gap"></div>
+    <div class="main-header__navigation">
+      {% for link in linklists['menu-main'].links %}
+        {% assign child_list_handle = link.title | handleize %}
+        {% assign sub_size = linklists[child_list_handle].links | size %}
+        <div class="main-header__navigation-link" @mouseover="is_hover = true" @mouseleave="is_hover = false">
+          {% if sub_size > 0 %}
+            <div class="main-header__navigation-link-inner">{{ link.title }}</div>
+            {% if link.title contains 'Product' %}
+              <div class="main-header__navigation-link-drop -full">
+                <div class="main-header__navigation-link-drop-main">
+                  <div class="sub-menu-group-title">
+                    <div class="sub-menu-group-title-container">
+                      {% for childlink in linklists[child_list_handle].links %}
+                        <div
+                          class="sub-menu-group-title__title {% if forloop.index0 == 0 %}active{% endif %}"
+                          data-id="{{ forloop.index }}-{{ childlink.handle }}"
+                        >
+                          <a
+                            class="sub-menu-group-title__title-link"
+                            href="{{childlink.url}}"
+                          >
+                            {{- childlink.title | escape -}}
+                          </a>
+                        </div>
+                      {% endfor %}
+                    </div>
+                    <div class="sub-menu-group-title__image-banner">
+                      <a href="{{ section.settings.banner_url }}">
+                        <img src="{{ section.settings.image_banner.src | image_url }}">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="sub-menu-group-content">
+                    {% for childlink in linklists[child_list_handle].links %}
+                      {% assign sub_child_list_handle = childlink.title | handleize %}
+                      {% assign sub_sub_size = linklists[sub_child_list_handle].links | size %}
+                      <div
+                        class="sub-menu-group-content__item {% if forloop.index0 == 0 %}active{% endif %}"
+                        data-id="{{ forloop.index }}-{{ childlink.handle }}"
+                      >
+                        <div class="sub-menu-group-content__title">
+                          <h2>{{ childlink.title }}</h2>
+                          <a href="{{ childlink.url }}">Learn More</a>
+                        </div>
+                        <div class="sub-menu-group-content__products">
+                          {% if sub_sub_size > 0 %}
+                            {% for grandchildlink in linklists[sub_child_list_handle].links %}
+                              {% assign link_type = grandchildlink.type %}
+                              {% if link_type == 'product_link' %}
+                                {% assign product_handle = grandchildlink.url | replace: '/products/', '' %}
+                                {% assign product = grandchildlink.object %}
+                                <div class="sub-menu-group-content__products-product">
+                                  <a href="{{ product.url }}">
+                                    <div
+                                      class="sub-menu-group-content__products-product__image"
+                                      style="background-image: url({{ product.featured_image.src | image_url: width: 400 }})"
+                                    ></div>
+                                    <div class="sub-menu-group-content__products-product__infomation">
+                                      <div class="sub-menu-group-content__products-product__infomation-container">
+                                        <div class="sub-menu-group-content__products-product__infomation--title-price">
+                                          <h2>{{ product.title }}</h2>
+                                          <div class="b-product-price">
+                                            {% if product.compare_at_price > product.price %}
+                                              <span class="origin-price">{{ product.compare_at_price | money }}</span>
+                                            {% endif %}
+                                            <span class="sale-price">{{ product.price | money }}</span>
+                                          </div>
+                                        </div>
+                                        <div class="product-recommened">
+                                          {% if product.metafields.custom_fields.weight.value != blank %}
+                                            <div class="product-recommened__weight">
+                                              <div class="icon">
+                                                {% render 'weight-icon' %}
+                                              </div>
+                                              <div class="product-recommened__weight-info">
+                                                <div class="label">Weight</div>
+                                                <div class="infomation">
+                                                  {{ product.metafields.custom_fields.weight }}
+                                                </div>
+                                              </div>
+                                            </div>
+                                          {% endif %}
+                                          {% if product.metafields.custom_fields.height.value != blank %}
+                                            <div class="product-recommened__height">
+                                              <div class="icon">
+                                                {% render 'height-icon' %}
+                                              </div>
+                                              <div class="product-recommened__height-info">
+                                                <div class="label">Height</div>
+                                                <div class="infomation">
+                                                  {{ product.metafields.custom_fields.height }}
+                                                </div>
+                                              </div>
+                                            </div>
+                                          {% endif %}
+                                        </div>
+                                        <div class="product-review">
+                                          <div data-oke-reviews-product-listing-rating>
+                                            {{ product.metafields.okendo.ProductListingSnippet }}
+                                          </div>
+                                        </div>
+                                        <div class="add-to-cart-btn">Buy now</div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                </div>
+                              {% endif %}
+                            {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                <!-- banner footer -->
+                {% comment %}
+                  <div class="main-header__bannerfooter mobileshow">
+                      <a href="https://www.vertagear.com/pages/800-ergonomic-gaming-chairs">
+                          <p>
+                              The New Vertagear 800 Series <br>
+                              <strong>The Number of Infinite Perfection</strong>
+                          </p>
+                      </a>
+                  </div>
+                {% endcomment %}
+              </div>
+            {% else %}
+              <div class="main-header__navigation-link-drop">
+                {% for childlink in linklists[child_list_handle].links %}
+                  {% if childlink.url contains 'wear-and-tear' %}
+                    <a
+                      href="{{childlink.url}}"
+                      class="main-header__navigation-link-drop-link open-free-protection-programs-modal"
+                    >
+                      {{- childlink.title | escape -}}
+                    </a>
+                  {% else %}
+                    <a href="{{childlink.url}}" class="main-header__navigation-link-drop-link">
+                      {{- childlink.title | escape -}}
+                    </a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% else %}
+            <a class="main-header__navigation-link-inner" href="{{link.url}}">{{ link.title }}</a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="main-header__gap"></div>
+    <!--
+      <form action="/search" method="get" class="main-header__search" role="search">
+          <input type="hidden" name="type" value="product">
+          <input list="products_recommend" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="main-header__search-input" aria-label="{{ 'general.search.placeholder' | t }}">
+          <button type="submit" class="main-header__search-submit vertagear-icon -icon-search"></button>
+      </form>
+    -->
+    <div class="main-header__right">
+      <div class="main-header__search -mobile -desktop vertagear-icon -icon-search" @click="toggleSearch()"></div>
+      {% if shop.customer_accounts_enabled %}
+        <a
+          href="/account{% unless customer %}/login{% endunless %}"
+          class="main-header__login vertagear-icon -icon-login"
+        >
+          <span class="visually-hidden">{{ 'layout.customer.account' | t }}</span>
+        </a>
+      {% endif %}
+
+      <div id="iconcartjs" class="main-header__cart vertagear-icon -icon-cart">
+        <span class="visually-hidden">{{ 'layout.cart.title' | t }}</span>
+        <div
+          class="main-header__cart-count site-header__cart-indicator{% unless cart.item_count > 0 %} hide{% endunless%}"
+        ></div>
+        <div id="CartPopup">
+          {% render 'cart-popup' %}
+        </div>
+      </div>
+
+      <div class="main-header__language">
+        <div class="main-header__language-current">
+          {% comment %}
+            <div class="main-header__language-flag">
+                <img src='{{' lang-usa.svg' | asset_url }}' alt="">
+            </div>
+          {% endcomment %}
+          <div class="main-header__language-text">USA</div>
+        </div>
+        <div class="main-header__language-drop">
+          <div class="main-header__language-drop-label">Change Location</div>
+          {% if settings.jp_link != blank %}
+            <a href="{{settings.jp_link}}" class="main-header__language-drop-link">
+              <div class="main-header__language-flag">
+                <img src="{{' lang-jp.svg' | asset_url }}" alt="">
+              </div>
+              <div class="main-header__language-text">JPN</div>
+            </a>
+          {% endif %}
+          <a href="{{settings.eu_link}}" class="main-header__language-drop-link">
+            {% comment %}
+              <div class="main-header__language-flag">
+                  <img src='{{' lang-eu.svg' | asset_url }}' alt="">
+              </div>
+            {% endcomment %}
+            <div class="main-header__language-text">EUR</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<transition name="fade">
+  <div v-if="header" class="sitemap">
+    <!-- banner footer -->
+    <div class="main-header__bannerfooter mobileshow">
+      <a href="https://www.vertagear.com/pages/800-ergonomic-gaming-chairs">
+        <p>
+          The New Vertagear 800 Series <br>
+          <strong>The Number of Infinite Perfection</strong>
+        </p>
+      </a>
+    </div>
+
+    <div class="vertagear-container sitemap__navigation">
+      {% for link in linklists['menu-main'].links %}
+        {% assign child_list_handle = link.title | handleize %}
+        {% assign sub_size = linklists[child_list_handle].links | size %}
+        {% assign is_product = false %}
+        {% if link.title contains 'Product' %}{% assign is_product = true %}{% endif %}
+
+        <div class="sitemap__navigation-group">
+          {% if sub_size > 0 %}
+            {% assign max_height = 0 %}
+            {% for childlink in linklists[child_list_handle].links %}
+              {% assign sub_child_list_handle = childlink.title | handleize %}
+              {% assign sub_sub_size = linklists[sub_child_list_handle].links | size %}
+              {% if sub_sub_size > 0 or is_product %}
+                {% assign sub_sub_height = sub_sub_size | times: 45 %}
+                {% assign max_height = max_height | plus: 60 %}
+                {% assign max_height = max_height | plus: sub_sub_height %}
+              {% else %}
+                {% assign max_height = max_height | plus: 45 %}
+              {% endif %}
+            {% endfor %}
+
+            <div
+              class="sitemap__navigation-group-label"
+              @click="toggle({{forloop.index0}})"
+              :class="{'-active' : current === {{forloop.index0}}}"
+            >
+              {{ link.title }}
+            </div>
+            <div
+              class="sitemap__navigation-group-content"
+              :class="{'-active' : current === {{forloop.index0}}}"
+              :style="{'max-height': ({{ max_height }}) + 'px' }"
+            >
+              {% for childlink in linklists[child_list_handle].links %}
+                {% assign sub_child_list_handle = childlink.title | handleize %}
+                {% assign sub_sub_size = linklists[sub_child_list_handle].links | size %}
+                {% if sub_sub_size > 0 or is_product %}
+                  <a href="{{ childlink.url }}" class="sitemap__navigation-group-link -label">
+                    {{- childlink.title | escape -}}
+                  </a>
+                  {% for grandchildlink in linklists[sub_child_list_handle].links %}
+                    <a href="{{ grandchildlink.url }}" class="sitemap__navigation-group-link">
+                      {{- grandchildlink.title | escape -}}
+                    </a>
+                  {% endfor %}
+                {% else %}
+                  <a href="{{ childlink.url }}" class="sitemap__navigation-group-link">
+                    {{- childlink.title | escape -}}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <a class="sitemap__navigation-group-label -no-content" href="{{link.url}}">{{ link.title }}</a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</transition>
+<transition name="fade">
+  <div v-if="search" class="main-header__search-popup">
+    <div class="main-header__search-popup-close" @click="toggleSearch()"></div>
+    <div class="vertagear-container">
+      <form action="/search" method="get" class="main-header__search-popup-form " role="search">
+        <input type="hidden" name="type" value="product">
+        <input
+          list="products_recommend"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'general.search.placeholder' | t }}"
+          class="main-header__search-popup-input"
+          aria-label="{{ 'general.search.placeholder' | t }}"
+        >
+        <button type="submit" class="main-header__search-popup-submit vertagear-icon -icon-search">
+          <span class="visually-hidden">{{ 'general.search.submit' | t }}</span>
+        </button>
+      </form>
+      <div class="main-header__search-popup-popular">
+        <div class="main-header__search-popup-popular-label">Popular Products</div>
+        <div class="main-header__search-popup-popular-content">
+          <a href="/search?type=product&q=SL2000" class="main-header__search-popup-popular-link">SL2000</a>
+          <a href="/search?type=product&q=PL4500" class="main-header__search-popup-popular-link">PL4500</a>
+          <a href="/search?type=product&q=PL6000" class="main-header__search-popup-popular-link">PL6000</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</transition>
+{% schema %}
+{
+  "name": "Header new",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_banner",
+      "label": "Image banner"
+    },
+    {
+      "type": "url",
+      "id": "banner_url",
+      "label": "Banner url"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,15 @@
+{% comment %}
+<script>SPOCustom = {}; SPOCustom.customVariantSelectors = true;</script>
+{% endcomment %}
+
+<link href="{{ 'gift-card.css' | asset_url }}" rel="stylesheet" />
+<div class="vnt-gc-image-wrapper">
+  <img src="{{ 'gift-card-500-2.0.jpg' | asset_url }}" alt="Gift card $500" />
+</div>
+{% section 'product-template-rework-sl5000' %}
+{% section 'custom-fields-products' %}
+
+{% comment %}
+{% include 'webyze-swatches' %}
+{% render 'product_infox' %}
+{% endcomment %}

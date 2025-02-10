@@ -1,0 +1,51 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/vertagear.myshopify.com/products/configure/47332/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["product_features"] != blank %}
+  <div class="custom-field custom-field__product-features custom-field__type--field-collection">
+    <h3 class="custom-field--title">Product Features</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign feature_img_array = product.metafields.custom_fields["feature_img"] | split: separator %}
+      {% assign feature_description_array = product.metafields.custom_fields["feature_description"] | split: separator %}
+      {% assign feature_title_array = product.metafields.custom_fields["feature_title"] | split: separator %}
+      {% assign feature_description_top_pos_array = product.metafields.custom_fields["feature_description_top_pos"] | split: separator %}
+      {% assign feature_description_left_pos_array = product.metafields.custom_fields["feature_description_left_pos"] | split: separator %}
+      {% assign feature_description_bot_pos_array = product.metafields.custom_fields["feature_description_bot_pos"] | split: separator %}
+      {% assign feature_description_right_pos_array = product.metafields.custom_fields["feature_description_right_pos"] | split: separator %}
+      {% assign text_color_array = product.metafields.custom_fields["text_color"] | split: separator %}
+      {% assign fc_keys = product.metafields.custom_fields["product_features"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item-- fc-index--{{ index }}">
+          <div class="fc-field field__feature-img">
+            {{ feature_img_array[index] }}
+          </div>
+          <div class="fc-field field__feature-description">
+            {{ feature_description_array[index] }}
+          </div>
+          <div class="fc-field field__feature-title">
+            {{ feature_title_array[index] }}
+          </div>
+          <div class="fc-field field__feature-description-top-pos">
+            {{ feature_description_top_pos_array[index] }}
+          </div>
+          <div class="fc-field field__feature-description-left-pos">
+            {{ feature_description_left_pos_array[index] }}
+          </div>
+          <div class="fc-field field__feature-description-bot-pos">
+            {{ feature_description_bot_pos_array[index] }}
+          </div>
+          <div class="fc-field field__feature-description-right-pos">
+            {{ feature_description_right_pos_array[index] }}
+          </div>
+          <div class="fc-field field__text-color">
+            {{ text_color_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

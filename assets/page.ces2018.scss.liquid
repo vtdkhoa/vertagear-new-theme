@@ -1,0 +1,242 @@
+@font-face {
+    font-family: TeXGyreAdventor-Regular;
+    src: url('{{ 'texgyreadventor-regular.otf' | asset_url }}');
+}
+@font-face {
+    font-family: TeXGyreAdventor-Bold;
+    src: url('{{ 'texgyreadventor-bold.otf' | asset_url }}');
+}
+
+$mobile-breakpoint: 768px;
+
+$mobile-gutter: 4.6vw;
+$desktop-gutter: 8.6vw;
+
+@mixin mobile-gutters(){
+  padding: 0 $mobile-gutter;
+}
+@mixin desktop-gutters(){
+  padding: 0 $desktop-gutter;
+}
+
+.wrapper.main-content{
+  padding:0;
+  max-width:none;
+}
+.ces-wrapper{
+  width: 100%;
+  .hero{
+    width: 100%;
+    height: 74.1vw;
+    position: relative;
+    // temporary, should be a video
+    background-image: url("{{ 'ces2018.mobile.hero-bg.jpg' | asset_url }}");
+    background-size: cover;
+    color: #a1a1a1;
+    @media screen and (min-width: $mobile-breakpoint) {
+      @include desktop-gutters();
+      height: 34.4vw;
+      background-image: url("{{ 'ces2018.desktop.hero-bg.jpg' | asset_url }}");
+    }
+    video{
+	  width: 100%;
+      height: 100%;
+      //object-fit: fill;
+      display: none;
+      cursor: pointer;
+    }
+    .content{
+      width: 44.4vw;
+      font-size: 2.8vw;
+      line-height: 1.2;
+      position: absolute;
+      left: $mobile-gutter;
+      top: 10.2vw;
+      @media screen and (min-width: $mobile-breakpoint) {
+        width: 31vw;
+        top: 11.5vw;
+        left: $desktop-gutter;
+        font-size: 1.6vw;
+      }
+      h1{
+        font-size: 4.4vw;
+        font-weight: bold;
+        color: #fff;
+        @media screen and (min-width: $mobile-breakpoint) {
+          font-size: 2.5vw;
+        }
+      }
+    }
+    .play-button{
+	  $mobile-play-diameter: 14vw;
+      $desktop-play-diameter: 9.4vw;
+      width: $mobile-play-diameter;
+      position: absolute;
+      top: 29.6vw;
+      left: 43.0vw;
+      font-size: 2.2vw;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      padding-top: $mobile-play-diameter;
+      background-image: url("{{ 'ces2018.play-button-sprite.png' | asset_url }}");
+      background-size: ($mobile-play-diameter * 2) $mobile-play-diameter;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      color: #fff;
+      &:hover{
+        background-position: ($mobile-play-diameter * -1) 0;
+        color: #a1a1a1;
+        @media screen and (min-width: $mobile-breakpoint) {
+          background-position: ($desktop-play-diameter * -1) 0;
+          }
+      }
+      @media screen and (min-width: $mobile-breakpoint) {
+        width: $desktop-play-diameter; 
+        padding-top: $desktop-play-diameter;
+        background-size: ($desktop-play-diameter * 2) $desktop-play-diameter;
+        top: 11.5vw;
+        left: 45.6vw;
+        font-size: 1.2vw;
+      }
+    }
+    &.playing{
+      background-image: none;
+      background-color: #000;
+      video{
+        display: inline-block;
+      }
+      .content{
+        display: none;
+      }
+      .play-button{
+        display: none;
+      }
+    }
+  }
+  .main-features{
+    @include mobile-gutters();
+    width: 100%;
+    height: 77.8vw;
+    position: relative;
+    background-image: url("{{ 'ces2018.mobile.main-features-bg.jpg' | asset_url }}");
+    background-size: cover;
+    @media screen and (min-width: $mobile-breakpoint) {
+      height: 57.8vw;
+      background-image: url("{{ 'ces2018.desktop.main-features-bg.jpg' | asset_url }}");
+    }
+    .header{
+      position: absolute;
+      top: 8.3vw;
+      left: 36.1vw;
+      @media screen and (min-width: $mobile-breakpoint) {
+        top: 6vw;
+        left: 41.9vw;
+      }
+    }
+    h2{
+      font-size: 3.2vw;
+      font-weight: bold;
+      color: #fff;
+      @media screen and (min-width: $mobile-breakpoint) {
+        font-size: 2.3vw;  
+      }
+    }
+    .features{
+      position: absolute;
+      top: 43.5vw;
+      left: 44.4vw;
+      width: 55.6vw;
+      display:flex;
+      @media screen and (min-width: $mobile-breakpoint) {
+        top: 32.3vw;
+        left: 41.9vw;
+      }
+      .feature{
+        $feature-diameter: 11vw;
+        width: $feature-diameter;
+        margin-right: 2.3vw;
+        font-size: 2vw;
+        line-height: 1.2;
+        color: #fff;
+        text-align:center;
+        @media screen and (min-width: $mobile-breakpoint) {
+          font-size: 1.6vw;
+        }
+        img{
+          width: 100%;
+      	  height: $feature-diameter;
+        }
+      }
+    }
+  }
+  .led-features{
+    @include mobile-gutters();
+    padding-bottom: 3.4vw;
+    background-color: #222;
+    text-align: center;
+    @media screen and (min-width: $mobile-breakpoint) {
+      @include desktop-gutters();
+    }
+	h2{
+      padding-top: 3.4vw;
+      font-size: 3vw;
+      font-weight: bold;
+      color: #fff;
+      @media screen and (min-width: $mobile-breakpoint) {
+      padding-top: 2vw;
+        font-size: 1.7vw; 
+      }
+    }
+    .features{
+      display: flex;
+      flex-wrap: wrap;
+      @media screen and (min-width: $mobile-breakpoint) {
+        flex-wrap: nowrap; 
+      }
+      img{
+        width: 100%;
+        height: 41.6vw;
+        padding: 2.3vw 0;
+        @media screen and (min-width: $mobile-breakpoint) {
+          width: 33%;
+          height: 16.9vw; 
+          padding: 1.5vw 0;
+          padding-left: 2.3vw;
+          &:first-of-type{
+            padding-left: 0; 
+          }
+        }
+      }
+    }
+  }
+  .rgb-lighting{
+    width: 100%;
+    height: 37.5vw;
+    background-image: url("{{ 'ces2018.mobile.rgb-lighting-bg.jpg' | asset_url }}");
+    background-size: cover;
+    text-align: right;
+    position: relative;
+    @media screen and (min-width: $mobile-breakpoint) {
+      height: 37.2vw;
+      background-image: url("{{ 'ces2018.desktop.rgb-lighting-bg.jpg' | asset_url }}");
+    }
+    h2{
+      width: 25.9vw;
+      padding-top: 3.4vw;
+      font-size: 4.1vw;
+      font-weight: bold;
+      color: #fff;
+      position: absolute;
+      right: $mobile-gutter;
+      @media screen and (min-width: $mobile-breakpoint) {
+        width: auto;
+        padding-top: 0;
+        top: 8.3vw;
+        right: $desktop-gutter;
+        font-size: 2.4vw;
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,47 @@
+{{ 'snippet-paypal-popup.scss.css' | asset_url | stylesheet_tag }}
+
+<div class="vg-paypal-popup">
+  <div class="close-button">
+    <img src="{{ 'paypal-popup-close.png' | asset_url }}"/>
+  </div>
+  <div class="paypal-logo">
+    <img src="{{ 'paypal-credit-logo.png' | asset_url }}" />
+  </div>
+  <div class="paypal-description">
+    No Payments + No interest if paid in full <br>
+	within 6 months on purchases of $99 or more
+  </div>
+  <div class="paypal-prompts">
+    <a class="learn-more" href="https://www.paypal.com/us/webapps/mpp/paypal-credit" target="_blank">
+      Learn More
+    </a>
+    <div class="no-thanks">
+      No, Thanks
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script>
+  jQuery(document).ready(function(){
+    function popupIsShowable(){
+      var popupWidth = 532;
+      if(window.innerWidth < popupWidth){
+        return false;
+      }
+      return jQuery.cookie('vgPayPalPopup') !== "disabled";
+    }
+    function disablePopup(){
+      jQuery.cookie('vgPayPalPopup', "disabled", { expires: 1 });
+    }
+    var $paypalPopup = jQuery(".vg-paypal-popup");
+    if(popupIsShowable()){
+      $paypalPopup.toggleClass("show");
+    }
+    $paypalPopup.find(".close-button, .paypal-prompts > .no-thanks")
+      .on("click", function(){;     
+        $paypalPopup.toggleClass("show");
+        disablePopup();
+      });
+  });
+</script>

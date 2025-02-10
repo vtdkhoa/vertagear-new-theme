@@ -1,0 +1,619 @@
+<link rel="stylesheet" href="{{ 'apf.css' | asset_url }}" />
+
+<style>
+  .apf-compare {
+    background: black;
+    color: #fff;
+  }
+  .apf-compare th .header {
+    display: block !important;
+    margin: auto;
+  }
+  .apf-highlight {
+    background: #171722 !important;
+  }
+  .apf-compare table .apf-highlight .data {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+  }
+  .apf-compare table .title {
+    width: 261px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .apf-compare table .title {
+      width: unset;
+    }
+
+    .apf-compare table .data {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+    }
+    .apf-compare table .apf-highlight .data {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+    }
+  }
+</style>
+
+<div class="apf-compare">
+      <div class="apf-header">Comparison Chart</div>
+      <div class="table-wrapper">
+        <table>
+          <tr id="apfTableHeadRow">
+            <th><div></div></th>
+          </tr>
+          <tr id="apfTableLumbarRow">
+            <td>
+              <div class="title" onclick="">
+                ContourMax® Lumbar
+                <svg
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  class="info-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_834_6647)">
+                    <path
+                      d="M8 0.5C3.57803 0.5 0 4.07834 0 8.5C0 12.922 3.57834 16.5 8 16.5C12.422 16.5 16 12.9217 16 8.5C16 4.07803 12.4216 0.5 8 0.5ZM8 15.25C4.26897 15.25 1.25 12.2308 1.25 8.5C1.25 4.76897 4.26922 1.75 8 1.75C11.731 1.75 14.75 4.76922 14.75 8.5C14.75 12.231 11.7308 15.25 8 15.25Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 7.19775C7.65481 7.19775 7.375 7.47757 7.375 7.82275V11.8475C7.375 12.1927 7.65481 12.4725 8 12.4725C8.34519 12.4725 8.625 12.1927 8.625 11.8475V7.82275C8.625 7.47757 8.34519 7.19775 8 7.19775Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 6.4325C8.46599 6.4325 8.84375 6.05474 8.84375 5.58875C8.84375 5.12275 8.46599 4.745 8 4.745C7.53401 4.745 7.15625 5.12275 7.15625 5.58875C7.15625 6.05474 7.53401 6.4325 8 6.4325Z"
+                      fill="inherit"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_834_6647">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="red"
+                        transform="translate(0 0.5)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="tooltip">
+                  <div class="text">
+                    Our patent pending ContourMax Lumbar features a layer of
+                    memory foam that adjusts specifically to the curves and
+                    angles of any individual’s body. Four highly durable
+                    Thermoplastic Elastomer (TPE) modules, consisting of 64
+                    individual responsive branches, lay beneath the foam and
+                    shift themselves according to the shape and movement of the
+                    sitter’s back, maintaining a healthy posture at all times.
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr id="apfTableSeatRow">
+            <td>
+              <div class="title" onclick="">
+                VertaAir® Seat
+                <svg
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  class="info-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_834_6647)">
+                    <path
+                      d="M8 0.5C3.57803 0.5 0 4.07834 0 8.5C0 12.922 3.57834 16.5 8 16.5C12.422 16.5 16 12.9217 16 8.5C16 4.07803 12.4216 0.5 8 0.5ZM8 15.25C4.26897 15.25 1.25 12.2308 1.25 8.5C1.25 4.76897 4.26922 1.75 8 1.75C11.731 1.75 14.75 4.76922 14.75 8.5C14.75 12.231 11.7308 15.25 8 15.25Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 7.19775C7.65481 7.19775 7.375 7.47757 7.375 7.82275V11.8475C7.375 12.1927 7.65481 12.4725 8 12.4725C8.34519 12.4725 8.625 12.1927 8.625 11.8475V7.82275C8.625 7.47757 8.34519 7.19775 8 7.19775Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 6.4325C8.46599 6.4325 8.84375 6.05474 8.84375 5.58875C8.84375 5.12275 8.46599 4.745 8 4.745C7.53401 4.745 7.15625 5.12275 7.15625 5.58875C7.15625 6.05474 7.53401 6.4325 8 6.4325Z"
+                      fill="inherit"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_834_6647">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="red"
+                        transform="translate(0 0.5)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="tooltip">
+                  <div class="text">
+                    If you're struggling with tightness and discomfort from the
+                    traditional gaming chair, we understand your pain. Our
+                    patent pending VertaAir Seat is a fresh concept that solves
+                    the primary issues plaguing traditional chairs.
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr id="apfTableRgbRow">
+            <td>
+              <div class="title" onclick="">RGB LED Kit (Sold Separately)</div>
+            </td>
+          </tr>
+          <tr id="apfTableHygennxRow">
+            <td>
+              <div class="title" onclick="">HygennX</div>
+            </td>
+          </tr>
+          <tr id="apfTableHeavyDutyBaseRow">
+            <td>
+              <div class="title" onclick="">
+                Heavy Duty Base
+                <svg
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  class="info-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_834_6647)">
+                    <path
+                      d="M8 0.5C3.57803 0.5 0 4.07834 0 8.5C0 12.922 3.57834 16.5 8 16.5C12.422 16.5 16 12.9217 16 8.5C16 4.07803 12.4216 0.5 8 0.5ZM8 15.25C4.26897 15.25 1.25 12.2308 1.25 8.5C1.25 4.76897 4.26922 1.75 8 1.75C11.731 1.75 14.75 4.76922 14.75 8.5C14.75 12.231 11.7308 15.25 8 15.25Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 7.19775C7.65481 7.19775 7.375 7.47757 7.375 7.82275V11.8475C7.375 12.1927 7.65481 12.4725 8 12.4725C8.34519 12.4725 8.625 12.1927 8.625 11.8475V7.82275C8.625 7.47757 8.34519 7.19775 8 7.19775Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 6.4325C8.46599 6.4325 8.84375 6.05474 8.84375 5.58875C8.84375 5.12275 8.46599 4.745 8 4.745C7.53401 4.745 7.15625 5.12275 7.15625 5.58875C7.15625 6.05474 7.53401 6.4325 8 6.4325Z"
+                      fill="inherit"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_834_6647">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="red"
+                        transform="translate(0 0.5)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="tooltip">
+                  <div class="text">
+                    The heavy-duty frame ensures the long term durability of the
+                    chair's critical components.
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr id="apfTablePucRow">
+            <td>
+              <div class="title" onclick="">
+                PUC
+                <svg
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  class="info-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_834_6647)">
+                    <path
+                      d="M8 0.5C3.57803 0.5 0 4.07834 0 8.5C0 12.922 3.57834 16.5 8 16.5C12.422 16.5 16 12.9217 16 8.5C16 4.07803 12.4216 0.5 8 0.5ZM8 15.25C4.26897 15.25 1.25 12.2308 1.25 8.5C1.25 4.76897 4.26922 1.75 8 1.75C11.731 1.75 14.75 4.76922 14.75 8.5C14.75 12.231 11.7308 15.25 8 15.25Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 7.19775C7.65481 7.19775 7.375 7.47757 7.375 7.82275V11.8475C7.375 12.1927 7.65481 12.4725 8 12.4725C8.34519 12.4725 8.625 12.1927 8.625 11.8475V7.82275C8.625 7.47757 8.34519 7.19775 8 7.19775Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 6.4325C8.46599 6.4325 8.84375 6.05474 8.84375 5.58875C8.84375 5.12275 8.46599 4.745 8 4.745C7.53401 4.745 7.15625 5.12275 7.15625 5.58875C7.15625 6.05474 7.53401 6.4325 8 6.4325Z"
+                      fill="inherit"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_834_6647">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="red"
+                        transform="translate(0 0.5)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="tooltip">
+                  <div class="text">
+                    PUC combines the best attributes of both PVC and PU
+                    faux-leather into one. It retains the durability of PVC for
+                    everyday use, while maintaining the softness of PU for a
+                    low-maintenance solution without sacrificing comfort.
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr id="apfTableEffortlessAssemblyRow">
+            <td>
+              <div class="title" onclick="">
+                Effortless Assembly
+                <svg
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  class="info-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_834_6647)">
+                    <path
+                      d="M8 0.5C3.57803 0.5 0 4.07834 0 8.5C0 12.922 3.57834 16.5 8 16.5C12.422 16.5 16 12.9217 16 8.5C16 4.07803 12.4216 0.5 8 0.5ZM8 15.25C4.26897 15.25 1.25 12.2308 1.25 8.5C1.25 4.76897 4.26922 1.75 8 1.75C11.731 1.75 14.75 4.76922 14.75 8.5C14.75 12.231 11.7308 15.25 8 15.25Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 7.19775C7.65481 7.19775 7.375 7.47757 7.375 7.82275V11.8475C7.375 12.1927 7.65481 12.4725 8 12.4725C8.34519 12.4725 8.625 12.1927 8.625 11.8475V7.82275C8.625 7.47757 8.34519 7.19775 8 7.19775Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 6.4325C8.46599 6.4325 8.84375 6.05474 8.84375 5.58875C8.84375 5.12275 8.46599 4.745 8 4.745C7.53401 4.745 7.15625 5.12275 7.15625 5.58875C7.15625 6.05474 7.53401 6.4325 8 6.4325Z"
+                      fill="inherit"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_834_6647">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="red"
+                        transform="translate(0 0.5)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="tooltip">
+                  <div class="text">
+                    Our patented “Slide-in” hardware allows for a quick and easy
+                    on-person assembly. The chair can be assembled in seconds by
+                    simply sliding the backrest into the seat, removing any
+                    alignment and hardware complexities for a
+                    hassle-free,one-person process.
+                  </div>
+                  <a class="main-btn" data-youtube="https://www.youtube.com/embed/Vr_OXiEFJYA">Watch Video</a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr id="apfTableSteelFrameRow">
+            <td>
+              <div class="title" onclick="">
+                Steel Frame
+                <svg
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  class="info-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_834_6647)">
+                    <path
+                      d="M8 0.5C3.57803 0.5 0 4.07834 0 8.5C0 12.922 3.57834 16.5 8 16.5C12.422 16.5 16 12.9217 16 8.5C16 4.07803 12.4216 0.5 8 0.5ZM8 15.25C4.26897 15.25 1.25 12.2308 1.25 8.5C1.25 4.76897 4.26922 1.75 8 1.75C11.731 1.75 14.75 4.76922 14.75 8.5C14.75 12.231 11.7308 15.25 8 15.25Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 7.19775C7.65481 7.19775 7.375 7.47757 7.375 7.82275V11.8475C7.375 12.1927 7.65481 12.4725 8 12.4725C8.34519 12.4725 8.625 12.1927 8.625 11.8475V7.82275C8.625 7.47757 8.34519 7.19775 8 7.19775Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 6.4325C8.46599 6.4325 8.84375 6.05474 8.84375 5.58875C8.84375 5.12275 8.46599 4.745 8 4.745C7.53401 4.745 7.15625 5.12275 7.15625 5.58875C7.15625 6.05474 7.53401 6.4325 8 6.4325Z"
+                      fill="inherit"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_834_6647">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="red"
+                        transform="translate(0 0.5)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="tooltip">
+                  <div class="text">
+                    The integrated steel skeleton that forms the shape of the
+                    gaming chair ensures long-term durability. The steel frame
+                    includes a 10-year warranty, keeping you secure and stable
+                    throughout any intense gameplay.
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr id="apfTableUphrFoamRow">
+            <td>
+              <div class="title" onclick="">
+                UPHR Foam
+                <svg
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  class="info-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_834_6647)">
+                    <path
+                      d="M8 0.5C3.57803 0.5 0 4.07834 0 8.5C0 12.922 3.57834 16.5 8 16.5C12.422 16.5 16 12.9217 16 8.5C16 4.07803 12.4216 0.5 8 0.5ZM8 15.25C4.26897 15.25 1.25 12.2308 1.25 8.5C1.25 4.76897 4.26922 1.75 8 1.75C11.731 1.75 14.75 4.76922 14.75 8.5C14.75 12.231 11.7308 15.25 8 15.25Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 7.19775C7.65481 7.19775 7.375 7.47757 7.375 7.82275V11.8475C7.375 12.1927 7.65481 12.4725 8 12.4725C8.34519 12.4725 8.625 12.1927 8.625 11.8475V7.82275C8.625 7.47757 8.34519 7.19775 8 7.19775Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 6.4325C8.46599 6.4325 8.84375 6.05474 8.84375 5.58875C8.84375 5.12275 8.46599 4.745 8 4.745C7.53401 4.745 7.15625 5.12275 7.15625 5.58875C7.15625 6.05474 7.53401 6.4325 8 6.4325Z"
+                      fill="inherit"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_834_6647">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="red"
+                        transform="translate(0 0.5)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="tooltip">
+                  <div class="text">
+                    Our Ultra Premium High Resilience Foam boasts a density well
+                    above industry standard. While standard High Resilience foam
+                    stands up to approximately 2.5lbs per cubic foot, our UPHR
+                    foam can withstand 62% more per cubic foot. The foam
+                    prolongs the lifespan of the chair by preventing deformities
+                    from long periods of use, inching it closest to the
+                    characteristics of memory foam.
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr id="apfTable5StarBaseRow">
+            <td>
+              <div class="title" onclick="">
+                5 Star base
+                <svg
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  class="info-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_834_6647)">
+                    <path
+                      d="M8 0.5C3.57803 0.5 0 4.07834 0 8.5C0 12.922 3.57834 16.5 8 16.5C12.422 16.5 16 12.9217 16 8.5C16 4.07803 12.4216 0.5 8 0.5ZM8 15.25C4.26897 15.25 1.25 12.2308 1.25 8.5C1.25 4.76897 4.26922 1.75 8 1.75C11.731 1.75 14.75 4.76922 14.75 8.5C14.75 12.231 11.7308 15.25 8 15.25Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 7.19775C7.65481 7.19775 7.375 7.47757 7.375 7.82275V11.8475C7.375 12.1927 7.65481 12.4725 8 12.4725C8.34519 12.4725 8.625 12.1927 8.625 11.8475V7.82275C8.625 7.47757 8.34519 7.19775 8 7.19775Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 6.4325C8.46599 6.4325 8.84375 6.05474 8.84375 5.58875C8.84375 5.12275 8.46599 4.745 8 4.745C7.53401 4.745 7.15625 5.12275 7.15625 5.58875C7.15625 6.05474 7.53401 6.4325 8 6.4325Z"
+                      fill="inherit"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_834_6647">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="red"
+                        transform="translate(0 0.5)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="tooltip">
+                  <div class="text">
+                    As one of the critical support structure of the chair, the
+                    five-star base is fabricated with aluminum alloy to provide
+                    stability, lightweight construction, and lasting durability,
+                    providing the necessary strength to ensure longevity.
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr id="apfTableCasterRow">
+            <td>
+              <div class="title" onclick="">
+                Penta RS1 Caster
+                <svg
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  class="info-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_834_6647)">
+                    <path
+                      d="M8 0.5C3.57803 0.5 0 4.07834 0 8.5C0 12.922 3.57834 16.5 8 16.5C12.422 16.5 16 12.9217 16 8.5C16 4.07803 12.4216 0.5 8 0.5ZM8 15.25C4.26897 15.25 1.25 12.2308 1.25 8.5C1.25 4.76897 4.26922 1.75 8 1.75C11.731 1.75 14.75 4.76922 14.75 8.5C14.75 12.231 11.7308 15.25 8 15.25Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 7.19775C7.65481 7.19775 7.375 7.47757 7.375 7.82275V11.8475C7.375 12.1927 7.65481 12.4725 8 12.4725C8.34519 12.4725 8.625 12.1927 8.625 11.8475V7.82275C8.625 7.47757 8.34519 7.19775 8 7.19775Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 6.4325C8.46599 6.4325 8.84375 6.05474 8.84375 5.58875C8.84375 5.12275 8.46599 4.745 8 4.745C7.53401 4.745 7.15625 5.12275 7.15625 5.58875C7.15625 6.05474 7.53401 6.4325 8 6.4325Z"
+                      fill="inherit"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_834_6647">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="red"
+                        transform="translate(0 0.5)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="tooltip">
+                  <div class="text">
+                    The motorsports inspired style extends all the way down to
+                    the casters. Engineered to be carefree, the Penta RS1
+                    Casters are coated with polyurethane (PU) for soft and
+                    smooth gliding on any surface. (Color matching chair)
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr id="apfTableArmrestRow">
+            <td>
+              <div class="title" onclick="">
+                Armrests
+                <svg
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  class="info-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_834_6647)">
+                    <path
+                      d="M8 0.5C3.57803 0.5 0 4.07834 0 8.5C0 12.922 3.57834 16.5 8 16.5C12.422 16.5 16 12.9217 16 8.5C16 4.07803 12.4216 0.5 8 0.5ZM8 15.25C4.26897 15.25 1.25 12.2308 1.25 8.5C1.25 4.76897 4.26922 1.75 8 1.75C11.731 1.75 14.75 4.76922 14.75 8.5C14.75 12.231 11.7308 15.25 8 15.25Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 7.19775C7.65481 7.19775 7.375 7.47757 7.375 7.82275V11.8475C7.375 12.1927 7.65481 12.4725 8 12.4725C8.34519 12.4725 8.625 12.1927 8.625 11.8475V7.82275C8.625 7.47757 8.34519 7.19775 8 7.19775Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 6.4325C8.46599 6.4325 8.84375 6.05474 8.84375 5.58875C8.84375 5.12275 8.46599 4.745 8 4.745C7.53401 4.745 7.15625 5.12275 7.15625 5.58875C7.15625 6.05474 7.53401 6.4325 8 6.4325Z"
+                      fill="inherit"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_834_6647">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="red"
+                        transform="translate(0 0.5)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="tooltip">
+                  <div class="text">
+                    Adjustability extends to the armrests with 4 directional
+                    adjustments. The ergonomically designed metal plate armrests
+                    keep your forearms comfortable and steady regardless of body
+                    shape and habit, to prevent sore shoulders..
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr id="apfTableGasLiftRow">
+            <td>
+              <div class="title" onclick="">
+                Gas Lift
+                <svg
+                  width="16"
+                  height="17"
+                  viewBox="0 0 16 17"
+                  class="info-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_834_6647)">
+                    <path
+                      d="M8 0.5C3.57803 0.5 0 4.07834 0 8.5C0 12.922 3.57834 16.5 8 16.5C12.422 16.5 16 12.9217 16 8.5C16 4.07803 12.4216 0.5 8 0.5ZM8 15.25C4.26897 15.25 1.25 12.2308 1.25 8.5C1.25 4.76897 4.26922 1.75 8 1.75C11.731 1.75 14.75 4.76922 14.75 8.5C14.75 12.231 11.7308 15.25 8 15.25Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 7.19775C7.65481 7.19775 7.375 7.47757 7.375 7.82275V11.8475C7.375 12.1927 7.65481 12.4725 8 12.4725C8.34519 12.4725 8.625 12.1927 8.625 11.8475V7.82275C8.625 7.47757 8.34519 7.19775 8 7.19775Z"
+                      fill="inherit"
+                    />
+                    <path
+                      d="M8 6.4325C8.46599 6.4325 8.84375 6.05474 8.84375 5.58875C8.84375 5.12275 8.46599 4.745 8 4.745C7.53401 4.745 7.15625 5.12275 7.15625 5.58875C7.15625 6.05474 7.53401 6.4325 8 6.4325Z"
+                      fill="inherit"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_834_6647">
+                      <rect
+                        width="16"
+                        height="16"
+                        fill="red"
+                        transform="translate(0 0.5)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="tooltip">
+                  <div class="text">
+                    Vertagear Gaming Chair is supported with an industrial grade
+                    class-4 gas lift, providing the extra adjustability you
+                    need. Set the chair to your preferred height, to keep you at
+                    an optimal level relative to your setup to prevent sore
+                    shoulders.
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr id="apfTableRcmdWeightRow">
+            <td>
+              <div class="title" onclick="">Recommended Weight</div>
+            </td>
+          </tr>
+          <tr id="apfTableRcmdHeightRow">
+            <td>
+              <div class="title" onclick="">Recommended Height</div>
+            </td>
+          </tr>
+
+          <tr id="apfTableShopNowRow">
+            <td></td>
+            <td>
+              <div class="">
+                <a class="main-btn shop-now-btn" target="_blank">Shop Now</a>
+              </div>
+            </td>
+            <td>
+              <div class="">
+                <a class="main-btn shop-now-btn" target="_blank">Shop Now</a>
+              </div>
+            </td>
+            <td>
+              <div class="">
+                <a class="main-btn shop-now-btn" target="_blank">Shop Now</a>
+              </div>
+            </td>
+            <td>
+              <div class="">
+                <a class="main-btn shop-now-btn" target="_blank">Shop Now</a>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>

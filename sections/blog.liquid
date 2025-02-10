@@ -1,0 +1,48 @@
+<div class="page-blog">
+  
+
+  {% assign banner = blog.metafields.custom_fields["banner"] %}
+  {% include 'wide-banner', title: blog.title , banner : banner %}
+  <div class="page-blog__main">
+    <div class="vertagear-container page-blog__main-container">
+      <div class="page-blog__filter"></div>
+      {% paginate blog.articles by 12 %}
+      <div class="page-blog__list">
+        {% for article in blog.articles %}
+        <a class="page-blog__card" href="{{ article.url }}">
+          
+          <div class="page-blog__card-thumb">
+            {% if article.image %}
+            <img src='{{ article.image | img_url: '600x600'}}' class="page-blog__card-thumb-img">
+            {% endif %}
+          </div>
+          <div class="page-blog__card-date">{{ article.published_at | date: "%b %d. %Y" }}</div>
+          <div class="page-blog__card-group">
+            <h2 class="page-blog__card-title">{{ article.title }}</h2>
+            <div class="page-blog__card-author">{{ article.author }}</div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      <div class="global-pagination">
+        {% if paginate.pages > 1 %}
+        {{ paginate | default_pagination }}
+        {% endif %}
+      </div>
+      {% assign sp_paginate_by = paginate.page_size %}{% endpaginate %}
+    </div>
+  </div>
+</div>
+
+{% if sp_paginate_by %}{% render 'spurit_po2_collection_template_snippet', paginate_by: sp_paginate_by %}{% endif %}{% schema %}
+  {
+  "name": "Top",
+  "settings": [
+    {
+        "id": "banner",
+        "type": "image_picker",
+        "label": "Banner"
+    }
+  ]
+  }
+{% endschema %}

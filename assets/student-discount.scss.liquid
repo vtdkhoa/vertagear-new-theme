@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@mixin content-container-student($alignment, $padding) {
+  .container {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    margin: auto;
+    max-width: 1600px;
+    padding: 30px 0px;
+    @media screen and (min-width: 768px) {
+      padding: $padding 0px;
+    }
+    text-align: $alignment;
+    position: relative;
+    h1 {
+      font-weight: 500;
+      font-size: 28px;
+      font-family: 'Montserrat', sans-serif;
+      @media screen and (min-width: 768px) {
+        font-size: 42px;
+        margin-bottom: -5px;
+      }
+    }
+    .no_bold {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      @media screen and (min-width: 768px) {
+      	font-size: 20px;
+      }
+      margin-bottom: 60px;
+    }
+    .heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      @media screen and (min-width: 768px) {
+      	font-size: 42px;
+      }
+      margin-bottom: -5px;
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 30px;
+    }
+    h3 {
+      font-size: 17px;
+    }
+  }
+}
+body#student-discount .wrapper.main-content {
+  max-width: 100%;
+  padding: 0;
+  .no-drag {
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  .main_button {
+    border-radius: 100px;
+    width: 90%;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 25px auto;
+    &:hover {
+      cursor: default;
+    }
+    .button_text {
+      z-index: 2;
+      display: block;
+      padding: 10px 20px;
+      text-align: center;
+      position: relative;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    a {
+      color: #FFF !important;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .program_hero {
+    width: 100%;
+    color: white;
+    //background: url({{ 'bts-banner.jpg' | asset_url }}) no-repeat;
+    //background-size: cover;
+    //background-position: 64%;
+    //height: 590px;
+    position: relative;
+    @media screen and (min-width: 1024px) {
+      //height: 648px;
+    }
+    @include content-container-student(left, 90px);
+    .hero_info {
+      position: absolute;
+      @media screen and (min-width: 320px) {
+        top: 350%;
+        padding: 20px;
+      }
+      @media screen and (min-width: 768px) {
+        width: 537px;
+        top: 100%;
+        padding: 0;
+      }
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        @media screen and (min-width: 320px) {
+        	font-size: 31px;
+        }
+        @media screen and (min-width: 375px) {
+        	font-size: 37px;
+        }
+        @media screen and (min-width: 414px) {
+        	font-size: 41px;
+        }
+        @media screen and (min-width: 768px) {
+        	font-size: 51px;
+        }
+      }
+    }
+  }
+  .content_form {
+    width: 100%;
+    @media screen and (min-width: 1024px) {
+    	height: 730px;
+    }
+    background: url({{ 'student_form_background.jpg' | asset_url }}) bottom left no-repeat;
+    @include content-container-student(left, 50px);
+    .content {
+      margin: auto;
+      padding: 50px 20px 0 20px;
+      p {
+        line-height: 35px;
+      }
+      @media screen and (min-width: 768px) {
+        width: 550px;
+        padding: 0;
+        padding-top: 50px;
+      }
+      @media screen and (min-width: 1024px) {
+      	float: left;
+        margin: none;
+        padding-top: 0px;
+      }
+      @media screen and (min-width: 1200px) {
+      	width: 700px;
+      }
+      
+    }
+    .discount_form {
+      margin: auto;
+      @media screen and (min-width: 320px) {
+        width: 270px;
+      }
+      @media screen and (min-width: 375px) {
+        width: 320px;
+      }
+      @media screen and (min-width: 414px) {
+      	width: 350px;
+      }
+      @media screen and (min-width: 768px) {
+        width: 369px;
+      }
+      @media screen and (min-width: 1024px) {
+      	float: right;
+        margin: none;
+      }
+      -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.2);
+      -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.2);
+      box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.2);
+      position: relative;
+      padding-bottom: 30px;
+      padding-top: 20px;
+      text-align: center;
+      img {
+        margin-left: 25px;
+        margin-top: -20px;
+        margin-bottom: 30px;
+      }
+      #studentdiscount {
+        .error_message {
+          width: 90%;
+          text-align: left;
+          font-size: 10px;
+          color: red;
+          margin-left: 28px;
+          margin-top: -10px;
+        }
+        input {
+          width: 90%;
+          border: none;
+          border-bottom: 1px solid #e9e9e9;
+          margin-bottom: 15px;
+          &:focus {
+            outline: none;
+          }
+        }
+        input[type=submit] {
+          border-radius: 100px;
+          width: 90%;
+          background-color: black;
+          color: white;
+          font-size: 14px;
+          font-weight: 600;
+          position: relative;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin: 25px auto;
+          padding: 10px;
+        }
+      }
+    }
+  }
+  .terms_conditions {
+    width: 100%;
+    background: url({{ 'mobile_terms.jpg' | asset_url }}) no-repeat;
+    background-size: cover;
+    background-position: 100%;
+    @media screen and (min-width: 768px) {
+      height: 463px;
+      background: url({{ 'student_terms.jpg' | asset_url }}) no-repeat;
+      background-position: 80%;
+      background-size: cover;
+    }
+    color: white;
+    @include content-container-student(left, 90px);
+    .terms {
+      @media screen and (min-width: 320px) {
+      	padding: 40px 20px;
+      }
+      @media screen and (min-width: 768px) {
+      	padding: 0;
+      }
+      h2 {
+        font-size: 27px;
+        font-weight: bold;
+      }
+      ul {
+        margin: 0;
+      }
+      li {
+        //list-style-image: url({{ 'bullet.png' | asset_url }});
+        background: url({{ 'bullet.png' | asset_url }}) no-repeat left;
+        background-position-y: 15px;
+        padding: 10px 0px 0px 25px;
+        list-style: none;
+        margin: 0;
+      }
+    }
+  }
+}

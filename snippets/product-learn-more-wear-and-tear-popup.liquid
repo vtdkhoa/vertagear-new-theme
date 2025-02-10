@@ -1,0 +1,25 @@
+<div class="product-learn-more-wear-and-tear-popup -in-active">
+    <div class="product-learn-more-wear-and-tear-popup__close-bg" onclick="document.querySelector('.product-learn-more-wear-and-tear-popup').classList.add('-in-active')"></div>
+    <div class="product-learn-more-wear-and-tear-popup__center">
+        <div class="product-learn-more-wear-and-tear-popup__center-close" onclick="document.querySelector('.product-learn-more-wear-and-tear-popup').classList.add('-in-active')"></div>
+        <img src="{{ 'product-learn-more-wear-and-tear-popup.jpg' | asset_img_url : '1200x' }}" alt="" class="product-learn-more-wear-and-tear-popup__center-bg">
+        <div class="product-learn-more-wear-and-tear-popup__center-text">
+            <img src="{{ 'product-learn-more-wear-and-tear-alert-icon.svg' | asset_url}}" class="product-learn-more-wear-and-tear-popup__center-text-icon" style="opacity:0;margin:0;" alt>
+            <div class="product-learn-more-wear-and-tear-popup__center-text-title" style="padding-bottom:30px;">
+                Free protection program
+            </div>
+            <div class="wear-and-tear__top-desc">
+                Receive FREE Protection Program <a href="/products/wear-tear-protection-program" target="_blank" class="wear-and-tear__top-desc-link">($99.99 retail value!)</a> in simple steps!<br><br>For a limited time only, act now!
+            </div>
+            <div class="wear-and-tear__top-link">
+                Terms and conditions <span class="wear-and-tear__top-link-a" onclick="document.querySelector('#popup-text').classList.remove('-in-active')">HERE.</span>
+            </div>
+            <div class="wear-and-tear__top-link">
+                <a href="/pages/wear-and-tear" class="wear-and-tear__top-desc-link" target="_blank">More details</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% include 'wear-and-tear-popup-text' %}

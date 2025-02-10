@@ -1,0 +1,82 @@
+// let ldSlideIndex = 0;
+//         ldShowSlides();
+
+//         function ldShowSlides() {
+//             let i;
+//             let slides = document.getElementsByClassName("ld-reason__why__slide");
+//             let dots = document.getElementsByClassName("ld-reason__why__slide__control");
+//             for (i = 0; i < slides.length; i++) {
+//                 slides[i].style.display = "none";
+//             }
+//             ldSlideIndex++;
+//             if (ldSlideIndex > slides.length) { ldSlideIndex = 1 }
+//             for (i = 0; i < dots.length; i++) {
+//                 dots[i].className = dots[i].className.replace(" ld-reason__why__dot-active", "");
+//             }
+//             slides[ldSlideIndex - 1].style.display = "block";
+//             dots[ldSlideIndex - 1].className += " ld-reason__why__dot-active";
+//             setTimeout(ldShowSlides, 4000); 
+//         }
+
+const ldPlayPlauseVideo = (video) => {
+  if (video.paused) {
+    video.play(); 
+    const ldVideoControlsAtt =  document.createAttribute("controls");
+  	video.setAttributeNode(ldVideoControlsAtt);
+  }
+  else 
+    video.pause(); 
+}
+
+// const ldVideoWrappers = document.getElementsByClassName("ld-reason__why__videos__item__video-wrapper");
+// for (const element of ldVideoWrappers) {
+//   const ldVideo = element.getElementsByTagName("video")[0];
+//   const ldPlayBtn = element.getElementsByTagName("img")[0];
+//   ldPlayBtn.onclick = () => {
+//     ldPlayPlauseVideo(ldVideo);
+//   	ldPlayBtn.style.display = "none";
+//   }
+// }
+
+const ldVideo1 = document.getElementById("ldVideo1");
+const ldVideoPlayBtn1 = document.getElementById("ldVideoPlayBtn1");
+ldVideoPlayBtn1.onclick = () => {
+	ldPlayPlauseVideo(ldVideo1);
+  	ldVideoPlayBtn1.style.display = "none";
+}
+
+const ldVideo2 = document.getElementById("ldVideo2");
+const ldVideoPlayBtn2 = document.getElementById("ldVideoPlayBtn2");
+ldVideoPlayBtn2.onclick = () => {
+	ldPlayPlauseVideo(ldVideo2);
+  	ldVideoPlayBtn2.style.display = "none";
+}
+
+const ldVideo3 = document.getElementById("ldVideo3");
+const ldVideoPlayBtn3 = document.getElementById("ldVideoPlayBtn3");
+ldVideoPlayBtn3.onclick = () => {
+	ldPlayPlauseVideo(ldVideo3);
+  	ldVideoPlayBtn3.style.display = "none";
+}
+
+const ldVideo4 = document.getElementById("ldVideo4");
+const ldVideoPlayBtn4 = document.getElementById("ldVideoPlayBtn4");
+console.log(ldVideoPlayBtn4);
+ldVideoPlayBtn4.onclick = () => {
+	ldPlayPlauseVideo(ldVideo4);
+  	ldVideoPlayBtn4.style.display = "none";
+}
+
+const ldVideo5 = document.getElementById("ldVideo5");
+const ldVideoPlayBtn5 = document.getElementById("ldVideoPlayBtn5");
+ldVideoPlayBtn5.onclick = () => {
+	ldPlayPlauseVideo(ldVideo5);
+  	ldVideoPlayBtn5.style.display = "none";
+}
+
+const ldReviewElements = document.getElementsByClassName("ag-vg-product-rating");
+for (element of ldReviewElements) {
+  if (!element.hasChildNodes()) {
+    element.style.display = "none";
+  }
+}

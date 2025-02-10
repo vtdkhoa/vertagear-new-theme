@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="{{ 'ld-rgb-v2-collection.css' | asset_url }}">
+
+<div class="rgb__collection">
+      <div class="rgb__colleciton__video">
+        <div class="wrapper">
+          <div class="header">RGB Kit Collection</div>
+          <div class="desc">
+            Blast or destroy, bass or highs—those around you will vibe to the sounds of your gameplay and music through your lights. The party starts with your every move.
+          </div>
+          <button id="rgbHeroPlayBtn" class="btn main-btn">PLAY VIDEO</button>
+        </div>
+      </div>
+      <div class="rgb__collection__product">
+        <img
+          src="{{ 'ld-rgb2-collection-desk-1.jpeg' | asset_url }}"
+          alt="product image"
+        />
+        <div class="rgb__collection__product__desc">
+          <div class="wrapper">
+            <div class="title">PL4500 with RGB Upgrade</div>
+            <div class="price">$549.99</div>
+            <a href="/products/pl4500-gaming-chair?variant=12604924788847" target="_blank" class="action main-btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="rgb__collection__product">
+        <img
+          src="{{ 'ld-rgb2-collection-desk-3.jpeg' | asset_url }}"
+          alt="product image"
+        />
+        <div class="rgb__collection__product__desc">
+          <div class="wrapper">
+            <div class="title">SL5000 with RGB Upgrade</div>
+            <div class="price">$459.99</div>
+            <a href="/products/sl5000-gaming-chair?variant=31305665118319" target="_blank" class="action main-btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <div class="display-desktop">
+      <div id="rgbHeroModal" class="rgb__hero modal" style="display: none">
+        
+        <video class="display-desktop" controls>
+          <source type="video/mp4" src="{{ 'light-up-logo-desktop.mp4' | asset_url }}" />
+        </video>
+        <img
+          id="rgbHeroCloseBtn"
+          class="close-modal-btn"
+          src="{{ 'ld-rgb-close-btn.svg' | asset_url }}"
+        />
+      </div>
+  </div>
+
+	<video
+        id="rgbCollectionVideoMob"
+        class="display-mobile"
+        controls
+        style="display: none"
+      >
+      <source type="video/mp4" src="{{ 'landing-rgb-mob.mp4' | asset_url }}" />
+    </video>
+
+<script src="{{ 'ld-rgb-v2-collection.js' | asset_url }}" async defer></script>

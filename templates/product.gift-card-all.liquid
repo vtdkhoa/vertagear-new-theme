@@ -1,0 +1,86 @@
+{% comment %}
+<script>SPOCustom = {}; SPOCustom.customVariantSelectors = true;</script>
+{% endcomment %}
+
+<link href="{{ 'gift-card-all.css' | asset_url }}" rel="stylesheet" />
+
+<div class="vnt-gc-imgs-container">
+  <div class="vnt-gc-imgs">
+    <div class="vnt-gc-slides-container">
+        <div class="vnt-gc-slide">
+            <div class="vnt-gc-slide-numbertext">1 / 6</div>
+            <img src="{{ 'gift-card-50-compressed.jpg' | asset_url }}" style="width:100%">
+        </div>
+
+        <div class="vnt-gc-slide">
+            <div class="vnt-gc-slide-numbertext">2 / 6</div>
+            <img src="{{ 'gift-card-100-compressed.jpg' | asset_url }}" style="width:100%">
+        </div>
+
+        <div class="vnt-gc-slide">
+            <div class="vnt-gc-slide-numbertext">3 / 6</div>
+            <img src="{{ 'gift-card-200-compressed.jpg' | asset_url }}" style="width:100%">
+        </div>
+
+        <div class="vnt-gc-slide">
+            <div class="vnt-gc-slide-numbertext">4 / 6</div>
+            <img src="{{ 'gift-card-300-compressed.jpg' | asset_url }}" style="width:100%">
+        </div>
+
+        <div class="vnt-gc-slide">
+            <div class="vnt-gc-slide-numbertext">5 / 6</div>
+            <img src="{{ 'gift-card-400-compressed.jpg' | asset_url }}" style="width:100%">
+        </div>
+
+        <div class="vnt-gc-slide">
+            <div class="vnt-gc-slide-numbertext">6 / 6</div>
+            <img src="{{ 'gift-card-500-compressed.jpg' | asset_url }}" style="width:100%">
+        </div>
+
+        <a class="vnt-gc-slide-prev" onclick="vntGcPlusSlides(-1)">❮</a>
+        <a class="vnt-gc-slide-next" onclick="vntGcPlusSlides(1)">❯</a>
+
+        <div class="vnt-gc-caption-container">
+            <p id="vntGcCaption"></p>
+        </div>
+
+        <div class="vnt-gc-row">
+            <div class="vnt-gc-column">
+                <img class="vnt-gc-demo vnt-gc-cursor" src="{{ 'gift-card-50-compressed.jpg' | asset_url }}" style="width:100%" onclick="vntGcCurrentSlide(1)"
+                    alt="$50 Gift Card">
+            </div>
+            <div class="vnt-gc-column">
+                <img class="vnt-gc-demo vnt-gc-cursor" src="{{ 'gift-card-100-compressed.jpg' | asset_url }}" style="width:100%" onclick="vntGcCurrentSlide(2)"
+                    alt="$100 Gift Card">
+            </div>
+            <div class="vnt-gc-column">
+                <img class="vnt-gc-demo vnt-gc-cursor" src="{{ 'gift-card-200-compressed.jpg' | asset_url }}" style="width:100%" onclick="vntGcCurrentSlide(3)"
+                    alt="$200 Gift Card">
+            </div>
+            <div class="vnt-gc-column">
+                <img class="vnt-gc-demo vnt-gc-cursor" src="{{ 'gift-card-300-compressed.jpg' | asset_url }}" style="width:100%" onclick="vntGcCurrentSlide(4)"
+                    alt="$300 Gift Card">
+            </div>
+            <div class="vnt-gc-column">
+                <img class="vnt-gc-demo vnt-gc-cursor" src="{{ 'gift-card-400-compressed.jpg' | asset_url }}" style="width:100%" onclick="vntGcCurrentSlide(5)"
+                    alt="$400 Gift Card">
+            </div>
+            <div class="vnt-gc-column">
+                <img class="vnt-gc-demo vnt-gc-cursor" src="{{ 'gift-card-500-compressed.jpg' | asset_url }}" style="width:100%" onclick="vntGcCurrentSlide(6)"
+                    alt="$500 Gift Card">
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'gift-card-all.js' | asset_url }}" async defer></script>
+
+
+{% section 'product-template-rework-sl5000' %}
+{% section 'custom-fields-products' %}
+
+{% comment %}
+{% include 'webyze-swatches' %}
+{% render 'product_infox' %}
+{% endcomment %}

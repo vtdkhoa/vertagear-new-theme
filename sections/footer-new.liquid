@@ -1,0 +1,153 @@
+<footer class="main-footer">
+    <div class="vertagear-container main-footer__container">
+        <div class="main-footer__top">
+            <div class="main-footer__top-left">
+                <a href="/" class="main-footer__logo">
+                    <img src="{{'logo.svg' | asset_url }}" class="main-footer__logo-img" alt="Vertagear">
+                </a>
+<!--                 <div style="white-space:nowrap;"><br><b>HTM-Tech, Inc. DBA Vertagear</b><br>Chino, CA 91710<br>USA<br><br></div> -->
+                <a href="mailto:support@vertagear.com" class="main-footer__support">
+                    <div class="main-footer__support-icon">
+                        <img src="{{'mail.svg' | asset_url }}" alt="mail" class="main-footer__support-icon-img">
+                    </div>
+                    <div class="main-footer__support-text">support@vertagear.com</div>
+                </a>
+<!--                  <div style="white-space:nowrap;"><br><b>Telephone Support</b><br>(800) 881-0628<br>M-F 8:00am-5:00pm PST<br></div> -->
+                 <a href="/pages/contact-us" class="main-footer__navigation-link">Contact Us</a>
+            </div>
+            <div class="main-footer__navigation">
+                {% for link in linklists['footer-main'].links %}
+                    {% assign child_list_handle = link.title | handleize %}
+                    <div class="main-footer__navigation-group" @click="toggle({{forloop.index0}})">
+                        <div class="main-footer__navigation-group-label"  :class="{'-active' : current === {{forloop.index0}}}">{{ link.title }}</div>
+                        <div class="main-footer__navigation-group-content" :class="{'-active' : current === {{forloop.index0}}}" :style="{'max-height': ({{linklists[child_list_handle].links | size }} * 50) + 'px' }">
+                            {% for childlink in linklists[child_list_handle].links %}
+                                <a href="{{ childlink.url }}" class="main-footer__navigation-link">{{ childlink.title | escape }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="main-footer__top-right">
+                <div class="main-footer__follow">
+                    <div class="main-footer__follow-label">Follow us</div>
+                    <div class="main-footer__follow-group">
+                        <a href="https://www.facebook.com/Vertagear" target="_blank" class="main-footer__follow-link vertagear-icon -icon-fb">
+                          <span class="visually-hidden">Facebook</span>
+                      	</a>
+                        <a href="https://twitter.com/vertagear" target="_blank" class="main-footer__follow-link vertagear-icon -icon-twitter">
+                          <span class="visually-hidden">Twitter</span>
+                      	</a>
+                        <a href="https://www.instagram.com/vertagear" target="_blank" class="main-footer__follow-link vertagear-icon -icon-ig">
+                          <span class="visually-hidden">Instagram</span>
+                      	</a>
+                      	{% comment %}
+                        <a href="https://www.pinterest.com/vertagear" target="_blank" class="main-footer__follow-link vertagear-icon -icon-pinterest">
+                          <span class="visually-hidden">Pinterest</span>
+                      	</a>
+                      	{% endcomment %}
+                        <a href="https://www.youtube.com/channel/UCI66wUzTqsp-_4woLcKHH9g?gl=US" target="_blank" class="main-footer__follow-link vertagear-icon -icon-youtube">
+                          <span class="visually-hidden">Youtube</span>
+                      	</a>
+                    </div>
+                </div>
+                <div class="main-footer__subscribe ctct-embed-signup">
+                    <div class="main-footer__subscribe-label">
+                        subscribe
+                    </div>
+                  {% form 'customer' %}
+                      {{ form.errors | default_errors }}
+                      {% if form.posted_successfully? %}
+                      <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                       {% else %}
+                      <div class="main-footer__subscribe-group">
+                        <input type="text" name="contact[email]" value="{% if customer %}{{ customer.email }}{% endif %}"  class="main-footer__subscribe-group-input" id="Email" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}">
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+                        <button class="main-footer__subscribe-group-submit ccm-input-submit" data-enabled="enabled">
+                            <img src="{{'send-white.svg' | asset_url }}" alt="submit" class="main-footer__subscribe-group-submit-img">
+                        </button>
+                      </div>
+                      {% endif %}
+                  {% endform %}
+                </div>
+            </div>
+        </div>
+        <div class="main-footer__bottom">
+            <div class="main-footer__bottom-left">
+                <div class="main-footer__language">
+                    <div class="main-footer__language-current">
+                        <div class="main-footer__language-flag">
+                            <img src='{{'lang-usa.svg' | asset_url }}' alt="">
+                        </div>
+                        <div class="main-footer__language-text">
+                            USA
+                        </div>
+                    </div>
+                    <div class="main-footer__language-drop">
+                        <div class="main-footer__language-drop-label">
+                            Change Location
+                        </div>
+                      	{% if settings.jp_link != blank %}
+                          <a href="{{settings.jp_link}}" class="main-footer__language-drop-link">
+                              <div class="main-footer__language-flag">
+                                  <img src='{{'lang-jp.svg' | asset_url }}' alt="">
+                              </div>
+                              <div class="main-footer__language-text">
+                                  JPN
+                              </div>
+                          </a>
+                        {% endif %}
+                        <a href="{{settings.eu_link}}" class="main-footer__language-drop-link">
+                            <div class="main-footer__language-flag">
+                                <img src='{{'lang-eu.svg' | asset_url }}' alt="">
+                            </div>
+                            <div class="main-footer__language-text">
+                                EUR
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="main-footer__language-mobile" @click="toggleLanguage()">
+                    <div class="main-footer__language-mobile-current" :class="{'-active':language}">
+                        <div class="main-footer__language-mobile-flag">
+                            <img src='{{'lang-usa.svg' | asset_url }}' alt="">
+                        </div>
+                        <div class="main-footer__language-mobile-text">
+                            USA
+                        </div>
+                    </div>
+                    <div class="main-footer__language-mobile-drop" :class="{'-active':language}">
+                      	{% if settings.jp_link != blank %}
+                          <a href="{{settings.jp_link}}" class="main-footer__language-mobile-drop-link">
+                              <div class="main-footer__language-mobile-flag">
+                                  <img src='{{'lang-jp.svg' | asset_url }}' alt="">
+                              </div>
+                              <div class="main-footer__language-mobile-text">
+                                  JPN
+                              </div>
+                          </a>
+                        {% endif %}
+                        <a href="{{settings.eu_link}}" class="main-footer__language-mobile-drop-link">
+                            <div class="main-footer__language-mobile-flag">
+                                <img src='{{'lang-eu.svg' | asset_url }}' alt="">
+                            </div>
+                            <div class="main-footer__language-mobile-text">
+                                EUR
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="main-footer__bottom-navigation">
+                  	{% for link in linklists['footer-bottom'].links %}
+                  		<a href="{{link.url}}" class="main-footer__bottom-navigation-link">{{link.title}}</a>
+                	{% endfor %}
+                </div>
+            </div>
+            <div class="main-footer__bottom-right">
+                <div class="main-footer__copyright">
+                    © 2022 Vertagear Inc - All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

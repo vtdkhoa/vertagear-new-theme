@@ -1,0 +1,71 @@
+<div class="youtube-reviews youtube-reviews-1">
+    <div class="youtube-reviews_container">
+        <div class="youtube-reviews_title">youtube reviews</div>
+        <div class="youtube-reviews_content">
+            {% for block in section.blocks %}
+                <div class="video-youtube-item">
+                    <a href="{{ block.settings.link }}">
+                        <img src="{{block.settings.thumbnail | img_url: '300x' }}" />
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="slider-pagination reviews-pagination">
+            <div class="container">
+                <div class="slider-pagination__wrapper">
+                <button class="prev slick-arrow">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 20L13 16L18 12V20Z" fill="#161616"/>
+                    </svg>
+                </button>
+                <ul id="slider-pagination-list">
+                    {% for block in section.blocks %}
+                        {% assign remainder = forloop.index0 | modulo: 4 %}
+                        {% if remainder == 0 %}
+                        <li>
+                            <a class="slider-page {% if forloop.index0 == 0 %}active{% endif %}" slick-index="{{ forloop.index | divided_by: 4 | plus: 1 }}">{{ forloop.index | divided_by: 4 | plus: 1 }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <button class="next slick-arrow">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 9L16 13L11 17V9Z" fill="#161616"/>
+                    </svg>
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "Youtube-reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Other models"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Video",
+      "type": "video",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Thumbnail"
+        },
+        {
+            "type": "url",
+            "id": "link",
+            "label": "Link video"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

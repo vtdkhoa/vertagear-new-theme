@@ -1,0 +1,59 @@
+<link type="text/css" href="{{ 'landing-default.css' | asset_url }}" rel="stylesheet"> 
+
+{% include 'product-navigation' %}
+
+<style>
+ 
+</style>
+
+
+
+<section class="block block-visualcontent-fullscreen promotion-bg">
+  <div class="inner">
+      <div class="inner-contents contents-left contents-promotion">
+         {% if collection.metafields.custom.promotion_title %}
+            <h1>{{collection.metafields.custom.promotion_title}}</h1>
+          {% endif %}
+         
+          
+          <h5>Best deals of the season</h5>
+          <div class="shortline"></div>
+          <p>
+          </p>
+
+          <a class="cta cta-learn" href="#collection-product" target="_blank">SAVE UP TO $200 <span>0% APR Interest</span></a>
+
+
+      </div>
+  </div>
+  
+</section>
+
+{% include 'landing-evo' %}
+{% section 'index-support-dark' %}
+
+<div class="ld-featured-products-header">
+  <div class="ld-featured-products-title">
+    Featured Products
+  </div>
+  <div class="ld-featured-products-desc">
+    'The Best Ergonomic Gaming Chairs' by IGN
+  </div>
+</div>
+{% include 'collection-product-grid', products, tag: "Default" %}
+
+{% include 'collection-bottom' %}
+{% render 'product_infox' %}
+
+{% section 'index-reviews' %}
+{% section 'index-alliance' %}
+
+
+<script>
+var urlvisual_desktop = {{collection.metafields.custom.promotion_visual_desktop | image_url| json}}
+
+if($('.promotion-bg').length>0) {
+  $('.promotion-bg').css('background-image', `url(${urlvisual_desktop})`);
+}
+
+</script>

@@ -1,0 +1,29 @@
+{{ 'fe800-all.css' | asset_url | stylesheet_tag }}
+{% include 'fe800-all-custom' %}
+
+<div class="page-fe800">
+  {% include 'fe800-viewallproduct' %}
+  {% section 'fe800-popup_3d_viewer' %}
+
+  <div id="popup-reviews" style="display: none;">{% section 'fe800-popup-reviews-modal' %}</div>
+  <div class="fe800-popup"><div class="popup-inner"></div></div>
+
+  <div id="fullpage">
+    {% section 'fe800-herobanner' %}
+    {% section 'fe800-campagin_review' %}
+    {% section 'fe800-signatures_1' %}
+    {% include 'fe800-signatures_2', order: 4 %}
+    {% include 'fe800-signatures_3', order: 5 %}
+    {% include 'fe800-signatures_4', order: 6 %}
+    {% section 'fe800-moreproduct_features' %}
+    {% section 'fe800-wps_in_comfort' %}
+    {% section 'fe800-warranty' %}
+    {% section 'fe800-series_collection' %}
+  </div>
+  {% render 'fe800-product_comparison' %}
+</div>
+
+<link rel="stylesheet" href="{{ 'flickity-v2.3.0.css' | asset_url }}">
+<script src="{{ 'flickity-v2.3.0.js' | asset_url }}"></script>
+<script type="module" src="{{ 'fe800-model-viewer.min.js' | asset_url }}" crossorigin="anonymous"></script>
+<script src="{{ 'fe800-custom-lockvideo.js' | asset_url }}" type="text/javascript" async defer></script>

@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body#store-old .wrapper.main-content {
+    .no-drag {
+        user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    max-width: 100%;
+    padding: 0;
+    .main_button {
+        border-radius: 100px;
+        width: 200px;
+        background-color: #f30303;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        position: relative;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin: 25px auto;
+        &:hover {
+            cursor: default;
+        }
+        @media screen and (min-width: 481px) {
+            margin: 0;
+            margin-top: 25px;
+        }
+        a {
+            color: #FFF !important;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    .relative_smaller_button {
+        border-radius: 100px;
+        background-color: #303030;
+        width: 150px; 
+        font-size: 12px; 
+        margin: 25px auto;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: white;
+        a {
+            color: #FFF !important;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    .button_text {
+        z-index: 2;
+        display: block;
+        padding: 10px 20px;
+        text-align: center;
+        position: relative;
+        &:hover {
+            cursor: pointer;
+        }
+        a {
+            color: #FFF !important;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .hero {
+        width: 100%;
+        //height: auto;
+        height: 650px;
+        background-color: #818D92;
+        color: white;
+      	position: relative;
+        background: url({{ settings.store_page_mobile_hero | img_url: 'master' }}) no-repeat;
+        background-position: center;
+        background-size: cover;
+      	z-index: 1;
+        /*.promo-mobile {
+            display: block
+        }*/
+        img {
+            display: none;
+        }
+        @media screen and (min-width: 481px) {
+            //height: auto;
+            background: none !important;
+            //background: url({{'bundle-promo.png' | asset_url }}) no-repeat;
+            //background-position: center;
+            //background-size: 100% auto;
+            //background-size: cover;
+          	height: auto;
+           	img {
+                display: block;
+            }
+            /*.promo-mobile {
+                display: none;
+            }*/
+          	.hero-img {
+              position: relative;
+              display: block;
+              width: 100%;
+              height: auto;
+              user-drag: none;
+              user-select: none;
+              -moz-user-select: none;
+              -webkit-user-drag: none;
+              -webkit-user-select: none;
+              -ms-user-select: none;
+        	}
+        }
+        margin-bottom: 2px;
+    }
+    .hero_info {
+        font-family: 'Open Sans', sans-serif;
+        text-align: center;
+        position: absolute;
+        z-index: 2;
+      	top: 6%;
+      	left: 0;
+      	right: 0;
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            @media screen and (min-width: 481px) {
+                font-size: 2.4em;
+            }
+        }
+        p {
+            margin: auto;
+            width: 275px;
+        }
+        @media screen and (min-width: 481px) {
+            text-align: left;
+            height: 400px;
+            width: 250px;
+          	top: 15%;
+          	left: 55%;
+          	font-size: .95vw;
+        }
+        @media screen and (min-width: 1024px) {
+          //font-size: .95vw;
+          font-size: .78vw;
+        }
+    }
+    .smaller_button {
+        border-radius: 100px;
+        background-color: #f30303;
+        width: 150px;
+        a {
+            color: #FFF !important;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        @media screen and (min-width: 1024px) {
+            font-size: .95vw;
+        }
+      	@media screen and (min-width: 1324px) {
+          	position: absolute;
+    		top: 160px; 
+        }
+        @media screen and (min-width: 1600px) {
+            font-size: 15px;
+        }
+        margin-top: 25px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        .button_text {
+            z-index: 2;
+            display: block;
+            @media screen and (min-width: 1024px) {
+            padding: 8% 1%;
+            }
+            text-align: center;
+            position: relative;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        &.trigger {
+            @media screen and (min-width: 1024px) {
+                margin-top:28%;
+            }
+        }
+        &.p {
+            @media screen and (min-width: 1024px) {
+                margin-top:28%;
+            }
+        }
+        &.s {
+            margin-top: 5px;
+            @media screen and (min-width: 375px) {
+                margin-top: 25px;
+            }
+            @media screen and (min-width: 1024px) {
+                margin-top:10%;
+            }
+        }
+        &.pillow {
+            @media screen and (min-width: 1024px) {
+                margin-top:32%;
+            }
+        }
+    }
+    .seat_grid_container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    .seat_grid {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        list-style: none;
+        .seat_container {
+          width: 100%;
+          position: relative;
+          height: auto;
+          display: inline-block;
+          @media screen and (min-width: 1024px) {
+              width: 33.2%;
+        }
+        .seat {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: auto;
+            user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+        .seat_info {
+            font-family: 'Open Sans', sans-serif;
+            position: absolute;
+            z-index: 2;
+            top: 5%;
+            @media screen and (min-width: 1024px) {
+                top: 10%;
+            }
+            color: white;
+            padding-left: 15px;
+            @media screen and (min-width: 768px) {
+                padding-left: 25px;
+            }
+            font-size: 12px;
+            @media screen and (min-width: 768px) {
+                font-size: 16px;
+            }
+            @media screen and (min-width: 1024px) {
+            font-size: .95vw;
+            }
+            h2 {
+            font-size: 1.86667em;
+            font-weight: bold;
+            }
+        }
+        .logo_container {
+            width: 33%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 20px 30px;
+            .logo {
+            height: auto;
+            width: 100%;
+            display: block;
+            user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            }
+        }
+        }
+    }
+    }
+    .info {
+        display: flex;
+        width: 100%;
+        margin: auto;
+        flex-direction: column;
+        @media screen and (min-width: 768px) {
+            height: 400px;
+            width: 80%;
+            flex-direction: row;
+        }
+    }
+    .warranty {
+        font-family: 'Open Sans', sans-serif;
+        flex: 1;
+        color: black;
+        text-align: center;
+        padding-top: 80px;
+        text-align: center;
+        padding-bottom: 50px;
+        h2 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bold;
+        }
+        @media screen and (min-width: 768px) {
+            padding-bottom: 0px
+        }
+    }
+    .warranty_icon {
+        height: 85px;
+        width: 58px;
+        background: url({{ 'warranty.png' | asset_url }}) no-repeat;
+        margin: auto;
+    }
+    .assembly {
+        font-family: 'Open Sans', sans-serif;
+        flex: 1;
+        color: black;
+        text-align: center;
+        padding-top: 80px;
+        position: relative;
+        padding-bottom: 50px;
+        h2 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bold;
+        }
+        @media screen and (min-width: 768px) {
+            padding-bottom: 0px
+        }
+    }
+    .assembly:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 10%;
+        height: 1px;
+        width: 80%;
+        border-top: 1px solid #e5e5e5;
+        @media screen and (min-width: 768px) {
+            border-top: none;
+        }
+    }
+    .assembly_icon {
+        height: 85px;
+        width: 58px;
+        background: url({{ 'assembly.png' | asset_url }}) no-repeat;
+        margin: auto;
+    }
+}

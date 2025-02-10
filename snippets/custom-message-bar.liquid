@@ -1,0 +1,43 @@
+<script>
+  
+  (function setRegionCustomMessage(){
+    cookieName = "hideMessageBar";
+    GeolizrAPI.addEventListener('geolizr.geoData', function(geoData){
+      if(isCookieSet(cookieName) === false){
+        //console.log("GeoData:", geoData);
+        if (geoData.regionName === "Hawaii"){
+           addRegionCustomMessage("Free Shipping for Hawaii customers");
+        } else if (geoData.regionName === "Alaska"){
+           addRegionCustomMessage("Free Shipping for Alaska customers");
+        } else if (geoData.country.code === "CA") {
+           addRegionCustomMessage("Free Shipping for Canada customers");
+        }
+        //addRegionCustomMessage("Test Region:" + geoData.regionName)
+      }
+    });
+    function addRegionCustomMessage(msg) {
+      setMessageBarCookie()
+     $(`
+          <div class='message-bar' id='region-based-message'>
+              <div class='message-text'>
+                  ${msg}
+              </div>
+           </div>
+      ` ).prependTo("#PageContainer").hide().slideDown("slow");
+     }
+    function setMessageBarCookie(){
+      var oneHour = 3600000;
+      var tenHours = 10 * oneHour;
+      var now = new Date();
+      var currentTime = now.getTime();
+      var expireTime = currentTime + tenHours;
+      now.setTime(expireTime);
+      document.cookie = cookieName + "=" + "true" + ";expires=" + now.toGMTString() + ";path=/";
+    };
+
+    function isCookieSet (cookieName) {
+      return document.cookie.indexOf(cookieName) !== -1 ? true : false;
+    }
+  }());
+  
+</script>

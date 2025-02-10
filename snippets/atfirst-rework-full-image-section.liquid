@@ -1,0 +1,27 @@
+    {% for section in banner_amount %}
+        {% assign full_image_title = fullImageTitle[forloop.index0] %}
+        {% assign full_image_title_sub = fullImageTitleSub[forloop.index0] %}
+        {% assign full_image_banner = fullImageBanner[forloop.index0] %}
+        {% assign full_image_banner_mobile = fullImageBannerMobile[forloop.index0] %}
+        {% assign full_image_banner_video_mobile = fullImageBannerVideoMobile[forloop.index0] %}
+        {% assign full_image_banner_video = fullImageBannerVideo[forloop.index0] %}
+        {% assign full_image_desc = fullImageDesc[forloop.index0] %}
+        {% assign full_image_btn = fullImageBtn[forloop.index0] %}
+        {% assign mobile_text_position = mobile_text_position_array[forloop.index0] %}
+        {% assign text_position = text_position_array[forloop.index0] %}
+        {% assign bannerTypeString = bannerType[forloop.index0] %}
+
+        {% include 'full-image-section-single', 
+         full_image_title,
+         full_image_title_sub,
+         full_image_banner,
+         full_image_banner_mobile,
+         full_image_banner_video_mobile,
+         full_image_banner_video,
+         full_image_desc,
+         full_image_btn,
+         mobile_text_position,
+         text_position,
+         bannerTypeString
+         %}
+    {% endfor %}

@@ -1,0 +1,147 @@
+{% assign specifications_accordion  = product.metafields.custom_fields["specifications_accordion"] %}
+{% assign faq_accordion   = product.metafields.custom_fields["faq_accordion"] %}
+{% assign product_manual_title = 'Product Manual' %}
+
+
+{% if product.type contains 'RGB LED Upgrade Kit' %}
+{% assign product_manual_title = 'Quick Start, Product Manual, and Software' %}
+{% endif %}
+
+<div class="product-detail-section js-faq" data-length="6" id="bottom-review" data-start="2">
+    <div class="product-detail-section__container">
+      	{% if product.metafields.custom_fields["specifications_accordion"] != blank %}
+        <div class="product-detail-section__accordion">
+            <div class="product-detail-section__accordion-title" @click="modalChoose().toggle('current',0)">
+                <div class="product-detail-section__accordion-title-span">Specifications</div>
+                <div class="product-detail-section__accordion-title-icon vertagear-icon -icon-down"
+                    :class="{'-active': current === 0 }"></div>
+            </div>
+            <div v-if="current === 0" class="product-detail-section__accordion-content" :class="{'-active' : current === 0 }"
+                data-parent="0">
+                <div class="product-detail-section__accordion-content-inner -spec" data-index="0">
+                  	{% for item in specifications_accordion %}
+                    <div class="product-detail-section__accordion-content-inner-spec">
+                        <div class="product-detail-section__accordion-content-inner-spec-title">
+                            {{item.name}}
+                        </div>
+                        <div class="product-detail-section__accordion-content-inner-spec-content">
+                            {{item.content}}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+       {% endif %}
+       {% if product.metafields.custom_fields["product_dimensions"] != blank %}
+        <div class="product-detail-section__accordion">
+            <div class="product-detail-section__accordion-title" @click="modalChoose().toggle('current',5)">
+                <div class="product-detail-section__accordion-title-span">Dimensions</div>
+                <div class="product-detail-section__accordion-title-icon vertagear-icon -icon-down"
+                    :class="{'-active': current === 5 }"></div>
+            </div>
+            <div v-if="current === 5" class="product-detail-section__accordion-content" :class="{'-active' : current === 5 }"
+                data-parent="5">
+                <div class="product-detail-section__accordion-content-inner" data-index="5">
+                  <picture>
+                      <source srcSet="{% render 'cf-image' with image: product.metafields.custom_fields["product_dimensions"], size: "1050x", scale: 2, print: 'url' %}" media="(min-width: 1351px)">
+                      <source srcSet="{% render 'cf-image' with image: product.metafields.custom_fields["product_dimensions"], size: "1050x", print: 'url' %}" media="(max-width: 1350px)">
+                      <img src="{% render 'cf-image' with image: product.metafields.custom_fields["product_dimensions"], size: "1050x", scale: 2, print: 'url' %}" loading="lazy">
+                  </picture>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+       {% if product.metafields.custom_fields["faq_accordion"] != blank %}
+        <div class="product-detail-section__accordion">
+            <div class="product-detail-section__accordion-title" @click="modalChoose().toggle('current',1)">
+                <div class="product-detail-section__accordion-title-span">FAQ</div>
+                <div class="product-detail-section__accordion-title-icon vertagear-icon -icon-down"
+                    :class="{'-active': current === 1 }"></div>
+            </div>
+            <div v-if="current === 1" class="product-detail-section__accordion-content" :class="{'-active' : current === 1 }"
+                data-parent="1">
+                <div class="product-detail-section__accordion-content-inner -faq" data-index="1">
+                    {% for item in faq_accordion %}
+                    <div class="product-detail-section__accordion-content-inner-faq">
+                        <div class="product-detail-section__accordion-content-inner-faq-title">
+                            {{item.title}}
+                        </div>
+                        <div class="product-detail-section__accordion-content-inner-faq-content">
+                            {{item.answer}}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+      	{% unless product.type contains 'Personalized Service' or product.title contains 'Wear and Tear Program' or product.title contains '3 Year Extended Warranty' %}
+          <div class="product-detail-section__accordion">
+              <div class="product-detail-section__accordion-title" @click="modalChoose().toggle('current',3)">
+                  <div class="product-detail-section__accordion-title-span">{{product_manual_title}}</div>
+                  <div class="product-detail-section__accordion-title-icon vertagear-icon -icon-down"
+                      :class="{'-active': current === 3 }"></div>
+              </div>
+              <div v-if="current === 3" class="product-detail-section__accordion-content" :class="{'-active' : current === 3 }"
+                  data-parent="3">
+                  <div class="product-detail-section__accordion-content-inner" data-index="3">
+                      <p class="product-detail-section__accordion-content-inner-p">
+                          Take a comprehensive look at the set up, function, and maintenance of the chair.
+                          The Product manual details all of its specifications and how to care for your
+                          Vertagear chair.
+                      </p>
+                      <a class="product-detail-section__accordion-content-inner-link"  href="/pages/support">Go to Support page</a>
+                  </div>
+              </div>
+          </div>
+        {% endunless %}
+        {% unless product.title contains 'Wear and Tear Program' or product.title contains '3 Year Extended Warranty' %}
+          <div class="product-detail-section__accordion">
+              <div class="product-detail-section__accordion-title" @click="modalChoose().toggle('current',4)">
+                  <div class="product-detail-section__accordion-title-span">Warranty</div>
+                  <div class="product-detail-section__accordion-title-icon vertagear-icon -icon-down"
+                      :class="{'-active': current === 4 }"></div>
+              </div>
+              <div v-if="current === 4" class="product-detail-section__accordion-content" :class="{'-active' : current === 4 }"
+                  data-parent="4">
+                  <div class="product-detail-section__accordion-content-inner" data-index="4">
+                      <p class="product-detail-section__accordion-content-inner-p">
+                          {% if product.type contains 'S-Line' or product.type contains 'P-Line'%}
+                            VERTAGEAR Racing Series Chair Parts 2-10 Year Limited Warranty<br><br>
+                            Metal Structure Frame – 10 Years Warranty<br>
+                            Seat Mechanism - 2 Years<br>
+                            Arm Rest – 2 Years<br>
+                            Wheels – 2 Years<br>
+                            Headrest/Lumbar Support Pillows – 2 Years<br>
+                            Five Star Base – 2 Years<br>
+                            Gas Lift – 2 Years<br>
+                          {% else if product.type contains 'RGB LED Updgrade Kit' %}
+                        	Register your Vertagear products today and you will receive 2-Year Warranty from the date of purchase. Click the link below to learn more about our warranty program today.
+                          {% else %}
+                            Register your Vertagear products today and you will receive
+                            1-Year Warranty for wear and tear and much more.
+                            Click the link below to learn more about our warranty program today.
+                          {% endif %}
+                      </p>
+                      <a class="product-detail-section__accordion-content-inner-link" href="/pages/warranty">Go to Warranty page</a>
+                  </div>
+              </div>
+          </div>
+        {% endunless %}
+        <div class="product-detail-section__accordion" id="review-section">
+            <div class="product-detail-section__accordion-title" @click="modalChoose().toggle('current',2)">
+                <div class="product-detail-section__accordion-title-span">Reviews</div>
+                <div class="product-detail-section__accordion-title-icon vertagear-icon -icon-down"
+                    :class="{'-active': current === 2 }"></div>
+            </div>
+            <div class="product-detail-section__accordion-content -review" :class="{'-active' : current === 2 }"
+                data-parent="2">
+                <div class="product-detail-section__accordion-content-inner" data-index="2">
+					<div data-oke-reviews-widget data-oke-reviews-product-id="shopify-{{ product.id }}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,157 @@
+<style>
+  .fe800-specs__hygennx__section-title {
+    display: flex;
+    padding: 128px 40px;
+    justify-content: center;
+    align-items: center;
+    background: #f6f6f6;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 59px;
+    font-weight: 700;
+    line-height: 96%;
+    letter-spacing: -1.18px;
+  }
+  .fe800-specs__hygennx__section-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, #f6f6f6 0%, #d1d1d1 100%);
+  }
+  .hygennx-video {
+    border-radius: 16px;
+  }
+  .hygennx-video-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    position: absolute;
+    bottom: 10%;
+    left: 30%;
+  }
+  .desc-title {
+    width: 414px;
+    margin: 0;
+    color: #f6f6f6;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.58px;
+  }
+  .desc-content {
+    width: 328px;
+    margin: 0;
+    color: #f6f6f6;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+    opacity: 0.5;
+  }
+  .fe800-specs__important {
+    display: flex;
+    padding: 128px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 128px;
+    background: #d1d1d1;
+  }
+  .fe800-specs__important__container {
+    display: flex;
+    width: 1128px;
+    gap: 256px;
+  }
+  .fe800-specs__important-title {
+    width: 441px;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.58px;
+    white-space: nowrap;
+  }
+  .fe800-specs__important-content {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+  }
+  .fe800-specs__how-it-works {
+    background: #d1d1d1;
+  }
+  .fe800-specs__how-it-works img {
+    content: url('../assets/new-fe800-sign-how-it-works.png');
+  }
+  @media (max-width: 576px) {
+    .fe800-specs__important {
+      padding: 64px 16px;
+    }
+    .hygennx-video {
+      height: 636px;
+    }
+    .hygennx-video-desc {
+      left: 5%;
+    }
+    .desc-title {
+      width: 343px;
+    }
+    .fe800-specs__important__container {
+      width: 343px;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+    .fe800-specs__important-title {
+      width: auto;
+    }
+    .fe800-specs__how-it-works img {
+      content: url('../assets/new-fe800-sign-how-it-works-mobile.png');
+    }
+  }
+</style>
+
+<div class="fe800-specs__hygennx">
+  <div class="fe800-specs__hygennx__section-title">
+    <div class="section-title">HygennX™</div>
+  </div>
+  <div class="fe800-specs__hygennx__section-content">
+    <video
+      muted=""
+      defaultmuted=""
+      playsinline=""
+      loop=""
+      class="hygennx-video"
+      {% comment %} class="full-image-intro__bg-video lazy video-desktop entered loaded" {% endcomment %}
+      preload="metadata"
+      data-poster=""
+      data-ll-status="loaded"
+    >
+      <source type="video/mp4" src="https://cdn.shopify.com/videos/c/o/v/640b33db90e34ba0bd9295c839619faf.mp4">
+    </video>
+    <span class="hygennx-video-desc">
+      <p class="desc-title">ENVIRONMENTAL FRIENDLY</p>
+      <p class="desc-content">
+        HygennX™ from Vertagear, uses patented coffee ground nanotechnology in breathable cloth to deliver natural odor
+        control with quick-drying functionality and silver-coated embroidery to neutralize bacteria growth while
+        prolonging the life of your chair and accessories
+      </p>
+    </span>
+  </div>
+  <div class="fe800-specs__important">
+    <div class="fe800-specs__important__container">
+      <div class="fe800-specs__important-title">WHY IS IT SO IMPORTANT?</div>
+      <div class="fe800-specs__important-content">
+        Hours of gameplay generate heat build-up between your body, chair, headrest, and pillow. This can lead to
+        unpleasant odors and create a breeding ground for bacteria; all of which can eﬀect your gaming environment, your
+        health, and the life of your Vertagear products.
+      </div>
+    </div>
+  </div>
+  <div class="fe800-specs__how-it-works">
+    <img alt="how-it-works" width="auto" height="auto">
+  </div>
+</div>

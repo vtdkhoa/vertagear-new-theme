@@ -1,0 +1,122 @@
+const ldRgbLightUpBtns = document.getElementsByClassName(
+  "light-logo__selection__btns__img"
+);
+const ldRgbLightLogoImg = document.getElementById("lightLogoImg");
+
+const ldRgbLightUpBtnSrc = [
+	"{{ 'ld-rgb-light-up-icon-1.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-icon-2.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-icon-3.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-icon-4.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-icon-5.svg' | asset_url }}",
+]
+const ldRgbLightUpBlueBtnSrc = [
+	"{{ 'ld-rgb-light-up-icon-active-1.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-icon-active-2.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-icon-active-3.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-icon-active-4.svg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-icon-active-5.svg' | asset_url }}",
+]
+const ldRgbLightUpMainImgSrc = [
+	"{{ 'ld-rgb-light-up-desk-1.jpeg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-desk-2.jpeg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-desk-3.jpeg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-desk-4.jpeg' | asset_url }}",
+  "{{ 'ld-rgb-light-up-desk-5.jpeg' | asset_url }}",
+]
+
+for (let i = 0; i < ldRgbLightUpBtns.length; i++) {
+  const element = ldRgbLightUpBtns[i];
+  element.addEventListener("click", () => {
+    for (let m = 0; m < ldRgbLightUpBtns.length; m++) {
+      const e = ldRgbLightUpBtns[m];
+      e.src = ldRgbLightUpBtnSrc[m];
+    }
+    element.src = ldRgbLightUpBlueBtnSrc[i];
+    ldRgbLightLogoImg.src = ldRgbLightUpMainImgSrc[i];
+  });
+}
+
+// Feature controls
+// let ldRgbFeatureTransform = 0;
+// let ldRgbFeatureClickTimes = 0;
+// const featuresControlRightBtn = document.getElementById(
+//   "featuresControlRightBtn"
+// );
+// const featuresControlLeftBtn = document.getElementById(
+//   "featuresControlLeftBtn"
+// );
+// const featuresMainContainer = document.getElementById("featuresMainContainer");
+// featuresControlRightBtn.addEventListener("click", () => {
+//   if (ldRgbFeatureClickTimes < 1) {
+//     ldRgbFeatureClickTimes++;
+//     ldRgbFeatureTransform -= 624;
+//     featuresMainContainer.style.transform = `translate(${ldRgbFeatureTransform}px)`;
+//   }
+// });
+// featuresControlLeftBtn.addEventListener("click", () => {
+//   if (ldRgbFeatureClickTimes > 0) {
+//     ldRgbFeatureClickTimes--;
+//     ldRgbFeatureTransform += 624;
+//     featuresMainContainer.style.transform = `translate(${ldRgbFeatureTransform}px)`;
+//   }
+// });
+
+// Scroll to play video
+window.addEventListener("load", ldRgbVideoScroll);
+window.addEventListener("scroll", ldRgbVideoScroll);
+
+function ldRgbVideoScroll() {
+  const windowHeight = window.innerHeight;
+  const videoEl = document.getElementById("ldRgbLightUpLogo");
+
+  const videoHeight = videoEl.clientHeight;
+  const videoClientRect = videoEl.getBoundingClientRect().top;
+
+  if (
+    videoClientRect <= windowHeight - videoHeight * 0.5 &&
+    videoClientRect >= 0 - videoHeight * 0.5
+  ) {
+    videoEl.play();
+  } else {
+    videoEl.pause();
+  }
+}
+
+// Faq
+const ldRgbQuestions = document.getElementsByClassName("faq__each");
+const ldRgbArrowBtns = document.getElementsByClassName("faq__arrow");
+const ldRgbAnswers = document.getElementsByClassName("faq__answer");
+
+for (let i = 0; i < ldRgbArrowBtns.length; i++) {
+  const questionE = ldRgbQuestions[i];
+  const arrowE = ldRgbArrowBtns[i];
+  let isDisplay = false;
+  questionE.addEventListener("click", () => {
+    const answerE = ldRgbAnswers[i];
+    if (isDisplay) {
+      answerE.style.display = "none";
+      isDisplay = false;
+      arrowE.style.transform = "rotate(0)";
+    } else {
+      answerE.style.display = "block";
+      isDisplay = true;
+      arrowE.style.transform = "rotate(90deg)";
+    }
+  });
+}
+
+// New brand review image
+const ldRgbLoopChangeSrc = (eList, imgLink) => {
+  for (let i = 0; i < eList.length; i++) {
+  	eList[i].srcset = imgLink;
+  }
+}
+
+const ldRgbBrands = document.getElementsByClassName("index-reviews__swiper-slide");
+
+ldRgbLoopChangeSrc(ldRgbBrands[0].getElementsByTagName("SOURCE"), "{{ 'brand-review-9to5.webp' |asset_url }}");
+ldRgbLoopChangeSrc(ldRgbBrands[1].getElementsByTagName("SOURCE"), "{{ 'brand-review-forbes.webp' |asset_url }}");
+ldRgbLoopChangeSrc(ldRgbBrands[2].getElementsByTagName("SOURCE"), "{{ 'brand-review-thegamer.webp' |asset_url }}");
+ldRgbLoopChangeSrc(ldRgbBrands[4].getElementsByTagName("SOURCE"), "{{ 'brand-review-t3.webp' |asset_url }}");
+ldRgbLoopChangeSrc(ldRgbBrands[5].getElementsByTagName("SOURCE"), "{{ 'brand-review-gamesradar.webp' |asset_url }}");

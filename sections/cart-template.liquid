@@ -1,0 +1,414 @@
+<script class="cartFlagX"></script>{% include 'gravityadmin' %}
+<div style="display: none !important;  visibility: hidden !important;" class="cmspro-section" id="cmspro-9f57100b"></div>
+
+<!-- /templates/cart.liquid -->
+{% comment %}
+
+For info on test orders:
+- General http://docs.shopify.com/manual/your-store/orders/test-orders
+- Shopify Payments - http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
+
+{% endcomment %}
+<style>
+  .limited_time_offers--title {
+    font-family: 'Oxanium';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: #17171A;
+    margin-bottom: 16px;
+  }
+  .limited_time_offers--container{
+    display: flex;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .limited_time_offer{
+    background: #EDEDFE;
+    padding: 32px;
+    margin-right: 8px;
+    max-width: 330px;
+    border: 2px solid #fff;
+    min-width: 380px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+  .limited_time_offer:hover{
+    border: 2px solid #4E4CF7;
+  }
+  .limited_time_offer:hover .link{
+    text-decoration: underline;
+  }
+  .limited_time_offer .value {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .limited_time_offer .value .money{
+    text-decoration-line: line-through;
+  }
+  .limited_time_offer .title {
+    margin-top: 4px;
+    font-family: 'Oxanium';
+    font-style: normal;
+    font-size: 24px;
+    line-height: 36px;
+    color: #4E4CF7;
+  }
+  .limited_time_offer .description {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    margin-top: 12px;
+    color: #45454D;
+    flex-grow: 1;
+  }
+  .limited_time_offer .link{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: #17171A;
+    margin-top: 12px;
+  }
+  .limited_time_offer .title p, .limited_time_offer .description p{
+      margin-bottom: 0;
+    }
+  @media only screen and (max-width: 768px){
+    .limited_time_offers--title{
+      font-size: 28px;
+      line-height: 36px;
+    }
+    .limited_time_offer{
+      padding: 24px;
+      max-width: unset;
+      min-width: unset;
+      margin-right: 0;
+    }
+    .limited_time_offer:hover{
+      border: 2px solid #fff;
+    }
+    .limited_time_offer .value{
+      font-size: 14px;
+      line-height: 21px;
+    }
+    .limited_time_offer .title{
+      font-size: 20px;
+      line-height: 30px;
+    }
+    .limited_time_offer .description{
+      font-size: 10px;
+      line-height: 150%;
+      margin-top: 8px;
+    }
+    .limited_time_offer .link{
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+</style>
+
+{% if cart.item_count > 0 %}
+
+<div class="sitewide--title-wrapper">
+  <h1 class="page--title">{{ 'cart.general.title' | t }}</h1>
+</div>
+
+<script>
+  console.log('Dev', {{ cart.items | json }})
+</script>
+
+
+<form action="/cart" method="post" novalidate class="cart table-wrap" dev="feteam">
+  <table class="cart-table full table--responsive">
+    <thead class="cart__row cart__header-labels">
+      <th colspan="2" class="text-center"></th>
+      <th class="text-center">{{ 'cart.label.price' | t }}</th>
+      <th class="text-center">{{ 'cart.label.quantity' | t }}</th>
+      <th class="text-center">{{ 'cart.label.total' | t }}</th>
+    </thead>
+    <tbody>
+      {% for item in cart.items %}
+      {% include 'sca_freegift_price' with item %}
+
+      <tr class="cart__row table__section" compare_at_price="{{item.variant.compare_at_price}}" selling-plan-price="{{ item.selling_plan_allocation.checkout_charge_amount }}" variantprice="{{item.variant.price}}">
+        <td data-label="{{ 'customer.order.product' | t }}">
+          <a href="  {%if item.variant.metafields.secomapp.freegifts%}{{ item.product.url }}{%else%}{{ item.url | within: collections.all }}{%endif%}" class="cart__image">
+            {% comment %}
+            More image size options at:
+            - http://docs.shopify.com/themes/filters/product-img-url
+            {% endcomment %}
+            <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | remove: '/ Default Title'| remove: 'Default Title' | remove: '/ Default' | remove: 'Default' | replace: '(Freegifts)', ''  | escape }}">
+          </a>
+        </td>
+        <td>
+          <a href="  {%if item.variant.metafields.secomapp.freegifts%}{{ item.product.url }}{%else%}{{ item.url }}{%endif%}" class="h5">
+            {{ item.product.title }}
+            <span class=tdf-cart-item-t>
+                {% if item.variant.compare_at_price > item.variant.price %}
+                    {% assign savings = item.variant.compare_at_price | minus: item.variant.price %}
+                    <span class="tdf_price_save">Save <span class="tdf_money money">{{ savings  | times: item.quantity | money }}</span></span>
+                {% endif %}
+            </span>
+            <span class="saso-cart-item-discount-notes" data-key="{{item.key}}"></span>
+            <span class="saso-cart-item-upsell-notes" data-key="{{item.key}}"></span>
+
+          </a>
+          {% unless item.variant.title contains 'Default' %}
+          <br>
+          <small>{{ item.variant.title | remove: '/ Default Title'| remove: 'Default Title' | remove: '/ Default' | remove: 'Default' | replace: '(Freegifts)', ''  }}</small>
+          {% endunless %}
+
+          {% if section.settings.cart_vendor_enable %}
+          <p>{{ item.vendor }}</p>
+          {% endif %}
+
+          {% comment %}
+          Optional, loop through custom product line items if available
+
+          For more info on line item properties, visit:
+          - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
+          {% endcomment %}
+          {% assign property_size = item.properties | size %}
+          {% if property_size > 0 %}
+          {% for p in item.properties %}
+          {% unless p.last == blank %}
+          <div><small>{{ p.first }}</small></div>
+
+          {% comment %}
+          Check if there was an uploaded file associated
+          {% endcomment %}
+          {% if p.last contains '/uploads/' %}
+          <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+          {% else %}
+            {% unless p.first contains "Estimate ship date" %}
+              : {{ p.last }}
+            {% endunless %}
+          {% endif %}
+          {% endunless %}
+          {% endfor %}
+          {% endif %}
+          {% if item.selling_plan_allocation %}
+          {% assign partial_payment_item = item.selling_plan_allocation.checkout_charge_amount | money %}
+          <p class="selling-plan_selector">{{ settings.partial_payment_cart_label | replace: "[$]",partial_payment_item }}</p>
+          {% endif %}
+
+          <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
+            <small>{{ 'cart.general.remove' | t }}</small>
+          </a>
+        </td>
+        <td class="text-center" data-label="{{ 'cart.label.price' | t }}">
+          <span class="h5 tdf-cart-item-p-p">
+            
+            {% if item.variant.compare_at_price > item.variant.price %}
+                {{ item.variant.compare_at_price | money }}
+            {% else %}
+                {{ item.variant.price | money }}
+            {% endif %}
+          </span>
+        </td>
+        
+
+        <td class="text-center" data-label="{{ 'cart.label.quantity' | t }}">
+          <input {%if item.variant.metafields.secomapp.freegifts%}readonly{%endif%}   type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" max="500">
+        </td>
+        <td class="text-center cart-total-label" data-label="{{ 'cart.label.total' | t }}">
+         
+          <span class="h5">
+
+            <span class="saso-cart-item-line-price" data-key="{{item.key}}">
+                <span class="tdf-cart-item-lp-p">
+                  {% if item.selling_plan_allocation %}
+                    {{ item.selling_plan_allocation.checkout_charge_amount | money }}
+                  {% else %}
+                    {% if item.variant.compare_at_price > item.variant.price %}
+                        <s>{{ item.variant.compare_at_price | money }}</s>
+                    {% endif %}
+
+                    {{ item.line_price | money }}
+                  {% endif %}
+                </span>
+            </span>
+
+          </span>
+         
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="grid cart__row">
+    {% if section.settings.limited_time_offers %}
+      <div class="grid__item two-thirds medium--one-whole small--one-whole limited_time_offers">
+        <div class="limited_time_offers--title">{{ section.settings.limited_time_offers_title }}</div>
+      <div class="limited_time_offers--container">
+        {% for block in section.blocks %}
+          <div class="limited_time_offer">
+            <div class="value"><span class="money">${{ block.settings.value }}</span> value</div>
+            <div class="title">{{ block.settings.title }}</div>
+            <div class="description">{{ block.settings.description }}</div>
+            <a class="link" href="{{ block.settings.url }}" target="_blank">{{ block.settings.link_text }}</a>
+          </div>
+        {% endfor %}
+      </div>
+      </div>
+    {% endif %}
+    {% if section.settings.cart_notes_enable %}
+    <div class="grid__item two-thirds medium--one-whole small--one-whole">
+      <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+      <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+    </div>
+    {% endif %}
+    <div class="grid__item text-right{% if section.settings.cart_notes_enable or section.settings.limited_time_offers %} one-third medium--one-whole small--one-whole{% endif %}">
+      <p>
+        <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
+        <span class="h3 cart__subtotal">
+          <span class=""><span style="display:none" class="tdf-cart-total-flag"></span><span id="js_cart__subtotal">{{ cart.total_price | money }}</span></span>
+          <span class=""></span>
+        </span>
+      </p>
+     
+      <p><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
+
+  {% form 'cart', cart %}
+{{ form | payment_terms }}
+{% endform %}
+  {% comment %}
+      <div class="cart-paylater-text">
+      <p><em>{{ 'cart.general.pay_later' | t }}</em></p>
+      <img class="shoppay-icon" src="{{ 'ShopPay - Color.png' | asset_img_url: 'x100' }}" />
+      </div>
+  {% endcomment %}
+      
+      <!-- Route Code Edited 11/30/2020 -->
+      <div class="route-div"></div>
+      <div style="font-size: 12px; margin-top: 10px; margin-bottom: 15px; line-height: 15px;">*By deselecting package protection, Vertagear<br style="display: block;" /> is not liable for lost, damaged, or stolen items</div>
+      <!-- Route Code End -->
+
+      <input type="submit" name="update" class="btn--secondary update-cart cart--button-update" value="{{ 'cart.general.update' | t }}">
+      <input type="submit" name="checkout" class="btn cart--button-checkout" value="{{ 'cart.general.checkout' | t }}">
+
+
+    </div>
+
+    {% if additional_checkout_buttons %}
+    <div class="additional-checkout-buttons">
+      {{ content_for_additional_checkout_buttons }}
+    </div>
+    {% comment %}
+    <div class="additional-checkout-buttons-custom">
+      <div>
+        <button id="shoppay-btn" type="button" class="payment-btn">
+          <img src="{{ 'ShopPay_Color.svg' | asset_url }}"/>
+        </button>
+      </div>
+      <div>
+        <button id="amazonpay-btn" type="button" class="payment-btn" style="background: #fad676;">
+          <img src="{{ 'Amazon_Pay_logo.svg' | asset_url }}"/>
+        </button>
+      </div>
+      <div>
+        <button id="paypal-btn" type="button" class="payment-btn" style="background: #ffc439;">
+          <img src="{{ 'PayPal.svg' | asset_url }}"/>
+        </button>
+      </div>
+      <div>
+        <button id="gpay-btn" type="button" class="payment-btn">
+          <img src="{{ 'Google_Pay_Logo.svg' | asset_url }}"/>
+        </button>
+      </div>
+      <div>
+        <button id="facebookpay-btn" type="button" class="payment-btn" style="background: #000;height: 42px">
+          <svg preserveAspectRatio="xMidYMid" class="qZgSr5RiiBCTAMfQYsty" style="height: 16px; width: 96px;"><use xlink:href="#shopify-svg__payments-facebook-pay-light"></use></svg>
+        </button>
+      </div>
+    </div>
+    {% endcomment %}
+  {% endif %}
+  </div>
+</form>
+{% else %}
+<div class="sitewide--title-wrapper">
+  <h1 class="page--title">{{ 'cart.general.title' | t }}</h1>
+</div>
+<div class="cart--empty-cart">
+  <p>{{ 'cart.general.empty' | t }}</p>
+  <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+</div>
+
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Cart page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_vendor_enable",
+        "label": "Show product vendor"
+      },
+      {
+        "type": "header",
+        "content": "Limited time offers"
+      },
+      {
+        "type": "checkbox",
+        "id": "limited_time_offers",
+        "label": "Enable limited time offers"
+      },
+      {
+        "type": "text",
+        "id": "limited_time_offers_title",
+        "label": "Title",
+        "default": "Special limited time offers"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Offer",
+        "type": "offer",
+        "settings": [
+          {
+            "type": "number",
+            "id": "value",
+            "label": "Value"
+          },
+          {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "text",
+            "id": "link_text",
+            "label": "Link text"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Url"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

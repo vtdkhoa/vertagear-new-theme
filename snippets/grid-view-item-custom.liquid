@@ -1,0 +1,24 @@
+{{ 'vertagear-collection-item.scss.css' | asset_url | stylesheet_tag }}
+{% include 'sca_freegift_price' with product %}
+
+<div class="grid-view-item">
+  <div name="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-collect" }} </div>
+  <div class="sca-fg-cat-list" style="display:none;" name="secomapp-fg-data-{{ product.id }}" prod-show='list'> </div>
+
+  <a class="collection-product-image" style="background-image:url('{{ product.featured_image.src | img_url: 'large' }}');background-repeat:no-repeat;background-size:cover;background-position:50% 50%;" href="{{ product.url | within: collection }}" class="grid__image grid__image__match">
+    <span rel="{{ product.id}}"><span>&nbsp;</span></span>
+  </a>
+
+<!--   <p class="product-grid--title product-grid--title-{{ product.id}}"> -->
+    <a class="product-headline-title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+  	<h4 class="product-headline-price">{{product.price| money }}</h4>
+    <div class="vertagear-jump-list-container">
+        <ul>
+          <li>
+            <a href="{{product.url | within: collection}}?view=buynow" class="vertagear-learn-more">Shop Now</a>
+          </li>
+        </ul>
+    </div>
+<!--   </p> -->
+  
+</div>

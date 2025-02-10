@@ -1,0 +1,55 @@
+<div class="page-faq">
+    <h1 class="page-faq__title vertagear-container">{{page.title}}</h1>
+  	<div class="page-faq__desc vertagear-container -small">
+       {{section.settings.desc}}
+    </div>
+    <div class="page-faq__container vertagear-container -small js-faq" data-length="{{section.blocks | size }}">
+        {% for block in section.blocks %}
+            <div class="page-faq__question">
+                <div class="page-faq__question-title" @click="modalChoose().toggle('current',{{forloop.index0}})">
+                    {{block.settings.title}}
+                    <div class="page-faq__question-arrow vertagear-icon -icon-down" :class="{'-active': current === {{forloop.index0}} }"></div>
+                </div>
+                <div class="page-faq__question-content" data-parent="{{forloop.index0}}" :class="{'-active': current === {{forloop.index0}} }">
+                    <div class="page-faq__question-content-inner" data-index="{{forloop.index0}}" >
+                        {{block.settings.desc}}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "FAQ",
+   "settings": [
+      {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Description",
+          "default": "<p>There are a few important things to keep in mind when returning a product you purchased online from Vertagear:<br><br>Vertagear retains the exclusive right to repair or replace (with a new or newly-overhauled replacement product) the product or offer a full refund of the purchase price at its sole discretion. <b>SUCH REMEDY SHALL BE YOUR SOLE AND EXCLUSIVE REMEDY FOR ANY BREACH OF WARRANTY.</b><br><br>To initiate the warranty service claim, please submit a support ticket request, and our customer service team will provide you with additional information and the Return Merchandise Authorization (RMA) number.</p>"
+      }
+  ],
+  "blocks":[ 
+      { 
+         "type":"text",
+         "name":"FAQ",
+         "settings":[ 
+            { 
+               "type":"text",
+               "id":"title",
+               "label":"Title",
+               "default":"Title"
+            },
+            {
+                "type": "richtext",
+                "id": "desc",
+                "label": "Description",
+				"default": "<p>Description</p>"
+            }
+         ]
+      }
+  ]
+  }
+{% endschema %}

@@ -1,0 +1,180 @@
+<style>
+  .engrave-logo-modal .nam-modal__content {
+    background: #fff;
+  }
+  .vertagear-custom-intro {
+      display: none !important;
+    }
+
+  @media screen and (max-width: 767px) { 
+    body {
+      overflow: unset !important;
+    }
+    #zakeke-container {
+      display: none;
+    }
+    #zakeke-container #zakeke-frame {
+      top: 50px !important;
+    }
+    .vertagear-custom-intro {
+      top: 104px !important;
+    }
+    .display-flex {
+      display: flex !important;
+    }
+  }
+</style>
+
+<div id="rgbModalEngraveLogo" class="nam-modal engrave-logo-modal" style="height: 0;">
+  <div class="nam-modal__wrapper">
+    <div class="nam-modal__background" onclick="namRgbModalEngraveLogoClose()"></div>
+    <div class="nam-modal__content">
+      <div class="nam-modal__content__header">
+        <button class="close-btn" onclick="namRgbModalEngraveLogoClose()"><img src="{{ 'ld-rgb-close-modal.svg' | asset_url }}" /></button>
+      </div>
+
+        <div>
+          <link
+            href="https://portal.zakeke.com/Content/css/integration/shopify/customizer.css?v=4"
+            rel="stylesheet"
+            type="text/css"
+            media="all"
+          />
+
+          <div id="zakeke-container"></div>
+
+          <form
+            id="zakeke-addtocart"
+            action="/cart/add"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <input type="hidden" name="id" />
+            <input type="hidden" name="quantity" />
+          </form>
+
+          <script src="https://portal.zakeke.com/Scripts/integration/shopify/customizer.js?v=6"></script>
+
+          <script>
+            window.zakekeTranslatedProduct = 0;
+          </script>
+
+          <script>
+            var zakekeCustomerId = false;
+
+            if (window.zakekeDesigner) {
+              zakekeDesigner({
+                zakekeUrl: "https://portal.zakeke.com/",
+                zakekeApiUrl: "https://api.zakeke.com/api/",
+                shop: "vertagear.myshopify.com",
+                priceHide: false,
+                variantsHide: false,
+                productAdvancedProcessing: false,
+                productId: 4635601240175,
+                variantId: 32306735644783,
+                design: null,
+                quantity: 1,
+                properties: {},
+                locale: "en",
+                customizationStrategy: 1,
+                directDownload: true,
+                sellingPlan: null,
+              });
+            } else {
+              let zakekeStartupInterval = setInterval(() => {
+                if (!window.zakekeDesigner) {
+                  return;
+                }
+
+                zakekeDesigner({
+                  zakekeUrl: "https://portal.zakeke.com/",
+                  zakekeApiUrl: "https://api.zakeke.com/api/",
+                  shop: "vertagear.myshopify.com",
+                  priceHide: false,
+                  variantsHide: false,
+                  productAdvancedProcessing: false,
+                  productId: 4635601240175,
+                  variantId: 32306735644783,
+                  design: null,
+                  quantity: 1,
+                  properties: {},
+                  locale: "en",
+                  customizationStrategy: 1,
+                  directDownload: true,
+                  sellingPlan: null,
+                });
+                clearInterval(zakekeStartupInterval);
+              }, 300);
+            }
+          </script>
+
+          <script id="tdf_pxrscript" class="tdf_script5">
+            Shopify = window.Shopify || {};
+            Shopify.shop = Shopify.shop || "vertagear.myshopify.com";
+          </script>
+          <script
+            src="https://d5zu2f4xvqanl.cloudfront.net/4/fe/loader_2.js?shop=vertagear.myshopify.com"
+            async=""
+          ></script>
+          <script>
+            !(function (t) {
+              var e = function (e) {
+                var n, a;
+                ((n = t.createElement("script")).type = "text/javascript"),
+                  (n.async = !0),
+                  (n.src = e),
+                  (a =
+                    t.getElementsByTagName(
+                      "script"
+                    )[0]).parentNode.insertBefore(n, a);
+              };
+              setTimeout(function () {
+                window.tdfInited ||
+                  ((window.altcdn = 1),
+                  e(
+                    "https://cdn.shopify.com/s/files/1/0013/1642/1703/t/1/assets/loader_2.js?shop=vertagear.myshopify.com"
+                  ));
+              }, 1689);
+            })(document);
+          </script>
+
+          <noscript class="endOfLayoutContentX" type="text/mark"></noscript>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  const rgbModalEngraveLogo = document.getElementById("rgbModalEngraveLogo");
+  const namRgbModalEngraveLogoClose = () => {
+    rgbModalEngraveLogo.style.height = "0px";
+
+    engraveMobileClose();
+
+    const body = document.getElementsByTagName("body")[0];
+    body.classList.remove("noscroll");
+  }
+  const namRgbModalEngraveLogoOpen = () => {
+    rgbModalEngraveLogo.style.height = "100vh";
+
+    engraveMobileOpen();
+
+    const body = document.getElementsByTagName("body")[0];
+    body.classList.add("noscroll");
+  }
+
+  // egrave on mobile
+  const engraveMobileClose = () => {
+    const zakekeContainer = document.getElementById("zakeke-container");
+    const engraveLogoCustomIntro = document.getElementsByClassName("vertagear-custom-intro")[0];
+    zakekeContainer.style.display = "none";
+    engraveLogoCustomIntro.classList.remove("display-flex");
+  }
+  const engraveMobileOpen = () => {
+    const zakekeContainer = document.getElementById("zakeke-container");
+    const engraveLogoCustomIntro = document.getElementsByClassName("vertagear-custom-intro")[0];
+    zakekeContainer.style.display = "block";
+    engraveLogoCustomIntro.classList.add("display-flex");
+  }
+</script>

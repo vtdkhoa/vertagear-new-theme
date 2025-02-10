@@ -1,0 +1,29 @@
+{% assign hasFeatures = false %}
+{% for block in section.blocks %}
+    {% if block.type == "vertagear-signatures" %}
+        {% assign hasFeatures = true %}
+    {% endif %}
+{% endfor %}
+{% if hasFeatures %}
+<div class="nam-product__key-features">
+    <div class="nam-product__key-features__title">VERTAGEAR SIGNATUREs</div>
+    <div class="nam-product__key-features__list">
+        {% for block in section.blocks %}
+            {% assign remainder = forloop.index0 | modulo: 2 %}
+            {% if remainder == 0 %}
+            <div class="row__key-features">
+                <div class="key-features {% if block.settings.emebed_youtube %}fe800-class{% endif %}" {% if block.settings.emebed_youtube %}data-youtube="{{ block.settings.emebed_youtube }}"{% endif %}>
+                    <h3 {% if block.settings.popup != "" %}class="js-popups" popip="{{ block.settings.popup }}"{% endif %}>{{ block.settings.title }}</h3>
+                    <p {% if block.settings.popup != "" %}class="js-popups" popip="{{ block.settings.popup }}"{% endif %}>{{ block.settings.content }} <span>See More</span></p>
+                </div>
+            {% else %}
+                <div class="key-features {% if block.settings.emebed_youtube %}fe800-class{% endif %}" {% if block.settings.emebed_youtube %}data-youtube="{{ block.settings.emebed_youtube }}"{% endif %}>
+                    <h3 {% if block.settings.popup != "" %}class="js-popups" popip="{{ block.settings.popup }}"{% endif %}>{{ block.settings.title }}</h3>
+                    <p {% if block.settings.popup != "" %}class="js-popups" popip="{{ block.settings.popup }}"{% endif %}>{{ block.settings.content }} <span>See More</span></p>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

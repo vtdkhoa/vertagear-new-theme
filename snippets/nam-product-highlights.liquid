@@ -1,0 +1,747 @@
+<link rel="stylesheet" href="{{ 'nam-product-highlights.css' | asset_url }}" />
+<link rel="stylesheet" href="{{ 'nam-product-features.css' | asset_url }}" />
+<link rel="stylesheet" href="{{ 'nam-product-carousel.css' | asset_url }}" />
+<link rel="stylesheet" href="{{ 'nam-product-spec.css' | asset_url }}" />
+<link rel="stylesheet" href="{{ 'nam-product-warranty.css' | asset_url }}" />
+<link rel="stylesheet" href="{{ 'nam-product-rgb-kit.css' | asset_url }}" />
+
+<link
+      rel="stylesheet"
+      href="{{ 'flickity-v2.3.0.css' | asset_url }}"
+      media="screen"
+    />
+<script src="{{ 'flickity-v2.3.0.js' | asset_url }} async defer"></script>
+
+<div class="nam-product-features">
+  <div class="display-mobile">
+    <div class="nam-product-feature__img-wrapper">
+      <img
+           id="namProductFeatureImg"
+           src="{{ 'nam-feature-rgb.jpeg' | asset_url }}"
+           alt="feature img"
+           />
+    </div>
+    <div class="nam-product-feature__text">
+      <div id="namProductFeatureTitle" class="nam-product-feature__title">
+        RGB Led Upgrade Kits
+      </div>
+      <div id="namProductFeatureDesc" class="nam-product-feature__desc">
+        The PL4500 is upgradable with a compatible RGB LED upgrade kit.
+        Elevate your gaming experience with the world’s first wirelessly
+        controlled RGB LED upgrade kit with interactive modes such as
+        audio and gameplay sync and 16.8 million colors to match your
+        mood.
+      </div>
+    </div>
+    <div class="nam-product-feature__actions">
+      <button class="nam-product-feature__action__explore nam-product-main-btn">
+        Explore
+      </button>
+      <div class="nam-product-feature__action__switch">
+        <button
+                class="nam-product-feature__action__switch__btn nam-product-main-btn"
+                >
+          <div class="nam-product-feature__action__btn-container">
+            <img src="{{ 'nam-feature-rgb-icon.svg' | asset_url }}" alt="btn icon" />
+            <div class="nam-product-feature__action__btn__text">
+              RGB Led Upgrade
+            </div>
+          </div>
+        </button>
+        <button
+                class="nam-product-feature__action__switch__btn nam-product-sec-btn"
+                >
+          <div class="nam-product-feature__action__btn-container">
+            <img src="{{ 'nam-feature-light-icon.svg' | asset_url }}" alt="btn icon" />
+            <div class="nam-product-feature__action__btn__text">
+              Light-up your logo
+            </div>
+          </div>
+        </button>
+        <button
+                class="nam-product-feature__action__switch__btn nam-product-sec-btn"
+                >
+          <div class="nam-product-feature__action__btn-container">
+            <img
+                 src="{{ 'nam-feature-hygennx-icon.svg' | asset_url }}"
+                 alt="btn icon"
+                 />
+            <div class="nam-product-feature__action__btn__text">HygennX</div>
+          </div>
+        </button>
+        <button
+                class="nam-product-feature__action__switch__btn nam-product-sec-btn"
+                >
+          <div class="nam-product-feature__action__btn-container">
+            <img
+                 src="{{ 'nam-feature-assembly-icon.svg' | asset_url }}"
+                 alt="btn icon"
+                 />
+            <div class="nam-product-feature__action__btn__text">
+              Effortless Assembly
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="namProductFeatureContainer" class="nam-product-feature-container display-desktop">
+    <video id="namProductFeatureVideo" class="nam-product-feature__video" autoplay muted loop>
+      <source src="https://cdn.shopify.com/videos/c/o/v/4b8d53d41e784e4ba1ed9b9770faf219.mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="nam-product-feature__content">
+      <div class="nam-product-feature__text">
+        <div id="namProductFeatureTitleDesk" class="nam-product-feature__title">
+          RGB Led Upgrade Kits
+        </div>
+        <div id="namProductFeatureDescDesk" class="nam-product-feature__desc">
+          The PL4500 is upgradable with a compatible RGB LED upgrade kit.
+          Elevate your gaming experience with the world’s first wirelessly
+          controlled RGB LED upgrade kit with interactive modes such as
+          audio and gameplay sync and 16.8 million colors to match your
+          mood.
+        </div>
+      </div>
+      <div class="nam-product-feature__actions">
+        <div class="nam-product-feature__action-wrapper">
+          <button
+                  class="nam-product-feature__action__switch__btn-desk nam-product-main-btn"
+                  >
+            <div class="nam-product-feature__action__btn-container">
+              <img src="{{ 'nam-feature-rgb-icon.svg' | asset_url }}" alt="btn icon" />
+              <div class="nam-product-feature__action__btn__text">
+                RGB Led Upgrade
+              </div>
+            </div>
+          </button>
+          <button style="display: block;" class="nam-product-feature__action__explore nam-product-feature__action__explore-desktop" onclick="namRgbModalOpen()">Explore</button>
+        </div>
+        <div class="nam-product-feature__action-wrapper">
+          <button
+                  class="nam-product-feature__action__switch__btn-desk nam-product-sec-btn"
+                  >
+            <div class="nam-product-feature__action__btn-container">
+              <img
+                   src="{{ 'nam-feature-light-icon.svg' | asset_url }}"
+                   alt="btn icon"
+                   />
+              <div class="nam-product-feature__action__btn__text">
+                Light-up your logo
+              </div>
+            </div>
+          </button>
+          <button class="nam-product-feature__action__explore nam-product-feature__action__explore-desktop"><a href="/products/pl4500-rgb-led-acrylic-personalized-service?variant=32306735644783" target="_blank">Explore</a></button>
+        </div>
+        <div class="nam-product-feature__action-wrapper">
+          <button
+                  class="nam-product-feature__action__switch__btn-desk nam-product-sec-btn"
+                  >
+            <div class="nam-product-feature__action__btn-container">
+              <img
+                   src="{{ 'nam-feature-hygennx-icon.svg' | asset_url }}"
+                   alt="btn icon"
+                   />
+              <div class="nam-product-feature__action__btn__text">HygennX</div>
+            </div>
+          </button>
+          <button class="nam-product-feature__action__explore nam-product-feature__action__explore-desktop" onclick="namOpenHygennPopup()">Explore</button>
+        </div>
+        <div class="nam-product-feature__action-wrapper">
+          <button
+                  class="nam-product-feature__action__switch__btn-desk nam-product-sec-btn"
+                  >
+            <div class="nam-product-feature__action__btn-container">
+              <img
+                   src="{{ 'nam-feature-assembly-icon.svg' | asset_url }}"
+                   alt="btn icon"
+                   />
+              <div class="nam-product-feature__action__btn__text">
+                Effortless Assembly
+              </div>
+            </div>
+          </button>
+          <button class="nam-product-feature__action__explore nam-product-feature__action__explore-desktop" data-youtube="https://www.youtube.com/embed/Vr_OXiEFJYA">Explore</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nam-carousel">
+  <div class="nam-carousel__title">Construction & Materials</div>
+
+  <div class="nam-carousel__slides display-mobile">
+    <div class="nam-carousel__slide" style="background-image: url('{{ 'nam-product-coma-foam.jpg' | asset_url }}')">
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">
+          UPHR Foam
+        </div>
+        <div id="namCarouselComaDesc" class="nam-carousel__slide__desc">
+          Our Ultra Premium High Resilience Foam boasts a density well above
+          industry standard. While standard High Resilience foam stands up
+          to approximately 2.5lbs per cubic foot, our UPHR foam can
+          withstand 62% more per cubic foot. The foam prolongs the lifespan
+          of the chair by preventing deformities from long periods of use,
+          inching it closest to the characteristics of memory foam.
+        </div>
+      </div>
+    </div>
+
+    <div class="nam-carousel__slide" style="background-image: url('{{ 'nam-product-coma-caster.jpeg' | asset_url }}')">
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">
+          Penta RS1 Caster
+        </div>
+        <div id="namCarouselComaDesc" class="nam-carousel__slide__desc">
+          The motorsports inspired style extends all the way down to the casters. Engineered to be carefree, the Penta RS1 Casters are coated with polyurethane (PU) for soft and smooth gliding on any surface. (Color matching chair)
+        </div>
+      </div>
+    </div>
+
+    <div class="nam-carousel__slide" style="background-image: url('{{ 'nam-product-coma-frame.jpeg' | asset_url }}')">
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">
+          Steel Frame
+        </div>
+        <div id="namCarouselComaDesc" class="nam-carousel__slide__desc">
+          The PL4500 is supported with an industrial-grade class-4 gas lift, providing the extra adjustability you need. Set the chair to your preferred height to keep you at an optimal level relative to your setup to prevent sore shoulders.
+        </div>
+      </div>
+    </div>
+
+    <div class="nam-carousel__slide" style="background-image: url('{{ 'nam-product-coma-puc.jpeg' | asset_url }}')">
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">
+          PUC
+        </div>
+        <div id="namCarouselComaDesc" class="nam-carousel__slide__desc">
+          PUC combines the best attributes of both PVC and PU faux-leather into one. It retains the durability of PVC for everyday use while maintaining the softness of PU for a low-maintenance solution without sacrificing comfort.
+        </div>
+      </div>
+    </div>
+
+    <div class="nam-carousel__slide" style="background-image: url('{{ 'nam-product-coma-base.jpeg' | asset_url }}')">
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">
+          Aluminum Alloy 5 Star Base
+        </div>
+        <div id="namCarouselComaDesc" class="nam-carousel__slide__desc">
+          As one of the critical support structure of the chair, the five star base is fabricated with aluminum alloy to provide stability, lightweight construction, and lasting durability, providing the necessary strength to ensure longevity.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+       class="nam-carousel-desk__slides js-flickity display-desktop"
+       data-flickity-options='{ "wrapAround": true }'
+       >
+    <div class="nam-carousel-desk__slide">
+      <img alt="slide" src="{{ 'nam-product-coma-foam-desk.jpeg' | asset_url }}" />
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">UPHR Foam</div>
+        <div class="nam-carousel__slide__desc">
+          Our Ultra Premium High Resilience Foam boasts a density well above
+          industry standard. While standard High Resilience foam stands up
+          to approximately 2.5lbs per cubic foot, our UPHR foam can
+          withstand 62% more per cubic foot. The foam prolongs the lifespan
+          of the chair by preventing deformities from long periods of use,
+          inching it closest to the characteristics of memory foam.
+        </div>
+      </div>
+      <div class="nam-carousel__slide__bg"></div>
+    </div>
+    <div class="nam-carousel-desk__slide">
+      <img alt="slide" src="{{ 'nam-product-coma-caster-desk.jpeg' | asset_url }}" />
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">Penta RS1 Caster</div>
+        <div class="nam-carousel__slide__desc">
+          The motorsports inspired style extends all the way down to the
+          casters. Engineered to be carefree, the Penta RS1 Casters are
+          coated with polyurethane (PU) for soft and smooth gliding on any
+          surface. (Color matching chair)
+        </div>
+      </div>
+    </div>
+    <div class="nam-carousel-desk__slide">
+      <img alt="slide" src="{{ 'nam-product-coma-frame-desk.jpeg' | asset_url }}" />
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">Steel Frame</div>
+        <div class="nam-carousel__slide__desc">
+          The integrated steel skeleton that forms the shape of the gaming
+          chair ensures long-term durability. The steel frame includes a
+          10-year warranty, keeping you secure and stable throughout any
+          intense gameplay.
+        </div>
+      </div>
+    </div>
+    <div class="nam-carousel-desk__slide">
+      <img alt="slide" src="{{ 'nam-product-coma-lift-desk.jpeg' | asset_url }}" />
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">Gas Lift</div>
+        <div class="nam-carousel__slide__desc">
+          The PL4500 is supported with an industrial-grade class-4 gas lift,
+          providing the extra adjustability you need. Set the chair to your
+          preferred height to keep you at an optimal level relative to your
+          setup to prevent sore shoulders.
+        </div>
+      </div>
+    </div>
+    <div class="nam-carousel-desk__slide">
+      <img alt="slide" src="{{ 'nam-product-coma-puc-desk.jpeg' | asset_url }}" />
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">PUC</div>
+        <div class="nam-carousel__slide__desc">
+          PUC combines the best attributes of both PVC and PU faux-leather
+          into one. It retains the durability of PVC for everyday use while
+          maintaining the softness of PU for a low-maintenance solution
+          without sacrificing comfort.
+        </div>
+      </div>
+    </div>
+    <div class="nam-carousel-desk__slide">
+      <img alt="slide" src="{{ 'nam-product-coma-base-desk.jpeg' | asset_url }}" />
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">
+          Aluminum Alloy 5 Star Base
+        </div>
+        <div class="nam-carousel__slide__desc">
+          As one of the critical support structure of the chair, the five
+          star base is fabricated with aluminum alloy to provide stability,
+          lightweight construction, and lasting durability, providing the
+          necessary strength to ensure longevity.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nam-carousel ergo">
+  <div class="nam-carousel__title">Posture Perfect Ergonomics</div>
+
+  <div class="nam-carousel__slides nam-carousel__ergo-slides display-mobile">
+    <div class="nam-carousel__slide" style="background-image: url('{{ 'nam-product-ergo-lumbar.jpeg' | asset_url }}')">
+      <div class="nam-carousel__slide__text">
+        <div id="namCarouselErgoTitle" class="nam-carousel__slide__title">
+          Lumbar Support & Neck Support
+        </div>
+        <div id="namCarouselErgoDesc" class="nam-carousel__slide__desc">
+          The PL4500 comes with our standard memory foam neck and lumbar support to give you the extra padding you need for any position. Both cushions are easily removable for increased adjustability and correct posture.
+        </div>
+      </div>
+    </div>
+
+    <div class="nam-carousel__slide" style="background-image: url('{{ 'nam-product-ergo-armrests.jpeg' | asset_url }}')">
+      <div class="nam-carousel__slide__text">
+        <div id="namCarouselErgoTitle" class="nam-carousel__slide__title">
+          Adjustable 3D Armrests
+        </div>
+        <div id="namCarouselErgoDesc" class="nam-carousel__slide__desc">
+          Adjustability extends to the armrests with 3-directional adjustments. The ergonomically designed armrests keep your forearms comfortable and steady regardless of body shape and habit to prevent sore shoulders.
+        </div>
+      </div>
+    </div>
+
+    <div class="nam-carousel__slide" style="background-image: url('{{ 'nam-product-ergo-backrest.jpeg' | asset_url }}')">
+      <div class="nam-carousel__slide__text">
+        <div id="namCarouselErgoTitle" class="nam-carousel__slide__title">
+          Adjustable Backrest
+        </div>
+        <div id="namCarouselErgoDesc" class="nam-carousel__slide__desc">
+          Features an independently adjustable backrest, allowing you to adjust the angle of your sitting position throughout your gaming sessions (up to 140 degrees).
+        </div>
+      </div>
+    </div>
+
+    <div class="nam-carousel__slide" style="background-image: url('{{ 'nam-product-ergo-tilt.jpeg' | asset_url }}')">
+      <div class="nam-carousel__slide__text">
+        <div id="namCarouselErgoTitle" class="nam-carousel__slide__title">
+          Adjustable Tilt with Locking System
+        </div>
+        <div id="namCarouselErgoDesc" class="nam-carousel__slide__desc">
+          The chair's tilt tension is easily adaptable to your body weight, allowing you to lean back with ease and comfort. The tilt mechanism is also engineered to be lockable in 4 different tilt positions.
+        </div>
+      </div>
+    </div>
+
+    <div class="nam-carousel__slide" style="background-image: url('{{ 'nam-product-ergo-height.jpeg' | asset_url }}')">
+      <div class="nam-carousel__slide__text">
+        <div id="namCarouselErgoTitle" class="nam-carousel__slide__title">
+          Adjustable Seat Height
+        </div>
+        <div id="namCarouselErgoDesc" class="nam-carousel__slide__desc">
+          Having a good range of height adjustment allows you to be at an optimal level relative to your desk and PC setup. Our chairs are ergonomically-designed to cater to a wide range of body shapes and height for long-lasting comfort.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+       class="nam-carousel-desk__slides js-flickity display-desktop"
+       data-flickity-options='{ "wrapAround": true }'
+       >
+    <div class="nam-carousel-desk__slide">
+      <img alt="slide" src="{{ 'nam-product-ergo-lumbar-desk.jpeg' | asset_url }}" />
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">
+          Lumbar Support & Neck Support
+        </div>
+        <div class="nam-carousel__slide__desc">
+          The PL4500 comes with our standard memory foam neck and lumbar
+          support to give you the extra padding you need for any position.
+          Both cushions are easily removable for increased adjustability and
+          correct posture.
+        </div>
+      </div>
+      <div class="nam-carousel__slide__bg"></div>
+    </div>
+    <div class="nam-carousel-desk__slide">
+      <img alt="slide" src="{{ 'nam-product-ergo-armrests-desk.jpeg' | asset_url }}" />
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">Adjustable 3D Armrests</div>
+        <div class="nam-carousel__slide__desc">
+          Adjustability extends to the armrests with 3-directional
+          adjustments. The ergonomically designed armrests keep your
+          forearms comfortable and steady regardless of body shape and habit
+          to prevent sore shoulders.
+        </div>
+      </div>
+    </div>
+    <div class="nam-carousel-desk__slide">
+      <img alt="slide" src="{{ 'nam-product-ergo-backrest-desk.jpeg' | asset_url }}" />
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">Adjustable Backrest</div>
+        <div class="nam-carousel__slide__desc">
+          Features an independently adjustable backrest, allowing you to
+          adjust the angle of your sitting position throughout your gaming
+          sessions (up to 140 degrees).
+        </div>
+      </div>
+    </div>
+    <div class="nam-carousel-desk__slide">
+      <img alt="slide" src="{{ 'nam-product-ergo-tilt-desk.jpeg' | asset_url }}" />
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">
+          Adjustable Tilt with Locking System
+        </div>
+        <div class="nam-carousel__slide__desc">
+          The chair's tilt tension is easily adaptable to your body weight,
+          allowing you to lean back with ease and comfort. The tilt
+          mechanism is also engineered to be lockable in 4 different tilt
+          positions.
+        </div>
+      </div>
+    </div>
+    <div class="nam-carousel-desk__slide">
+      <img alt="slide" src="{{ 'nam-product-ergo-height-desk.jpeg' | asset_url }}" />
+      <div class="nam-carousel__slide__text">
+        <div class="nam-carousel__slide__title">Adjustable Seat Height</div>
+        <div class="nam-carousel__slide__desc">
+          Having a good range of height adjustment allows you to be at an
+          optimal level relative to your desk and PC setup. Our chairs are
+          ergonomically-designed to cater to a wide range of body shapes and
+          height for long-lasting comfort.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nam-spec">
+  <div class="nam-spec__title">Specifications</div>
+
+  <div class="display-mobile">
+    <div class="nam-spec__info">
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">MODEL</div>
+        <div class="nam-spec__detail__data">VG-PL4500</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Colors</div>
+        <div class="nam-spec__detail__data">
+          Black, Black / Blue, Black / Purple, Black / Green, Black / Red,
+          Black / Black, White
+        </div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Max Load</div>
+        <div class="nam-spec__detail__data">180 kg /400 lb</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Materials</div>
+        <div class="nam-spec__detail__data">
+          Steel (frame), UPHR Foam, PUC Leather, Aluminum Alloy (base)
+        </div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Recommended Height</div>
+        <div class="nam-spec__detail__data">Up to 6’6”/ 200 cm</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Recommended Weight</div>
+        <div class="nam-spec__detail__data">Up to 260 lbs / 118 kg</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Package Dimension</div>
+        <div class="nam-spec__detail__data">
+          86 x 73 x 39 cm / 33.8 x 28.7 x 15.3 in
+        </div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">
+          Overall height (incl. base)
+        </div>
+        <div class="nam-spec__detail__data">
+          1310 - 1375 mm / 51.6 - 54.1 in
+        </div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Backrest Width (shoulder)</div>
+        <div class="nam-spec__detail__data">530 mm / 20.8 in</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Backrest Width (lumbar)</div>
+        <div class="nam-spec__detail__data">545 mm / 21.5 in</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Seat Width</div>
+        <div class="nam-spec__detail__data">535 mm / 21 in</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Seat Depth</div>
+        <div class="nam-spec__detail__data">445 mm / 17.5 in</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Net Weight</div>
+        <div class="nam-spec__detail__data">26.7 kg / 58.9 lb</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Gross Weight</div>
+        <div class="nam-spec__detail__data">31.6 kg / 70 lb</div>
+      </div>
+    </div>
+    <div class="nam-spec__img-wrapper">
+      <img alt="dimension" src="{{ 'nam-product-spec.jpeg' | asset_url }}" />
+    </div>
+  </div>
+
+  <div class="display-desktop">
+    <div class="nam-spec__info1">
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">MODEL</div>
+        <div class="nam-spec__detail__data">VG-PL4500</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Colors</div>
+        <div class="nam-spec__detail__data">
+          Black, Black / Blue, Black / Purple, Black / Green, Black / Red,
+          Black / Black, White
+        </div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Max Load</div>
+        <div class="nam-spec__detail__data">180 kg /400 lb</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Materials</div>
+        <div class="nam-spec__detail__data">
+          Steel (frame), UPHR Foam, PUC Leather, Aluminum Alloy (base)
+        </div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Recommended Height</div>
+        <div class="nam-spec__detail__data">Up to 6’6”/ 200 cm</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Recommended Weight</div>
+        <div class="nam-spec__detail__data">Up to 260 lbs / 118 kg</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Package Dimension</div>
+        <div class="nam-spec__detail__data">
+          86 x 73 x 39 cm / 33.8 x 28.7 x 15.3 in
+        </div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">
+          Overall height (incl. base)
+        </div>
+        <div class="nam-spec__detail__data">
+          1310 - 1375 mm / 51.6 - 54.1 in
+        </div>
+      </div>
+    </div>
+    <div class="nam-spec__info-and-img">
+      <div class="nam-spec__info2">
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">
+            Backrest Width (shoulder)
+          </div>
+          <div class="nam-spec__detail__data">530 mm / 20.8 in</div>
+        </div>
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">Backrest Width (lumbar)</div>
+          <div class="nam-spec__detail__data">545 mm / 21.5 in</div>
+        </div>
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">Seat Width</div>
+          <div class="nam-spec__detail__data">535 mm / 21 in</div>
+        </div>
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">Seat Depth</div>
+          <div class="nam-spec__detail__data">445 mm / 17.5 in</div>
+        </div>
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">Net Weight</div>
+          <div class="nam-spec__detail__data">26.7 kg / 58.9 lb</div>
+        </div>
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">Gross Weight</div>
+          <div class="nam-spec__detail__data">31.6 kg / 70 lb</div>
+        </div>
+      </div>
+      <img alt="dimension" src="{{ 'nam-product-spec.jpeg' | asset_url }}" />
+    </div>
+  </div>
+</div>
+
+<div class="nam-warranty-bg">
+  <div class="nam-warranty-content">
+    <div class="nam-warranty__title">Warranty</div>
+    <div class="nam-warranty__info">
+      <div class="nam-warranty__info__each">
+        <div class="title">VERTAGEAR Racing Series Chair Parts 2</div>
+        <div class="data">10 Year Limited Warranty</div>
+      </div>
+      <div class="nam-warranty__info__each">
+        <div class="title">Metal Structure Frame</div>
+        <div class="data">10 Year Warranty</div>
+      </div>
+      <div class="nam-warranty__info__each">
+        <div class="title">Seat Mechanism</div>
+        <div class="data">02 Year Warranty</div>
+      </div>
+      <div class="nam-warranty__info__each">
+        <div class="title">Arm Rest</div>
+        <div class="data">02 Year Warranty</div>
+      </div>
+      <div class="nam-warranty__info__each">
+        <div class="title">Wheels</div>
+        <div class="data">10 Year Limited Warranty</div>
+      </div>
+      <div class="nam-warranty__info__each">
+        <div class="title">Headrest/Lumbar Support Pillows</div>
+        <div class="data">10 Year Warranty</div>
+      </div>
+      <div class="nam-warranty__info__each">
+        <div class="title">Five Star Base</div>
+        <div class="data">02 Year Warranty</div>
+      </div>
+      <div class="nam-warranty__info__each">
+        <div class="title">Gas Lift</div>
+        <div class="data">02 Year Warranty</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nam-rgb-kit">
+  <div class="nam-rgb-kit__header">
+    <div class="title">How to control RGB LED KIT</div>
+    <div class="extra-title">Just one in Two applications</div>
+    <div class="desc">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </div>
+  </div>
+
+  <div class="nam-carousel__slides nam-carousel__software-slides display-mobile">
+    <div  class="nam-carousel__slide" style="background-image: url('{{ 'ld-rgb-software-1.2.jpg' | asset_url }}')">
+      <div class="nam-carousel__slide__bg-blur">
+        <div class="nam-carousel__slide__text">
+          <div class="nam-carousel__slide__title">
+            Full Range Of Light With SignalRGB
+          </div>
+          <div id="namCarouselComaDesc" class="nam-carousel__slide__desc">
+            Match your battlestation to your desired ambiance for every
+            occasion. Enjoy true freedom to customize light modes, color
+            combinations, all at a push of a button.
+          </div>
+          <button class="nam-rgb-kit__btn nam-product-main-btn">
+            Learn More
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div  class="nam-carousel__slide" style="background-image: url('{{ 'ld-rgb-software-2.2.jpg' | asset_url }}')">
+      <div class="nam-carousel__slide__bg-blur">
+        <div class="nam-carousel__slide__text">
+          <div class="nam-carousel__slide__title">
+            NZXT cam RGB Application
+          </div>
+          <div id="namCarouselComaDesc" class="nam-carousel__slide__desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            qui officia deserunt mollit...
+          </div>
+          <button class="nam-rgb-kit__btn nam-product-main-btn">
+            Learn More
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-desktop">
+    
+  <div class="nam-rgb-kit__apps">
+    <div class="each1">
+      <div class="wrapper">
+        <div class="content">
+          <div class="title">Full Range Of Light With SignalRGB</div>
+          <div class="desc">
+            Match your battlestation to your desired ambiance for every
+            occasion. Enjoy true freedom to customize light modes, color
+            combinations, all at a push of a button.
+          </div>
+          <div class="actions">
+            <a href="#" class="download nam-product-main-btn">
+              <img src="{{ 'window-icon.svg' | asset_url }}" />
+              Download Application
+            </a>
+            <a href="#" class="learn">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="each2">
+      <div class="wrapper">
+        <div class="content">
+          <div class="title">NZXT cam RGB Application</div>
+          <div class="desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            qui officia deserunt mollit...
+          </div>
+          <div class="actions">
+            <a href="#" class="download nam-product-main-btn">
+              <img src="{{ 'window-icon.svg' | asset_url }}" />
+              Download Application
+            </a>
+            <a href="#" class="learn">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<script src="{{ 'nam-product-features.js' | asset_url }}" ></script>
+<script src="{{ 'nam-product-carousel.js' | asset_url }}" async ></script>

@@ -1,0 +1,80 @@
+<div class="collection-top">
+  	{% if collection.metafields.custom_fields["top_title"] != blank  %}
+  		  {% assign full_image_banner = collection.metafields.custom_fields["banner"] %}
+          {% assign full_image_title = collection.metafields.custom_fields["top_title"] %}
+          {% assign full_image_banner = collection.metafields.custom_fields["banner"] %}
+          {% assign full_image_banner_mobile = collection.metafields.custom_fields["banner_mobile"] %}
+          {% assign full_image_desc = collection.metafields.custom_fields["top_description"] %}
+          {% assign mobile_text_position = 'top' %}
+          {% assign text_position = 'left' %}
+          {% assign bannerTypeString = 'image' %}
+          {% include 'full-image-section-single', 
+                   full_image_title,
+                   full_image_banner,
+                   full_image_banner_mobile,
+                   full_image_desc,
+                   mobile_text_position,
+                   text_position,
+                   bannerTypeString
+          %}
+  	{% else %}
+    <div class="collection-top__inner">
+      	{% if collection.metafields.custom_fields["banner"] != blank %}
+        <div class="collection-top__bg" {% if collection.metafields.custom_fields["youtube_link"] != blank %} data-youtube="{{collection.metafields.custom_fields["youtube_link"]}}" {% endif %}>
+          	{% if collection.metafields.custom_fields["youtube_link"] != blank %}
+            <div class="collection-top__bg-play play-btn"></div>
+          	{% endif %}
+          	<picture>
+        		<source srcSet="{{collection.metafields.custom_fields["banner"]}}" media="(min-width: 768px)">
+        		<source srcSet="{{collection.metafields.custom_fields["banner_mobile"]}}" media="(max-width: 767px)">
+        		<img src="{{collection.metafields.custom_fields["banner"]}}" loading="lazy" class="collection-top__bg-img" alt="">
+    		</picture>
+        </div>
+      	{% endif %}
+        <div class="vertagear-container collection-top__container">
+            <div class="collection-top__box">
+                <div class="collection-top__type">
+                    {{collection.metafields.custom_fields["slogan"]}}
+                </div>
+                <div class="collection-top__title">
+                    {{collection.title}}
+                </div>
+                {% if collection.metafields.custom_fields["features"] != blank %}
+                <ul class="collection-top__ul">
+                  	{% for item in  collection.metafields.custom_fields["features"] %}
+                        <li class="collection-top__li">
+                          	<div class="collection-top__li-icon vertagear-icon -icon-v"></div>
+                            <div class="collection-top__li-text">{{ item["features"] }}</div>
+                        </li>
+					{% endfor %}
+                </ul>
+              	{% endif %}
+                <a class="collection-top__btn vertagear-btn -white" href="#collection-product">
+                  	
+                  	{% if collection.title contains 'Accessories' %}
+                    	FIND YOUR PARTS
+                    {% elsif collection.title contains 'RGB LED Updgrade Kit' %}
+                  		Start upgrade
+                  	{% else %}
+                  		FIND YOUR CHAIR
+                  	{% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+  	{% endif %}
+</div>
+{% if collection.title contains 'FaZe Clan'%}
+{% if  collection.metafields.custom_fields["fazeclan_banner"] &&  collection.metafields.custom_fields["fazeclan_banner_mobile"] %}
+  <div class="faze-banner">
+      <picture>
+
+          <source srcSet="{% render 'cf-image' with image: collection.metafields.custom_fields["fazeclan_banner"], print: 'url' %}" media="(min-width: 768px)">
+          <source srcSet="{% render 'cf-image' with image: collection.metafields.custom_fields["fazeclan_banner_mobile"], print: 'url' %}" media="(max-width: 767px)">
+          <img src="{% render 'cf-image' with image: collection.metafields.custom_fields["fazeclan_banner"], print: 'url' %}" alt="FaZe Clan" loading="lazy">
+      </picture>
+  </div>
+{% endif %}
+{% endif %}
+
+

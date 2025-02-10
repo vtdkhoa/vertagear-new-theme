@@ -1,0 +1,84 @@
+<!-- owl carousel sl5000 media quote -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<style type="text/css">
+  .media-quote__container{
+    padding:0 20px;
+  }
+  .media-quote__image{
+    margin-bottom:24px;
+  }
+  .media-quote__text{
+    text-align:center;
+  }
+  .dimension-section {
+      padding: 100px 6.7708333333vw 0 3.3854166667vw !important;
+  }
+  .media-quote__image img{
+    width: auto !important;
+    margin:0 auto;
+  }
+</style>
+
+{% if product.metafields.custom_fields["product_slogan_image"] != blank or product.metafields.custom_fields["product_slogan_text"] != blank %}
+    <div class="dimension-section" style="display:none">
+        <div class="dimension-section__container">
+            {% if product.metafields.custom_fields["product_slogan_text"] != blank %}
+            <div class="dimension-section__text">{{product.metafields.custom_fields["product_slogan_text"]}}</div>
+            {% endif %}
+            {% if product.metafields.custom_fields["product_slogan_image"] != blank  %}
+            <div class="dimension-section__img"><img class="dimension-section__img-inner" src="{{ product.metafields.custom_fields["product_slogan_image"] }}" alt="{{ product.metafields.custom_fields["product_slogan_image_alt_text"] }}"></div>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+
+<div class="dimension-section">
+
+{% if product.metafields.custom_fields["media_quote"] != blank %}
+	<div class="owl-carousel owl-theme">
+    {% for item in product.metafields.custom_fields["media_quote"] %}
+      	<div>          
+          <div class="media-quote__container">
+            
+            {% if item.image != blank %}
+            	<div class="media-quote__image"><img class="" src="{{ item.image }}" alt=""></div>
+            {% endif %}
+            
+            {% if item.title != blank %}
+              <div class="media-quote__text">
+                {{ item.title }}
+              </div>
+              {% endif %}
+            
+          </div>
+      	</div>             
+    {% endfor %}
+    </div>
+{% endif %}
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:0,
+    nav:false,
+    autoplay:true,
+    autoplayTimeout:3000,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    }
+})
+});
+</script>

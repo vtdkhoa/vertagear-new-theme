@@ -1,0 +1,66 @@
+let ldSlideIndex = 0;
+        ldShowSlides();
+
+        function ldShowSlides() {
+            let i;
+            let slides = document.getElementsByClassName("ld-reason__why__slide");
+            let dots = document.getElementsByClassName("ld-reason__why__slide__control");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            ldSlideIndex++;
+            if (ldSlideIndex > slides.length) { ldSlideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" ld-reason__why__dot-active", "");
+            }
+            slides[ldSlideIndex - 1].style.display = "block";
+            dots[ldSlideIndex - 1].className += " ld-reason__why__dot-active";
+            setTimeout(ldShowSlides, 4000); 
+        }
+
+function ldPreloadImages(array) {
+    if (!ldPreloadImages.list) {
+        ldPreloadImages.list = [];
+    }
+    var list = ldPreloadImages.list;
+    for (var i = 0; i < array.length; i++) {
+        var img = new Image();
+        img.onload = function() {
+            var index = list.indexOf(this);
+            if (index !== -1) {
+                // remove image from the array once it's loaded
+                // for memory consumption reasons
+                list.splice(index, 1);
+            }
+        }
+        list.push(img);
+        img.src = array[i];
+    }
+}
+
+ldPreloadImages([
+  "{{ 'ld-banner-chair1-mobile-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair2-mobile-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair3-mobile-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair4-mobile-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair5-mobile-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair6-mobile-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair7-mobile-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair8-mobile-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair9-mobile-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair10-mobile-compressed-updated.png' | asset_url }}",
+  "{{ 'ld-banner-chair11-mobile-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair12-mobile-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair1-desktop-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair2-desktop-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair3-desktop-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair4-desktop-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair5-desktop-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair6-desktop-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair7-desktop-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair8-desktop-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair9-desktop-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair10-desktop-compressed-updated.png' | asset_url }}",
+  "{{ 'ld-banner-chair11-desktop-compressed.png' | asset_url }}",
+  "{{ 'ld-banner-chair12-desktop-compressed.png' | asset_url }}",
+]);

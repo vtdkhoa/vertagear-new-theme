@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="{{ 'ld-rgb-v2-rgb-features.css' | asset_url }}">
+  <div class="nam-features f800-featurescontents">
+    <div class="display-on-mobile">
+      <div class="nam-feature__img-wrapper">
+        <img id="namFeatureImg" src="{{ 'ld-rgb-feature-1.jpeg' | asset_url }}" alt="feature img" />
+      </div>
+      <div class="nam-feature__text">
+        <div id="namFeatureTitle" class="nam-feature__title">
+          Sync Your Game and Audio
+        </div>
+        <div id="namFeatureDesc" class="nam-feature__desc">
+          Blast or destroy, bass or highs—those around you will vibe to the sounds of your gameplay and music through
+          your lights. The party starts with your every move.
+        </div>
+      </div>
+      <div class="nam-feature__actions">
+        <a id="ldRgbExploreBtn" href="#ldRgbCarouselFeature" class="nam-feature__action__explore nam-product-main-btn">
+          Explore
+        </a>
+        <div class="nam-feature__action__switch">
+          <button class="nam-feature__action__switch__btn nam-product-main-btn">
+            <div class="nam-feature__action__btn-container">
+              <img src="{{ 'ld-rgb-feature-1-icon.svg' | asset_url }}" alt="btn icon" />
+              <div class="nam-feature__action__btn__text">
+                Sync Your Game and Audio
+              </div>
+            </div>
+          </button>
+          <button class="nam-feature__action__switch__btn nam-product-sec-btn">
+            <div class="nam-feature__action__btn-container">
+              <img src="{{ 'ld-rgb-feature-2-icon.svg' | asset_url }}" alt="btn icon" />
+              <div class="nam-feature__action__btn__text">
+                Light Up Your Logo
+              </div>
+            </div>
+          </button>
+          <button class="nam-feature__action__switch__btn nam-product-sec-btn">
+            <div class="nam-feature__action__btn-container">
+              <img src="{{ 'ld-rgb-feature-3-icon.svg' | asset_url }}" alt="btn icon" />
+              <div class="nam-feature__action__btn__text">Simple Controls via SignalRGB</div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="namFeatureContainer" class="nam-feature-container display-on-desktop">
+      <div class="feature__bg feature__bg1"></div>
+      <div class="feature__bg feature__bg2" style="display: none;"></div>
+      <div class="feature__bg feature__bg3" style="display: none;"></div>
+
+      <div class="nam-feature__content">
+
+        <div class="nam-feature__text">
+          <div id="namFeatureTitleDesk" class="nam-feature__title">
+            Sync Your Game <br class="mb-hide" /> and Audio
+          </div>
+          <div id="namFeatureDescDesk" class="nam-feature__desc">
+            Blast or destroy, bass or highs—those around you will vibe to the sounds of your gameplay and music through
+            your lights. The party starts with your every move.
+          </div>
+        </div>
+        <div class="nam-feature__actions">
+          <div class="nam-feature__action-wrapper active">
+            <button class="nam-feature__action__switch__btn-desk nam-feature-fade-btn">
+              <div class="nam-feature__action__btn-container">
+                {% include "ld-rgb-feature-icon-1" %}
+                <div class="nam-feature__action__btn__text">
+                  Sync Your Game and Audio
+                </div>
+              </div>
+            </button>
+            <a href="#ldRgbCarouselFeature" style="display: flex;"
+              class="nam-product-main-btn nam-feature__action__explore nam-feature__action__explore-desktop">Explore</a>
+          </div>
+          <div class="nam-feature__action-wrapper">
+            <button class="nam-feature__action__switch__btn-desk nam-feature-fade-btn">
+              <div class="nam-feature__action__btn-container">
+                {% include "ld-rgb-feature-icon-2" %}
+                <div class="nam-feature__action__btn__text">
+                  Light Up Your Logo
+                </div>
+              </div>
+            </button>
+            <a href="#ldRgbLightLogo"
+              class="nam-product-main-btn nam-feature__action__explore nam-feature__action__explore-desktop">Explore</a>
+          </div>
+          <div class="nam-feature__action-wrapper">
+            <button class="nam-feature__action__switch__btn-desk nam-feature-fade-btn">
+              <div class="nam-feature__action__btn-container">
+                {% include "ld-rgb-feature-icon-3" %}
+                <div class="nam-feature__action__btn__text">Simple Controls via SignalRGB</div>
+              </div>
+            </button>
+            <a href="#ldRgbApps"
+              class="nam-product-main-btn nam-feature__action__explore nam-feature__action__explore-desktop">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

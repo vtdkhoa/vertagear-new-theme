@@ -1,0 +1,30 @@
+const vntBottomReviews = document.getElementById("bottom-review");
+vntBottomReviews.style.display = "none";
+
+// const vntGiftCardImage = document.getElementById("vntGiftCardImage");
+// vntGiftCardImage.src = "{{ 'gift-card-mobile.jpg' | asset_url }}";
+// const vntScreenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+// if (vntScreenWidth >= 768) {
+//   vntGiftCardImage.src = "{{ 'gift-card-desktop.jpg' | asset_url }}";
+// }
+
+// const vntScreenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+// if (vntScreenWidth >= 768) {
+//   const vntGiftCardVideo = document.getElementById("vntGiftCardVideo");
+//   vntGiftCardVideo.src = "{{ 'gift-card-desktop.mp4' | asset_url }}";
+// }
+
+const vntGiftCardHow = document.getElementById("vntGiftCardHow");
+const vntNewEditTop = document.getElementById("new-edit-top");
+vntNewEditTop.appendChild(vntGiftCardHow);
+
+const vntGiftCardIcon1 = document.getElementById("vnt-giftcard-icon1");
+const vntGiftCardIcon2 = document.getElementById("vnt-giftcard-icon2");
+const vntGiftCardIcon3 = document.getElementById("vnt-giftcard-icon3");
+const vntGiftCardIcon4 = document.getElementById("vnt-giftcard-icon4");
+const vntGiftCardIcon5 = document.getElementById("vnt-giftcard-icon5");
+vntGiftCardIcon1.src = "{{ 'giftcard-icon1-purple.svg' | asset_url }}";
+vntGiftCardIcon2.src = "{{ 'giftcard-icon2-purple.svg' | asset_url }}";
+vntGiftCardIcon3.src = "{{ 'giftcard-icon3-purple.svg' | asset_url }}";
+vntGiftCardIcon4.src = "{{ 'giftcard-icon4-purple.svg' | asset_url }}";
+vntGiftCardIcon5.src = "{{ 'giftcard-icon5-purple.svg' | asset_url }}";

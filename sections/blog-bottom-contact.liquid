@@ -1,0 +1,36 @@
+<div class="blog-bottom-contact">
+    <div class="vertagear-container -small blog-bottom-contact__container">
+        <div class="blog-bottom-contact__left">
+            <div class="blog-bottom-contact__title">
+                VERTAGEAR NEWS ALERTS
+            </div>
+            <div class="blog-bottom-contact__desc">
+                To receive updates on all of the latest Vertagear products, events, and News, enter your email here.
+            </div>
+            {% form 'customer' %}
+            {{ form.errors | default_errors }}
+            {% if form.posted_successfully? %}
+            <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+            {% else %}
+            <div class="blog-bottom-contact__form">
+                <input type="text" class="blog-bottom-contact__form-input" name="contact[email]" value="{% if customer %}{{ customer.email }}{% endif %}" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}">
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <button type="submit" class="blog-bottom-contact__form-submit ccm-input-submit" data-enabled="enabled">
+                    <img src="{{'send.svg' | asset_url }}" alt="" class="blog-bottom-contact__form-submit-img">
+                </button>
+            </div>
+            {% endif %}
+            {% endform %}
+        </div>
+        <div class="blog-bottom-contact__right">
+            <div class="blog-bottom-contact__title">
+                MEDIA CONTACT
+            </div>
+            <div class="blog-bottom-contact__desc">
+                For General inquiries please reach out to
+            </div>
+            <a class="blog-bottom-contact__link" href="mailto:mediarelations@vertagear.com">mediarelations@vertagear.com</a>
+        </div>
+    </div>
+</div>
+<!-- TODO 串接電子報 -->

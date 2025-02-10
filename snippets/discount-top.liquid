@@ -1,0 +1,21 @@
+<div class="page-warranty__top">
+  	<picture>
+        <source srcSet="{{ banner | img_url : 'master' }}" media="(min-width: 768px)">
+        <source srcSet="{{ banner_m | img_url : 'master' }}" media="(max-width: 767px)">
+      	<img src='{{banner | img_url : 'master' }}' class="page-warranty__top-bg" alt>
+    </picture>
+    <div class="vertagear-container page-warranty__top-text">
+        <div class="page-warranty__top-slogan">
+            {{slogan}}
+        </div>
+        <h1 class="page-warranty__top-title">
+            {{title}}
+        </h1>
+        <div class="page-warranty__top-desc">
+            {{desc}}
+        </div>
+        <div class="page-warranty__top-btn-box">
+            <a href="https://www.vertagear.com/collections/promotion" class="page-warranty__top-btn vertagear-btn -blue">GET DISCOUNT</a>
+        </div>
+    </div>
+</div>

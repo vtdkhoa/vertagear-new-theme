@@ -1,0 +1,162 @@
+{% render 'product-compare' %}
+
+<script>
+  const apfCompareData = {
+  tableHead: [
+    { imgSrc: "https://cdn.shopify.com/s/files/1/1759/4609/files/apf-compare-sl3800.png?v=1658552180", title: "SL3800" },
+    { imgSrc: "https://cdn.shopify.com/s/files/1/1759/4609/files/apf-compare-sl5800.png?v=1658552180", title: "SL5800" },
+    { imgSrc: "https://cdn.shopify.com/s/files/1/1759/4609/files/apf-compare-pl4800.png?v=1658552180", title: "PL4800" },
+    { imgSrc: "https://cdn.shopify.com/s/files/1/1759/4609/files/apf-compare-pl6800.png?v=1658552180", title: "PL6800" },
+  ],
+  tableBody: {
+    lumbar: {
+      id: "apfTableLumbarRow",
+      cellType: "checkbox",
+      value: [true, true, true, true],
+    },
+    seat: {
+      id: "apfTableSeatRow",
+      cellType: "checkbox",
+      value: [true, true, true, true],
+    },
+    rgb: {
+      id: "apfTableRgbRow",
+      cellType: "checkbox",
+      value: [false, true, true, false],
+    },
+    hygennX: {
+      id: "apfTableHygennxRow",
+      cellType: "checkbox",
+      value: [true, true, true, true],
+    },
+    heavyDutyBase: {
+      id: "apfTableHeavyDutyBaseRow",
+      cellType: "checkbox",
+      value: [false, true, true, true],
+    },
+    puc: {
+      id: "apfTablePucRow",
+      cellType: "checkbox",
+      value: [true, true, true, true],
+    },
+    effortlessAssembly: {
+      id: "apfTableEffortlessAssemblyRow",
+      cellType: "checkbox",
+      value: [true, true, true, true],
+    },
+    steelFrame: {
+      id: "apfTableSteelFrameRow",
+      cellType: "checkbox",
+      value: [true, true, true, true],
+    },
+    uphrFoam: {
+      id: "apfTableUphrFoamRow",
+      cellType: "checkbox",
+      value: [true, true, true, true],
+    },
+    fiveStarBase: {
+      id: "apfTable5StarBaseRow",
+      cellType: "text",
+      value: ["Metal", "Aluminum Alloy", "Aluminum Alloy", "Aluminum Alloy"],
+    },
+    pentarCaster: {
+      id: "apfTableCasterRow",
+      cellType: "text",
+      value: ["65mm / 2.5”", "65mm / 2.5”", "65mm / 2.5”", "65mm / 2.5”"],
+    },
+    armrest: {
+      id: "apfTableArmrestRow",
+      cellType: "text",
+      value: ["3D", "4D", "4D", "4D"],
+    },
+    gasLift: {
+      id: "apfTableGasLiftRow",
+      cellType: "text",
+      value: ["Class4", "Class4", "Class4", "Class4"],
+    },
+    rcmdWeight: {
+      id: "apfTableRcmdWeightRow",
+      cellType: "text",
+      value: [
+        "183cm / 5’10”",
+        "183cm / 6’",
+        "175cm-198cm / 5’9”-6’6”",
+        "175cm-203cm / 5’9”-6’8”",
+      ],
+    },
+    rcmdHeight: {
+      id: "apfTableRcmdHeightRow",
+      cellType: "text",
+      value: [
+        "100kg / 220lb",
+        "113kg / 250lb",
+        "163kg / 360lb",
+        "181kg / 400lb",
+      ],
+    },
+  },
+  tableFooter: {
+    shopNowLinks: ["#shopify-section-sl3800-info", "/products/sl5800", "/products/pl4800-ergonomic-gaming-chair", "/products/pl6800-big-and-tall-ergonomic-gaming-chair"],
+  },
+};
+
+const apfRenderRow = (rowId, cellChild) => {
+  const rowElement = document.getElementById(rowId);
+  rowElement.appendChild(cellChild);
+};
+
+const apfTableHeadRowElm = document.getElementById("apfTableHeadRow");
+const apfTableHeadData = apfCompareData.tableHead;
+for (let i = 0; i < apfTableHeadData.length; i++) {
+  const thElement = document.createElement("th");
+  if (i === 0) {
+    thElement.classList.add("apf-highlight");
+  }
+  thElement.innerHTML = `
+    <div class="header">
+    <img
+    class="display-desktop"
+    src="${apfTableHeadData[i].imgSrc}"
+    />
+    <div class="text">${apfTableHeadData[i].title}</div>
+    </div>
+    `;
+  apfRenderRow("apfTableHeadRow", thElement);
+}
+
+const apfTableBodyData = apfCompareData.tableBody;
+for (const key in apfTableBodyData) {
+  if (Object.hasOwnProperty.call(apfTableBodyData, key)) {
+    const row = apfTableBodyData[key];
+    const { value, id, cellType } = row;
+
+    value.forEach((data, index) => {
+      const element = document.createElement("td");
+      if (index === 0) {
+        element.classList.add("apf-highlight");
+      }
+
+      let cellValue;
+      if (cellType === "checkbox")
+        cellValue = data ? '<img src="https://cdn.shopify.com/s/files/1/1759/4609/files/apf-check_df334c51-9101-4791-85ac-fc52db642e3a.svg?v=1658552180" />' : "";
+      if (cellType === "text") cellValue = data;
+
+      element.innerHTML = `
+            <div class="data">
+                ${cellValue}
+            </div>
+        `;
+      apfRenderRow(id, element);
+    });
+  }
+}
+
+const apfFooterShowNowElms = document
+  .getElementById("apfTableShopNowRow")
+  .getElementsByClassName("shop-now-btn");
+for (let i = 0; i < apfFooterShowNowElms.length; i++) {
+  const element = apfFooterShowNowElms[i];
+  element.href = apfCompareData.tableFooter.shopNowLinks[i];
+}
+
+</script>

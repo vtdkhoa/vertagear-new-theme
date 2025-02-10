@@ -1,0 +1,60 @@
+<style>
+  .fe800-usable__item {
+    display: flex;
+    padding: 128px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .fe800-usable__item img {
+    width: 902px;
+    height: 508px;
+    border-radius: 16px;
+  }
+  .playing {
+    background: linear-gradient(180deg, #f6f6f6 0%, #d1d1d1 35.48%);
+  }
+  .playing img {
+    content: url('../assets/new-fe800-usable-playing.png');
+  }
+  .streaming,
+  .working {
+    background: #d1d1d1;
+  }
+  .studying {
+    background: linear-gradient(0deg, #f6f6f6 -0.04%, #d1d1d1 64.52%);
+  }
+  .streaming img {
+    content: url('../assets/new-fe800-usable-streaming.png');
+  }
+  .working img {
+    content: url('../assets/new-fe800-usable-working.png');
+  }
+  .studying img {
+    content: url('../assets/new-fe800-usable-studying.png');
+  }
+  @media (max-width: 576px) {
+    .fe800-usable__item {
+      padding: 64px 16px;
+    }
+    .fe800-usable__item img {
+      width: auto;
+      height: auto;
+    }
+  }
+</style>
+
+<div class="fe800-usable__container">
+  <div class="fe800-usable__item playing">
+    <img alt="usable-playing" width="" height="">
+  </div>
+  <div class="fe800-usable__item streaming">
+    <img alt="usable-streaming" width="" height="">
+  </div>
+  <div class="fe800-usable__item working">
+    <img alt="usable-working" width="" height="">
+  </div>
+  <div class="fe800-usable__item studying">
+    <img alt="usable-studying" width="" height="">
+  </div>
+</div>

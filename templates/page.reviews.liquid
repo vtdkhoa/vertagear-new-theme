@@ -1,0 +1,18 @@
+{{ 'reviews-page.scss.css' | asset_url | stylesheet_tag }}
+
+{{ 'reviews.js' | asset_url | script_tag }}
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+<div class="page-reviews reviews">
+  
+  {% section 'press-reviews'%}
+  {% section 'youtube-reviews'%}
+  {% section 'award-reviews' %}
+  {% section 'esport-reviews' %}
+  {% section 'other-reviews' %}
+  {% section 'youtube-reviews-2'%}
+  {% section 'customer-reviews' %}
+
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

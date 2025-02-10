@@ -1,0 +1,545 @@
+$mobile-breakpoint: 768px;
+$dekstop-breakpoint: 1024px;
+$fhd-breakpoint: 1680px;
+
+.collection-header{
+  	height: 200px;
+    width: 100%;
+  	background-image: url("{{ 'NEW3-sline-header.jpg' | asset_url }}"); 
+    background-repeat: no-repeat;    
+  	background-position: center;
+    background-color:#000;
+    background-size: cover;
+    @media screen and (min-width: $mobile-breakpoint) {
+      height: 563px;
+    }
+    @media screen and (min-width: $fhd-breakpoint) {
+      height: 863px;
+    }
+  
+    display: block;
+    overflow: hidden;
+}
+.collection-intro{
+  background-color:#000;
+  color:#FFF;
+  padding:20px;
+  .text {
+    max-width:900px !important;
+    margin:0 auto;
+  }
+}
+.sline-hero {
+    height: 600px;
+    width: 100%;
+  	background-image: url("{{ 'vertagear-sline-mobile-hero-banner.jpg' | asset_url }}"); 
+    background-size: contain;
+    background-repeat: no-repeat;    
+  	background-position: center 320px;
+    background-color:#000;
+    @media screen and (min-width: $mobile-breakpoint) {
+      height: 759px;
+      background-image: url("{{ 'vertagear-sline-hero-banner.jpg' | asset_url }}");
+      background-size: cover;
+  	  background-position: center center;
+     }
+  
+    display: block;
+    overflow: hidden;
+}
+
+.sline-hero h2 {
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 72px;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 2.7px;
+    text-align: center;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    padding: 0px auto;
+    font-size: 20px;
+}
+
+.sline-hero h1 {
+    text-align: center;
+    width: 100%;
+    padding: 0px auto;
+    font-family: Lato;
+    font-size: 46px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #ffffff;
+}
+
+
+.s-line-container {
+  margin: 0 auto;
+  color: white;
+  width: 100%;
+  text-align: left;
+}
+
+.copy-container {
+    width: auto;
+    margin: 0 auto;
+    font-size: 16px;
+
+    @media screen and (min-width: $mobile-breakpoint) {
+        width: 600px;
+        margin: 420px auto;
+    }
+
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    font-family: Lato;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: center;
+
+}
+
+.collection-feature-block {
+    h2 {
+        font-size: 20px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        font-weight: bold;
+        line-height: normal;
+        letter-spacing: normal;
+        margin-top: 58px;
+        width: 100%;
+
+        @media screen and (min-width: $mobile-breakpoint) {
+            margin-top: 144px;
+        }
+    }
+
+    &.one,
+    &.three {
+        background-color: #f8f8f8;
+    }
+
+    &.one {
+      background-image: url("{{ 'NEW-SLine-Design-and-Comfort-mobile.jpg' | asset_url }}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      @media screen and (min-width: $dekstop-breakpoint) {
+        background-image: url("{{ 'NEW-SLine-Design-and-Comfort.jpg' | asset_url }}");
+       	background-size: 100%;
+      }
+        
+        h2 {
+            @media screen and (min-width: $mobile-breakpoint) {
+                margin-top: 173px;
+            }
+        }
+
+        .feature-copy {
+            width: 282px;
+
+            @media screen and (min-width: $mobile-breakpoint) {
+				width: 100%;
+                max-width: 435px;
+            }
+
+            font-family: Lato;
+            font-size: 16px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            color: #000000;
+        }
+    }
+
+    &.two {
+      @media screen and (max-width: $mobile-breakpoint) {
+      	margin-top: 10px;
+        background-color: #f8f8f8;
+        height: 600px;
+        width: 100%;
+      }
+      background-image: url("{{ 'NEW-Assembly-Master-mobile.png' | asset_url }}");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-color:#f8f8f8;
+        @media screen and (min-width: $mobile-breakpoint) {
+          background-image: url("{{ 'NEW-Assembly-Master.jpg' | asset_url }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+          }
+          
+      
+        h2 {
+            @media screen and (min-width:$mobile-breakpoint) {
+                margin-top: 185px;
+            }
+        }
+        .grid-container {
+          @media screen and (max-width:$mobile-breakpoint) {
+            height: 100%; 
+            /*background-color: rgba(0,0,0,0.75);
+            color: white;*/
+            color: black;
+          
+            
+            &.text{
+              background-color: rgba(255, 255, 255, 0.55);
+              padding: 25px 0;
+            }
+            .text2{
+              max-width: 350px;
+              text-align: left;
+              margin: 0 auto;
+            }
+           }
+        }
+
+        .copy-container {
+            text-align: left;
+            width: 100%;
+
+            @media screen and (min-width:$mobile-breakpoint) {
+                float: right;
+                width: 435px;
+                margin-top: 0;
+                margin-right: 102px;
+            }
+        }
+    }
+
+    &.three {
+      @media screen and (max-width: $mobile-breakpoint) {
+        margin-top: 10px;
+        background-color: #dadcd1;
+    	height: 750px;
+        width: 100%;
+     	background-size: contain;
+      }
+     /* background-image: url("{{ 'vertagear-sline-mobile-uphrf-banner.jpg' | asset_url }}");*/
+      background-image: url("{{ 'NEW-Home-foam-mobile.jpg' | asset_url }}");
+      
+      @media screen and (min-width: $mobile-breakpoint) {
+        background-image: url("{{ 'vertagear-sline-uphrf-banner.jpg' | asset_url }}");
+       }
+        background-size: cover;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+
+        h2 {
+            margin-top: 58px;
+
+            @media screen and (min-width:$mobile-breakpoint) {
+                margin-top: 185px;
+            }
+        }
+
+        
+        .feature-copy {
+            width: 100%;
+
+            @media screen and (min-width:$mobile-breakpoint) {
+                width: 435px;
+            }
+        }
+    }
+
+    &.four {
+        background-color: white;
+        background-image: url("{{ 'NEW-S-Line-cobrands-mobile.jpg' | asset_url }}");
+        
+        background-size: cover;
+      @media screen and (min-width: $mobile-breakpoint) {
+        background-image: url("{{ 'NEW-S-Line-cobrands.jpg' | asset_url }}");
+       }
+        background-position: center center;
+        background-repeat: no-repeat;
+        color: black;
+        padding-left: 0;
+
+        @media screen and (min-width:$mobile-breakpoint) {
+            text-align: center;
+        }
+
+        h2 {
+            @media screen and (min-width:$mobile-breakpoint) {
+                margin-top: 38px;
+            }
+        }
+
+        .feature-copy {
+            @media screen and (min-width:$mobile-breakpoint) {
+                width: 435px;
+            }
+
+            margin: 0 auto;
+        }
+    }
+}
+
+.s-co-line-collections-container {
+    width: 100%;
+
+    @media screen and (min-width: $mobile-breakpoint) {
+        height: 631px;
+    }
+}
+
+
+.vertagear-tutorial-block {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 405px;	
+  	background-image: url("{{ 'S-Line_Mobile.png' | asset_url }}"); 
+    background-repeat: no-repeat;    
+  	background-position: center;
+    background-color:#000;
+    background-size: cover;
+    
+    @media screen and (min-width: $mobile-breakpoint) {
+        background-image: url("{{ 'S-Line-Video-Poster.jpg' | asset_url }}"); 
+        min-height: unset;
+        height: 577px;
+        margin-top: 10px;
+    }
+
+    ul {
+        margin: 0 auto;
+        max-width: 1024px;
+        list-style-type: none;
+        overflow: hidden;
+        height: auto;
+        padding-top: 20px;
+
+        li {
+            .video-wrapper {
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            video {
+                width: 100%;
+                height: 153px;
+                max-width: 270px;
+                background-color: #9b9b9b;
+            }
+
+            span {
+                margin-top: 46px;
+                text-align: center;
+                display: block;
+                margin-bottom: 17px;
+            }
+
+            text-align: center;
+            color: white;
+            display: block;
+            width: 100%;
+            min-width:270px;
+            font-family: Lato;
+            font-size: 16px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            color: #ffffff;
+
+            @media screen and (min-width:$mobile-breakpoint) {
+                width: 33%;
+                display: block;
+                height: 350px;
+	            margin: 0 auto;
+            }
+        }
+    }
+}
+
+.shop-other-product-lines {
+    width: 100%;
+    display: block;
+    background-color: black;
+
+    .top-span {
+        height: 91px;
+        background-color: white;
+
+        h2 {
+            width: 100%;
+            height: 91px;
+            font-family: Lato;
+            font-size: 18px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 91px;
+            letter-spacing: 0.4px;
+            text-align: center;
+            color: #000000;
+            margin: 0 auto;
+        }
+    }
+}
+
+
+.other-product-lines h2 {
+    font-weight: bold;
+    width: auto;
+}
+
+.other-product-lines {
+    margin: 0;
+    margin-top: -10px;
+    list-style-type: none;
+    width: 100%;
+    height: auto;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+        background-color: white;
+    }
+
+    >li {
+
+        color: white;
+        width: 100%;
+        padding-top: 106px;
+        height: 340px;
+        margin-top: 10px;
+        text-align: center;
+
+      &:nth-child(1) {
+          background-image: url("{{ 'vertagear-pline-shop-now-banner.jpg' | asset_url }}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }
+        &:nth-child(2) {
+          background-image: url("{{ 'vertagear-triigger-shop-now-banner.jpg' | asset_url }}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }
+        &:nth-child(3) {
+          background-image: url("{{ 'vertagear-accessories-shop-now-banner.jpg' | asset_url }}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+        } 
+        @media screen and (min-width: $mobile-breakpoint) {
+            width: 33%;
+            padding-top: 95px;
+            float: left;
+            display: block;
+            height: 318px;
+            border-right: 10px solid;
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+
+        h3 {
+            text-transform: uppercase;
+            height: 15px;
+            font-family: Lato;
+            font-size: 12px;
+            font-weight: 600;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 2px;
+            text-align: center;
+            color: white;
+        }
+
+        h2 {
+            margin: 14px auto 0;
+            height: 27px;
+            font-family: Lato;
+            font-size: 22px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .vertagear-jump-list-container {
+            margin-top: 30px;
+
+            ul {
+                list-style-type: none;
+                margin-left: 0;
+            }
+
+            li {
+                display: block;
+                height: 40px;
+
+                .vertagear-button {
+                    margin: 0 auto;
+                    display: inline-block;
+                    cursor: pointer;
+                    display: block;
+                    width: 150px;
+                    height: 40px;
+                    line-height: 36px;
+                    vertical-align: middle;
+                    border: solid 1px #ffffff;
+                    color: white;
+                    text-decoration: none;
+                    text-align: center;
+                    font-family: Lato;
+                    font-size: 16px;
+                    font-weight: 500;
+                    font-style: normal;
+                    font-stretch: normal;
+                    letter-spacing: normal;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+
+.collection-video-block {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  video {
+    /*max-height: 553px;*/
+    vertical-align: baseline;
+    margin: 0 auto;
+    width: 100% !important;
+    height: auto;
+  }
+  @media screen and (min-width: $mobile-breakpoint) {
+	  /*height: 553px;*/
+  }
+  text-align: center;
+  width:100%;
+  background-color: black;
+}

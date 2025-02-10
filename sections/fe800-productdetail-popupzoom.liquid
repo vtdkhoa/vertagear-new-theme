@@ -1,0 +1,36 @@
+<div class="popin-zoom" style="display: none;">
+    <div class="popin-gallery-overlay js-close-popin-zoom"></div>
+    <div class="popin-inner">
+        <div class="group-tab">
+            <a href="/" class="main-header__logo"><img src="{{ 'logo.svg' | asset_url }}" alt="Vertagear" class="main-header__logo-img"></a>
+            <div class="cta-close js-close-popin-zoom"><img src="//cdn.shopify.com/s/files/1/1759/4609/files/pop-close.svg?v=1972664831519498879"></div>
+        </div>
+        <div class="group-gallery">
+            <div class="swiper mySwiper2" id="productdetail-zoom-main">
+                <div class="swiper-wrapper">
+                  {% for item in product.variants %}
+                    <div class="swiper-slide">
+                        <div class="image-container image-zoom-topbar">
+                            <img class="lazyload" data-magnify-src="{{ item.featured_media.preview_image.src | image_url }}" data-src="{{ item.featured_media.preview_image.src | image_url }}" />
+                        </div>
+                    </div>
+                  {% endfor %}
+                </div>
+                <div class="swiper-button-next swiper-zoom-next-main"></div>
+                <div class="swiper-button-prev swiper-zoom-prev-main"></div>
+            </div>
+            <div thumbsSlider="" class="swiper mySwiper" id="productdetail-zoom-thumb">
+                <div class="swiper-wrapper">
+                  {% for item in product.variants %}
+                    <div class="swiper-slide">
+                        <img class="lazyload" data-src="{{ item.featured_media.preview_image.src | image_url: width: 300 }}" />
+                        <span>{{ item.option1 }}</span>
+                    </div>
+                  {% endfor %}
+                </div>
+                <div class="swiper-button-next swiper-zoom-next-thumb"></div>
+                <div class="swiper-button-prev swiper-zoom-prev-thumb"></div>
+            </div>
+        </div>
+    </div>
+</div>

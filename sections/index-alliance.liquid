@@ -1,0 +1,91 @@
+<div class="index-alliance">
+    <div class="index-alliance__top">
+        <div class="vertagear-container index-alliance__top-inner">
+            <div class="index-alliance__top-left">
+                <div class="index-alliance__title">
+                     {{section.settings.alliance_banner_title}}
+                </div>
+                <div class="index-alliance__desc">
+                    {{section.settings.alliance_banner_dec}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index-alliance__main">
+        <div class="index-alliance__main-container vertagear-container">
+          	{% comment %}
+          	{% for block in section.blocks %}
+              <a class="index-alliance__swiper-slide-inner -desktop" href="{{block.settings.link}}">
+                  <img src='{{block.settings.image | img_url: 'master' }}' class="index-alliance__swiper-slide-img" alt="{{block.settings.title}}">
+              </a>
+            {% endfor %}
+            {% endcomment %}
+            <swiper class="index-alliance__swiper" :options="options" key="index-alliance-swiper">
+              	{% for block in section.blocks %}
+                  <swiper-slide class="index-alliance__swiper-slide">
+                      <a class="index-alliance__swiper-slide-inner" href="{{block.settings.link}}">
+                          <img src='{{block.settings.image | img_url: '133x' }}' class="index-alliance__swiper-slide-img" alt="{{block.settings.title}}" loading="lazy">
+                      </a>
+                  </swiper-slide>
+              	{% endfor %}                    
+            </swiper>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Alliance Banner",
+  "blocks":[ 
+    { 
+        "type":"text",
+        "name":"Alliance",
+        "settings":[ 
+            { 
+                "type":"text",
+                "id":"title",
+                "label":"Title",
+                "default":"Title"
+            },
+            { 
+                "type":"url",
+                "id":"link",
+                "label":"Link"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Logo"
+            }
+        ]
+    }
+  ],
+  "settings": [
+        {
+            "id": "alliance_banner",
+            "type": "image_picker",
+            "label": "Alliance Banner"
+        },
+        {
+            "id": "alliance_banner_mobile",
+            "type": "image_picker",
+            "label": "Alliance Banner Mobile"
+        },
+        {
+            "id": "alliance_banner_title",
+            "type": "text",
+            "label": "Alliance Banner Title"
+        },
+        {
+            "id": "alliance_banner_dec",
+            "type": "text",
+            "label": "Alliance Banner Description"
+        },
+        {
+            "id": "alliance_banner_link",
+            "type": "url",
+            "label": "Alliance Banner Learn more Link"
+        }
+    ]
+  }
+{% endschema %}

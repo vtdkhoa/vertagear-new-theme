@@ -1,0 +1,25 @@
+<link type="text/css" href="{{ 'landing-private-sales.css' | asset_url }}" rel="stylesheet"> 
+<script src="{{ 'landing-president-2022.js' | asset_url }}" type="text/javascript" async defer></script>
+
+{% include 'product-navigation' %}
+{% include 'landing-private-sales' %}
+{% section 'index-support' %}
+
+<div class="ld-featured-products-header">
+  <div class="ld-featured-products-title">
+    Featured Products
+  </div>
+  <div class="ld-featured-products-desc">
+    'The Best Ergonomic Gaming Chairs' by IGN
+  </div>
+<!--   <div class="ld-featured-products-promo">
+    <div>Order by February 14th for delivery on or before Valentine’s Day</div>
+  </div> -->
+</div>
+{% include 'collection-product-grid', products, tag: "Default" %}
+
+{% include 'collection-bottom' %}
+{% render 'product_infox' %}
+
+{% section 'index-reviews' %}
+{% section 'index-alliance' %}

@@ -1,0 +1,68 @@
+<div class="page-bottom-nav">
+    <div class="page-bottom-nav__container vertagear-container -small">
+        <a href="{{section.settings.support_link}}" class="page-bottom-nav-link">
+            <div class="page-bottom-nav-link-icon">
+                <img src="{{'support.svg' | asset_url }}" alt="support" class="page-bottom-nav-link-icon-img">
+            </div>
+            <div class="page-bottom-nav-link-title">{{section.settings.support_title}}</div>
+            <div class="page-bottom-nav-link-arrow vertagear-icon -icon-right"></div>
+        </a>
+        <a href="{{section.settings.form_link}}" class="page-bottom-nav-link">
+            <div class="page-bottom-nav-link-icon">
+                <img src="{{'form.svg' | asset_url }}" alt="form" class="page-bottom-nav-link-icon-img">
+            </div>
+            <div class="page-bottom-nav-link-title">{{section.settings.form_title}}</div>
+            <div class="page-bottom-nav-link-arrow vertagear-icon -icon-right"></div>
+        </a>
+        <a href="{{section.settings.faq_link}}" class="page-bottom-nav-link">
+            <div class="page-bottom-nav-link-icon">
+                <img src="{{'faq.svg' | asset_url }}" alt="FAQ" class="page-bottom-nav-link-icon-img">
+            </div>
+            <div class="page-bottom-nav-link-title">{{section.settings.faq_title}}</div>
+            <div class="page-bottom-nav-link-arrow vertagear-icon -icon-right"></div>
+        </a>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+  "name": "Page Bottom Navigation",
+  "settings": [
+
+        {
+            "id": "support_title",
+            "type": "text",
+            "label": "Support Title",
+            "default": "Support"
+        },
+        {
+            "id": "form_title",
+            "type": "text",
+            "label": "Contact Title",
+            "default": "Contact"
+        },
+        {
+            "id": "faq_title",
+            "type": "text",
+            "label": "FAQ Title",
+            "default": "FAQs"
+        },
+        {
+            "id": "support_link",
+            "type": "url",
+            "label": "Support Link"
+        },
+        {
+            "id": "form_link",
+            "type": "url",
+            "label": "Inquiry Form Link"
+        },
+        {
+            "id": "faq_link",
+            "type": "url",
+            "label": "FAQ Link"
+        }
+    ]
+  }
+{% endschema %}

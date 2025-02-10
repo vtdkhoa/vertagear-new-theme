@@ -1,0 +1,83 @@
+$mobile-breakpoint: 768px;
+
+.wrapper {
+  &.main-content {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+.contest-hero {
+  background-image: url("{{ 'vertagear-battle-station.jpg' | asset_url }}");
+  background-size:cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 480px;
+  width: 100%;
+  h1 {
+    text-align: center;
+    width: 100%;
+    padding: 0px auto;
+
+    font-family: Lato;
+    font-size: 46px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #ffffff;
+  }
+  h2 {    
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 72px;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 2.7px;
+    text-align: center;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    padding: 0px auto;
+    font-size: 20px;
+  }
+}
+
+
+.contest-copy-container { 
+  height: 264px;
+  margin: 0 auto;
+  background: black;
+  color: white;
+  width: 100%;
+  text-align: left;
+}
+
+.copy-container {
+  width: auto;
+  margin: 0 auto;
+  font-size: 16px;
+  @media screen and (min-width: $mobile-breakpoint) { 	
+    width: 600px;
+    margin: 65px auto;
+  }
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  font-family: Lato;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+
+}

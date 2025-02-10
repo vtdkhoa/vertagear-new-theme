@@ -1,0 +1,43 @@
+<div class="page-warranty__top">
+    <img src='{{section.settings.banner | img_url: 'master'}}' class="page-warranty__top-bg" alt>
+    <div class="vertagear-container page-warranty__top-text">
+        <h1 class="page-warranty__top-title">
+            {{page.title}}
+        </h1>
+        <div class="page-warranty__top-desc">
+            {{section.settings.desc}}
+        </div>
+        <div class="page-warranty__top-btn-box">
+            <a href="#shopify-section-warranty-duration" class="page-warranty__top-btn vertagear-btn -blue">{{section.settings.btn}}</a>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+  "name": "Top",
+  "settings": [
+        {
+            "id": "banner",
+            "type": "image_picker",
+            "label": "Banner"
+        },
+        {
+            "id": "btn",
+            "type": "text",
+            "label": "Button Text",
+            "default": "View warranty Statement"
+        },
+        {
+            "id": "desc",
+            "type": "text",
+            "label": "Description",
+            "default": "Vertagear chairs are designed and certified for safety and durability. We have tested our chairs based on the industry standards."
+        }
+    ],
+    "enabled_on": {
+        "templates": ["page"]
+    }
+  }
+{% endschema %}

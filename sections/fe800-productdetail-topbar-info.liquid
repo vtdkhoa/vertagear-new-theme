@@ -1,0 +1,39 @@
+{% for product in collections.all.products %}
+  {% if product.id == 3874717401199 %}
+    {% assign globalProductLEDBottom = product %}
+  {% endif %}
+
+  {% if product.id == 7033534546031 %}
+    {% assign globalProductLEDTop = product %}
+  {% endif %}
+
+  {% if product.id == 7033535037551 %}
+    {% assign globalLightUpYourLogo = product %}
+  {% endif %}
+
+  
+{% endfor %} 
+
+
+
+
+<div class="productdetail-topbar">
+    <div class="topbar-inner">
+        <div class="topbar-img">
+            <img id="ProductMainImage" alt="product image" class="lazyload" data-src="{{ product.featured_image.src | image_url: width: 500 }}">
+        </div>
+        <div class="topbar-info">
+            <div class="title">{{ product.title }}</div>
+            <a class="fe800-reviews-js" data-oke-reviews-product-listing-rating style="display:inline-block"
+            class="bottomLine ag-vg-product-rating">
+            {%- if product.metafields.okendo.ProductListingSnippet -%}
+            {{ product.metafields.okendo.ProductListingSnippet }}
+            {%- else -%}
+            <span class="visually-hidden">There are no reviews yet.</span>
+            {%- endif -%}
+               </a>
+              <span id="custom_product_price" class="custom_product_price" data-product-id="{{ product.id }}"><span class="tdf_price_original"><span class="tdf_money money">{{product.compare_at_price | money}}</span></span><span class="tdf_price_sales"> <span class="tdf_money money">{{product.price | money}}</span></span></span>
+           <a class="vertagear-cta -blue cta-addtocard" goto=''>ADD TO CART</a>
+        </div>
+    </div>
+</div>

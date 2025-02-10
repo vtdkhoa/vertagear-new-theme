@@ -1,0 +1,137 @@
+<link rel="stylesheet" href="{{ 'nam-product-spec.css' | asset_url }}" />
+
+<div class="nam-spec">
+  <div class="nam-spec__title">Specifications</div>
+
+  <div class="display-mobile">
+    <div class="nam-spec__info">
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">MODEL</div>
+        <div class="nam-spec__detail__data">{{ model }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Colors</div>
+        <div class="nam-spec__detail__data">{{ colors }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Max Load</div>
+        <div class="nam-spec__detail__data">{{ max_load }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Materials</div>
+        <div class="nam-spec__detail__data">{{ materials }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Recommended Height</div>
+        <div class="nam-spec__detail__data">{{ recommened_height }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Recommended Weight</div>
+        <div class="nam-spec__detail__data">{{ recommened_weight }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Package Dimension</div>
+        <div class="nam-spec__detail__data">{{ package_dimension }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Overall height (incl. base)</div>
+        <div class="nam-spec__detail__data">{{ overall_height }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Backrest Width (shoulder)</div>
+        <div class="nam-spec__detail__data">{{ backrest_width_shoulder }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Backrest Width (lumbar)</div>
+        <div class="nam-spec__detail__data">{{ backrest_width_lumbar }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Seat Width</div>
+        <div class="nam-spec__detail__data">{{ seat_width }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Seat Depth</div>
+        <div class="nam-spec__detail__data">{{ seat_depth }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Net Weight</div>
+        <div class="nam-spec__detail__data">{{ net_weight }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Gross Weight</div>
+        <div class="nam-spec__detail__data">{{ gross_weight }}</div>
+      </div>
+    </div>
+    <div class="nam-spec__img-wrapper">
+      <img alt="dimension" src="{{ img_name | asset_url }}" />
+    </div>
+  </div>
+
+  <div class="display-desktop">
+    <div class="nam-spec__info1">
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">MODEL</div>
+        <div class="nam-spec__detail__data">{{ model }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Colors</div>
+        <div class="nam-spec__detail__data">{{ colors }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Max Load</div>
+        <div class="nam-spec__detail__data">{{ max_load }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Materials</div>
+        <div class="nam-spec__detail__data">{{ materials }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Recommended Height</div>
+        <div class="nam-spec__detail__data">{{ recommened_height }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Recommended Weight</div>
+        <div class="nam-spec__detail__data">{{ recommened_weight }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Package Dimension</div>
+        <div class="nam-spec__detail__data">{{ package_dimension }}</div>
+      </div>
+      <div class="nam-spec__detail">
+        <div class="nam-spec__detail__title">Overall height (incl. base)</div>
+        <div class="nam-spec__detail__data">{{ overall_height }}</div>
+      </div>
+    </div>
+    <div class="nam-spec__info-and-img">
+      <div class="nam-spec__info2">
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">Backrest Width (shoulder)</div>
+          <div class="nam-spec__detail__data">
+            {{ backrest_width_shoulder }}
+          </div>
+        </div>
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">Backrest Width (lumbar)</div>
+          <div class="nam-spec__detail__data">{{ backrest_width_lumbar }}</div>
+        </div>
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">Seat Width</div>
+          <div class="nam-spec__detail__data">{{ seat_width }}</div>
+        </div>
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">Seat Depth</div>
+          <div class="nam-spec__detail__data">{{ seat_depth }}</div>
+        </div>
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">Net Weight</div>
+          <div class="nam-spec__detail__data">{{ net_weight }}</div>
+        </div>
+        <div class="nam-spec__detail">
+          <div class="nam-spec__detail__title">Gross Weight</div>
+          <div class="nam-spec__detail__data">{{ gross_weight }}</div>
+        </div>
+      </div>
+      <img alt="dimension" src="{{ img_name | asset_url }}" />
+    </div>
+  </div>
+</div>

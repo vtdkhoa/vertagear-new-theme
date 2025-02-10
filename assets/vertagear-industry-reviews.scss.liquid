@@ -1,0 +1,85 @@
+$mobile-breakpoint: "768px";
+
+.industry-reviews {
+      display: block;
+      width: 100%;
+	  text-align: center;
+  	  margin-top: 30px;
+      @media screen and (min-width: $mobile-breakpoint) {
+        
+	    min-height:unset;
+        align-items:top;
+      	max-width: 1024px;
+        margin: 40px auto;
+      }
+
+
+      .review {
+        height: auto;
+        display: inline-block;
+        
+        height: auto;
+        display: inline-block;
+        vertical-align: top;
+        width: 33%;
+        margin: 5rem auto 12px;
+        @media screen and (max-width: $mobile-breakpoint) {
+			width: 80%;
+          }
+        text-align: center;
+        font-size: 3.1vw;
+        line-height: 1.2;
+        padding: 10px 5px;
+        text-align: center;
+        font-size: 3.1vw;
+        line-height: 1.2;
+        .image{
+          display: flex;
+          align-items: center;
+          margin-bottom: 15px; 
+          img{
+            max-width: 45%;
+            display: block;
+            margin: auto;
+          }
+        }
+        a:hover {
+          color: #000;
+          text-decoration: none;
+        }
+        p {
+          
+            font-family: Lato;
+            font-size: 14px;
+            line-height: 1.43;
+            letter-spacing: normal;
+            font-style: normal;
+            font-stretch: normal;
+            text-align: center;
+            color: #000000;
+        }
+        
+        p.review-content {
+          padding: 0 10px;
+          font-size:14px;
+          margin: 0; 
+
+            margin: 0 auto;
+            font-weight: normal;
+        }
+        p.review-byline {
+	      margin-top: 14px;
+          font-weight: bold; 
+          text-transform: uppercase;
+        }
+        @media screen and (min-width: $mobile-breakpoint) {
+          img{
+
+            max-width: 50%;
+            /* margin-bottom: 2rem; */
+            margin: 0 auto 2rem auto;
+          }
+        }
+      }
+      
+    }

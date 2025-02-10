@@ -1,0 +1,14 @@
+<link type="text/css" href="{{ 'landing-christmas-2021.css' | asset_url }}" rel="stylesheet"> 
+  <script src="{{ 'landing-christmas-2021.js' | asset_url }}" type="text/javascript" async defer></script>
+
+{% include 'product-navigation' %}
+{% include 'landing-christmas-2021' %}
+{% section 'index-support' %}
+
+{% assign products = collection.products %}
+{% include 'collection-product',products %}
+{% include 'collection-bottom' %}
+{% render 'product_infox' %}
+
+{% section 'index-reviews' %}
+{% section 'index-alliance' %}

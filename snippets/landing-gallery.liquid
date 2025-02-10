@@ -1,0 +1,24 @@
+<style>
+  .ld-gallery {
+  	display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 3px;
+  }
+  
+  @media only screen and (min-width: 1024px) {
+  	.ld-gallery {
+      grid-template-columns: auto auto auto auto;
+    }
+  }
+</style>
+
+<div class="ld-gallery">
+  <img src="{{ 'ld-bottom-gallery-1.jpg' | asset_url }}" alt="gallery image" />
+  <img src="{{ 'ld-bottom-gallery-2.jpg' | asset_url }}" alt="gallery image" />
+  <img src="{{ 'ld-bottom-gallery-3.jpg' | asset_url }}" alt="gallery image" />
+  <img src="{{ 'ld-bottom-gallery-4.jpg' | asset_url }}" alt="gallery image" />
+  <img src="{{ 'ld-bottom-gallery-5.jpg' | asset_url }}" alt="gallery image" />
+  <img src="{{ 'ld-bottom-gallery-6.jpg' | asset_url }}" alt="gallery image" />
+  <img src="{{ 'ld-bottom-gallery-7.jpg' | asset_url }}" alt="gallery image" />
+  <img src="{{ 'ld-bottom-gallery-8.jpg' | asset_url }}" alt="gallery image" />
+</div>

@@ -1,0 +1,118 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "klarna",
+      "settings": {}
+    },
+    "43568f11-9bb3-4bc2-aa77-33d444ec8cb5": {
+      "type": "klarna-top",
+      "settings": {
+        "banner": "shopify://shop_images/rsz_klarnabanner.webp",
+        "btn": "",
+        "desc": ""
+      }
+    },
+    "1b0dc8b1-0004-4b38-b4ad-07572d597c51": {
+      "type": "faq",
+      "blocks": {
+        "1ebd6f95-5ea8-4545-ada6-945e3007b684": {
+          "type": "text",
+          "settings": {
+            "title": "How does pay later in 30 days work?",
+            "desc": "<p>Once your order is confirmed, you’ll receive an email with payment instructions from Klarna. Payment will need to be made 30 days after your order is shipped, regardless of the delivery date.</p><p>If your order is shipped in parts, you’ll have 30 days from the date the first item is shipped to pay. Complete your payment online, at your convenience, with no extra cost. You can pay via credit or debit card at <a href=\"http://www.klarna.com/uk\" target=\"_blank\"><strong>Klarna.com</strong></a></p>"
+          }
+        },
+        "10e14c98-ff5b-42bc-b923-c99942c41ca5": {
+          "type": "text",
+          "settings": {
+            "title": "How does pay in interest-free installments work?",
+            "desc": "<p>Paying for your online order in interest-free installments will allow you to spread the cost of your purchase. The payment for each installment will automatically be collected every 30 days from the date of purchase from the card you entered at checkout.</p><p>Your first installment will be collected when your order is confirmed, and installments two and three are scheduled 30 and 60 days later, respectively, after the first installment.</p>"
+          }
+        },
+        "71243e2b-0050-40c9-b936-987bfd12b0f4": {
+          "type": "text",
+          "settings": {
+            "title": "How does Klarna Financing (6 or 12 months) work?",
+            "desc": "<p>You may have the option to pay monthly over a period of 6 or 12 months at 0% interest*.</p><p>Please note that application for these payment options will require a full credit check arranged by Klarna. See the <a href=\"https://www.klarna.com/us/terms-and-conditions/\">Klarna terms and conditions</a> for more information.</p><p>*Klarna may apply late payment fees, and late or missing repayments may have serious consequences. Please spend responsibly.</p><p>Applications can be declined by Klarna for many reasons. The authorization process is carried out by the Klarna Bank AB and it is their decision alone.</p><p>If you receive a decline message this will have been sent to you by the Klarna AB, without explanation. If you wish to find out more please contact the Klarna Bank AB directly using details in the email you received from Klarna Bank AB confirming the lending decision.</p>"
+          }
+        },
+        "3f0cfdbc-2d30-4ee1-931e-8e49bc2918b1": {
+          "type": "text",
+          "settings": {
+            "title": "Am I eligible to use Klarna?",
+            "desc": "<p>To apply to use Klarna, you must be at least 18 years old and have your own bank account. Whilst Klarna is widely promoted, acceptance is always subject to your financial circumstances and assessed individually. Klarna Pay Later is based on a number of factors including the order value, previous order history and item availability. You can improve your chances of being offered Pay Later by ensuring you provide your full name, accurate address details and shipping to your registered billing address.</p><p>If you have been approved for Klarna’s Pay Later before, this does not mean any future application will be approved and, in turn, if you have been denied this does not mean it will be denied for any future applications.</p>"
+          }
+        },
+        "b7520e45-eadf-4024-93ae-689e811d7d05": {
+          "type": "text",
+          "settings": {
+            "title": "Will a credit search take place against me?",
+            "desc": "<p>Klarna’s assessment will include use of a credit reference agency.</p><p>Finance plans for 6 or 12-months require a full credit check to be undertaken, which leaves a record on your credit agency account to show that there was an application. Please ask Klarna if you have any queries about credit reference processes.</p>"
+          }
+        },
+        "cf06a4a4-fee0-49ec-a43d-1b88de5fecec": {
+          "type": "text",
+          "settings": {
+            "title": "Is my payment information safe?",
+            "desc": "<p>Payment information is processed securely by Klarna’s Buyer Protection policy. No payment information is transferred or held by our company. All transactions take place via connections secured with the latest industry standard security protocols.</p>"
+          }
+        },
+        "a548bef4-2893-4a22-a285-1dddd5c8207d": {
+          "type": "text",
+          "settings": {
+            "title": "What happens if I cancel or return my order?",
+            "desc": "<p>We will need to accept your cancellation or returned item. Klarna will then process a cancellation of future scheduled payments as soon as they can, and refund any amounts due. All refund decisions are subject to the standard refund, exchange and returns policy. All refunds to you will be made only through Klarna.</p>"
+          }
+        },
+        "38c7d74a-3aa9-4111-919e-f2c9b02287ab": {
+          "type": "text",
+          "settings": {
+            "title": "What happens if I don't pay for my order?",
+            "desc": "<p>The finance arrangement is directly between you and Klarna, and it is your responsibility to set up and manage the agreement. In the event of a late payment:</p><p><strong>Pay in Installments and Klarna Financing</strong></p><p>Klarna will automatically attempt to collect your payment from the card details you provided. If they’re unable to collect the payment on the scheduled due date, one further attempt will be made to automatically collect payment two days later.</p><p>Should this last payment attempt fail, Klarna will issue you a statement for the full outstanding order amount which will become payable in 15 days. Klarna will notify you when a payment is due, two days in advance of collecting that payment.</p>"
+          }
+        },
+        "e06ad301-da3b-46eb-a59a-9adf4ab171da": {
+          "type": "text",
+          "settings": {
+            "title": "I've received my monthly statement and a payment is due, but I have not received my goods.",
+            "desc": "<p>Payments will not usually be made until you receive your goods. When we ship your goods, they will notify Klarna to start taking payments. In the unlikely event that your goods are delayed longer than 6 months past your order date, Klarna will however automatically start taking payments.</p>"
+          }
+        },
+        "859ab761-ee02-4413-8052-4a14e56fed5a": {
+          "type": "text",
+          "settings": {
+            "title": "Can I pay before the payment due date?",
+            "desc": "<p>Payments can be made at any time by logging in to the Klarna app, or the Klarna website. Visit your Klarna Account overview page. Then, simply select ‘Make a payment’ and enter the amount you wish to pay towards your balance. Should you have any questions or concerns when making a payment you can contact<a href=\"https://www.klarna.com/us/customer-service/\"><span style=\"text-decoration:underline\">Klarna’s Customer Service.</span></a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "1ebd6f95-5ea8-4545-ada6-945e3007b684",
+        "10e14c98-ff5b-42bc-b923-c99942c41ca5",
+        "71243e2b-0050-40c9-b936-987bfd12b0f4",
+        "3f0cfdbc-2d30-4ee1-931e-8e49bc2918b1",
+        "b7520e45-eadf-4024-93ae-689e811d7d05",
+        "cf06a4a4-fee0-49ec-a43d-1b88de5fecec",
+        "a548bef4-2893-4a22-a285-1dddd5c8207d",
+        "38c7d74a-3aa9-4111-919e-f2c9b02287ab",
+        "e06ad301-da3b-46eb-a59a-9adf4ab171da",
+        "859ab761-ee02-4413-8052-4a14e56fed5a"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "43568f11-9bb3-4bc2-aa77-33d444ec8cb5",
+    "1b0dc8b1-0004-4b38-b4ad-07572d597c51"
+  ]
+}

@@ -1,0 +1,115 @@
+var namRgbExploreFeatureData = [
+  {
+    title: "Sync Your Game and Audio",
+    description:
+      "Blast or destroy, bass or highs—those around you will vibe to the sounds of your gameplay and music through your lights. The party starts with your every move.",
+    imgName: {
+      mobile: "//cdn.shopify.com/s/files/1/1759/4609/t/73/assets/ld-rgb-feature-1.jpeg?v=179590786543469963121650428541",
+      desktop: "//cdn.shopify.com/s/files/1/1759/4609/t/73/assets/ld-rgb-feature-desk-1.jpeg?v=69802229939443871481650430352",
+    },
+    videoName: {
+      mobile: "",
+      desktop: "//cdn.shopify.com/s/files/1/1759/4609/t/73/assets/nam-product-feature-rgb.mp4?37439",
+    },
+    exploreHref: "#ldRgbCarouselFeature",
+  },
+  {
+    title: "Light Up Your Logo",
+    description:
+      "Don't ever let yourself be obscured. Even as darkness descends, shine a spotlight on what you're all about like never before. This RGB kit enhances not only your gaming but also you.",
+    imgName: {
+      mobile: "//cdn.shopify.com/s/files/1/1759/4609/t/73/assets/ld-rgb-feature-2.2.jpeg?v=119920996477689629561652177925",
+      desktop: "//cdn.shopify.com/s/files/1/1759/4609/t/73/assets/ld-rgb-feature-desk-2.2.jpg?v=102704031693543241191652241062",
+    },
+    videoName: {
+      mobile: "",
+      desktop: "//cdn.shopify.com/s/files/1/1759/4609/t/73/assets/nam-product-feature-light.mp4?37439",
+    },
+    exploreHref: "#ldRgbLightLogo",
+  },
+  {
+    title: "Simple Controls via SignalRGB",
+    description:
+      "Easily control your lighting experience with the critically acclaimed SignalRGB software. Everything you need is just a click away.",
+    imgName: {
+      mobile: "//cdn.shopify.com/s/files/1/1759/4609/t/73/assets/ld-rgb-feature-3.jpeg?v=151580043139730111691650428564",
+      desktop: "//cdn.shopify.com/s/files/1/1759/4609/t/73/assets/ld-rgb-feature-desk-3.jpeg?v=56077993884225022841650430552",
+    },
+    videoName: {
+      mobile: "",
+      desktop: "//cdn.shopify.com/s/files/1/1759/4609/t/73/assets/nam-product-feature-hygennx.mp4?37439",
+    },
+    exploreHref: "#ldRgbApps",
+  },
+];
+
+var namRgbExploreFeatureBtns = document.getElementsByClassName(
+  "nam-feature__action__switch__btn"
+);
+var namRgbExploreFeatureImg = document.getElementById("namFeatureImg");
+var namRgbExploreFeatureTitle = document.getElementById("namFeatureTitle");
+var namRgbExploreFeatureDesc = document.getElementById("namFeatureDesc");
+var ldRgbExploreBtn = document.getElementById("ldRgbExploreBtn");
+
+var namRgbExploreFeatureRemoveBtnMainColor = () => {
+  for (let i = 0; i < namRgbExploreFeatureBtns.length; i++) {
+    var btn = namRgbExploreFeatureBtns[i];
+    btn.classList.remove("nam-product-main-btn");
+    btn.classList.add("nam-product-sec-btn");
+  }
+};
+for (let i = 0; i < namRgbExploreFeatureBtns.length; i++) {
+  var btn = namRgbExploreFeatureBtns[i];
+  var featureData = namRgbExploreFeatureData[i];
+  btn.onclick = () => {
+    namRgbExploreFeatureImg.src = featureData.imgName.mobile;
+    namRgbExploreFeatureTitle.innerHTML = featureData.title;
+    namRgbExploreFeatureDesc.innerHTML = featureData.description;
+    namRgbExploreFeatureRemoveBtnMainColor();
+    btn.classList.remove("nam-product-sec-btn");
+    btn.classList.add("nam-product-main-btn");
+    ldRgbExploreBtn.href = featureData.exploreHref;
+  };
+}
+
+// For desktop
+var namRgbExploreFeatureBtnsDesk = document.getElementsByClassName(
+  "nam-feature__action__switch__btn-desk"
+);
+var namRgbExploreFeatureContainerDesk = document.getElementById(
+  "namFeatureContainer"
+);
+var namRgbExploreFeatureTitleDesk = document.getElementById(
+  "namFeatureTitleDesk"
+);
+var namRgbExploreFeatureDescDesk = document.getElementById("namFeatureDescDesk");
+var namRgbExploreFeatureExploreBtns = document.getElementsByClassName(
+  "nam-feature__action__explore-desktop"
+);
+var namRgbExploreFeatureVideo = document.getElementById("namFeatureVideo");
+
+var namRgbExploreFeatureRemoveBtnMainColorDesk = () => {
+  for (let i = 0; i < namRgbExploreFeatureBtnsDesk.length; i++) {
+    var btn = namRgbExploreFeatureBtnsDesk[i];
+    btn.classList.remove("nam-product-main-btn");
+    btn.classList.add("nam-feature-fade-btn");
+    var exploreBtn = namRgbExploreFeatureExploreBtns[i];
+    exploreBtn.style.display = "none";
+  }
+};
+for (let i = 0; i < namRgbExploreFeatureBtnsDesk.length; i++) {
+  var btn = namRgbExploreFeatureBtnsDesk[i];
+  var featureData = namRgbExploreFeatureData[i];
+  btn.onclick = () => {
+    namRgbExploreFeatureContainerDesk.style.backgroundImage = `url("${featureData.imgName.desktop}")`;
+    //     namRgbExploreFeatureVideo.src = featureData.videoName.desktop;
+    namRgbExploreFeatureTitleDesk.innerHTML = featureData.title;
+    namRgbExploreFeatureDescDesk.innerHTML = featureData.description;
+    namRgbExploreFeatureRemoveBtnMainColorDesk();
+    btn.classList.remove("nam-feature-fade-btn");
+    btn.classList.add("nam-product-main-btn");
+
+    var exploreBtn = namRgbExploreFeatureExploreBtns[i];
+    exploreBtn.style.display = "flex";
+  };
+}

@@ -1,0 +1,153 @@
+.nam-features {
+  color: #fff;
+}
+
+.nam-feature__img-wrapper {
+  width: 100%;
+}
+.nam-feature__img-wrapper img {
+  width: 100%;
+}
+
+.nam-feature__text {
+  padding: 25px 20px;
+}
+.nam-feature__title {
+  font-weight: 700;
+  font-size: 24px;
+}
+.nam-feature__desc {
+  font-size: 13px;
+  line-height: 150%;
+  margin-top: 10px;
+}
+
+.nam-feature__action__explore {
+  height: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nam-feature__action__switch {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.nam-feature__action__switch__btn {
+  width: 33%;
+}
+.nam-feature__action__btn-container {
+  height: 100%;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nam-feature__action__btn-container img {
+  width: 31px;
+  height: 31px;
+}
+.nam-feature__action__btn__text {
+  line-height: 16px;
+  font-size: 10.4973px;
+  margin-top: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .nam-feature-container {
+    position: relative;
+    background-image: url("{{ 'ld-rgb-feature-desk-1.jpeg' | asset_img_url: '1200x' }}");
+    height: 800px;
+    background-position: top;
+    background-size: cover;
+  }
+
+  .nam-feature__video {
+    width: 100%;
+  }
+
+  .nam-feature__content {
+    max-width: 1500px;
+    margin: auto;
+    padding-top: 170px;
+    padding-left: 100px;
+  }
+
+  .nam-featrue__content {
+    max-width: 1500px;
+    margin: auto;
+  }
+
+  .nam-feature__text {
+    padding: 0;
+    max-width: 610px;
+  }
+
+  .nam-feature__title {
+    font-weight: 700;
+    font-size: 54px;
+  }
+  .nam-feature__desc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    margin-top: 20px;
+    height: 100px;
+  }
+
+  .nam-feature__actions {
+    display: flex;
+    margin-top: 20px;
+    gap: 25px;
+  }
+  .nam-feature__action-wrapper {
+    width: 180px;
+  }
+  .nam-feature__action-wrapper button {
+    width: 100%;
+    cursor: pointer;
+  }
+  .nam-feature-fade-btn {
+    background-color: rgba(255, 255, 255, 0.24);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  .nam-feature-fade-btn:hover {
+    color: var(--nam-main-color);
+    background-color: #fff;
+    fill: var(--nam-main-color);
+  }
+  .nam-feature__action__switch__btn-desk {
+    height: 140px;
+    fill: #fff;
+  }
+  .nam-feature__action__btn-container {
+    width: 133px;
+    padding: 20px 0;
+    margin: auto;
+    fill: inherit;
+  }
+  .nam-feature__action__btn-container img {
+    width: 48px;
+    height: 48px;
+  }
+  .nam-feature__action__btn__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 10px;
+  }
+  .nam-feature__action__explore {
+    display: none;
+    height: 38px;
+    background: #312fde;
+    font-weight: 600;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,106 @@
+
+.customer-reviews-wrapper {
+  min-height: 372px;
+  @media screen and (min-width: 768px) {    
+    min-height: 350px;
+  }
+  margin-top:10px;
+  height: auto;
+  width: 100%;
+  display: block;
+  padding-top:45px;
+  clear: both;
+  h3 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    color: #000000;
+    &:after {
+      content: '';
+      display: block;
+      background-color: black;
+      height:52px;
+      width:2px;
+      margin: 26px auto 15px;
+    }
+  }
+  h4 {
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    margin-bottom: -8px;
+  }
+}
+
+.yotpo-reviews-carousel .carousel-display-wrapper .yotpo-carousel
+{
+	margin-top: -17px;  
+}
+
+.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel {
+  border-bottom: none;
+  display: none;
+}
+
+.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline {
+  display: none;
+}
+.yotpo-label.yotpo-small-box {
+  display: none;
+}
+.yotpo-reviews-carousel .carousel-display-wrapper .yotpo-carousel .yotpo-icon-star {
+	color: #ffde00;
+}
+.standard-layout.single-carousel.review
+{
+  .small-version {
+    margin: 12px auto 0;
+  }
+}
+.carousel-review-title {
+  text-align: center;
+  text-transform: capitalize;
+}
+.carousel-review-date {
+  display: none;
+ &.moved {
+   display: block;
+ }
+}
+.yotpo-reviews-carousel {
+    margin-top: -14px;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    padding-bottom: 14px;
+}
+.yotpo-reviews-carousel .carousel-display-wrapper .yotpo-carousel .yotpo-icon-star {
+ float:none!important;
+  text-align:center;
+}
+.yotpo-reviews-carousel .carousel-display-wrapper .yotpo-carousel .carousel-stars {
+    margin: 0 auto 1rem;
+    text-align: center;
+    display: block;
+}
+.yotpo-reviews-carousel .carousel-display-wrapper .yotpo-carousel .carousel-review-body {
+  font-style: normal!important;
+}
+.yotpo-reviews-carousel .carousel-display-wrapper .carousel-read-more {
+  margin-top:6px;
+  font-weight: bold;
+}
+.yotpo-reviews-carousel .carousel-display-wrapper .stars-container {
+  height: auto;
+}

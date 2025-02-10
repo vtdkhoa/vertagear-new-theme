@@ -1,0 +1,51 @@
+<link type="text/css" href="{{ 'landing-default.css' | asset_url }}" rel="stylesheet"> 
+<script src="{{ 'landing-president-2022.js' | asset_url }}" type="text/javascript" async defer></script>
+
+{% include 'product-navigation' %}
+
+<style>
+  .ld-md-hero {
+  	margin-top: 70px;
+  }
+  .ld-md-hero a {
+  	width: 100%;
+    margin-bottom: -10px;
+  }
+  .ld-md-hero a:hover {
+  	opacity: 1;
+  }
+  .ld-md-hero img {
+  	width: 100%;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .ld-md-hero {
+      margin-top: 130px;
+    }	
+  }
+</style>
+
+<div class="ld-md-hero">
+  <a href="#collection-product">
+    <img class="display-none-desktop" src="{{ 'memorial-day-mob-us-3.jpg' | asset_url }}" alt="spring sale image" />
+    <img class="display-none-mobile" src="{{ 'memorial-day-desk-us-3.jpg' | asset_url }}" alt="spring sale image" />
+  </a>
+</div>
+{% include 'landing-default' %}
+{% section 'index-support' %}
+
+<div class="ld-featured-products-header">
+  <div class="ld-featured-products-title">
+    Featured Products
+  </div>
+  <div class="ld-featured-products-desc">
+    It's still a great choice for gamers who put a premium on build quality
+  </div>
+</div>
+{% include 'collection-product-grid', products, tag: "Default" %}
+
+{% include 'collection-bottom' %}
+{% render 'product_infox' %}
+
+{% section 'index-reviews' %}
+{% section 'index-alliance' %}

@@ -1,0 +1,57 @@
+{% include 'product-navigation' %}
+<div class="page-shop">
+    {% assign size = '480x480' %}
+    {% assign collectionsArray = 'S-Line|P-Line|Gaming-Series|Accessories' | split: "|" %}
+
+    <div class="container page-shop__container">
+        {% for collection in collectionsArray %}
+            <div class="page-shop__group">
+                <div class="page-shop__group-title">
+                    {{collections[collection].title}}
+                </div>
+                <div class="page-shop__group-wrap">
+                    <swiper class="page-shop__swiper" :options="options">
+                        {% for product in collections[collection].products %}
+                            {% assign image = product.featured_image.src | img_url: size %}
+                            <swiper-slide class="page-shop__swiper-slide">
+                                <a class="page-shop__group-product-card" href="{{product.url}}">
+                                    <div class="page-shop__group-product-card-thumb">
+                                        <img src="{{image}}" alt="{{product.title}}">
+                                    </div>
+                                    <div class="page-shop__group-product-card-title">
+                                        {{product.title}}
+                                    </div>
+                                    <div class="page-shop__group-product-card-price">
+                                        {{product.price | money_with_currency }}
+                                    </div>
+                                    {%- comment -%}
+                                        {% unless collection == 'Accessories' %}
+                                            <div class="page-shop__group-product-card-colors">
+                                                {% for variant in product.variants %}
+                                                    {% unless variant.available == false %}
+                                                        <div class="page-shop__group-product-card-color">
+                                                            <img src='{{variant.image | img_url: 'medium'}}' class="page-shop__group-product-card-color-img">
+                                                        </div>
+                                                    {% endunless %}
+                                                {% endfor %}
+                                            </div>
+                                            <div class="page-shop__group-product-card-compare">
+                                                <div class="page-shop__group-product-card-compare-checkbox">
+                                                </div>
+                                                <div class="page-shop__group-product-card-compare-text">
+                                                    Compare
+                                                </div>
+                                            </div>
+                                        {% endunless %}
+                                    {%- endcomment -%}
+                                </a>
+                            </swiper-slide>
+                        {% endfor %}
+                        <div class="page-shop__swiper-prev vertagear-icon -icon-left" slot="button-prev"></div>
+                        <div class="vertagear-icon -icon-right page-shop__swiper-next" slot="button-next"></div>
+                    </swiper>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

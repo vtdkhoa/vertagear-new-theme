@@ -1,0 +1,11 @@
+* {
+  --nam-main-color: #4e4cf7;
+}
+
+.nam-hover-opacity-1:hover {
+	opacity: 1;
+}
+
+.index-series__swiper-slide {
+  width: 33.33%;
+}

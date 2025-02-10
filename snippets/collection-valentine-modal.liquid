@@ -1,0 +1,26 @@
+<div class="ld-modal" id="ldModal{{ tag }}">
+  <div class="ld-modal__content">
+    <div class="ld-modal__title">
+      {% if tag == "Him" %}
+      	<div>His Collection</div>
+      {% elsif tag == "Her" %}
+      	<div>Hers Collection</div>
+      {% elsif tag == "Couple" %}
+      	<div>His & Hers Collection</div>
+      {% endif %}
+    </div>
+<!--     <div class="ld-modal__promo-text">
+      <div>
+        Order by February 14th for delivery on or before Valentine’s Day
+      </div>
+    </div> -->
+    <div class="ld-modal__collection-container">
+      <div class="ld-modal__collection">
+        {% include 'collection-product-grid', products, tag %}
+      </div>
+    </div>
+    <div class="ld-modal-btn-container">
+      <button class="ld-modal__btn" id="ldModalCloseBtn{{ tag }}">Done</button>
+    </div>
+  </div>
+</div>

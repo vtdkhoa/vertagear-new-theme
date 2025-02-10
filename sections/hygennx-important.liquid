@@ -1,0 +1,47 @@
+<div class="hygennx-important">
+    <div class="hygennx-important__text vertagear-container">
+        <div class="hygennx-important__text-inner">
+            <div class="hygennx-important__title">
+                {{section.settings.title}}
+            </div>
+            <div class="hygennx-important__desc">
+                {{section.settings.main_desc}}
+            </div>
+        </div>
+    </div>
+   	<picture>
+        <source srcSet="{{section.settings.banner | img_url : 'master'}}" media="(min-width: 768px)">
+        <source srcSet="{{section.settings.banner_m | img_url : 'master' }}" media="(max-width: 767px)">
+        <img src="{{section.settings.banner | img_url : 'master'}}" class="hygennx-important__bg" alt>
+    </picture>
+</div>
+
+{% schema %}
+  {
+  "name": "Why is it so important",
+  "settings": [
+    {
+        "id": "banner",
+        "type": "image_picker",
+        "label": "Background"
+    },
+    {
+        "id": "banner_m",
+        "type": "image_picker",
+        "label": "Background Mobile"
+    },
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"Why is it so<br>important?"
+    },
+    {
+        "id": "main_desc",
+        "type": "richtext",
+        "label": "Main Description",
+        "default":"<p>Hours of gameplay generate heat build-up between your body, chair, headrest, and pillow. This can lead to unpleasant odors and create a breeding ground for bacteria; all of which can eﬀect your gaming environment, your health, and the life of your Vertagear products.</p>"
+    }
+  ]
+  }
+{% endschema %}

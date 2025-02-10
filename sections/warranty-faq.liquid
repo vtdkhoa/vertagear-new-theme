@@ -1,0 +1,56 @@
+<div class="page-warranty__faq">
+    <div class="vertagear-container -small">
+        <div class="page-warranty__faq-title page-warranty__title">
+            {{section.settings.title}}
+        </div>
+        <div class="page-warranty__faq-main js-faq" data-length="{{section.blocks | size }}">
+        	{% for block in section.blocks %}
+            <div class="page-warranty__faq-card">
+                <div class="page-warranty__faq-card-title" @click="modalChoose().toggle('current',{{forloop.index0}})">
+                    {{block.settings.title}}
+                    <div class="page-warranty__faq-card-arrow vertagear-icon -icon-down" :class="{'-active': current === {{forloop.index0}} }"></div>
+                </div>
+                <div class="page-warranty__faq-card-inner" data-parent="{{forloop.index0}}" :class="{'-active': current === {{forloop.index0}} }">
+                    <div class="page-warranty__faq-card-inner-desc" data-index="{{forloop.index0}}" >
+                        {{block.settings.desc}}
+                    </div>
+                </div>
+            </div>
+        	{% endfor %}
+    	</div>
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "FAQ",
+  "settings": [
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"Warranty FAQs"
+    }
+  ],
+  "blocks":[ 
+      { 
+         "type":"text",
+         "name":"FAQ",
+         "settings":[ 
+            { 
+               "type":"text",
+               "id":"title",
+               "label":"Title",
+               "default":"Title"
+            },
+            {
+                "type": "text",
+                "id": "desc",
+                "label": "Description",
+                "default": "Description"
+            }
+         ]
+      }
+  ]
+  }
+{% endschema %}

@@ -1,0 +1,59 @@
+
+{% assign banner = section.settings.banner | img_url: 'master'%}
+<div class="page-unboxing-review-videos">
+    {% include 'wide-banner', title: page.title , banner : banner %} 
+    <div class="vertagear-container page-unboxing-review-videos__container">
+        <div class="page-unboxing-review-videos__top">
+            {% include 'vertagear-breadcrumb', second_title: page.title , second_url : page.url %}
+        </div>
+        <div class="page-unboxing-review-videos__main">
+            {% for block in section.blocks limit: section.blocks.size %}
+                <div class="page-unboxing-review-videos__card" data-youtube="{{ block.settings.youtube }}">
+                    <div class="page-unboxing-review-videos__card-thumb">
+                        <img src='{{block.settings.image | img_url :'1024x' }}' class="page-unboxing-review-videos__card-thumb-img">
+                    </div>
+                    <div class="page-unboxing-review-videos__card-title">{{ block.settings.title }}</div>
+                    <!-- <div class="page-unboxing-review-videos__card-info">Amanda the Jedi • 3.2K views • 1 year ago.</div> -->
+                    <!-- TODO 是否需要串接這個，有點麻煩 -->
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Main",
+  "settings": [
+        {
+            "id": "banner",
+            "type": "image_picker",
+            "label": "Banner"
+        }
+    ],
+  "blocks":[ 
+      { 
+         "type":"text",
+         "name":"Videos",
+         "settings":[ 
+			{
+				"type":"text",
+				"id":"title",
+                "label":"Title",
+                "default": "Title"
+            },
+            {
+				"type":"url",
+				"id":"youtube",
+                "label":"Youtube Embed Link"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            }
+         ]
+      }
+  ]
+  }
+{% endschema %}

@@ -1,0 +1,111 @@
+{% comment %}
+<script>SPOCustom = {}; SPOCustom.customVariantSelectors = true;</script>
+{% endcomment %}
+{% section 'product-template-rework-sl5000' %}
+{% section 'custom-fields-products' %}
+
+{% comment %}
+{% include 'webyze-swatches' %}
+{% render 'product_infox' %}
+{% endcomment %}
+<style>
+#popup-reviews {
+    display: block;
+    position: fixed;
+    z-index: 123;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(43, 46, 56, .9);
+    z-index: 98123123213;
+    overflow-y: auto;
+    transform: none !important
+}
+
+@media(max-width: 768px) {
+    #popup-reviews {
+        overflow: hidden
+    }
+}
+
+#popup-reviews .reviews-overlay {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0
+}
+
+#popup-reviews .reviews-close {
+    width: 1080px;
+    height: 30px;
+    position: fixed;
+    top: 50px;
+    height: 30px;
+    position: fixed;
+    cursor: pointer;
+    margin: 0 auto;
+    max-width: 90%;
+    left: 0;
+    right: 0
+}
+
+@media(max-width: 768px) {
+    #popup-reviews .reviews-close {
+        top: 1vw;
+        right: 1vw
+    }
+}
+
+#popup-reviews .reviews-close::before,
+#popup-reviews .reviews-close::after {
+    content: "";
+    width: 35px;
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 103%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-radius: 999px
+}
+
+@media(max-width: 576px) {
+    #popup-reviews .reviews-close::before,
+    #popup-reviews .reviews-close::after {
+        left: 96%
+    }
+}
+
+#popup-reviews .reviews-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg)
+}
+
+#popup-reviews .reviews-inner {
+    padding: 0 21px;
+    margin: 40px auto;
+    max-width: 90%;
+    position: relative;
+    width: 1080px;
+    background: #fff;
+    border-radius: 4px;
+    top: 5vh
+}
+
+@media(max-width: 768px) {
+    #popup-reviews .reviews-inner {
+        top: auto
+    }
+}
+
+@media(max-width: 768px) {
+    #popup-reviews .reviews-inner {
+        max-height: 97vh;
+        overflow-y: auto
+    }
+}
+</style>
+<div id="popup-reviews" style="display: none;">{% section 'fe800-productdetail-popup-reviews' %}
+  </div>
+<script src="{{ 'fe800-custom.src.js' | asset_url }}" type="text/javascript" async defer="defer"></script>

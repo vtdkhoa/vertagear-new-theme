@@ -1,0 +1,6 @@
+{% include 'product-navigation' %}
+{% include 'collection-top' %}
+{% assign products = collection.products %}
+{% include 'collection-product',products %}
+{% include 'collection-bottom' %}
+{% render 'product_infox' %}

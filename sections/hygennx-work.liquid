@@ -1,0 +1,60 @@
+<div class="hygennx-work">
+    <div class="hygennx-work__container vertagear-container">
+        <div class="hygennx-work__right">
+            <div class="hygennx-work__right-inner">
+                <div class="hygennx-work__video">
+                    <video src="{{ 'hygennx-page-video.mp4' | asset_url }}" autoplay muted defaultMuted playsinline loop class="hygennx-work__video-inner" preload="metadata"></video>
+                </div>
+            </div>
+        </div>
+        <div class="hygennx-work__left">
+            <div class="hygennx-work__title">
+                {{section.settings.title}}
+            </div>
+            <div class="hygennx-work__desc">
+                {{section.settings.main_desc}}
+            </div>
+        </div>
+    </div>
+    <picture>
+        <source srcSet="{{section.settings.banner | img_url : 'master'}}" media="(min-width: 768px)">
+        <source srcSet="{{section.settings.banner_m | img_url : 'master' }}" media="(max-width: 767px)">
+        <img src="{{section.settings.banner | img_url : 'master'}}" class="hygennx-work__bg" alt>
+    </picture>
+
+</div>
+
+{% schema %}
+  {
+  "name": "How it Works?",
+  "settings": [
+    {
+        "id": "banner",
+        "type": "image_picker",
+        "label": "Background"
+    },
+    {
+        "id": "banner_m",
+        "type": "image_picker",
+        "label": "Background Mobile"
+    },
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"How it Works?"
+    },
+    {
+        "id": "main_desc",
+        "type": "richtext",
+        "label": "Main Description",
+        "default":"<p>Vertagear HygennX features patented technologies that shield your chair and accessories from odor, bacteria, and moisture build-up.<br><br>Nano-sized coﬀee granules within puriﬁed coﬀee grounds are weaved into our HygennX ﬁbers and embedded into our HygennX padding where they absorb and neutralize odors.<br><br>Silver-coated embroidery shields against bacteria and fungal growth by delivering positive ions (Ag+) that attach and neutralize the negative ions from bacteria.</p>"
+    },
+    {
+        "id": "video_thumb",
+        "type": "image_picker",
+        "label": "Video Thumb"
+    }
+  ]
+  }
+{% endschema %}

@@ -1,0 +1,107 @@
+{% assign total_price = 0 %}
+{% assign origin_total_price = 0 %}
+<form action="/cart" method="post" class="ajaxcart">
+    <div>
+        {% if cart.item_count == 0 %}
+        <div class="ajaxcart__inner" style="color: #000;"> 
+        {% else %}
+        <div class="ajaxcart__inner"> 
+        {% endif %}
+            {% if cart.item_count == 0 %}
+                <div class="cart-empty-message">Your cart is currently empty.</div>
+            {% else %}
+                {% for item in cart.items %}
+                    {% if item.selling_plan_allocation %}
+                        {% assign subtotal = item.selling_plan_allocation.checkout_charge_amount | times: item.quantity %}
+                        {% assign total_price = total_price | plus: subtotal %}
+                        {% assign origin_total_price = origin_total_price | plus: subtotal %}
+                    {% else %}
+                        {% assign subtotal = item.price | times: item.quantity %}
+                        {% assign origin_subtotal = item.variant.compare_at_price | times: item.quantity %}
+                        {% assign total_price = total_price | plus: subtotal %}
+                        {% assign origin_total_price = origin_subtotal %}
+                    {% endif %}
+                    <div class="ajaxcart__product" productid="{{item.product_id}}">
+                        <div class="ajaxcart__row" data-line="{{ forloop.index }}" data-type="{% if item.product.title contains 'Light Up Your Logo' %}Light Up Your Logo{% endif %}">
+                            <div class="grid">
+                                <div class="grid__item">
+                                    <a href="{{ item.url }}" class=" ajaxcart__product-image">
+                                        <img src="{{ item.image | image_url: width: 140 }}" alt="">
+                                    </a>
+                                    <span class="saso-cart-item-line-price" data-key="{{ item.key }}" style="display: none;">
+                                        <span class="tdf-cart-item-lp-p"></span>
+                                    </span>
+                                </div>
+                                <div class="ajaxcart__product-info">
+                                    <p>
+                                        <a href="{{ item.url }}" class="ajaxcart__product-name">{{ item.product.title }}</a> 
+                                        <span class="ajaxcart__product-meta">{{ item.variant_title }}</span> 
+                                        {% for p in item.properties %}
+                                            <span class="ajaxcart__product-meta">{{ p.first }}{% unless p.first contains "Estimate ship date" %}: {{ p.last }}{% endunless %}</span> 
+                                        {% endfor %}
+                                        {% if settings.cart_vendor_enable %} <span class="ajaxcart__product-meta">{{ item.vendor }}</span> {% endif %}
+                                    </p>
+                                    <div class="collection-product__card-price" data-product-id="{{ item.product.id}}"> 
+                                        {% if item.selling_plan_allocation %}
+                                            <span class="ajaxcart-item__price">{{ item.selling_plan_allocation.checkout_charge_amount | money }}</span> 
+                                        {% else %}
+                                            {% if item.variant.compare_at_price > item.price %} 
+                                                <span class="ajaxcart-item__price ajaxcart-item__price-origin">{{ item.variant.compare_at_price | money }}</span> 
+                                                <span class="ajaxcart-item__price ajaxcart-item__price-sale">{{ item.price | money }}</span> 
+                                            {% else %}
+                                                <span class="ajaxcart-item__price">{{ item.price | money }}</span> 
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                    <div class="grid--full text-center ajaxcart__quantity-wrapper">
+                                        <div class="grid__item">
+                                            <div class="ajaxcart__qty">
+                                                <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus icon-fallback-text" data-key="{{ item.key }}" data-id="{{ item.variant_id }}" data-qty="{{ item.quantity | minus: 1 }}" data-line="{{ forloop.index }}" data-type="{% for p in item.properties %}{% if p.first == "type" %}{{ p.last }}{% endif %}{% endfor %}">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                                <span class="fallback-text">&minus;</span>
+                                                </button>
+                                                <input type="text" name="updates[]" class="ajaxcart__qty-num" data-key="{{ item.key }}" value="{{ item.quantity }}" min="0" data-id="{{ item.variant_id }}" data-line="{{ forloop.index }}" aria-label="quantity" pattern="[0-9]*">
+                                                <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus icon-fallback-text" data-key="{{ item.key }}" data-id="{{ item.variant_id }}" data-line="{{ forloop.index }}" data-qty="{{ item.quantity | plus: 1 }}" data-type="{% for p in item.properties %}{% if p.first == "type" %}{{ p.last }}{% endif %}{% endfor %}">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                                <span class="fallback-text">+</span>
+                                                </button>
+                                            </div>
+                                    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ajaxcart__product-remove">
+                                    <button type="button" class="remove-btn" data-key="{{ item.key }}" data-id="{{ item.variant_id }}" data-line="{{ forloop.index }}" data-type="{% for p in item.properties %}{% if p.first == "type" %}{{ p.last }}{% endif %}{% endfor %}">
+                                        {% render 'remove-icon' %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    {% unless forloop.last %} 
+                        <p class="dividing_line" style="height: 0px; border: 1px solid #CFCFE6;"> </p> 
+                    {% endunless %}
+                {% endfor %} 
+            {% endif %}
+        </div>
+        {% if cart.item_count > 0 %}
+        <div class="ajaxcart__footer">
+            <div class="grid--full">
+                <div class="ajaxcart__subtotal_header">
+                    <p>Subtotal</p>
+                    <div class="ajaxcart__subtotal">
+                        {% if origin_total_price != total_price %} 
+                            <span class="tdf-cart-total-parent total-origin">{{ origin_total_price | money }}</span> 
+                            <span class="tdf-cart-total-parent total-sale">{{ total_price | money }}</span>
+                        {% else %}
+                            <span class="tdf-cart-total-parent total-sale">{{ total_price | money }}</span>
+                        {% endif %}
+                        </div>
+                </div>
+                <br />
+                <a href="/cart" class="cartajax-btn" style="display: inline-flex;">View Cart & Checkout</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</form>

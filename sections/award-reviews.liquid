@@ -1,0 +1,63 @@
+<div class="award-reviews">
+  <div class="award-reviews_container">
+    <div class="award-reviews_title">
+      {{ section.settings.title}}
+    </div>
+    <div class="award-reviews_content">
+      {% for block in section.blocks %}
+        <div class="award-reviews-item">
+          <img src= "{{ block.settings.image | img_url: '300x' }}"/>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="slider-pagination reviews-pagination text-center">
+      <div class="container">
+        <div class="slider-pagination__wrapper">
+          <button class="prev slick-arrow">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 17L10 13L15 9V17Z" fill="#fff"/>
+              </svg>
+          </button>
+          <ul id="slider-pagination-list">
+            {% for block in section.blocks %}
+              <li>
+                  <a class="slider-page text-white {% if forloop.index0 == 0 %}active{% endif %}" slick-index="{{ forloop.index }}">{{ forloop.index }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+          <button class="next slick-arrow">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 9L16 13L11 17V9Z" fill="white"/>
+              </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{%schema%}
+  {
+    "name": "Awards",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "awards"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Logo",
+        "settings": [
+          {
+            "label": "Image",
+            "id": "image",
+            "type": "image_picker"
+          }
+        ]
+      }
+    ]
+  }
+{%endschema%}

@@ -1,0 +1,51 @@
+<style>
+  .also-like__container {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 40px;
+    gap: 40px;
+  }
+  .also-like__related {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  .also-like__title {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.58px;
+  }
+  .also-like__related-product a {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+</style>
+
+<div class="also-like__container">
+  <div class="also-like__title">you may also like</div>
+  <div class="also-like__related">
+    <div class="also-like__related-product">
+      <a href="/products/sl3800-best-budget-comfortable-gaming-chair">
+        <img src="{{ 'new-fe800-related-sl3800.jpg' |  asset_url }}" alt="related-sl3800" width="auto" height="auto">
+        <span class="also-like__title related-product-name">sl3800</span>
+      </a>
+    </div>
+    <div class="also-like__related-product">
+      <a href="/products/pl4800-ergonomic-gaming-chair">
+        <img src="{{ 'new-fe800-related-pl4800.jpg' |  asset_url }}" alt="related-sl3800" width="auto" height="auto">
+        <span class="also-like__title related-product-name">pl4800</span>
+      </a>
+    </div>
+    <div class="also-like__related-product">
+      <a href="/products/pl6800-big-and-tall-ergonomic-gaming-chair">
+        <img src="{{ 'new-fe800-related-pl6800.jpg' |  asset_url }}" alt="related-sl3800" width="auto" height="auto">
+        <span class="also-like__title related-product-name">pl6800</span>
+      </a>
+    </div>
+  </div>
+</div>

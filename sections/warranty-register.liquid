@@ -1,0 +1,35 @@
+<div id="main-content" class="scroll-down-wrapper">
+    <div class="page-warranty__register">
+        <div class="vertagear-container -content">
+          	 {% for block in section.blocks %}
+              <div data-register-option="{{block.settings.title}}" style="display:none"></div>
+             {% endfor %}
+            <div class="page-warranty__register-title page-warranty__title">
+                Register Your Product
+            </div>
+            <form class="page-warranty__form js-form" data-type="warranty">
+                {% include 'vue-form', button_text: 'SUBMIT' %}
+            </form>
+        </div>
+    </div>
+</div>
+<!-- TODO 選項處理 -->
+
+{% schema %}
+  {
+  "name": "Register",
+  "blocks":[ 
+      { 
+         "type":"text",
+         "name":"Register Product",
+         "settings":[ 
+			{
+				"type":"text",
+				"id":"title",
+                "label":"Title"
+            }
+         ]
+      }
+  ]
+  }
+{% endschema %}

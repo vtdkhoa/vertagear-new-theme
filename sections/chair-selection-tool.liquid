@@ -1,0 +1,185 @@
+{{ 'izimodal.min.css' | asset_url | stylesheet_tag }}
+{% include 'product-navigation' %}
+<div class="page-chair-selection-tool__top">
+  <div class="vertagear-container">
+    <div class="page-chair-selection-tool__top-title">
+      {{ page.title }}
+    </div>
+    <div class="page-chair-selection-tool__top-desc">
+      <!-- This tool will narrow down our selection of awesome gaming chairs based on your height, weight, and gender. You
+      can even visualize your height and weight by selecting the “visualize” button. To get started, just fill in the
+      form below.  -->
+      {{ page.content }}
+    </div>
+  </div>
+</div>
+<div class="chair-selection-tool-page-wrapper">
+  <div class="tool-input-wrapper">
+    <div class="vertagear-container">
+      <div class="input-measurements page-chair-selection-tool__input-top">
+        <div class="measurements-units">
+          <div class="units-option" data-set-units="imperial">
+            <div class="input-checkbox">
+              <div class="checkbox-square">
+                &nbsp;
+              </div>
+            </div>
+            Imperial
+          </div>
+          <div class="units-option" data-set-units="metric">
+            <div class="input-checkbox">
+              <div class="checkbox-square">
+                &nbsp;
+              </div>
+            </div>
+            Metric
+          </div>
+        </div>
+      </div>
+
+      <div class="page-chair-selection-tool__group">
+        <div class="input-measurements">
+          <div class="measurements-values">
+            <div class="values-set" data-set-units="imperial">
+              <div class="value-container">
+                <label class="value-container__title input-title" for="imperial-ft">
+                  Height
+                </label>
+                <select class="sub-value" id="imperial-ft">
+                  <option disabled selected>ft</option>
+                  {% for item in (4..6) %}
+                      <option>{{item}}</option>
+                  {% endfor %}
+                </select>
+                <select class="sub-value" id="imperial-in">
+                  <option disabled selected>in</option>
+                  {% for item in (0..11) %}
+                      <option>{{item}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="value-container">
+                <label class="value-container__title input-title" for="imperial-lb">
+                  Weight
+                </label>
+                <input type="text" class="value" placeholder="Weight (lbs)" id="imperial-lb" />
+              </div>
+            </div>
+            <div class="values-set" data-set-units="metric">
+              <div class="value-container">
+                <label class="value-container__title input-title" for="metric-cm">
+                  Height
+                </label>
+                <input type="text" class="value" placeholder="Height (cm)" id="metric-cm" />
+              </div>
+              <div class="value-container">
+                <label class="value-container__title input-title" for="metric-kg">
+                  Weight
+                </label>
+                <input type="text" class="value" placeholder="Weight (kg)" id="metric-kg" />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="input-gender">
+          <div class="input-title">Gender</div>
+          <div class="gender-option" data-gender="male">
+            <div class="input-checkbox">
+              <div class="checkbox-square">
+                &nbsp;
+              </div>
+            </div>
+            Male
+          </div>
+          <div class="gender-option" data-gender="female">
+            <div class="input-checkbox">
+              <div class="checkbox-square">
+                &nbsp;
+              </div>
+            </div>
+            Female
+          </div>
+        </div>
+      </div>
+      <div class="page-chair-selection-tool__note">
+        {{section.settings.note}}
+      </div>
+      <button class="vertagear-btn -blue" id="find-my-chair-button">
+        Find My Chair
+      </button>
+    </div>
+  </div>
+  <div class="tool-recommendations-wrapper">
+    <div class="vertagear-container">
+      <h2 class="recommendations-heading" style="display:none">Recommended for you</h2>
+      <div class="recommendations">
+      </div>
+      <div class="recommendation template">
+        <img class="recommendation-image" src="[[image_url]]" alt>
+        <h3 class="recommendation-heading">[[name]]</h3>
+        <div class="recommendation-price">$ [[price]]</div>
+        <div class="new-edit-top__recommend-title">
+          Recommended For
+        </div>
+        <div class="new-edit-top__recommend-group">
+          <div class="new-edit-top__recommend-info">
+              <div class="new-edit-top__recommend-info-icon">
+                <img src="{{ 'sl5000-weight.svg' | asset_url}}" alt="Weight:">
+              </div>
+              <div class="new-edit-top__recommend-info-text">Up to [[max_weight_kg]] kg / [[max_weight_lb]] lb </div>
+          </div>
+          <div class="new-edit-top__recommend-info">
+              <div class="new-edit-top__recommend-info-icon">
+                <img src="{{ 'sl5000-height.svg' | asset_url}}" alt="Height:">
+              </div>
+              <div class="new-edit-top__recommend-info-text">Up to [[max_height_cm]] cm / [[max_height_feet]]'[[max_height_inches]]"</div>
+          </div>
+        </div>
+        <div class="cta-wrapper">
+          <a href="" class="cta-shop-now">VIEW PRODUCT</a>
+          <div class="cta-visualize-wrapper" title="Visualization not available for this height/weight">
+            <button class="cta-visualize">Visualize</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal">
+  <div class="modal-container">
+    <div class="visualization">
+      <div class="chair-wrapper">
+        <div id="chair-side" style="position: relative;">&nbsp;</div>
+      </div>
+      <div class="chair-wrapper">
+        <div id="chair-front" style="position: relative;">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'chair-selection-tool-svg' %}
+{% comment %}
+{{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
+<script src="https://code.jquery.com/ui/1.9.2/jquery-ui.min.js"
+  integrity="sha256-eEa1kEtgK9ZL6h60VXwDsJ2rxYCwfxi40VZ9E0XwoEA=" crossorigin="anonymous"></script>
+{% endcomment %}
+
+{{ 'izimodal.min.js' | asset_url | script_tag }}
+{{ 'chair-selection-tool.js' | asset_url | script_tag }}
+{{ 'two.min.js' | asset_url | script_tag }}
+
+{% schema %}
+  {
+  "name": "Main",
+  "settings": [
+    {
+        "id": "note",
+        "type": "richtext",
+        "label": "Notification",
+        "default":"<p>Please note that this is only a general guideline, as everyone comes in different shapes and sizes. We strongly recommend checking out the specific measurements of our chairs on our <a href='/pages/support'>Support</a> page,  to give you a better idea of which chair fits you best!</p>"
+    }
+  ]
+  }
+{% endschema %}

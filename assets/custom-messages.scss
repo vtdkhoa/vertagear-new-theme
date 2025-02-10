@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700');
+
+.message-bar {
+  	background-color: #A72A2F;
+    color: #fff;
+    width: 100vw;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8em;
+}
+
+.message-text {
+    display: inline-block;
+    line-height: 34px;
+    vertical-align: middle;
+}

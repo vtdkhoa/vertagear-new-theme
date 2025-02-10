@@ -1,0 +1,105 @@
+{% include 'gravityadmin' %}
+<div style="display: none !important;  visibility: hidden !important;" class="cmspro-section" id="cmspro-59faa569"></div>
+{% case section.settings.colors %}
+  {% when 'white' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+  {% when 'light' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--light">
+  {% when 'accent' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--accent">
+  {% when 'dark' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--dark">
+{% endcase %}
+
+<div class="wrapper">
+
+	<div class="homepage-indiv-section-wrapper grid--full homepage-featured-content-wrapper feature-row__text--{{ section.settings.layout }}">
+
+		<div class="grid__item large--five-sixths push--large--one-twelfth homepage-featured-rich-text">
+
+			{% if section.settings.title != blank %}
+				<div class="sitewide--title-wrapper">
+	        <h2 class="homepage-sections--title">{{ section.settings.title | escape }}</h2>
+	      </div>
+			{% endif %}
+
+			{% if section.settings.text != blank %}
+				<div class="rte featured-row__subtext textarea">{{ section.settings.text }}</div>
+			{% endif %}
+
+			{% if section.settings.button_label != blank and section.settings.button_link != blank %}
+				<div>
+					<a href="{{ section.settings.button_link }}" class="homepage-featured-box-btn">
+						{{ section.settings.button_label }}
+					</a>
+				</div>
+			{% endif %}
+
+		</div>
+
+	</div>
+
+</div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Rich text",
+  "class": "rich-text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Welcome to our store"
+    },
+    {
+      "type": "select",
+      "id": "colors",
+      "label": "Color scheme",
+      "default": "white",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "accent",
+          "label": "Feature"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Use this text block to show store announcements, advertise products and collections, or simply welcome visitors to your store.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rich text",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

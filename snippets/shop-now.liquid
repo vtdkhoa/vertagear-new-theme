@@ -1,0 +1,60 @@
+{% for product in shop-now %}
+{% include 'sca_freegift_price' with product %}
+<div class='carousel-item'>
+	<div class='zero-product-display' id='product-{{ product.id }}'>
+      {% if product.title contains "SL2000 Gaming Chair" %}
+      	  {% assign current_variant = "131480125445" %}
+      {% else %}
+          {% assign current_variant = product.selected_or_first_available_variant %}
+      {% endif %}
+      {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+      {% if product.title !='Casters' %}
+      	{% if product.options.size > 1 %}
+      	<div class='chair-image' style='position: relative; width:250px; height:250px; display: flex;'>
+      	<img class='featured-{{ product.id }}-image' style='margin: auto;' src='{{ product.selected_or_first_available_variant.featured_image | product_img_url: '1024x1024' }}' />
+      	<img class='hovered-{{ product.id }}-image hidden' stlye='width: 250px; height: 250px;' src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
+        </div>
+      	{% else %}
+        <div class='chair-image' style='position: relative; width:250px; height:250px; display: flex;'>
+      	<img class='featured-{{ product.id }}-image' style='margin: auto;' src='{{ product.featured_image | product_img_url: '1024x1024' }}' />
+        <img class='hovered-{{ product.id }}-image hidden' stlye='width: 250px; height: 250px;' src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
+        </div>
+      	{% endif %}
+      {% else %}
+      <div class='chair-image' style='position: relative; width:250px; height:250px; display: flex;'>
+      	<img class='featured-{{ product.id }}-image' style='margin: auto;' src='{{ product.featured_image | product_img_url: '1024x1024' }}' />
+      </div>
+      {% endif %}
+      <h2 class='title'>{{ product.title }}</h2>
+      <div class='price'>{{ sca_price | money }} {% if sca_price < sca_compare_at_price %}<span class="compare-at-price">{{ sca_compare_at_price | money }}</span>{% endif %}</div>
+     <!--<button data-product-id='{{ product.id }}' class='buy-now' type='submit'>Buy Now</button>-->
+      <a class='buy-now' id='product-detail-link-{{product.id}}' href='/products/{{ product.handle }}'>Buy Now</a>
+      <script>
+        $(document).ready(function() {
+          initSlick = function() {
+            $('#color_wrapper_' + {{ product.id }}).slick({
+              mobileFirst: true,
+              draggable: false,
+              infinite: true,
+              arrows: true,
+              slidesToShow: 4,
+              slidesToScroll: 4
+              });
+            $('#color_wrapper_' + {{ product.id }}).slick('slickGoTo', 0);
+          };
+
+          initSlick();
+
+          $(window).on('resize', function() {
+            $('#color_wrapper_' + {{ product.id }}).slick('slickGoTo', 0);
+            var width = $(window).width();
+            if(width < 768) {
+              initSlick();
+            }
+          });
+        });
+       
+      </script>
+	</div>
+</div>
+{% endfor %}

@@ -1,0 +1,37 @@
+{% include 'gravityadmin' %}
+<div style="display: none !important;  visibility: hidden !important;" class="cmspro-section" id="cmspro-bd736778"></div>
+{{ 'customer-reviews.scss.css' | asset_url | stylesheet_tag }}
+<div class="customer-reviews-wrapper">
+  <div class="grid-container">
+    <h3> <a href="/pages/reviews#customer-reviews">Customer Reviews</a> </h3>  
+<!--     <h4>
+      What customers are saying about us
+    </h4> -->
+    <div class="custom-reviews-container">
+      <div class="yotpo yotpo-reviews-carousel" 
+       data-background-color="transparent" 
+       data-mode="top_rated" 
+       data-type="product" 
+       data-count="9" 
+       data-autoplay-enabled="0" 
+       data-autoplay-speed="100000" 
+       data-show-navigation="1" 
+       data-testimonials-page-enabled="1" 
+       data-testimonials-page-text="See All Reviews" 
+       data-testimonials-page-link="/pages/reviews">&nbsp;</div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Customer Reviews",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

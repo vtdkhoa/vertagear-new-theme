@@ -1,0 +1,16 @@
+<div class="product-navigation">
+      <div class="vertagear-container product-navigation__container" :class="{'-scroll-active ' :scrollTop <= 80}">
+          <div class="product-navigation__container-inner">
+              <swiper class="product-navigation__swiper" :options="options" key="product-navigation-swiper">
+                  <swiper-slide class="product-navigation__swiper-slide {% if collection.id == 363081477 %}-active{% endif %}"><a href="/collections/s-line" class="product-navigation__link ">S Line</a></swiper-slide>
+                  <swiper-slide class="product-navigation__swiper-slide  {% if collection.id == 363081541 %}-active{% endif %}"><a href="/collections/p-line" class="product-navigation__link">P Line</a></swiper-slide>
+                  <swiper-slide class="product-navigation__swiper-slide {% if collection.id == 363081285 %}-active{% endif %}"><a href="/collections/gaming-series" class="product-navigation__link ">Triigger Line</a></swiper-slide>
+                  <swiper-slide class="product-navigation__swiper-slide {% if collection.id == 261215846511 or collection.id == 261637505135 %}-active{% endif %}"><a href="/collections/special-edition" class="product-navigation__link ">Special Edition</a></swiper-slide>
+                  <swiper-slide class="product-navigation__swiper-slide {% if collection.id == 261215912047 %}-active{% endif %}"><a href="/collections/rgb-led-updgrade-kit" class="product-navigation__link ">RGB LED Upgrade Kit</a></swiper-slide>
+                  <swiper-slide class="product-navigation__swiper-slide {% if collection.id == 363081221 %}-active{% endif %}"><a href="/collections/accessories" class="product-navigation__link ">Accessories</a></swiper-slide>
+                  <swiper-slide class="product-navigation__swiper-slide {% if template == 'page.chair-selection-tool' %}-active{% endif %}"><a href="/pages/chair-selection-tool" class="product-navigation__link -tool ">Chair Selection Tool</a></swiper-slide>
+              </swiper>
+          </div>
+      </div>
+</div>
+

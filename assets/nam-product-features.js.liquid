@@ -1,0 +1,121 @@
+const namProductFeatureData = [
+  {
+    title: "RGB Led Upgrade Kits",
+    description:
+      "The PL4500 is upgradable with a compatible RGB LED upgrade kit. Elevate your gaming experience with the world’s first wirelessly controlled RGB LED upgrade kit with interactive modes such as audio and gameplay sync and 16.8 million colors to match your mood.",
+    imgName: {
+      mobile: "{{ 'nam-feature-rgb.jpeg' | asset_url }}",
+      desktop: "{{ 'nam-feature-rgb-desk.jpeg' | asset_url }}"
+    },
+    videoName: {
+      mobile: "",
+      desktop: "{{ 'ld-rgb.mp4' | asset_url }}"
+    }
+  },
+  {
+    title: "Light up your logo",
+    description:
+      "Our Powerful acrylic laser engraving device will have your logo ready in just minutes. Just send us your personal or custom logo design and we’ll lighten it up for you like never before. Add a uniquely customized look to your gaming setup.",
+    imgName: {
+      mobile: "{{ 'nam-feature-light-logo.jpeg' | asset_url }}",
+      desktop: "{{ 'nam-feature-light-logo-desk.jpeg' | asset_url }}"
+    },
+    videoName: {
+      mobile: "",
+      desktop: "{{ 'light-up-logo-desktop.mp4' | asset_url }}"
+    }
+  },
+  {
+    title: "HygennX",
+    description:
+      "As the marriage of the Coffee Fiber Padding and Silver Lining Embroidery Vertagear fans love, HygennX was designed with a patented coffee infused fiber to limit odor and increase breathability, while maintaining bacteria control properties from the silver thread to prioritize cleanliness and comfort in the areas most sat on during long hours of intense gameplay.",
+  imgName: {
+      mobile: "{{ 'nam-feature-hygennx.jpeg' | asset_url }}",
+      desktop: "{{ 'nam-feature-hygennx-desk.jpeg' | asset_url }}"
+    },
+    videoName: {
+      mobile: "",
+      desktop: "{{ 'hygennx-page-video.mp4' | asset_url }}"
+    }
+  },
+  {
+    title: "Effortless Assembly",
+    description:
+      "Our patented “Slide-in” hardware allows for a quick and easy on-person assembly. The chair can be assembled in seconds by simply sliding the backrest into the seat, removing any alignment and hardware complexities for a hassle-free,one-person process.",
+  imgName: {
+      mobile: "{{ 'nam-feature-assembly.jpeg' | asset_url }}",
+      desktop: "{{ 'nam-feature-assembly-desk.jpeg' | asset_url }}"
+    },
+    videoName: {
+      mobile: "",
+      desktop: "https://cdn.shopify.com/videos/c/o/v/0b8fee63a163425f9638216123f4fc66.mp4"
+    }
+  },
+];
+
+const namProductFeatureBtns = document.getElementsByClassName(
+  "nam-product-feature__action__switch__btn"
+);
+const namProductFeatureImg = document.getElementById("namProductFeatureImg");
+const namProductFeatureTitle = document.getElementById("namProductFeatureTitle");
+const namProductFeatureDesc = document.getElementById("namProductFeatureDesc");
+
+const namProductFeatureRemoveBtnMainColor = () => {
+  for (let i = 0; i < namProductFeatureBtns.length; i++) {
+    const btn = namProductFeatureBtns[i];
+    btn.classList.remove("nam-product-main-btn");
+    btn.classList.add("nam-product-sec-btn");
+  }
+};
+for (let i = 0; i < namProductFeatureBtns.length; i++) {
+  const btn = namProductFeatureBtns[i];
+  const featureData = namProductFeatureData[i];
+  btn.onclick = () => {
+    namProductFeatureImg.src = featureData.imgName.mobile;
+    namProductFeatureTitle.innerHTML = featureData.title;
+    namProductFeatureDesc.innerHTML = featureData.description;
+    namProductFeatureRemoveBtnMainColor();
+    btn.classList.remove("nam-product-sec-btn");
+    btn.classList.add("nam-product-main-btn");
+  };
+}
+
+// For desktop
+const namProductFeatureBtnsDesk = document.getElementsByClassName(
+  "nam-product-feature__action__switch__btn-desk"
+);
+const namProductFeatureContainerDesk = document.getElementById(
+  "namProductFeatureContainer"
+);
+const namProductFeatureTitleDesk = document.getElementById(
+  "namProductFeatureTitleDesk"
+);
+const namProductFeatureDescDesk = document.getElementById("namProductFeatureDescDesk");
+const namProductFeatureExploreBtns = document.getElementsByClassName("nam-product-feature__action__explore-desktop");
+const namProductFeatureVideo = document.getElementById("namProductFeatureVideo");
+
+const namProductFeatureRemoveBtnMainColorDesk = () => {
+  for (let i = 0; i < namProductFeatureBtnsDesk.length; i++) {
+    const btn = namProductFeatureBtnsDesk[i];
+    btn.classList.remove("nam-product-main-btn");
+    btn.classList.add("nam-product-sec-btn");
+    const exploreBtn = namProductFeatureExploreBtns[i];
+    exploreBtn.style.display = "none";
+  }
+};
+for (let i = 0; i < namProductFeatureBtnsDesk.length; i++) {
+  const btn = namProductFeatureBtnsDesk[i];
+  const featureData = namProductFeatureData[i];
+  btn.onclick = () => {
+<!--      namProductFeatureContainerDesk.style.backgroundImage = `url("${featureData.imgName.desktop}")`; -->
+    namProductFeatureVideo.src = featureData.videoName.desktop;
+    namProductFeatureTitleDesk.innerHTML = featureData.title;
+    namProductFeatureDescDesk.innerHTML = featureData.description;
+    namProductFeatureRemoveBtnMainColorDesk();
+    btn.classList.remove("nam-product-sec-btn");
+    btn.classList.add("nam-product-main-btn");
+
+    const exploreBtn = namProductFeatureExploreBtns[i];
+    exploreBtn.style.display = "block";
+  };
+}

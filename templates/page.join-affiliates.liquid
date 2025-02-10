@@ -1,0 +1,146 @@
+{{ 'affiliate.css' | asset_url | stylesheet_tag }}
+
+<!-- /templates/page.liquid -->
+<div class="grid page-main--wrapper">
+
+  <div class="container">
+    <section class="header">
+      <div class="row">
+         <div class="text col-md-12 col-sm-12 pull-right">
+			<img src="{{ 'logo-affiliate.png' | asset_url}}">
+           <h1>BECOME A <span>VERTAGEAR AFFILIATE</span></h1>
+            <h2>Welcome to the Vertagear Affiliate Program!</h2>
+          </div>
+        </div>
+    </section>
+    <section class="join-form pull-right">
+      <!--<div class="row">
+        <div class="col-md-12 col-sm-12">
+          <a class="btn-submit btn-join">SUBMIT</a>
+        </div>
+      </div>-->
+      <div class="row">
+        <div class="form-wrapper col-md-9 col-xs-12 pull-right">
+      		<p>Register now to make $$$</p>
+            <form id="lead" action="https://vertagear.refersion.com/affiliate/registration" method="post" autocomplete="off">
+             <input type="hidden" name="refersion_csrf_test" value="e0ebc8395aa9f7f3820ba478b042dd71" />           
+              <div class="form-group first_name">
+                <label for="pwd">*First Name:</label>
+                <input type="text" name="first_name" id="first_name"/>
+                <div class="message"></div>
+              </div>
+              <div class="form-group last_name">
+                <label for="pwd">*Last Name:</label>
+                <input type="text" name="last_name" id="last_name"/>
+                <div class="message"></div>
+              </div>
+              <div class="form-group email">
+                <label for="email">*Email:</label>
+                <input type="email" name="email" id="email"/>
+                <div class="message"></div>
+              </div>
+              <div class="form-group password">
+                <label for="pwd">*Password:</label>
+                <input type="password" name="password" id="password"/>
+                <div class="message"></div>
+              </div>
+              <div class="form-group confirm_password">
+                <label for="pwd">*Confirm Password:</label>
+                <input type="password" name="password2" id="password2"/>
+                <div class="message"></div>
+              </div>
+              <div class="form-group">
+                <a class="btn-submit btn-join">SUBMIT</a>
+              </div>
+              <div class="message_success"></div>
+            </form>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+
+</div>
+
+<script type="text/javascript">
+  	function isValidEmailAddress(emailAddress) {
+        var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+        return pattern.test(emailAddress);
+    }
+  
+    function isValidPasswordLength(password){
+      if(password.length > 4)
+        	return true;
+        else{
+          	$('.password .message').addClass('error');
+        	$('.password .message').html('The Password field must be at least 5 characters in length.');
+        	return false;
+        }
+    }
+  
+  	function isPasswordMatch(password,password2){
+      if(password == password2)
+        return true;
+       else{
+          $('.password .message').addClass('error');
+          $('.password .message').html('The Password field does not match the Password confirmation field.');
+          return false;
+       }
+  	}
+  	
+  
+  
+	$( ".btn-submit" ).click(function() {
+      var c_fname = false;
+      var c_lname = false;
+      var c_email = false;
+      var c_password = false;
+      
+      if($('#first_name').val() != ''){
+        c_fname = true;
+      	$('.first_name .message').html('');
+      }
+      else{
+        $('.first_name .message').addClass('error');
+        $('.first_name .message').html('First Name is required.');
+      }
+      
+      if($('#last_name').val() != ''){
+        c_lname = true;
+      	$('.last_name .message').html('');
+      }
+      else{
+        $('.last_name .message').addClass('error');
+        $('.last_name .message').html('Last Name is required.');
+      }
+      
+      var email = $('#email').val();
+      if(isValidEmailAddress(email)){
+        c_email = true;
+        $('.email .message').removeClass('error');
+      	$('.email .message').html('');
+      }
+      else{
+        $('.email .message').addClass('error');
+        $('.email .message').html('Invalid Email Addrress.');
+      }
+      
+      var password = $('#password').val();
+      var password2 = $('#password2').val();
+      
+      if(isValidPasswordLength(password) && isPasswordMatch(password,password2)){
+      	c_password = true;
+        $('.password .message').removeClass('error');
+        $('.password .message').html('');
+      }
+      
+      if(c_fname && c_lname && c_email && c_password){
+        
+        $('.message_success').html('Thank you for joining our affiliate program, submitting your information....');
+        setTimeout(function(){ $( "#lead" ).submit()}, 2000);
+      }
+        
+      
+      return false;
+    });
+</script>

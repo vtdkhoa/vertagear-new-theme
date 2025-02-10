@@ -1,0 +1,40 @@
+{% include 'sca_freegift_price' with product %}
+<div class="grid-view-item">
+
+  <a href="{{ product.url | within: collection }}" class="grid__image">
+    <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+    <div name="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-collect" }} </div>
+    <div class="sca-fg-cat-list" style="display:none;" name="secomapp-fg-data-{{ product.id }}" prod-show='list'> </div>
+  </a>
+
+  <div class="grid-view-item--desc-wrapper grid-uniform">
+    <div class="grid__item large--one-whole">
+      {% if section.settings.show-vendor %}
+        <div class="product-grid--vendor-text">{{ product.vendor }}</div>
+      {% endif %}
+      <p class="product-grid--title">
+        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      </p>
+      <p class="product-grid--price">
+          {% if on_sale %}
+            {% if sca_price_varies %}
+              {% assign sale_price = sca_price | money %}
+              {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+            {% else %}
+              <span class="product-grid--compare-price">{{ sca_compare_at_price | money }}</span>
+              {{ sca_price | money }}
+            {% endif %}
+          {% else %}
+            {% if sca_price_varies %}
+              <span class="product-grid--from-wrapper">{{ 'products.general.from_text' | t }}</span> {{ sca_price | money }}
+            {% else %}
+              {{ sca_price | money }}
+            {% endif %}
+          {% endif %}
+          {% if sold_out %}
+            <br><strong>{{ 'products.product.sold_out' | t }}</strong>
+          {% endif %}
+      </p>
+    </div>
+  </div>
+</div>

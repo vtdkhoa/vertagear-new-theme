@@ -1,0 +1,13 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/vertagear.myshopify.com/products/edit-field/18126
+{% endcomment %}
+{% if product.metafields.custom_fields["color_8"] != blank %}
+  <div class="custom-field custom-field__color-8 custom-field__type--text-list">
+    <h3 class="custom-field--title">color_8</h3>
+    <div class="custom-field--value">  
+      {{ product.metafields.custom_fields["color_8"] }}
+    </div>
+  </div>
+{% endif %}

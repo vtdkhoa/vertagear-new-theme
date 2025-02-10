@@ -1,0 +1,176 @@
+<style>
+  .product-detail__container {
+    display: flex;
+    padding: 80px 40px;
+    flex-direction: column;
+    gap: 80px;
+    background: #f6f6f6;
+  }
+  .product-detail__construction-materials,
+  .product-detail__posture-ergonomics {
+    display: inherit;
+    flex-direction: column;
+    gap: 80px;
+  }
+  .product-detail__title {
+    width: 328px;
+  }
+  .product-detail__content__grid-6 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 16px;
+  }
+  .product-detail__content__grid-6-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .product-detail__content__posture-ergonomics {
+    display: flex;
+    flex-direction: column;
+  }
+  .product-detail__content__grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 16px;
+  }
+  .product-detail__content__grid-2 {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+  }
+  .product-detail__content__grid-2-item img {
+    max-width: 443px;
+  }
+  .specs-title {
+    color: #000;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.58px;
+  }
+  .specs-desc {
+    color: #5d5d5d;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+  }
+</style>
+
+<div class="product-detail__container">
+  <div class="product-detail__construction-materials">
+    <div class="product-detail__title specs-title">CONSTRUCTION & MATERIALS</div>
+    <div class="product-detail__content">
+      <div class="product-detail__content__grid-6">
+        <div class="product-detail__content__grid-6-item">
+          <img src="{{ 'new-fe800-specs-steel-frame.jpg' |  asset_url }}" alt="steel-frame" width="auto" height="auto">
+          <div class="specs-title">Steel Frame</div>
+          <span class="specs-desc"
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ullam dolorum optio aliquid explicabo
+            deserunt eum quis velit! Quae laboriosam eaque sequi porro asperiores soluta consequatur. Libero nostrum
+            nisi amet.</span
+          >
+        </div>
+        <div class="product-detail__content__grid-6-item">
+          <img src="{{ 'new-fe800-specs-5stars-base.jpg' |  asset_url }}" alt="steel-frame" width="auto" height="auto">
+          <div class="specs-title">Aluminum Alloy 5-star Base</div>
+          <span class="specs-desc"
+            >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor ipsam quidem itaque natus impedit
+            asperiores tenetur minima esse, ut sed, cupiditate repudiandae praesentium ipsum hic et possimus assumenda
+            inventore consequuntur?</span
+          >
+        </div>
+        <div class="product-detail__content__grid-6-item">
+          <img src="{{ 'new-fe800-specs-gas-lift.jpg' |  asset_url }}" alt="steel-frame" width="auto" height="auto">
+          <div class="specs-title">Gas Lift</div>
+          <span class="specs-desc"
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aliquid ipsa qui commodi totam, sequi omnis
+            nulla pariatur eligendi, aperiam minima officiis quidem, quisquam soluta magni repellendus itaque. In,
+            distinctio.</span
+          >
+        </div>
+        <div class="product-detail__content__grid-6-item">
+          <img src="{{ 'new-fe800-specs-puc.jpg' |  asset_url }}" alt="steel-frame" width="auto" height="auto">
+          <div class="specs-title">PUC Synthetic Faux Leather</div>
+          <span class="specs-desc"
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa accusantium, dicta minima, dolorem iusto
+            fugit quo ipsum hic animi mollitia architecto, libero veritatis ipsa exercitationem? Impedit, voluptate
+            dolor. Cumque, amet.</span
+          >
+        </div>
+        <div class="product-detail__content__grid-6-item">
+          <img src="{{ 'new-fe800-specs-foam.jpg' |  asset_url }}" alt="steel-frame" width="auto" height="auto">
+          <div class="specs-title">UPHR Foam</div>
+          <span class="specs-desc"
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis tempora quod cupiditate! Eum
+            blanditiis mollitia placeat praesentium beatae accusamus sit, nihil vero optio, eligendi explicabo? Sequi,
+            ratione maxime? Iusto, iure?</span
+          >
+        </div>
+        <div class="product-detail__content__grid-6-item">
+          <img src="{{ 'new-fe800-specs-caster.jpg' |  asset_url }}" alt="steel-frame" width="auto" height="auto">
+          <div class="specs-title">Penta RS1 Caster</div>
+          <span class="specs-desc"
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis doloribus dolorem tenetur, debitis
+            excepturi reprehenderit sunt maiores ullam molestias velit! Doloremque dolore asperiores, quidem praesentium
+            explicabo repudiandae iusto consequatur temporibus.</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-detail__posture-ergonomics">
+    <div class="product-detail__title specs-title">POSTURE PERFECT ERGONOMICS</div>
+    <div class="product-detail__content__posture-ergonomics">
+      <div class="product-detail__content__grid-3">
+        <div class="product-detail__content__grid-6-item">
+          <img src="{{ 'new-fe800-specs-set-height.jpg' |  asset_url }}" alt="steel-frame" width="auto" height="auto">
+          <div class="specs-title">Adjustable Seat Height</div>
+          <span class="specs-desc"
+            >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa laudantium cumque cupiditate iusto totam
+            reiciendis omnis ratione praesentium. Placeat, ex omnis? Recusandae quae cum eligendi expedita, sapiente
+            labore vitae molestiae?</span
+          >
+        </div>
+        <div class="product-detail__content__grid-6-item">
+          <img src="{{ 'new-fe800-specs-neck-support.jpg' |  asset_url }}" alt="steel-frame" width="auto" height="auto">
+          <div class="specs-title">Neck Support</div>
+          <span class="specs-desc"
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia voluptatem atque facilis eius, minima fuga
+            commodi, mollitia at saepe praesentium molestiae doloremque ab illo repudiandae. Eaque dolorum autem soluta
+            inventore!</span
+          >
+        </div>
+        <div class="product-detail__content__grid-6-item">
+          <img src="{{ 'new-fe800-specs-backrest.jpg' |  asset_url }}" alt="steel-frame" width="auto" height="auto">
+          <div class="specs-title">Adjustable Backrest</div>
+          <span class="specs-desc"
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Non doloremque expedita esse, porro qui libero
+            corporis quisquam illum eveniet natus quasi omnis quibusdam aperiam ipsa unde optio dicta aliquid officiis?</span
+          >
+        </div>
+      </div>
+      <div class="product-detail__content__grid-2">
+        <div class="product-detail__content__grid-2-item product-detail__content__grid-6-item">
+          <img src="{{ 'new-fe800-specs-tilt.jpg' |  asset_url }}" alt="steel-frame" width="auto" height="auto">
+          <div class="specs-title">Adjustable Tilt with Loking System</div>
+          <span class="specs-desc"
+            >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque eius totam explicabo eos laudantium aut
+            perspiciatis. Corporis sint culpa aliquid aliquam totam quasi ipsum, cupiditate, qui molestiae optio nemo
+            dignissimos.</span
+          >
+        </div>
+        <div class="product-detail__content__grid-2-item product-detail__content__grid-6-item">
+          <img src="{{ 'new-fe800-specs-4d-armrests.jpg' |  asset_url }}" alt="steel-frame" width="auto" height="auto">
+          <div class="specs-title">4D Armrests</div>
+          <span class="specs-desc"
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptatibus nostrum vero, voluptas suscipit
+            placeat, blanditiis temporibus dolorum natus inventore deleniti quasi incidunt aut necessitatibus nemo, iure
+            dolores dicta magnam.</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

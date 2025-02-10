@@ -1,0 +1,27 @@
+{% if product.metafields.custom_fields["faq_accordion"] != blank %}
+  <div class="custom-field custom-field__faq-accordion custom-field__type--field-collection-json">
+    <h3 class="custom-field--title">FAQ</h3>
+    <div class="custom-field--value">
+      {% for item in product.metafields.custom_fields["faq_accordion"] %}
+        <div class="fc-item fc-index--{{ forloop.index0 }}">
+           {% if item["title"] != blank %}
+             <div class="fc-field field__title field-type--text">
+               <h4 class="custom-field--title">Title</h4>
+               <div class="custom-field--value">
+                 {{ item["title"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["answer"] != blank %}
+             <div class="fc-field field__answer field-type--html">
+               <h4 class="custom-field--title">Answer</h4>
+               <div class="custom-field--value">
+                 {{ item["answer"] }}
+               </div>
+             </div>
+           {% endif %}
+         </div>
+       {% endfor %}
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,9 @@
+<ul class="vertagear-breadcrumb">
+    <li class="vertagear-breadcrumb__li"><a class="vertagear-breadcrumb__link" href="/">Home</a></li>
+    {% if second_title %}
+        <li class="vertagear-breadcrumb__li"><a class="vertagear-breadcrumb__link {% unless third_title %}-current{% endunless %}" href="{{ second_url }}">{{ second_title }}</a></li>
+    {% endif %}
+    {% if third_title %}
+        <li class="vertagear-breadcrumb__li"><a class="vertagear-breadcrumb__link  -current" href="{{ third_url }}">{{ third_title }}</a></li>
+    {% endif %}
+</ul>

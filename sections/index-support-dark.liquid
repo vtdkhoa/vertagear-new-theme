@@ -1,0 +1,123 @@
+<style>
+  #shopify-section-index-support-dark {
+    background: #1A1A1F;
+  }
+  .index-support__swiper-slide-inner {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .index-support__swiper-slide-title {
+    color: #fff !important;
+  }
+  .index-support__swiper-slide-title {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .index-support__swiper-slide-inner {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+</style>
+
+<div class="index-support">
+    <div class="vertagear-container index-support__container">
+        <div class="index-support__inner">
+            <div class="index-support__swiper-box">
+               <swiper class="index-support__swiper" :options="options" key="index-support-swiper">
+                    <swiper-slide class="index-support__swiper-slide">
+                        <a class="index-support__swiper-slide-inner">
+                            <div class="index-support__swiper-slide-top">
+                                <div class="index-support__swiper-slide-top-icon">
+                                  <img class="index-support__swiper-slide-top-icon-img" src="{{ 'index-support-wear-dark.svg' | asset_url }}" />
+                                </div>
+                                <div class="index-support__swiper-slide-title">Free <br>Protection <br>Program</div>
+                            </div>
+                        </a>
+                    </swiper-slide>
+                    <swiper-slide class="index-support__swiper-slide">
+                        <a class="index-support__swiper-slide-inner">
+                            <div class="index-support__swiper-slide-top">
+                                <div class="index-support__swiper-slide-top-icon">
+                                  <img class="index-support__swiper-slide-top-icon-img" src="{{ 'index-support-warranty-dark.svg' | asset_url }}" />
+                                </div>
+                                <div class="index-support__swiper-slide-title">10-Year <br>Limited <br>Warranty</div>
+                            </div>
+                        </a>
+                    </swiper-slide>
+                    <swiper-slide class="index-support__swiper-slide">
+                        <div class="index-support__swiper-slide-inner">
+                          <div class="index-support__swiper-slide-top">
+                              <div class="index-support__swiper-slide-top-icon">
+                                <img class="index-support__swiper-slide-top-icon-img" src="{{ 'index-support-shipping-dark.svg' | asset_url }}" />
+                              </div>
+                              <div style="display: flex; align-items: center;" class="index-support__swiper-slide-title">Free <br> Shipping</div>
+                          </div>
+                      </div>
+                    </swiper-slide>
+                    <swiper-slide class="index-support__swiper-slide">
+                        {% include 'index-support-klarna' %}
+                    </swiper-slide>
+                </swiper>
+              </div>
+        </div>
+    </div>
+  	<div class="index-support__mobile vertagear-container">
+      	<a class="index-support__swiper-slide-inner">
+            <div class="index-support__swiper-slide-top">
+                <div class="index-support__swiper-slide-top-icon">
+                  <img class="index-support__swiper-slide-top-icon-img" src="{{ 'index-support-wear-dark.svg' | asset_url }}" />
+                </div>
+                <div class="index-support__swiper-slide-title">Free <br>Protection <br>Program</div>
+            </div>
+        </a>
+        <a class="index-support__swiper-slide-inner">
+            <div class="index-support__swiper-slide-top">
+                <div class="index-support__swiper-slide-top-icon">
+                  <img class="index-support__swiper-slide-top-icon-img" src="{{ 'index-support-warranty-dark.svg' | asset_url }}" />
+                </div>
+                <div class="index-support__swiper-slide-title">10-Year <br>Limited <br>Warranty</div>
+            </div>
+        </a>
+      	<div class="index-support__swiper-slide-inner">
+            <div class="index-support__swiper-slide-top">
+                <div class="index-support__swiper-slide-top-icon">
+                  <img class="index-support__swiper-slide-top-icon-img" src="{{ 'index-support-shipping-dark.svg' | asset_url }}" />
+                </div>
+                <div style="display: flex; align-items: center;" class="index-support__swiper-slide-title">Free <br> Shipping</div>
+            </div>
+        </div>
+      	{% include 'index-support-klarna' %}
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Support",
+  "settings": [
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"You don't get just the chair:"
+    },
+    {
+        "id": "desc",
+        "type": "text",
+        "label": "Description",
+        "default":"The Vertagear Experience includes a Wear&Tear protection program, a 10-year Limited Warranty, and an affordable payment plan supported by Affirm."
+    },     
+    { 
+        "type":"url",
+        "id":"youtube",
+        "label":"Youtube Embed Url"
+    },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Youtube Thumb"
+    }
+    ]
+  }
+{% endschema %}

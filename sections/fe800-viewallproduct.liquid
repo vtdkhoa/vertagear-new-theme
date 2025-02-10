@@ -1,0 +1,159 @@
+{% for product in collections.all.products %}
+  {% if product.id == 7024401154159 %}
+    {% assign productsl3800 = product %}
+  {% endif %}
+
+  {% if product.id == 7024816291951 %}
+    {% assign productsl5800 = product %}
+  {% endif %}
+
+  {% if product.id == 7025941348463 %}
+    {% assign productpl4800 = product %}
+  {% endif %}
+
+  {% if product.id == 7025941446767 %}
+    {% assign productpl6800 = product %}
+  {% endif %}
+{% endfor %}
+{% if template == 'page.800serieslandingpage' %}
+  <style>
+    .block-menuquickview .inner {
+      max-height: 80vh !important;
+    }
+    .block-menuquickview .inner .col.col-product {
+      flex-direction: column;
+    }
+    .block-menuquickview .quickview-footer-group .quickview-footer:after {
+      display: none;
+    }
+    .vertagear-cta {
+      position: absolute;
+      left: calc(50% - 115px);
+    }
+  </style>
+{% endif %}
+
+<div class="block-menuquickview" expand="0">
+  <div class="menucontent">
+    <div class="inner">
+      <div class="col col-product">
+        <div style="display: flex;">
+          <!-- item -->
+          <div class="item">
+            <img src="{{ 'fe800-series1.jpg' | asset_img_url: '360x' }}">
+            <div class="item-detail">
+              <div class="item-information">
+                <label>SL3800</label>
+
+                <label
+                  ><span class="custom_product_price" data-product-id="7024401154159"
+                    ><span class="tdf_price_original"
+                      ><span class="tdf_money money">{{ productsl3800.compare_at_price | money }}</span></span
+                    ><span class="tdf_price_sales">
+                      <span class="tdf_money money">{{ productsl3800.price | money }}</span></span
+                    ></span
+                  ></label
+                >
+              </div>
+              <a
+                class="vertagear-btn -blue"
+                href="https://www.vertagear.com/products/sl3800"
+                target="_blank"
+                rel="noopener"
+                >Shop Now</a
+              >
+            </div>
+          </div>
+          <!-- item -->
+          <div class="item">
+            <img src="{{ 'fe800-series2.jpg' | asset_img_url: '360x' }}">
+            <div class="item-detail">
+              <div class="item-information">
+                <label>SL5800</label>
+                <label
+                  ><span class="custom_product_price" data-product-id="7024816291951"
+                    ><span class="tdf_price_original"
+                      ><span class="tdf_money money">{{ productsl5800.compare_at_price | money }}</span></span
+                    ><span class="tdf_price_sales">
+                      <span class="tdf_money money">{{ productsl5800.price | money }}</span></span
+                    ></span
+                  ></label
+                >
+              </div>
+              <a
+                class="vertagear-btn -blue"
+                href="https://www.vertagear.com/products/sl5800"
+                target="_blank"
+                rel="noopener"
+                >Shop Now</a
+              >
+            </div>
+          </div>
+          <!-- item -->
+          <div class="item">
+            <img src="{{ 'fe800-series3.jpg' | asset_img_url: '360x' }}">
+            <div class="item-detail">
+              <div class="item-information">
+                <label>PL4800</label>
+                <label
+                  ><span class="custom_product_price" data-product-id="7025941348463"
+                    ><span class="tdf_price_original"
+                      ><span class="tdf_money money">{{ productpl4800.compare_at_price | money }}</span></span
+                    ><span class="tdf_price_sales">
+                      <span class="tdf_money money">{{ productpl4800.price | money }}</span></span
+                    ></span
+                  ></label
+                >
+              </div>
+              <a
+                class="vertagear-btn -blue"
+                href="https://www.vertagear.com/products/pl4800-ergonomic-gaming-chair"
+                target="_blank"
+                rel="noopener"
+                >Shop Now</a
+              >
+            </div>
+          </div>
+          <!-- item -->
+          <div class="item">
+            <img src="{{ 'fe800-series4.jpg' | asset_img_url: '360x' }}">
+            <div class="item-detail">
+              <div class="item-information">
+                <label>PL6800</label>
+                <label
+                  ><span class="custom_product_price" data-product-id="7025941446767"
+                    ><span class="tdf_price_original"
+                      ><span class="tdf_money money">{{ productpl6800.compare_at_price | money }}</span></span
+                    ><span class="tdf_price_sales">
+                      <span class="tdf_money money">{{ productpl6800.price | money }}</span></span
+                    ></span
+                  ></label
+                >
+              </div>
+              <a
+                class="vertagear-btn -blue"
+                href="https://www.vertagear.com/products/pl6800-big-and-tall-ergonomic-gaming-chair"
+                target="_blank"
+                rel="noopener"
+                >Shop Now</a
+              >
+            </div>
+          </div>
+        </div>
+
+        {% render 'fe800-product_comparison', show: true %}
+      </div>
+    </div>
+    <div class="quickview-footer-group">
+      <div class="quickview-footer js-viewmoreallproduct"></div>
+      <a class="vertagear-cta -blue js-viewmoreallproduct">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+            <path d="M12.4999 17.0003C12.2949 17.0002 12.0949 16.937 11.9269 16.8193L1.92694 9.81934C1.71851 9.66393 1.57879 9.43346 1.53741 9.17678C1.49603 8.9201 1.55625 8.6574 1.70529 8.44437C1.85433 8.23134 2.08049 8.08473 2.3358 8.03562C2.59111 7.98652 2.85551 8.03879 3.07294 8.18133L12.4999 14.7793L21.9269 8.17934C22.1444 8.03679 22.4088 7.98452 22.6641 8.03363C22.9194 8.08273 23.1456 8.22934 23.2946 8.44237C23.4436 8.6554 23.5039 8.9181 23.4625 9.17478C23.4211 9.43146 23.2814 9.66193 23.0729 9.81734L13.0729 16.8173C12.9053 16.9357 12.7052 16.9996 12.4999 17.0003Z" fill="#fff"/>
+          </svg>
+        </span>
+        View all products
+      </a>
+    </div>
+  </div>
+</div>

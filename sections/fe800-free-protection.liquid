@@ -1,0 +1,49 @@
+<div class="new-edit-top__bottom">
+    {% if product.type contains 'S-Line' or product.type contains 'P-Line' or product.type contains 'Triigger'%}
+    {% unless product.id == 4589522288751 %}
+    <div class="new-edit-top__bottom-single" onclick="document.querySelector('.product-learn-more-wear-and-tear-popup').classList.remove('-in-active')">
+        <div class="new-edit-top__bottom-single-left">
+            <div class="new-edit-top__bottom-single-left-text">
+                <b>Free<br>protection</b><br>program
+            </div>
+            <div class="new-edit-top__bottom-single-left-detail">
+                See Details
+            </div>
+        </div>
+        <div class="new-edit-top__bottom-single-right">
+            <div class="new-edit-top__bottom-single-img">
+                <img src="{{ 'wear-and-tear-icon.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner" alt="">
+                <img src="{{ 'wear-and-tear-icon-outline.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner -absolute" alt="">
+            </div>
+        </div>
+
+    </div>
+    {% endunless %}
+    {% endif %}
+    <!--                 <div class="new-edit-top__bottom-single" style="cursor:default;">
+                        <div class="new-edit-top__bottom-single-left">
+                            <div class="new-edit-top__bottom-single-left-text">
+                                0% APR<br>6 months<br>or Pay in 4
+                            </div>
+                        </div>
+                        <div class="new-edit-top__bottom-single-right">
+                            <div class="new-edit-top__bottom-single-img">
+                                <img src="{{ 'product-paypal.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner" alt="">
+                            </div>
+                        </div>
+                    
+                    </div> -->
+    <div class="new-edit-top__bottom-single" style="cursor:default;">
+        <div class="new-edit-top__bottom-single-left">
+            <div class="new-edit-top__bottom-single-left-text">
+                <b>Buy now<br>Pay later</b>
+            </div>
+        </div>
+        <div class="new-edit-top__bottom-single-right">
+            <div class="new-edit-top__bottom-single-img">
+                <img src="{{ 'klarna-logo.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner" alt="">
+            </div>
+        </div>
+
+    </div>
+</div>

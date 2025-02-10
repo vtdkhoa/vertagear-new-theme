@@ -1,0 +1,60 @@
+<div class="index-battlestation">
+    <div class="index-battlestation__top">
+        <picture class="index-battlestation__top-bg -desktop">
+            <source srcSet="{{section.settings.battlestations_banner  | img_url: 'master'}}" media="(min-width: 768px)">
+            <img src="" alt="title" loading="lazy" class="index-battlestation__top-bg-img">
+        </picture>
+        <div class="index-battlestation__top-text vertagear-container">
+            <div class="index-battlestation__title">
+                {{section.settings.battlestations_banner_title}}
+            </div>
+            <div class="index-battlestation__desc">
+               {{section.settings.battlestations_banner_dec}}
+            </div>
+            <div class="index-battlestation__btn-box">
+                <a class="vertagear-btn index-battlestation__btn -white-border" href="{{section.settings.battlestations_banner_link}}">learn more</a>
+            </div>
+        </div>
+        <div class="index-battlestation__mobile vertagear-container">
+            <picture class="index-battlestation__top-bg -mobile">
+                <source srcSet="{{section.settings.battlestations_banner_mobile  | img_url: 'master'}}" media="(max-width: 767px)">
+                <img src="" alt="title" loading="lazy" class="index-battlestation__top-bg-img -mobile">
+            </picture>
+            <a class="vertagear-btn index-battlestation__btn -white-border -mobile" href="{{section.settings.battlestations_banner_link}}">learn more</a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Battlestations",
+  "settings": [
+
+        {
+            "id": "battlestations_banner",
+            "type": "image_picker",
+            "label": "Battlestations Banner"
+        },
+        {
+            "id": "battlestations_banner_mobile",
+            "type": "image_picker",
+            "label": "Battlestations Banner Mobile"
+        },
+        {
+            "id": "battlestations_banner_title",
+            "type": "text",
+            "label": "Battlestations Banner Title"
+        },
+        {
+            "id": "battlestations_banner_dec",
+            "type": "text",
+            "label": "Battlestations Banner Description"
+        },
+        {
+            "id": "battlestations_banner_link",
+            "type": "url",
+            "label": "Battlestations Banner Learn more Link"
+        }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,67 @@
+<div class="hygennx-friendly">
+  	<picture>
+        <source srcSet="{{section.settings.banner | img_url : 'master'}}" media="(min-width: 768px)">
+        <source srcSet="{{section.settings.banner_m | img_url : 'master' }}" media="(max-width: 767px)">
+        <img src="{{section.settings.banner | img_url : 'master'}}" class="hygennx-friendly__bg" alt>
+    </picture>
+    <div class="vertagear-container hygennx-friendly__container">
+        <div class="hygennx-friendly__right">
+            <div class="hygennx-friendly__right-center">
+                <div class="hygennx-friendly__icon">
+                    <svg class="hygennx-friendly__icon-img" width="69.326" height="66.024" viewBox="0 0 69.326 66.024">
+                      <path d="M58.692 39.049h-10.6v-1.711h10.6a8.923 8.923 0 10-2.772-17.4l-1.876.613.835-1.789A7.619 7.619 0 0043.696 9.24l-.881.6-.4-.989a11.348 11.348 0 00-21.671 2.015l-.193.984-.941-.345a13.324 13.324 0 10-4.581 25.837h6.434v1.711h-6.434a15.034 15.034 0 114.256-29.457 13.061 13.061 0 0124.312-2.3 9.334 9.334 0 0113.394 10.619 10.634 10.634 0 111.7 21.133z" fill="#fff"/>
+                      <path d="M34.663 66.025l-.363-.17a26.071 26.071 0 01-13.126-16.567c-2.757-11.013 1.55-24.224 12.8-39.267l.685-.916.686.916c11.253 15.043 15.561 28.253 12.8 39.267a26.073 26.073 0 01-13.126 16.567zm0-54.053c-10.41 14.21-14.391 26.611-11.835 36.872a24.822 24.822 0 0011.835 15.272 24.818 24.818 0 0011.836-15.272c2.557-10.262-1.425-22.663-11.836-36.872z" fill="#fff"/>
+                      <path fill="#fff" d="M33.86 21.493h1.712V64.57H33.86z"/>
+                      <path fill="#fff" d="M34.112 46.584l8.47-8.47 1.21 1.21-8.47 8.47zM28.876 34.049l1.21-1.21 5.181 5.18-1.21 1.21zM26.517 46.122l1.21-1.21 7.541 7.54-1.21 1.21zM34.112 57.121l9.164-9.164 1.21 1.21-9.164 9.164z"/>
+                    </svg>
+                </div>
+                <div class="hygennx-friendly__title">
+                    {{section.settings.title}}
+                </div>
+                <div class="hygennx-friendly__desc">
+                    {{section.settings.main_desc}}
+                </div>
+            </div>
+        </div>
+        <div class="hygennx-friendly__left">
+            <div class="hygennx-friendly__video">
+                <img src='{{section.settings.video_thumb | img_url : 'master'}}' class="hygennx-friendly__video-inner -thumb" alt>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Environmentally Friendly",
+  "settings": [
+    {
+        "id": "banner",
+        "type": "image_picker",
+        "label": "Background"
+    },
+    {
+        "id": "banner_m",
+        "type": "image_picker",
+        "label": "Background Mobile"
+    },
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default":"Environmentally<br>Friendly"
+    },
+    {
+        "id": "main_desc",
+        "type": "richtext",
+        "label": "Main Description",
+        "default":"<p>HygennX helps to reduce landfill waste by reclaiming used coffee grounds before being discarded by roasters and retailers. A cup of coffee only uses 0.2 percent of the coffee bean; HygennX repurposes the remaining 99.8 percent in the production of two HygennX gaming chairs or six HygennX headrests/pillows.</p>"
+    },
+    {
+        "id": "video_thumb",
+        "type": "image_picker",
+        "label": "Video Thumb"
+    }
+  ]
+  }
+{% endschema %}

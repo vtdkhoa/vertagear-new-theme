@@ -1,0 +1,136 @@
+<style>
+  .fe800-coffee-bean__container {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 40px 128px 40px;
+    gap: 80px;
+    background: linear-gradient(180deg, #d1d1d1 0%, #f6f6f6 100%);
+  }
+  .fe800-coffee-bean__feature {
+    display: flex;
+    gap: 16px;
+  }
+  .fe800-coffee-bean__feature-item {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex: 1 0 0;
+  }
+  .fe800-coffee-bean__feature-item-card {
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    gap: 40px;
+    border-radius: 16px;
+    background: rgba(208, 208, 208, 0.5);
+    backdrop-filter: blur(20px);
+  }
+  .feature-desc {
+    margin: 0;
+    color: #4f4f4f;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+  }
+  .fe800-coffee-bean__reusable {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+  }
+  .fe800-coffee-bean__reusable-title {
+    text-align: center;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.58px;
+  }
+  .fe800-coffee-bean__reusable img {
+    width: 442px;
+    height: 442px;
+  }
+  .fe800-coffee-bean__reusable-desc {
+    margin: 0;
+    width: 442px;
+    color: #454545;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: -0.14px;
+  }
+  @media (max-width: 576px) {
+    .fe800-coffee-bean__container {
+      padding: 40px 16px 64px 16px;
+    }
+    .fe800-coffee-bean__feature {
+      flex-direction: column;
+    }
+    .fe800-coffee-bean__feature-item {
+      flex-direction: column;
+    }
+    .fe800-coffee-bean__reusable-desc {
+      width: 343px;
+    }
+  }
+</style>
+
+<div class="fe800-coffee-bean__container">
+  <div class="fe800-coffee-bean__feature">
+    <div class="fe800-coffee-bean__feature-item">
+      <div class="fe800-coffee-bean__feature-item-card">
+        <img
+          src="{{ 'new-fe800-sign-coffee-bean-odor-control.png' | asset_url }}"
+          alt="coffee-bean-odor-control"
+          width="auto"
+          height="auto"
+        >
+        <p class="feature-desc">
+          Patented infusion technology traps odors in the natural pores of the coffee grounds that are embedded in
+          HygennX™ fabric, without smelling like coffee.
+        </p>
+      </div>
+      <div class="fe800-coffee-bean__feature-item-card">
+        <img
+          src="{{ 'new-fe800-sign-coffee-bean-anti-microbial.png' | asset_url }}"
+          alt="coffee-bean-anti-microbial"
+          width="auto"
+          height="auto"
+        >
+        <p class="feature-desc">
+          Patented infusion technology traps odors in the natural pores of the coffee grounds that are embedded in
+          HygennX™ fabric, without smelling like coffee.
+        </p>
+      </div>
+      <div class="fe800-coffee-bean__feature-item-card">
+        <img
+          src="{{ 'new-fe800-sign-coffee-bean-breathability.png' | asset_url }}"
+          alt="coffee-bean-breathability"
+          width="auto"
+          height="auto"
+        >
+        <p class="feature-desc">
+          Coffee, a natural odor-absorbing material, is embedded in the cloth of our HygenX chairs and
+          headrests/pillows, to provide better breathability and reduction of heat.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="fe800-coffee-bean__reusable">
+    <div class="fe800-coffee-bean__reusable-title">REUSABLE IN COFFEE BEAN 98%</div>
+    <img
+      src="{{ 'new-fe800-sign-coffee-bean-reusable.png' |  asset_url }}"
+      alt="coffee-bean-reusable"
+      width=""
+      height=""
+    >
+    <p class="fe800-coffee-bean__reusable-desc">
+      HygennX™ helps to reduce landfill waste by reclaiming used coffee grounds before being discarded by roasters and
+      retailers. A cup of coffee only uses 0.2 percent of the coffee bean; HygennX™ repurposes the remaining 99.8
+      percent in the production of two HygennX™ gaming chairs or six HygennX™ headrests/pillows.
+    </p>
+  </div>
+</div>

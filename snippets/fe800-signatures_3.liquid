@@ -1,0 +1,36 @@
+<div id="shopify-section-fe800-signatures_3" class="shopify-section fp-section fp-table fe800-signatures">
+    <div class="signatures-item hover-drawer" id="signatures-{{ order }}">
+        <div class="signatures-topbar  js-popups" popip="rgb">
+            <div class="title"><span>VERTAGEAR SIGNATURES</span> RGB LED Kit</div>
+            <div class="description">
+            Our Patented RGB LED Kits are upgradable to elevate your gaming and streaming experience with the world's only wirelessly PC control RGB LED gaming chair. Immerse in your game with Audio Visual Sync as well as Light Sync and boost your team morale with your own customized logo.
+            </div>
+            {% unless _page == 800 %}
+            <div class="cta">
+                <a class="index-signature__swiper-slide-btn -blue vertagear-btn ">Learn More</a>
+            </div>
+            {% endunless %}
+            <div class="scroll-to-play"><img src="//cdn.shopify.com/s/files/1/1759/4609/t/80/assets/fe800-scroll-to-play.svg?v=89213330769483418881673233074"> <span>Scroll
+                to discover more</span></div>
+        </div>
+        <div class="signatures-visual">
+            <img class="lazyload" data-src="{{ 'fe800-visual-rgb.jpg' | asset_img_url: '1000x' }}" />
+        </div>
+        <div class="signatures-video">
+            <video muted defaultMuted playsinline loop class="full-image-intro__bg-video lazy video-desktop" preload="metadata" data-poster="" {% if _page == 800 %}autoplay{% endif %}>
+                <source data-src="https://cdn.shopify.com/videos/c/o/v/67c2aa715e934c48bce3e78fce8b70f6.mp4" type="video/mp4">
+            </video>
+
+            <video muted defaultMuted playsinline loop class="full-image-intro__bg-video lazy video-mobile" preload="metadata" data-poster="" {% if _page == 800 %}autoplay{% endif %}>
+                <source data-src="https://cdn.shopify.com/videos/c/o/v/58dc5255286b4af1b8f1346ecdae2c11.mp4" type="video/mp4">
+            </video>
+
+            {% unless _page == 800 %}
+            <div class="cta">
+                <a class="index-signature__swiper-slide-btn js-popups" popip="rgb">Learn More</a>
+            </div>
+            {% endunless %}
+        </div>
+
+    </div>
+</div>

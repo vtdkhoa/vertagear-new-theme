@@ -1,0 +1,1056 @@
+<link rel="stylesheet" href="{{ 'landing-rgb.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'nam-product-features.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'nam-product-carousel.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'nam-product-gallery.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'nam-product-rgb-kit.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'ld-rgb-v2-rgb-features.css' | asset_url }}">
+
+<link rel="stylesheet" href="{{ 'nam-flickity.css' | asset_url }}" />
+<script src="{{ 'nam-flickity.js' | asset_url }}"></script>
+
+<!-- <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> -->
+
+<div class="hero">
+  <div class="display-on-mobile">
+    <div class="hero__img-wrapper">
+      <img alt="rgb hero" src="{{ 'ld-rgb-hero.jpeg' | asset_url }}" />
+    </div>
+    <div class="hero__text" style="background: #353543;">
+      <div class="hero__title">Game Right with More Light</div>
+      <div class="hero__desc">
+        The world's only audio-synced, app-controlled RGB kit for your seated experience takes you beyond the stratosphere.
+      </div>
+      <div class="hero__actions">
+        <a class="hero__shop-btn" href="#whichChair">SHOP NOW</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-on-desktop">
+    <div class="video">
+      <div class="video__play">
+        <video
+               id="ldRgbLightUpLogo"
+               width="100%"
+               autoplay
+               loop
+               muted
+               playsinline
+               >
+          <source
+                  src="{{ 'light-up-logo-desktop.mp4' | asset_url }}"
+                  type="video/mp4"
+                  class="display-on-desktop"
+                  />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video__text">
+        <div class="video__text__content">
+          <div class="max-width">
+            <div class="title">
+              Game Right with More Light
+            </div>
+            <div class="desc">
+              The world's only audio-synced, app-controlled RGB kit for your seated experience takes you beyond the stratosphere.
+            </div>
+            <div class="hero__actions">
+              <a class="hero__shop-btn" href="#whichChair">SHOP NOW</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ld-rgb-container">
+  <div class="ld-rgb-container__wrapper">
+
+<!--     <div class="video">
+      <div class="video__text">
+        <div class="video__text-linear">
+          Stand out from the crowd with <br class="display-on-desktop" />our logo customization program!
+        </div>
+        <div class="video__text-desc">
+          You can add your own logo, your own team's logo, right on our RGB kit. Glow and grow<br class="display-on-desktop" />your brand
+          on live streams with the help of Vertagear.
+        </div>
+      </div>
+      <div class="video__play">
+        <video id="ldRgbLightUpLogo" width="100%" autoplay loop muted playsinline controls>
+          <source src="{{ 'light-up-logo-desktop.mp4' | asset_url }}" type="video/mp4" class="display-on-desktop">
+          <source src="{{ 'light-up-logo-mobile.mp4' | asset_url }}" type="video/mp4" class="display-on-mobile">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <div class="inspiration">
+        <div class="inspiration__title">
+          It’s not only Your chair.
+        </div>
+        <div class="inspiration__title-linear">
+          It is an inspiration
+        </div>
+        <div class="inspiration__videos">
+          <div class="inspiration__video row-reverse">
+            <img src="{{ 'ld-rgb-inspiration-1-cp.jpg' | asset_url }}" alt="inspiration image"
+                 class="inspiration__video__img" />
+            <div class="inspiration__video__text">
+              <div class="container">
+                <div class="inspiration__video__title">
+                  Your gaming desk, your own colorway.
+                </div>
+                <div class="inspiration__video__desc">
+                  Mix and match different colors to complement your battlestation. Here's to finally
+                  having
+                  that last piece of the puzzle to complete your setup.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="inspiration__video">
+            <img src="{{ 'ld-rgb-inspiration-2-cp.jpg' | asset_url }}" alt="inspiration image"
+                 class="inspiration__video__img" />
+            <div class="inspiration__video__text">
+              <div class="container">
+                <div class="inspiration__video__title">
+                  Gameplay & Audio Synchronization
+                </div>
+                <div class="inspiration__video__desc">
+                  Sync lighting, audio and gameplay for a truly immersive gaming experience.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="inspiration__video row-reverse">
+            <img src="{{ 'ld-rgb-inspiration-3-cp.jpg' | asset_url }}" alt="inspiration image"
+                 class="inspiration__video__img" />
+            <div class="inspiration__video__text">
+              <div class="container">
+              	<div class="inspiration__video__title">
+                  Personalized Logo
+                </div>
+                <div class="inspiration__video__desc">
+                  Want to rep your league? Your own team? Or simply your own logo? Make your gaming chair
+                  truly one-of-a-kind with a customized logo.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="features ld-rgb-max-width-desktop">
+      <div class="features__text">
+        <div class="ld-rgb-title">
+          Features <br /><span>You’ll Love</span>
+        </div>
+        <div class="features__text__desc display-on-desktop">
+          The RGB LED Upgrade kit allows you to mix and match your beloved gaming chair to your setup in color, or in experience.
+        </div>
+        <div class="features__control display-on-desktop">
+          <button id="featuresControlLeftBtn"><img src="{{ 'ld-rgb-left-arrow.svg' | asset_url }}"
+                                                   alt="left arrow" /></button>
+          <button id="featuresControlRightBtn"><img src="{{ 'ld-rgb-right-arrow.svg' | asset_url }}"
+                                                    alt="right arrow" /></button>
+        </div>
+      </div>
+      <div class="features__main">
+        <div id="featuresMainContainer">
+          <div class="features__each">
+            <div class="features__each__img--1 img">
+              <div class="title">Integrations with RGB Signal</div>
+              <div class="desc display-on-desktop">With the power of our interactive gameplay modes,
+                your
+                gaming experience
+                extends beyond
+                your
+                monitor and onto your chair. Detonate a bomb, see the lights flash. Get shot or
+                injured,
+                see
+                the
+                colors change from green to yellow to red. The sync options go on and on, allowing
+                you
+                to
+                take
+                your gameplay to the next level.</div>
+            </div>
+            <div class="features__each__text display-on-mobile">
+              With the power of our interactive gameplay modes, your gaming experience extends beyond
+              your
+              monitor and onto your chair. Detonate a bomb, see the lights flash. Get shot or injured,
+              see
+              the
+              colors change from green to yellow to red. The sync options go on and on, allowing you
+              to
+              take
+              your gameplay to the next level.
+            </div>
+          </div>
+          <div class="features__each">
+            <div class="features__each__img--2 img">
+              <div class="title">Wireless Connectivity</div>
+              <div class="desc display-on-desktop">All presets and effect customizations are done
+                through
+                your PC to maintain
+                a cord-free
+                seating experience. The RGB LED kit is the first of its kind to allow full spectrum
+                customization in lighting effects while keeping the mobility of a regular gaming
+                chair.
+                With
+                zero wires to hold you back, you can achieve optimal performance while enjoying a
+                symphony
+                of visual effects to bolster your gaming experience.</div>
+            </div>
+            <div class="features__each__text display-on-mobile">
+              All presets and effect customizations are done through your PC to maintain a cord-free
+              seating experience. The RGB LED kit is the first of its kind to allow full spectrum
+              customization in lighting effects while keeping the mobility of a regular gaming chair.
+              With
+              zero wires to hold you back, you can achieve optimal performance while enjoying a
+              symphony
+              of visual effects to bolster your gaming experience.
+            </div>
+          </div>
+          <div class="features__each">
+            <div class="features__each__img--3 img">
+              <div class="title">16.8 millions colors. Full Spectrum
+                color</div>
+              <div class="desc display-on-desktop">Customizable RGB LEDs let you style your gaming
+                chair
+                to match your mood.
+                Choose from
+                dozens
+                of out-of-box presets and patterns or create your own, all from the ease of your
+                fingertips.
+                Fully adjustable intensity, pattern, color, and speeds of individual LEDs put the
+                creative
+                vision in your own hands.</div>
+            </div>
+            <div class="features__each__text display-on-mobile">
+              Customizable RGB LEDs let you style your gaming chair to match your mood. Choose from
+              dozens
+              of out-of-box presets and patterns or create your own, all from the ease of your
+              fingertips.
+              Fully adjustable intensity, pattern, color, and speeds of individual LEDs put the
+              creative
+              vision in your own hands.
+            </div>
+          </div>
+          <div class="features__each">
+            <div class="features__each__img--4 img">
+              <div class="title">Magnetic Charger & Replaceable
+                Batteries</div>
+              <div class="desc display-on-desktop">Charging is made simple with our multi-option
+                recharging method. The
+                magnetic charging
+                port
+                allows you to quickly connect/disconnect with ease. If wiring is not your choice,
+                you
+                may
+                opt for rechargeable batteries and external charging instead. Different uses for
+                different
+                habits.</div>
+            </div>
+            <div class="features__each__text display-on-mobile">
+              Charging is made simple with our multi-option recharging method. The magnetic charging
+              port
+              allows you to quickly connect/disconnect with ease. If wiring is not your choice, you
+              may
+              opt for rechargeable batteries and external charging instead. Different uses for
+              different
+              habits.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="where-to-start ld-rgb-max-width-desktop">
+      <div class="ld-rgb-title">
+        Not Sure Where To Start?<br />
+        <span>
+          Explore Some Inspirations<br /> From #TeamVerta
+        </span>
+      </div>
+      <div class="display-on-mobile">
+        <div class="where-to-start__imgs">
+          <img src="{{ 'where-to-start-mobile-1-cp.png' | asset_url }}" alt="where to start" />
+          <img src="{{ 'where-to-start-mobile-2-cp.png' | asset_url }}" alt="where to start" />
+        </div>
+      </div>
+      <div class="display-on-desktop">
+        <div class="where-to-start__imgs">
+          <div class="where-to-start__imgs__column">
+            <img src="{{ 'where-to-start-desktop-1-cp.jpg' | asset_url }}" alt="where to start" />
+            <img src="{{ 'where-to-start-desktop-2-cp.jpg' | asset_url }}" alt="where to start" />
+            <img src="{{ 'where-to-start-desktop-3-cp.jpg' | asset_url }}" alt="where to start" />
+          </div>
+          <div class="where-to-start__imgs__column">
+            <img src="{{ 'where-to-start-desktop-4-cp.jpg' | asset_url }}" alt="where to start" />
+            <img src="{{ 'where-to-start-desktop-5-cp.jpg' | asset_url }}" alt="where to start" />
+          </div>
+          <div class="where-to-start__imgs__column">
+            <img src="{{ 'where-to-start-desktop-6-cp.jpg' | asset_url }}" alt="where to start" />
+            <img src="{{ 'where-to-start-desktop-7-cp.jpg' | asset_url }}" alt="where to start" />
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+    <div class="nam-features">
+      <div class="display-on-mobile">
+        <div class="nam-feature__img-wrapper">
+          <img
+               id="namFeatureImg"
+               src="{{ 'ld-rgb-feature-1.jpeg' | asset_url }}"
+               alt="feature img"
+               />
+        </div>
+        <div class="nam-feature__text">
+          <div id="namFeatureTitle" class="nam-feature__title">
+            Sync Your Game and Audio
+          </div>
+          <div id="namFeatureDesc" class="nam-feature__desc">
+            Blast or destroy, bass or highs—those around you will vibe to the sounds of your gameplay and music through your lights. The party starts with your every move.
+          </div>
+        </div>
+        <div class="nam-feature__actions">
+          <a id="ldRgbExploreBtn" href="#ldRgbCarouselFeature" class="nam-feature__action__explore nam-product-main-btn">
+            Explore
+          </a>
+          <div class="nam-feature__action__switch">
+            <button
+                    class="nam-feature__action__switch__btn nam-product-main-btn"
+                    >
+              <div class="nam-feature__action__btn-container">
+                <img src="{{ 'ld-rgb-feature-1-icon.svg' | asset_url }}" alt="btn icon" />
+                <div class="nam-feature__action__btn__text">
+                  Sync Your Game and Audio
+                </div>
+              </div>
+            </button>
+            <button
+                    class="nam-feature__action__switch__btn nam-product-sec-btn"
+                    >
+              <div class="nam-feature__action__btn-container">
+                <img src="{{ 'ld-rgb-feature-2-icon.svg' | asset_url }}" alt="btn icon" />
+                <div class="nam-feature__action__btn__text">
+                  Light Up Your Logo
+                </div>
+              </div>
+            </button>
+            <button
+                    class="nam-feature__action__switch__btn nam-product-sec-btn"
+                    >
+              <div class="nam-feature__action__btn-container">
+                <img
+                     src="{{ 'ld-rgb-feature-3-icon.svg' | asset_url }}"
+                     alt="btn icon"
+                     />
+                <div class="nam-feature__action__btn__text">Simple Controls via SignalRGB</div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="namFeatureContainer" class="nam-feature-container display-on-desktop">
+<!--         <video id="namFeatureVideo" class="nam-feature__video" autoplay muted loop>
+          <source src="{{ 'nam-product-feature-rgb.mp4' | asset_url }}" />
+          Your browser does not support the video tag.
+        </video> -->
+        <div class="nam-feature__content">
+          <div class="nam-feature__text">
+            <div id="namFeatureTitleDesk" class="nam-feature__title">
+              Sync Your Game and Audio
+            </div>
+            <div id="namFeatureDescDesk" class="nam-feature__desc">
+              Blast or destroy, bass or highs—those around you will vibe to the sounds of your gameplay and music through your lights. The party starts with your every move.
+            </div>
+          </div>
+          <div class="nam-feature__actions">
+            <div class="nam-feature__action-wrapper">
+              <button
+                      class="nam-feature__action__switch__btn-desk nam-product-main-btn"
+                      >
+                <div class="nam-feature__action__btn-container">
+<!--                   <img src="{{ 'ld-rgb-feature-1-icon.svg' | asset_url }}" alt="btn icon" /> -->
+                  {% include "ld-rgb-feature-icon-1" %}
+                  <div class="nam-feature__action__btn__text">
+                    Sync Your Game and Audio
+                  </div>
+                </div>
+              </button>
+              <a href="#ldRgbCarouselFeature" style="display: flex;" class="nam-product-main-btn nam-feature__action__explore nam-feature__action__explore-desktop">Explore</a>
+            </div>
+            <div class="nam-feature__action-wrapper">
+              <button
+                      class="nam-feature__action__switch__btn-desk nam-feature-fade-btn"
+                      >
+                <div class="nam-feature__action__btn-container">
+                  {% include "ld-rgb-feature-icon-2" %}
+                  <div class="nam-feature__action__btn__text">
+                    Light Up Your Logo
+                  </div>
+                </div>
+              </button>
+              <a href="#ldRgbLightLogo" class="nam-product-main-btn nam-feature__action__explore nam-feature__action__explore-desktop">Explore</a>
+            </div>
+            <div class="nam-feature__action-wrapper">
+              <button
+                      class="nam-feature__action__switch__btn-desk nam-feature-fade-btn"
+                      >
+                <div class="nam-feature__action__btn-container">
+                  {% include "ld-rgb-feature-icon-3" %}
+                  <div class="nam-feature__action__btn__text">Simple Controls via SignalRGB</div>
+                </div>
+              </button>
+              <a href="#ldRgbApps" class="nam-product-main-btn nam-feature__action__explore nam-feature__action__explore-desktop">Explore</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="ldRgbCarouselFeature" class="nam-carousel-features">
+      <div class="nam-carousel__title">Product Features</div>
+      
+      <div
+           class="carousel-flickity2 display-on-mobile"
+           data-flickity='{"prevNextButtons": false}'
+           >
+        <div class="carousel-flickity2-cell">
+          <div class="nam-carousel-cell-content">
+          	<img
+                 alt="slide"
+                 src="{{ 'ld-rgb-feature-carousel-1.3.jpg' | asset_url }}"
+                 />
+            <div class="nam-carousel__slide__text">
+              <div id="namCarouselFeatureTitle" class="nam-carousel__slide__title">
+                Integrations with RGB Signal
+              </div>
+              <div id="namCarouselFeatureDesc" class="nam-carousel__slide__desc">
+                Our Ultra Premium High Resilience Foam boasts a density well above industry standard. While standard High Resilience foam stands up to approximately 2.5lbs per cubic foot, our UPHR foam can withstand 62% more per cubic foot. The foam prolongs the lifespan of the chair by preventing deformities from long periods of use, inching it closest to the characteristics of memory foam.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-flickity2-cell">
+          <div class="nam-carousel-cell-content">
+          	<img
+                 alt="slide"
+                 src="{{ 'ld-rgb-feature-carousel-2.3.jpg' | asset_url }}"
+                 />
+            <div class="nam-carousel__slide__text">
+              <div id="namCarouselFeatureTitle" class="nam-carousel__slide__title">
+                Wireless Connectivity
+              </div>
+              <div id="namCarouselFeatureDesc" class="nam-carousel__slide__desc">
+                All presets and effect customizations are done through your PC to maintain a cord-free seating experience. The RGB LED kit is the first of its kind to allow full spectrum customization in lighting effects while keeping the mobility of a regular gaming chair. With zero wires to hold you back, you can achieve optimal performance while enjoying a symphony of visual effects to bolster your gaming experience.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-flickity2-cell">
+          <div class="nam-carousel-cell-content">
+          	<img
+                 alt="slide"
+                 src="{{ 'ld-rgb-feature-carousel-3.3.jpg' | asset_url }}"
+                 />
+            <div class="nam-carousel__slide__text">
+              <div id="namCarouselFeatureTitle" class="nam-carousel__slide__title">
+                16.8 Milions Color - Full Spectrum Color
+              </div>
+              <div id="namCarouselFeatureDesc" class="nam-carousel__slide__desc">
+                Customizable RGB LEDs let you style your gaming chair to match your mood. Choose from dozens of out-of-box presets and patterns or create your own, all from the ease of your fingertips. Fully adjustable intensity, pattern, color, and speeds of individual LEDs put the creative vision in your own hands.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-flickity2-cell">
+          <div class="nam-carousel-cell-content">
+          	<img
+                 alt="slide"
+                 src="{{ 'ld-rgb-feature-carousel-4.3.jpg' | asset_url }}"
+                 />
+            <div class="nam-carousel__slide__text">
+              <div id="namCarouselFeatureTitle" class="nam-carousel__slide__title">
+                Magnetic Charger
+              </div>
+              <div id="namCarouselFeatureDesc" class="nam-carousel__slide__desc">
+              	Charging is made simple with our multi-option recharging method. The magnetic charging port allows you to quickly connect/disconnect with ease. If wiring is not your choice, you may opt for rechargeable batteries and external charging instead. Different uses for different habits.  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+           class="nam-carousel-desk__slides js-flickity display-desktop"
+           data-flickity-options='{ "wrapAround": true }'
+           >
+        <div class="nam-carousel-desk__slide">
+          <img alt="slide" src="{{ 'ld-rgb-feature-carousel-desk-1.jpeg' | asset_url }}" />
+          <div class="nam-carousel__slide__text">
+            <div class="nam-carousel__slide__title">
+              Integrations with RGB Signal
+            </div>
+            <div class="nam-carousel__slide__desc">
+              Our Ultra Premium High Resilience Foam boasts a density well above industry standard. While standard High Resilience foam stands up to approximately 2.5lbs per cubic foot, our UPHR foam can withstand 62% more per cubic foot. The foam prolongs the lifespan of the chair by preventing deformities from long periods of use, inching it closest to the characteristics of memory foam.
+            </div>
+          </div>
+          <div class="nam-carousel__slide__bg"></div>
+        </div>
+        <div class="nam-carousel-desk__slide">
+          <img alt="slide" src="{{ 'ld-rgb-feature-carousel-desk-2.2.jpg' | asset_url }}" />
+          <div class="nam-carousel__slide__text">
+            <div class="nam-carousel__slide__title">Wireless Connectivity</div>
+            <div class="nam-carousel__slide__desc">
+              All presets and effect customizations are done through your PC to maintain a cord-free seating experience. The RGB LED kit is the first of its kind to allow full spectrum customization in lighting effects while keeping the mobility of a regular gaming chair. With zero wires to hold you back, you can achieve optimal performance while enjoying a symphony of visual effects to bolster your gaming experience.
+            </div>
+          </div>
+        </div>
+        <div class="nam-carousel-desk__slide">
+          <img alt="slide" src="{{ 'ld-rgb-feature-carousel-desk-3.2.jpg' | asset_url }}" />
+          <div class="nam-carousel__slide__text">
+            <div class="nam-carousel__slide__title">16.8 Milions Color</div>
+            <div class="nam-carousel__slide__desc">
+              Customizable RGB LEDs let you style your gaming chair to match your mood. Choose from dozens of out-of-box presets and patterns or create your own, all from the ease of your fingertips. Fully adjustable intensity, pattern, color, and speeds of individual LEDs put the creative vision in your own hands.
+            </div>
+          </div>
+        </div>
+        <div class="nam-carousel-desk__slide">
+          <img alt="slide" src="{{ 'ld-rgb-feature-carousel-desk-4.2.jpg' | asset_url }}" />
+          <div class="nam-carousel__slide__text">
+            <div class="nam-carousel__slide__title">
+              Magnetic Charger
+            </div>
+            <div class="nam-carousel__slide__desc">
+              Charging is made simple with our multi-option recharging method. The magnetic charging port allows you to quickly connect/disconnect with ease. If wiring is not your choice, you may opt for rechargeable batteries and external charging instead. Different uses for different habits.
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+  {% section 'index-reviews' %}
+	{% include 'index-support' %}
+  
+  <div class="ld-rgb__gallery-container">
+      <div class="display-on-mobile">
+        <div class="ld-rgb__gallery">
+          <img class="ld-rgb__gallery-img-mob" alt="gallery image" src="{{ 'ld-rgb-gallery-1.3.jpg' | asset_url }}" />
+          <img class="ld-rgb__gallery-img-mob" alt="gallery image" src="{{ 'ld-rgb-gallery-2.3.jpg' | asset_url }}" />
+          <img class="ld-rgb__gallery-img-mob" alt="gallery image" src="{{ 'ld-rgb-gallery-3.3.jpg' | asset_url }}" />
+          <img class="ld-rgb__gallery-img-mob" alt="gallery image" src="{{ 'ld-rgb-gallery-4.3.jpg' | asset_url }}" />
+          <img class="ld-rgb__gallery-img-mob" alt="gallery image" src="{{ 'ld-rgb-gallery-5.3.jpg' | asset_url }}" />
+          <img class="ld-rgb__gallery-img-mob" alt="gallery image" src="{{ 'ld-rgb-gallery-6.3.jpg' | asset_url }}" />
+        </div>
+        
+        <div id="ldRgbCarouselMobile" class="ld-rgb-carousel-container">
+          <div class="ld-rgb-carousel-container__wrapper">
+            <button
+              id="ldRgbCarouselMobileCloseBtn"
+              class="ld-rgb-carousel__close-btn"
+            >
+              <img src="{{ 'ld-rgb-close-modal.svg' | asset_url }}" />
+            </button>
+
+            <div
+              class="carousel-flickity2 nam-flickity-gallery-mobile"
+              data-flickity='{"prevNextButtons": false}'
+            >
+              <div class="carousel-flickity2-cell">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-1.jpeg' | asset_url }}"
+                />
+              </div>
+              <div class="carousel-flickity2-cell">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-2.jpeg' | asset_url }}"
+                />
+              </div>
+              <div class="carousel-flickity2-cell">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-3.jpeg' | asset_url }}"
+                />
+              </div>
+              <div class="carousel-flickity2-cell">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-4.jpeg' | asset_url }}"
+                />
+              </div>
+              <div class="carousel-flickity2-cell">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-5.jpeg' | asset_url }}"
+                />
+              </div>
+              <div class="carousel-flickity2-cell">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-6.jpeg' | asset_url }}"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="display-on-desktop">
+        <div class="ld-rgb__gallery">
+          <img
+            class="ld-rgb__gallery-img"
+            alt="gallery image"
+            src="{{ 'ld-rgb-gallery-desk-1.2.jpg' | asset_url }}"
+          />
+          <img
+            class="ld-rgb__gallery-img"
+            alt="gallery image"
+            src="{{ 'ld-rgb-gallery-desk-2.2.jpg' | asset_url }}"
+          />
+          <img
+            class="ld-rgb__gallery-img"
+            alt="gallery image"
+            src="{{ 'ld-rgb-gallery-desk-3.2.jpg' | asset_url }}"
+          />
+          <img
+            class="ld-rgb__gallery-img"
+            alt="gallery image"
+            src="{{ 'ld-rgb-gallery-desk-4.2.jpg' | asset_url }}"
+          />
+          <img
+            class="ld-rgb__gallery-img"
+            alt="gallery image"
+            src="{{ 'ld-rgb-gallery-desk-5.2.jpg' | asset_url }}"
+          />
+          <img
+            class="ld-rgb__gallery-img"
+            alt="gallery image"
+            src="{{ 'ld-rgb-gallery-desk-6.2.jpg' | asset_url }}"
+          />
+        </div>
+
+        <div id="ldRgbCarousel" class="ld-rgb-carousel-container">
+          <div class="ld-rgb-carousel-container__wrapper">
+            <button id="ldRgbCarouselCloseBtn" class="ld-rgb-carousel__close-btn">
+              <img src="{{ 'ld-rgb-close-modal.svg' | asset_url }}" />
+            </button>
+            <div
+              class="nam-carousel-gallery nam-carousel-desk__slides"
+              data-flickity-options='{ "wrapAround": true }'
+            >
+              <div class="nam-carousel-desk__slide">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-1.jpeg' | asset_url }}"
+                />
+              </div>
+              <div class="nam-carousel-desk__slide">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-2.jpeg' | asset_url }}"
+                />
+              </div>
+              <div class="nam-carousel-desk__slide">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-3.jpeg' | asset_url }}"
+                />
+              </div>
+              <div class="nam-carousel-desk__slide">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-4.jpeg' | asset_url }}"
+                />
+              </div>
+              <div class="nam-carousel-desk__slide">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-5.jpeg' | asset_url }}"
+                />
+              </div>
+              <div class="nam-carousel-desk__slide">
+                <img
+                  alt="slide"
+                  src="{{ 'ld-rgb-gallery-desk-modal-v2-6.jpeg' | asset_url }}"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="ldRgbLightLogo" class="light-logo">
+      <div class="light-logo__header">
+        <div class="light-logo__header__first">
+          VERTAGEAR LAB
+        </div>
+        <div class="ld-rgb-title">
+          Light Up
+          <span>
+            Your Logo
+          </span>
+        </div>
+        <div class="light-logo__header__third">You can select a logo what you like to light up</div>
+      </div>
+      <div class="light-logo__img-wrapper">
+        <img id="lightLogoImg" src="{{ 'ld-rgb-light-up-desk-1.jpeg' | asset_url }}" alt="light up" />
+      	<div class="light-logo__selection">
+          <div class="light-logo__selection__btns">
+            <img class="light-logo__selection__btns__img" src="{{ 'ld-rgb-light-up-icon-active-1.svg' | asset_url }}"
+                 alt="light-logo-btn" />
+            <img class="light-logo__selection__btns__img" src="{{ 'ld-rgb-light-up-icon-2.svg' | asset_url }}"
+                 alt="light-logo-btn" />
+            <img class="light-logo__selection__btns__img" src="{{ 'ld-rgb-light-up-icon-3.svg' | asset_url }}"
+                 alt="light-logo-btn" />
+            <img class="light-logo__selection__btns__img" src="{{ 'ld-rgb-light-up-icon-4.svg' | asset_url }}"
+                 alt="light-logo-btn" />
+            <img class="light-logo__selection__btns__img" src="{{ 'ld-rgb-light-up-icon-5.svg' | asset_url }}"
+                 alt="light-logo-btn" />
+          </div>
+        </div>
+      </div>
+      
+      <a class="light-logo__btn" href="https://www.vertagear.com/apps/zakeke?pid=4635601240175&locale=en" target="_blank">
+        Customize your logo with<br class="display-on-mobile" />
+        <span class="ld-rgb-bold">Vertagear Lab</span>
+      </a>
+    </div>
+
+    <div class="which-chair" id="whichChair">
+      <div class="title display-on-mobile">
+        RGB Kit Collection
+      </div>
+      <div class="title display-on-desktop">
+        Which is the right RGB chair for you?
+      </div>
+      <div class="which-chair__chairs">
+        <div class="which-chair__chairs__each">
+          <img class="which-chair__chairs__each__chair display-on-mobile" src="{{ 'ld-rgb-collection-1.2.jpg' | asset_url }}"
+               alt="which chair" />
+          <img class="which-chair__chairs__each__chair display-on-desktop" src="{{ 'ld-rgb-collection-desk-1.2.jpg' | asset_url }}"
+               alt="which chair" />
+          <div class="which-chair__chairs__each__text">
+          	<div class="which-chair__chairs__each__title">PL4500 with RGB Upgrade</div>
+<!--             <img class="which-chair__chairs__each__stars" src="{{ 'stars.png' | asset_url }}" alt="stars" /> -->
+            <div class="which-chair__chairs__each__desc">
+              The smart interactive effects yield unlimited possibilities to reflect your mood on live
+              streams or immerse yourself in intense gaming adventur...
+            </div>
+            <div class="which-chair__chairs__each__prices">
+              <div class="which-chair__chairs__each__prices__discounted">{{ all_products['rgb-led-top-kit'].price | money }}</div>
+              <div class="which-chair__chairs__each__prices__original">{{ all_products['rgb-led-top-kit'].compare_at_price | money }}</div>
+            </div>
+            <a class="ld-rgb-btn" href="https://www.vertagear.com/products/rgb-led-top-kit?variant=29205503017071" target="_blank">SHOP NOW</a>
+          </div>
+          
+        </div>
+
+        <div class="which-chair__chairs__each">
+          <img class="which-chair__chairs__each__chair display-on-mobile" src="{{ 'ld-rgb-collection-2.2.jpg' | asset_url }}"
+               alt="which chair" />
+          <img class="which-chair__chairs__each__chair display-on-desktop" src="{{ 'ld-rgb-collection-desk-2.2.jpg' | asset_url }}"
+               alt="which chair" />
+          <div class="which-chair__chairs__each__text">
+          	<div class="which-chair__chairs__each__title">SL5000 with RGB Upgrade </div>
+<!--             <img class="which-chair__chairs__each__stars" src="{{ 'stars.png' | asset_url }}" alt="stars" /> -->
+            <div class="which-chair__chairs__each__desc">
+              Unleash new levels of your gaming experience with the RGB LED kit for your Vertagear SL5000
+              gaming chair. Designed to be a seamless experience...
+            </div>
+            <div class="which-chair__chairs__each__prices">
+              <div class="which-chair__chairs__each__prices__discounted">{{ all_products['sl5800-rgb-led-top-upgrade-kit'].price | money }}</div>
+              <div class="which-chair__chairs__each__prices__original">{{ all_products['sl5800-rgb-led-top-upgrade-kit'].compare_at_price | money }}</div>
+            </div>
+            <a class="ld-rgb-btn" href="https://www.vertagear.com/products/sl5000-rgb-led-top-upgrade-kit?variant=40641282670703" target="_blank">SHOP NOW</a>	
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--     <div class="software">
+      <div class="ld-rgb-max-width-desktop software__container">
+      	<div class="sofware__img-wrapper">
+          <img src="{{ 'software-cp.png' | asset_url }}" alt="software" />
+        </div>
+        <div class="software__text">
+          <div class="software__title">
+            Full Range Of Light and Color Customizability
+          </div>
+          <div class="software__desc">Match your battlestation to your desired ambiance for every occasion.
+            Enjoy
+            true freedom to customize light modes, color combinations, all at a push of a button.</div>
+          <div class="software__download">Download for</div>
+          <div class="software__actions">
+            <span class="display-on-desktop">
+              <a class="ld-rgb-btn software__actions__window" href="https://1drv.ms/u/s!Av1nb6_yJYPniB_5hqD90qmiKkYg" target="_blank"><img src="{{ 'window-icon.svg' | asset_url }}" alt="window icon" />WINDOWS</a>
+            </span>
+            <a class="ld-rgb-btn software__actions__guide" href="https://www.signalrgb.com" target="_blank">MANUAL GUIDE</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+<!--     <div class="faq ld-rgb-max-width-desktop">
+      <div class="faq__title">
+        Got Questions?<br class="display-on-mobile" />We Got Answers!
+      </div>
+      <div class="faq__content">
+        <div class="faq__content__column">
+          <div class="faq__each">
+            <div class="faq__question">
+              Why is the LED kit making a high-pitched noise when I close the battery door?
+              <img class="display-on-mobile faq__arrow" src="{{ 'faq-right-arrow.svg' | asset_url }}" alt="right arrow" />
+            </div>
+            <div class="faq__answer display-on-desktop">This means that the batteries are inserted in a wrong direction.
+              You should take out all the batteries and insert them correctly.</div>
+          </div>
+          <div class="faq__each">
+            <div class="faq__question">
+              How come I cannot connect to the 5 Star LED kit with SL5000 using a RF dongle?
+              <img class="display-on-mobile faq__arrow" src="{{ 'faq-right-arrow.svg' | asset_url }}" alt="right arrow" />
+            </div>
+            <div class="faq__answer display-on-desktop">Cycle through connecting both devices individually. Then try
+              connecting to the both the LED kits simultaneously.</div>
+          </div>
+          <div class="faq__each">
+            <div class="faq__question">
+              Should I be worried if the LED kit is hot and won’t charge the batteries?
+              <img class="display-on-mobile faq__arrow" src="{{ 'faq-right-arrow.svg' | asset_url }}" alt="right arrow" />
+            </div>
+            <div class="faq__answer display-on-desktop">LED kits have a Safety feature (Fail safe?) that Prevents the
+              batteries from being charged when the temperature reaches above and below 43 C (110 f)
+              and 4 C (40). The batteries are dangerous to be operated on these conditions. So the LED
+              kit prevents the batteries from being used.</div>
+          </div>
+          <div class="faq__each">
+            <div class="faq__question">
+              Can the USB dongle be used to pair more than one device?
+              <img class="display-on-mobile faq__arrow" src="{{ 'faq-right-arrow.svg' | asset_url }}" alt="right arrow" />
+            </div>
+            <div class="faq__answer display-on-desktop">The RF USB can connect up to 2 devices at once. When connecting the
+              devices, simultaneously run the paring process.</div>
+          </div>
+        </div>
+        <div class="faq__content__column">
+          <div class="faq__each">
+            <div class="faq__question">How come I cannot control the lights after pairing the LED kits
+              to the computer?
+              <img class="display-on-mobile faq__arrow" src="{{ 'faq-right-arrow.svg' | asset_url }}" alt="right arrow" />
+            </div>
+            <div class="faq__answer display-on-desktop">Either redetect the drive or Restart the NZXT cam. Make sure to
+              fully close the program and not minimize it.</div>
+          </div>
+          <div class="faq__each">
+            <div class="faq__question">What do I do if one of the LED connections are not turning on?
+              <img class="display-on-mobile faq__arrow" src="{{ 'faq-right-arrow.svg' | asset_url }}" alt="right arrow" />
+            </div>
+            <div class="faq__answer display-on-desktop">Check and see if all the screws are tightened all the way and there
+              is nothing interfering between the connections. If all the screws are tight and the LED
+              kits still don’t turn on, reach out to customer service.</div>
+          </div>
+          <div class="faq__each">
+            <div class="faq__question">Why is the battery life indicator blinking all together in sync?
+              <img class="display-on-mobile faq__arrow" src="{{ 'faq-right-arrow.svg' | asset_url }}" alt="right arrow" />
+            </div>
+            <div class="faq__answer display-on-desktop">Either the voltage of the batteries is out of sync or one or more
+              batteries are dead. This means that there is a potential risk of breaking the LED kit or
+              causing the batteries to combust. The safety feature prevents the batteries from being
+              charged at this state. To solve this problem, either charge the batteries on an external
+              smart battery charger (not included with the kit) to match the voltages again or get a
+              new set of 18650 batteries. Remember that all four batteries must have the same voltage
+              and capacity.</div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+    <div id="ldRgbApps" class="nam-rgb-kit">
+      <div class="nam-rgb-kit__header">
+        <div class="title">How to control RGB LED KIT</div>
+        <div class="extra-title">SIMPLE CONTROLS FOR YOUR RGB</div>
+        <div class="desc">
+          Select one of the below fan-favorite applications to get your personalized experience started.
+        </div>
+      </div>
+
+<!--       <div class="nam-carousel__slides display-mobile">
+        <div id="namCarouselAppSlide" class="nam-carousel__slide">
+          <div class="nam-carousel__slide__bg-blur">
+            <div class="nam-carousel__slide__text">
+              <div id="namCarouselAppTitle" class="nam-carousel__slide__title">
+                Full Range Of Light With SignalRGB
+              </div>
+              <div id="namCarouselAppDesc" class="nam-carousel__slide__desc">
+                Match your battlestation to your desired ambiance for every
+                occasion. Enjoy true freedom to customize light modes, color
+                combinations, all at a push of a button.
+              </div>
+              <a href="https://www.signalrgb.com/" target="_blank" id="namRgbKitLearnMoreBtn" class="nam-rgb-kit__btn nam-product-main-btn">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="nam-carousel__slide__dots">
+          <div
+               class="nam-carousel__slide__dot unactive active nam-carousel-app-dot"
+               ></div>
+          <div
+               class="nam-carousel__slide__dot unactive nam-carousel-app-dot"
+               ></div>
+        </div>
+      </div> -->
+      
+      <div
+           class="carousel-flickity2 display-on-mobile"
+           data-flickity='{"prevNextButtons": false}'
+           >
+        <div class="carousel-flickity2-cell">
+          <div class="nam-carousel-cell-content">
+          	<img
+                 alt="slide"
+                 src="{{ 'ld-rgb-software-1.2.jpg' | asset_url }}"
+                 />
+            <div class="nam-carousel__slide__text">
+              <div class="nam-carousel__slide__title">
+                Full Range Of Light With SignalRGB
+              </div>
+              <div class="nam-carousel__slide__desc">
+                Match your battlestation to your desired ambiance for every
+                occasion. Enjoy true freedom to customize light modes, color
+                combinations, all at a push of a button.
+              </div>
+              <a href="https://www.signalrgb.com/" target="_blank" class="nam-rgb-kit__btn nam-product-main-btn">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-flickity2-cell">
+          <div class="nam-carousel-cell-content">
+          	<img
+                 alt="slide"
+                 src="{{ 'ld-rgb-software-2.2.jpg' | asset_url }}"
+                 />
+            <div class="nam-carousel__slide__text">
+              <div class="nam-carousel__slide__title">
+                NZXT cam RGB Application
+              </div>
+              <div class="nam-carousel__slide__desc">
+              	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit...
+              </div>
+              <a href="https://nzxt.com/software/cam" target="_blank" class="nam-rgb-kit__btn nam-product-main-btn">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="display-desktop nam-rgb-kit__apps">
+        <div class="each1">
+          <div class="wrapper">
+            <div class="content">
+              <div class="title">Full Range Of Light With SignalRGB</div>
+              <div class="desc">
+                Match your battlestation to your desired ambiance for every
+                occasion. Enjoy true freedom to customize light modes, color
+                combinations, all at a push of a button.
+              </div>
+              <div class="actions">
+                <a href="https://signalrgb.s3.us-west-004.backblazeb2.com/Install SignalRgb.exe" target="_blank" class="download nam-product-main-btn">
+                  <img src="{{ 'window-icon.svg' | asset_url }}" />
+                  Download Application
+                </a>
+                <a href="https://www.signalrgb.com/" target="_blank" class="learn">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="each2">
+          <div class="wrapper">
+            <div class="content">
+              <div class="title">NZXT cam RGB Application</div>
+              <div class="desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit...
+              </div>
+              <div class="actions">
+                <a href="https://nzxt-app.nzxt.com/NZXT-CAM-Setup.exe?_gl=1*1srnu3m*_ga*NTMwNzUxOTM5LjE2NTA2MTIxMjg" target="_blank" class="download nam-product-main-btn">
+                  <img src="{{ 'window-icon.svg' | asset_url }}" />
+                  Download Application
+                </a>
+                <a href="https://nzxt.com/software/cam" target="_blank" class="learn">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+  .index-reviews__title, .index-reviews__swiper-slide-read {
+  	color: #fff;
+  }
+  .index-reviews__main, .index-reviews__top {
+  	background: inherit;
+  }
+  
+  .index-support {
+  	background: #353543;
+  }
+  .index-support__swiper-slide-title {
+    color: #fff !important;
+  }
+  .index-support__swiper-slide-inner {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  @media screen and (min-width: 768px) {
+  	.swiper-arrow.-prev {
+    	left: 80px !important;
+      	background: var(--nam-main-color);
+         color: #fff;
+        width: 70px;
+        height: 70px;
+    }
+    .swiper-arrow.-next {
+    	right: 80px !important;
+      	background: var(--nam-main-color);
+         color: #fff;
+        width: 70px;
+        height: 70px;
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+  	.index-support__swiper-slide-inner {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+</style>
+
+
+<script src="{{ 'landing-rgb.js' | asset_url }}" async defer></script>
+<script src="{{ 'nam-product-features.js' | asset_url }}" async defer></script>
+<!-- <script src="{{ 'nam-product-carousel.js' | asset_url }}" async defer></script> -->
+<script src="{{ 'nam-product-gallery.js' | asset_url }}" async defer></script>

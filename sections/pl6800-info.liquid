@@ -1,0 +1,256 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign separator = "|###|" %}
+{% assign collectionsArray = 'S-Line|P-Line|Gaming-Series' | split: "|" %}
+{% assign is_rgb_kit_product = product.metafields.custom_fields["is_rgb_kit_product"] %}
+
+
+<div class="product800-detail">
+
+  <meta itemprop="name" content="{{ product.title | escape }} - {{ product.selected_variant.title }}">
+  <meta itemprop="image" content="https:{{ product.selected_variant.image.src | img_url: 'grande' }}">
+  <meta itemprop="description" content="{{ product.description | strip_html }}">
+  <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="sku" content="{{ product.selected_variant.sku }}">
+
+  <div class="nam-product-intro-container">
+    <div class="nam-product-images">
+      <div class="nam-product-images__wrapper">
+            <div id="namProductBigContentWrapper">
+              <img class="process-productdetailstick" id="namProductBigImage" alt="product image" />
+            </div>
+            <div
+              class="nam-product-images__selection"
+              id="namProductImagesSelection"
+              style="display: none;"
+            >
+              <img
+                id="npiSelectionBaseImg"
+                class="nam-product-images__selection__img base"
+              />
+              <div class="separator"></div>
+              <div
+                id="npiSelectionStaticImgs"
+                class="nam-product-images__selection__static-imgs"
+              ></div>
+            </div>
+      </div>
+    </div>
+  
+    <div class="nam-product-info">
+      <div class="nam-product-info__no-final-price">
+        <div class="nam-product__header">
+          <div class="nam-product__header__title">{{ product.title }}</div>
+          <a class="fe800-reviews-js" data-oke-reviews-product-listing-rating style="display:inline-block" class="bottomLine ag-vg-product-rating">
+            {%- if product.metafields.okendo.ProductListingSnippet -%}
+              {{ product.metafields.okendo.ProductListingSnippet }}
+            {%- else -%}
+              <span class="visually-hidden">There are no reviews yet.</span>
+            {%- endif -%}
+          </a>
+        </div>
+    
+        <div class="nam-product__key-features">
+          <div class="nam-product__key-features__title">VERTAGEAR SIGNATUREs</div>
+          <ul class="nam-product__key-features__list">
+            <li>
+              <a class="js-popups" popip="lumbarpl6800"> ContourMax<sup>TM</sup> Lumbar.</a>
+            </li>
+            <li>
+              <a class="js-popups" popip="seatpl6800"> VertaAir<sup>TM</sup> Seat.</a>
+            </li>
+          
+            <li>
+              <a class="js-popups" popip="hygennx"> HygennX<sup>TM</sup>.</a>
+            </li>
+            <li><a class="fe800-class" data-youtube="https://www.youtube.com/embed/Vr_OXiEFJYA"><span>Effortless Assembly.</span></a></li>
+            
+          </ul>
+        </div>
+    
+      <div class="nam-product__wh">
+          <div class="nam-product__info__limits">
+            <img
+                  src="{{ 'nam-pl4500-weight.svg' | file_url }}"
+                 alt="product weight limit"
+                 />
+            <div class="nam-product__info__limits__text">
+              <div class="nam-product__info__limits__title">WEIGHT</div>
+              <div class="nam-product__info__limits__data">
+                Up to 181kg / 400lb
+              </div>
+            </div>
+          </div>
+          <div class="nam-product__info__limits">
+            <img
+                src="{{ 'fe800-icon-height.svg' | asset_url }}"
+                 alt="product weight limit"
+                 />
+            <div class="nam-product__info__limits__text">
+              <div class="nam-product__info__limits__title">HEIGHT</div>
+              <div class="nam-product__info__limits__data">
+                175cm-203cm / 5’9”-6’8”
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="nam-product__select-color">
+          <div class="nam-product__select-color__title">
+            COLOR OPTIONS
+          </div>
+          <div
+                id="namProductSelectColorOptions"
+                class="nam-product__select-color__options"
+              ></div>
+        </div>
+        
+      </div>
+  
+      <div class="nam-product__total-price">
+        <div class="nam-product__total-price__header">
+          <div class="nam-product__total-price__title">
+            {{ product.title }}
+          </div>
+          <div class="nam-product__total-price__pl4500-price"><span id="custom_product_price" class="custom_product_price" data-product-id="{{ product.id }}">{{product.price | money}}</span></div>
+        </div>
+        {% form 'product', product %}
+          <div class="shopify-payment-terms">
+            {{ form | payment_terms }}
+          </div>
+        {% endform %}
+  
+        <div
+             id="namProductTotalPriceWithOptions"
+             class="nam-product__total-price__options"
+             style="display: none"
+             >
+          <div class="nam-product__total-price__title_options">WITH OPTIONS</div>
+          <ul class="nam-product__total-price__options__list"></ul>
+        </div>
+  
+        <div class="nam-product__total-price__total">
+          <div class="nam-product__total-price__total_title">Total</div>
+          <div class="totalPrice">
+            <div id="totalPriceOriginal" class="totalPriceOriginal__number">$499.99</div>
+            <div id="namProductTotalPrice" class="nam-product__total-price__total__number">$499.99</div>
+          </div>
+        </div>
+  
+        <div class="nam-product__total-price__actions" id="klarna-product-pl6800">
+          <div class="nam-product__total-price__quantity">
+            <button id="namProductCartQuantityDownBtn">
+              <img src="{{ 'minus-icon.svg' | file_url }}" />
+            </button>
+            <div id="namProductCartQuantity">1</div>
+            <button id="namProductCartQuantityUpBtn">
+              <img src="{{ 'plus-icon.svg' | file_url }}" />
+            </button>
+          </div>
+          
+          <div class="nam-product-__total-price__atc-btn-wrapper">
+            <button class="nam-product-button" id="namProductAtcBtn">
+              <img src="{{ 'cart-icon.svg' | file_url }}" />ADD TO CART
+            </button>
+          </div>
+          
+          
+          <form class="no-display" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+            <div >
+              <select name="id">
+                <option id="namProductVariantId" value="null"></option>
+              </select>
+              <input id="namProductQuantity" name="quantity" value="1" />
+    
+              <!-- test -->
+              <style>
+                .-hide-btn #AddToCart {
+                  display: none !important;
+                }
+              </style>
+              <div id="viewreorder" class="new-edit-top__submit {% if product.type == 'Personalized Service' %} -hide-btn{% endif %}">
+                <input type="submit" class="nam-product-button" class="ag-vg-product-add-to-cart" id="AddToCart"
+                  value="ADD TO CART"></input>
+              </div>
+              <!-- testhere -->
+            </div>
+          </form>
+          
+        </div>
+        <div class="viewreorder-extrainfo"></div>
+      </div>
+
+      <div class="protections-group">
+        {% if product.type contains 'S-Line' or product.type contains 'P-Line' or product.type contains 'Triigger'%}
+        {% unless product.id == 4589522288751 %}
+        <div class="new-edit-top__bottom-single"
+          onclick="document.querySelector('.product-learn-more-wear-and-tear-popup').classList.remove('-in-active')">
+          <div class="new-edit-top__bottom-single-left">
+            <div class="new-edit-top__bottom-single-left-text">
+              <b>Free<br>protection</b><br>program
+            </div>
+            <div class="new-edit-top__bottom-single-left-detail">
+              See Details
+            </div>
+          </div>
+          <div class="new-edit-top__bottom-single-right">
+            <div class="new-edit-top__bottom-single-img">
+              <img src="{{ 'wear-and-tear-icon.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner" alt="">
+              <img src="{{ 'wear-and-tear-icon-outline.svg' | asset_url}}"
+                class="new-edit-top__bottom-single-img-inner -absolute" alt="">
+            </div>
+          </div>
+
+        </div>
+        {% endunless %}
+        {% endif %}
+        <div class="new-edit-top__bottom-single new-edit-top__bottom-single-second" style="cursor:default;">
+          <div class="new-edit-top__bottom-single-left">
+            <div class="new-edit-top__bottom-single-left-text">
+              <b>0% APR<br>6 months</b><br>or Pay in 4
+            </div>
+          </div>
+          <div class="new-edit-top__bottom-single-right">
+            <div class="new-edit-top__bottom-single-img">
+              <img src="{{ 'product-paypal.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner" alt="">
+            </div>
+          </div>
+
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  </div>
+
+  <div class="product-image-slider-container" style="display: none !important;">
+    <iframe class="product-image-slider-container-main"></iframe>
+  </div>
+  <select id="ag-vg-product-select" name="id" style="display: none !important;">
+    {% for variant in product.variants %}
+    <option value="{{ variant.id }}"> {{ variant.title }} - {{ variant.price | money}}</option>
+    {% endfor %}
+  </select>
+  
+  <script>
+    const globalProductDetail = {{ product | json }};
+    console.log('globalProductDetail',globalProductDetail);
+  
+    {% for product in collections.all.products %}
+      {% if product.id == 3874717401199 %}
+      const globalProductLEDBottom = {{ product | json }};
+      console.log(globalProductLEDBottom);
+      {% endif %}
+  
+      {% if product.id == 3874716876911 %}
+      const globalProductLEDTop = {{ product | json }};
+      console.log(globalProductLEDTop);
+      {% endif %}
+  
+      {% if product.id == 4635601240175 %}
+      const globalLightUpYourLogo = {{ product | json }};
+      console.log(globalLightUpYourLogo);
+      {% endif %}
+  
+    {% endfor %}  
+  </script>
+  

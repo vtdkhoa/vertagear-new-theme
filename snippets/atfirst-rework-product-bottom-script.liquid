@@ -1,0 +1,141 @@
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+<script type="text/javascript">
+  window.onbeforeunload = function () { window.scrollTo(0, 0); }
+  function px_to_vw(pixels) {
+    return parseFloat(pixels / 1920) * 100;
+  }
+  
+  function imgURL(src, size) {
+  // remove any current image size then add the new image size
+    return src
+      .replace(/_(pico|icon|thumb|small|compact|medium|large|grande|original|1024x1024|2048x2048|master)+\./g, '.')
+      .replace(/\.jpg|\.png|\.gif|\.jpeg/g, function(match) {
+        return '_'+size+match;
+      })
+    ;
+  }
+
+  var selectCallback = function (variant, selector) {
+    if (variant.price < variant.compare_at_price) {
+      jQuery('.new-product-initial-price').html(" <span class='new-product-final-price-compare-at'></span><span class='new-product-final-price-sale'></span>");
+      jQuery('.new-product-final-price-sale').html(Shopify.formatMoney(variant.price, "{{shop.money_format}}"));
+      jQuery('.new-product-final-price-compare-at').html(Shopify.formatMoney(variant.compare_at_price, "{{shop.money_format}}"));
+    } else {   
+      jQuery('.new-product-initial-price').html(Shopify.formatMoney(variant.price, "{{shop.money_format}}"));
+    }
+
+    $('.new-edit-top__choosed-color').text(variant.option1);
+    if (variant) {
+      var form = jQuery('#' + selector.domIdPrefix).closest('form');
+      for (var i = 0, length = variant.options.length; i < length; i++) {
+        var radioButton = form.find('.swatch-color[data-option-index="' + i + '"] :radio[value="' + escape(variant.options[i]) + '"]');
+        if (radioButton.size()) {
+          radioButton.get(0).checked = true;
+        }
+      }
+
+      var variant_color = RegExp("-" + variant.option1.replace('/', '').replace(/ /g, ''));
+
+      var slider = document.querySelector(".product-image-slider-container");
+      var sliderMain = document.querySelector(".product-image-slider-container-main");
+
+      if (slider.classList.contains("slick-initialized")) {
+        jQuery(".product-image-slider-container").slick("slickRemove", null, null, true);
+      }
+
+      if (sliderMain.classList.contains("slick-initialized")) {
+        jQuery(".product-image-slider-container-main").slick("slickRemove", null, null, true);
+      }
+
+      for (img of selector.product.images) {
+ 
+        if (variant_color.test(img)) {
+          let smallimg = imgURL(img,'70x70')
+//           let bigimg = img.replace(/\.jpg/, '_1024x1024.jpg')
+  
+          jQuery(".product-image-slider-container").slick("slickAdd", `<div class="product-image-slide"><img data-lazy="${smallimg}" class='product-image-slide__img' alt="Load image into Gallery viewer" /></div>`);
+          jQuery(".product-image-slider-container-main").slick("slickAdd", `<div class="product-image-slide -big"><img data-lazy="${img}" class='product-image-slide__img -big' alt /></div>`);
+        }
+      }
+//       updateAffirmPrice(variant.price); 
+    }
+
+  };
+
+  jQuery(function () {
+    jQuery('.swatch-color :radio').change(function () {
+      var optionIndex = jQuery(this).closest('.swatch-color').attr('data-option-index');
+      var optionValue = jQuery(this).val();
+      jQuery(this)
+        .closest('form')
+        .find('.single-option-selector')
+        .eq(optionIndex)
+        .val(optionValue)
+        .trigger('change');
+    });
+  });
+
+  jQuery(".product-image-slider-container").slick({
+    vertical: true,
+    slidesToShow: 5,
+    SlidesToScroll: 1,
+    lazyLoad: 'ondemand',
+    focusOnSelect: true,
+    asNavFor: '.product-image-slider-container-main',
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          vertical: false,
+        }
+      }
+    ]
+  });
+
+  $('.product-image-slider-container-main').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    lazyLoad: 'ondemand',
+    arrows: false,
+//     fade: true,
+    asNavFor: '.product-image-slider-container'
+  });
+
+
+var product = {{ product | json}};
+  {% assign variants = product.variants | sort: 'inventory_quantity' | reverse %}
+  product.variants = {{ variants |  json }}
+  if(product.type == "Gift Cards"){
+    product.variants = {{ variants | sort: "price" | json }}
+  }
+  jQuery(function ($) {
+    new Shopify.OptionSelectors("ag-vg-product-select", {
+      product: product,
+    onVariantSelected: selectCallback,
+    enableHistoryState: false
+    });
+  });
+</script>
+
+{% if product.title contains 'PL4500 RGB LED Top Upgrade Kit' or product.title contains 'SL5000 RGB LED Top Upgrade Kit' %}
+<script>
+    document.body.addEventListener('click',(event)=>{ // 對 body 下點擊事件
+      const target = event.target
+
+        if(target.matches(`#AddToCart,.design-pre-order-template-wrapper button,.design-pre-order-template-wrapper button *,#AddToCart * `)){
+          event.stopImmediatePropagation();
+          const check = $('#engrave').val()
+        	if(check === 'yes'){
+          {% if product.title contains 'PL4500 RGB LED Top Upgrade Kit' %}
+          window.location.href='/products/pl4500-rgb-led-acrylic-personalized-service'
+          {% else %}
+          window.location.href='/products/sl5000-rgb-led-acrylic-personalized-service'
+          {% endif %}
+        
+        }
+
+
+      }
+    })
+</script>
+{% endif %}

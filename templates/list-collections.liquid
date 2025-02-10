@@ -1,0 +1,36 @@
+{% comment %}
+{% include 'breadcrumb' %}
+{% endcomment %}
+
+<div class="collection-main-body">
+
+<h1 class="visually-hidden">{{ 'collections.general.product_collections' | t }}</h1>
+
+{% for collection in collections %}
+
+  {% unless collection.handle == 'frontpage' %}
+
+    {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+
+    <div class="section-header">
+      <h2 class="list-collections--title">{{ collection_title }}</h2>
+    </div>
+
+    <div class="grid-uniform collection-main-body-inner">
+      {% for product in collection.products limit:5 %}
+        {% assign grid_item_width = 'large--one-fifth medium--one-half' %}
+        {% include 'product-grid-item' %}
+      {% endfor %}
+    </div>
+    
+    <div class="list-collections--more-link">
+      <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}">{{ 'collections.general.see_more' | t }} {{ collection_title }} &rsaquo;</a>
+    </div>
+
+    {% unless forloop.last %}<hr>{% endunless %}
+
+  {% endunless %}
+
+{% endfor %}
+
+</div>

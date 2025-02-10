@@ -1,0 +1,161 @@
+<div class="page-warranty__chart">
+    <div class="page-warranty__chart-title page-warranty__title vertagear-container">
+        {{section.settings.title}}
+    </div>
+    <div class="page-warranty__chart-navigation">
+        <div class="page-warranty__chart-navigation-link" :class="{'-active' : active === 0 }" @click="active = 0">
+            Racing Series
+        </div>
+        <div class="page-warranty__chart-navigation-link" :class="{'-active' : active === 1 }" @click="active = 1">
+            Gaming Series
+        </div>
+    </div>
+    <div class="page-warranty__chart-main vertagear-container -content -desktop">
+        <div class="page-warranty__chart-main-inner">
+            <div class="page-warranty__chart-single -label">
+                <div class="page-warranty__chart-single-title">
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    Metal Structure Frame
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    Seat Mechanism 
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    Aluminum Alloy Frame
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    Dual Spring Hub Seat Mechanism
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    Arm Rest
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    Wheels
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    Lumbar Support
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    Five Star Base
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    Gas Lift
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    Headrest
+                </div>
+<!--                 <div class="page-warranty__chart-single-content -special">
+                    Wear & Tear
+                    <div class="page-warranty__chart-single-content-special">
+                        SPECIAL OFFER
+                    </div>
+                </div> -->
+            </div>
+            <div class="page-warranty__chart-single -normal" :class="{'-active' : active === 0 }" >
+                <div class="page-warranty__chart-single-title">
+                    <div class="page-warranty__chart-single-title-center">
+                        <div class="page-warranty__chart-single-title-bold">
+                            Racing Series
+                        </div>
+                        <div class="page-warranty__chart-single-title-normal">
+                            (S&P Line)
+                        </div>
+                    </div>
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    10 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    2 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    -
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    -
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    2 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    2 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    2 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    2 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    2 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    2 yrs
+                </div>
+<!--                 <div class="page-warranty__chart-single-content">
+                    1 yr
+                </div>               -->
+            </div>
+            <div class="page-warranty__chart-single -normal" :class="{'-active' : active === 1 }" >
+                <div class="page-warranty__chart-single-title">
+                    <div class="page-warranty__chart-single-title-center">
+                        <div class="page-warranty__chart-single-title-bold">
+                            Gaming Series
+                        </div>
+                        <div class="page-warranty__chart-single-title-normal">
+                            (Triigger Line)
+                        </div>
+                    </div>
+                </div>
+               <div class="page-warranty__chart-single-content">
+                    -
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    -
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    10 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    5 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    5 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    5 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    -
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    5 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    2 yrs
+                </div>
+                <div class="page-warranty__chart-single-content">
+                    2 yrs
+                </div>
+<!--                 <div class="page-warranty__chart-single-content">
+                    1 yr
+                </div> -->
+            </div>          
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Warranty Duration",
+  "settings": [
+        {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default":"Vertagear Warranty Duration"
+        }
+    ]
+  }
+{% endschema %}

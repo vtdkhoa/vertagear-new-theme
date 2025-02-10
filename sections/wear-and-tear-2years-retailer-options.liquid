@@ -1,0 +1,29 @@
+<div style="display:none" id="retailer_options_2years">
+  {% for block in section.blocks %}
+       <div data-title="{{block.settings.title}}" style="display:none" data-link="{{block.settings.link}}"></div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+  "name": "Retailer Options",
+  "blocks":[ 
+      { 
+         "type":"text",
+         "name":"Retailer",
+         "settings":[ 
+			{
+				"type":"text",
+				"id":"title",
+                "label":"Title"
+            },
+			{
+				"type":"url",
+				"id":"link",
+                "label":"Link"
+            }
+         ]
+      }
+  ]
+  }
+{% endschema %}

@@ -1,0 +1,82 @@
+{% include 'sca_freegift_price' with product %}
+{% comment %}
+  Set the default grid_item_width if no variable is set
+{% endcomment %}
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-third medium--one-half' %}
+{% endunless %}
+
+{% comment %}
+  Check if the product is on sale and set a variable to be used below.
+{% endcomment %}
+{% assign on_sale = false %}
+{% if sca_compare_at_price > sca_price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}
+  Check if the product is sold out and set a variable to be used below.
+{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<div class="grid__item {{ grid_item_width }}">
+
+	<div class="grid-view-item">
+
+  {% comment %}
+    Link to your product with the 'within: collection' filter for the link to be aware of the collection.
+    This allows you to create collection-based navigation on the product page.
+
+    Results of using 'within: collection':
+    - Instead of a URL with /products/product-handle
+      you would get /collections/collection-handle/products/product-handle
+
+    For more info on navigation within a collection
+      - http://docs.shopify.com/support/your-store/collections/how-to-navigate-within-a-collection
+
+  {% endcomment %}
+  <a href="{{ product.url | within: collection }}" class="grid__image">
+    <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+    <div name="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-collect" }} </div>
+    <div class="sca-fg-cat-list" style="display:none;" name="secomapp-fg-data-{{ product.id }}" prod-show='list'> </div>
+  </a>
+
+  <p class="h6 product-grid--title">
+    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+  </p>
+  <p class="product-grid--price">
+    {% comment %}
+      You can show a leading 'from' or 'up to' by checking 'product.price_varies'
+      if your variants have different prices.
+    {% endcomment %}
+    {% if on_sale %}
+      {% if sca_price_varies %}
+        {% assign sale_price = sca_price | money %}
+        {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+      {% else %}
+        <strong>{{ 'products.product.on_sale' | t }}</strong>
+        {{ sca_price | money }}
+      {% endif %}
+    {% else %}
+      {% if sca_price_varies %}
+        {% assign price = sca_price | money %}
+        {{ 'products.general.from_text_html' | t: price: price }}
+      {% else %}
+        {{ sca_price | money }}
+      {% endif %}
+    {% endif %}
+    {% if sold_out %}
+      <br><strong>{{ 'products.product.sold_out' | t }}</strong>
+    {% endif %}
+    {% if on_sale %}
+      <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+      <br><s>{{ sca_compare_at_price | money }}</s>
+    {% endif %}
+  </p>
+
+	</div>
+
+</div>

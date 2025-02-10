@@ -1,0 +1,63 @@
+<link type="text/css" href="{{ 'landing-default.css' | asset_url }}" rel="stylesheet"> 
+<script src="{{ 'landing-president-2022.js' | asset_url }}" type="text/javascript" async defer></script>
+
+{% include 'product-navigation' %}
+
+<style>
+  .display-none-mobile {
+  display: none;
+}
+  
+  .ld-md-hero a {
+  	width: 100%;
+    height: 100%;
+    margin-bottom: -10px;
+  }
+  .ld-md-hero a:hover {
+  	opacity: 1;
+  }
+  .ld-md-hero img {
+  	width: 100%;
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .display-none-desktop {
+    display: none;
+  }
+  .display-none-mobile {
+    display: block;
+  }
+    
+    .ld-md-hero {
+      height: calc(100vh - 210px);
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+  	background-size: cover; /* Resize the background image to cover the entire container */
+      background-image: url("{{ 'promotion-desk-us-2.jpg' | file_url }}");
+    }	
+  }
+</style>
+
+<div class="ld-md-hero">
+  <a href="#collection-product">
+     <img class="display-none-desktop" src="{{ 'promotion-mob-us-2.jpg' | asset_url }}" /> 
+  </a>
+</div>
+{% include 'landing-default' %}
+{% section 'index-support' %}
+
+<div class="ld-featured-products-header">
+  <div class="ld-featured-products-title">
+    Featured Products
+  </div>
+  <div class="ld-featured-products-desc">
+    'The Best Ergonomic Gaming Chairs' by IGN
+  </div>
+</div>
+{% include 'collection-product-grid', products, tag: "Default" %}
+
+{% include 'collection-bottom' %}
+{% render 'product_infox' %}
+
+{% section 'index-reviews' %}
+{% section 'index-alliance' %}

@@ -1,0 +1,32 @@
+
+{{ 'fe800-all.css' | asset_url | stylesheet_tag }}
+{% include 'fe800-all-custom' %}
+{% include 'product-learn-more-wear-and-tear-popup' %}
+<div class="page-fe800 product-800" fe800-product-detail="sl3800" loading-cart="0">
+    {% section 'fe800-viewproduct' %}
+    <div id="popup-reviews" style="display: none;">{% section 'fe800-productdetail-popup-reviews' %}</div>
+    {% section 'fe800-popup-herobanner' %}
+    {% include 'zakeke-engravelogo.liquid' %}
+    <div class="fe800-popup" loading-popup="0"><div class="popup-inner"></div></div>
+
+    <div id="fullpage">
+        {% section 'sl3800-info' %}
+        {% section 'fe800-warranty' %}
+        {% section 'fe800-signatures_1_sl3800' %}
+        {% section 'fe800-signatures_2_sl3800' %}
+        {% include 'fe800-signatures_4',order: 5 %}
+        {% section 'fe800-moreproduct_features' %}
+        {% section 'fe800-productdetail-sl3800-specifications' %}    
+    </div>
+    
+    {% render 'fe800-product_comparison' %}
+    {% section 'fe800-productdetail-reviews' %}
+    {% section 'fe800-series_collection' %}
+    
+
+</div>
+<script src="{{ 'flickity-v2.3.0.js' | asset_url }}"></script>
+<script src="{{ 'fe800-custom.src.js' | asset_url }}" type="text/javascript" async defer></script>
+<script src="{{ 'clsProductsDetails.js' | asset_url }}" type="text/javascript" async defer></script>
+
+{% render 'product_infox' %}

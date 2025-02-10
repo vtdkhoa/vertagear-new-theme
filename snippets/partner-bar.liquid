@@ -1,0 +1,15 @@
+{{ 'partnerbar.scss.css' | asset_url | stylesheet_tag }}
+<div class="partners-bar">
+  {% if shop.metafields.custom_fields["partners_bar"] != blank %}
+    {% assign separator = "|###|" %}
+    {% assign partner_image_array = shop.metafields.custom_fields["partner_image"] | split: separator %}
+    {% assign variant_url_array = shop.metafields.custom_fields["variant_url"] | split: separator %}
+    {% assign fc_keys = shop.metafields.custom_fields["partners_bar"] | split: "," %}
+    {% for i in fc_keys %}
+  		<div class="partner-bar-partner">
+          {% assign index = i | plus: 0 %}
+          <a href="{{ variant_url_array[index] }}"><img src="{{ partner_image_array[index] }}" /></a>
+  		</div>
+    {% endfor %}
+  {% endif %}
+</div>

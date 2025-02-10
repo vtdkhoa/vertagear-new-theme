@@ -1,0 +1,355 @@
+$tablet-breakpoint: "768px";
+$desktop-breakpoint: "1024px";
+
+.absolute_center{
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.red-border{
+  border-bottom: 6px solid #7e0c0c;
+}
+ 
+.template-page#faze-clan{
+  .main-content{
+    padding:0;
+    max-width: inherit;
+    .hero-wrapper{
+        background-image: url("{{ 'fazeclan-hero-bg.jpg' | asset_url }}");
+        background-size: auto;
+    	background-position: bottom center;
+        text-align: center;
+        height: 500px;
+        @media screen and (min-width: $tablet-breakpoint) {
+          height: 900px;
+        }
+        @media screen and (min-width: $desktop-breakpoint) {
+          height: 600px;
+          background-size: 100% 100%;
+          background-position: center;
+        }
+        .hero-logo{
+          height: 250px;
+          @media screen and (min-width: $tablet-breakpoint) {
+            height: 450px;
+          }
+          @media screen and (min-width: $desktop-breakpoint) {
+            height: 600px;
+          }
+    	  position: relative;
+          img{
+            height: 125px;
+            @media screen and (min-width: $tablet-breakpoint) {
+              height: 230px;
+            }
+          	@media screen and (min-width: $desktop-breakpoint) {
+            }
+          }
+   	 	}
+    	.hero-product{
+          height: 250px;
+    	  position: relative;
+          @media screen and (min-width: $tablet-breakpoint) {
+            height: 450px;
+          }
+          @media screen and (min-width: $desktop-breakpoint) {
+            height: 600px;
+          }
+          img{
+            height: 250px;
+            bottom: 0;
+            top: auto;
+            @media screen and (min-width: $tablet-breakpoint) {
+              height: 500px;              
+            }
+          }
+        }
+    }
+  	.about-wrapper{
+        background-image: url("{{ 'fazeclan-about-bg.jpg' | asset_url }}");
+        background-size: auto;
+        background-position: top center;
+        text-align: center;
+        border-top: 3px solid #FFF;
+        padding: 200px 0 150px;
+        @media screen and (min-width: $desktop-breakpoint) {
+          	background-size: 100% 100%;
+            background-position: center;
+        }
+    }
+  
+  	.gallery-wrapper{
+        background-image: url("{{ 'fazeclan-gallery-bg.jpg' | asset_url }}");
+        background-size: 100% 100%;
+        background-position: top center;
+        text-align: center;
+        border-top: 3px solid #FFF;
+        padding: 60px 0 140px;
+        @media screen and (min-width: $tablet-breakpoint) {
+          
+        }
+        @media screen and (min-width: $desktop-breakpoint) {
+          	padding: 160px 0 55px;
+          	background-image: url("{{ 'fazeclan-about-bg.jpg' | asset_url }}");
+          	background-size: 100% 100%;
+            background-position: center;
+        }
+        
+        .slick-slide{
+      		margin-right: 10px;
+            img{
+            	width: 100%;
+            }
+        }
+    }
+  	
+  	
+  	.product-wrapper{
+      background-image: url("{{ 'fazeclan-red-alert-bg.jpg' | asset_url }}");
+        background-size: 100% 100%;
+        background-position: center;
+        
+      h4{
+      	font-size:14px;
+        font-weight: bold;
+      }
+      .red-alert-product{
+        padding:0 0 50px;
+        position: relative;
+        @media screen and (min-width: $desktop-breakpoint) {
+        	margin-top: -50px;
+        }
+        img{
+        	width: 250px;
+        	margin: 0 auto;
+        }
+        .node{
+          position: absolute; 
+          width: 38px;    
+          height: 38px;   
+          margin: -20px 0 0 -20px;    
+          opacity: 1; 
+          cursor: pointer;    
+          background-image: url("{{ 'tooltip-node.png' | asset_url }}");   
+          -webkit-transition: all 1s ease;   
+           -moz-transition: all 1s ease;   
+           -ms-transition: all 1s ease;    
+           -o-transition: all 1s ease; 
+            transition: all 1s ease;
+          @media screen and (min-width: $desktop-breakpoint) {
+            opacity:1;
+          }
+          &:hover{
+            background-image: url("{{ 'tooltip-node-active.png' | asset_url }}");
+          }
+          &.node1{
+            top: 16%;
+    		left: 49%;
+            @media screen and (min-width: $tablet-breakpoint) {
+           		left: 50%;
+            }
+            @media screen and (min-width: $desktop-breakpoint) {
+            	top: 21%;
+            }
+          }
+          &.node2{
+            top: 7%;
+    		left: 70%;
+            @media screen and (min-width: $tablet-breakpoint) {
+           		left: 59%;
+            }
+            @media screen and (min-width: $desktop-breakpoint) {
+            	top: 9%;
+    			left: 66%;
+            }
+          }
+          &.node3{
+            top: 11%;
+    		left: 80%;
+            @media screen and (min-width: $tablet-breakpoint) {
+           		left: 64%;
+            }
+            @media screen and (min-width: $desktop-breakpoint) {
+            	top: 15%;
+    			left: 75%;
+            }
+          }
+          &.node4{
+            top: 20%;
+    		left: 64%;
+            @media screen and (min-width: $tablet-breakpoint) {
+           		left: 57%;
+            }
+            @media screen and (min-width: $desktop-breakpoint) {
+              top: 25%;
+    		  left: 62%;
+            }
+          }
+          &.node5{
+            top: 37%;
+    		left: 75%;
+            @media screen and (min-width: $tablet-breakpoint) {
+           		left: 63%;
+            }
+            @media screen and (min-width: $desktop-breakpoint) {
+              top: 47%;
+    		  left: 72%;
+            }
+          }
+          &.node6{
+            top: 51%;
+    		left: 51%;
+            @media screen and (min-width: $tablet-breakpoint) {
+           		left: 50%;
+            }
+            @media screen and (min-width: $desktop-breakpoint) {
+              top: 68%;
+              left: 51%;
+            }
+          }
+          &.node7{
+            top: 62%;
+    		left: 54%;
+            @media screen and (min-width: $desktop-breakpoint) {
+              top: 79%;
+    		  left: 56%;
+            }
+          }
+          &.node8{
+            top: 68%;
+    		left: 70%;
+            @media screen and (min-width: $tablet-breakpoint) {
+           		left: 61%;
+            }
+            @media screen and (min-width: $desktop-breakpoint) {
+              top: 86%;
+    		  left: 68%;
+            }
+          }
+        }
+      }
+      &.snow-storm{
+      	.red-alert-product{
+          .node{
+            &.node6{
+        		left: 53%;
+        	  @media screen and (min-width: $tablet-breakpoint) {
+           		left: 52%;
+              }
+              @media screen and (min-width: $desktop-breakpoint) {
+                top: 65%;
+                left: 53%;
+              }
+            }
+            &.node7{
+              @media screen and (min-width: $desktop-breakpoint) {
+                top: 76%;
+                left: 60%;
+              }
+            }
+            &.node8{
+              top: 65%;
+              left: 75%;
+              @media screen and (min-width: $tablet-breakpoint) {
+           		left: 61%;
+              }
+              @media screen and (min-width: $desktop-breakpoint) {
+                top: 86%;
+                left: 70%;
+              }
+            }
+          }
+        }
+      }
+      .red-alert-feat{
+        padding:0 0 50px;
+        @media screen and (min-width: $desktop-breakpoint) {
+          padding:125px 0 50px;
+        }
+        .red-alert-feat-slider{
+          	@media screen and (max-width: $tablet-breakpoint) {
+        		float:none;
+            	margin: 0 auto;
+            }
+        }
+      }
+      .slick-vertical{
+        .slick-slide{
+      		margin-bottom: 10px;
+        }
+      }
+      .slider{
+        figure{
+          .text{
+            background-color: #313131;
+            padding: 10px;
+            color: #FFF;
+          }
+          img{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .slick-dots {
+    bottom: -40px;
+    li {
+    	margin:0;
+    	button:before{
+          font-size: 45px;
+          color: #717171;
+        }
+    }
+  }
+  
+   .buy-now{
+     text-align: center;
+     padding: 50px 0 40px;
+     @media screen and (min-width: $desktop-breakpoint) {
+       padding: 50px 0 0;
+       text-align: left;
+     }
+   }
+
+   .buy-now-link a{
+    	background-color: #c21819;
+        color: #FFF;
+        display: block;
+        width: 125px;
+        padding: 5px;
+        margin-top: 30px;
+        text-align: center;
+      	font-weight: bold;
+        text-decoration: none;
+     	position: relative;
+        z-index:10;
+   }
+
+   .buy-now-bottom{
+     text-align: center;
+     padding-top: 50px;
+     a{
+    	background-color: #c21819;
+        color: #FFF;
+        display: block;
+        width: 180px;
+        padding: 15px;
+        margin: 30px auto 0;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+     }
+   }
+	
+   select{
+   	background-color: #FFF;
+   }
+}

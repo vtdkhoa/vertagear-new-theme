@@ -1,0 +1,296 @@
+{% include 'gravityadmin' %}
+<div style="display: none !important;  visibility: hidden !important;" class="cmspro-section" id="cmspro-d38ad2c3"></div>
+<!-- /templates/article.liquid -->
+{% comment %}
+
+  Comments will not appear right after they are submitted, either to be checked for spam
+  or to await moderation. When a comment is submitted, the browser is redirected to a page
+  that includes the new comment id in its URL.
+    Example: http://shopname.myshopify.com/blogs/news/2022072-my-post?comment=3721372
+
+  More information:
+    - http://docs.shopify.com/themes/liquid-variables/comment
+
+{% endcomment %}
+
+{% assign number_of_comments = article.comments_count %}
+
+{% comment %}
+  If a comment was just submitted and it has no blank fields, we have an extra comment to count.
+{% endcomment %}
+{% if comment and comment.created_at %}
+  {% assign number_of_comments = article.comments_count | plus: 1 %}
+{% endif %}
+
+<div class="grid blog-main--wrapper">
+	
+  {% if blog.title == 'Community'%}
+  	{% include "article-community" %}
+  {% else %}  
+  
+    
+    <article class="grid__item large--three-quarters" itemscope itemtype="http://schema.org/Article">
+	  <div class="sitewide--title-wrapper">
+      <h1 class="page--title">{{ article.title }}</h1>
+    </div>
+
+      <div class="rte" itemprop="articleBody">
+          {% if article.image %}
+              <div class="article--image-wrapper" style="display:none;">
+                  {{ article | img_url: '1024x1024' | img_tag: article.title }}
+              </div>
+          {% endif %}
+
+        {{ article.content }}
+      </div>
+
+
+      {% comment %}
+        Create links to the next and previous articles, if available.
+      {% endcomment %}
+      {% if blog.next_article or blog.previous_article %}
+        <hr>
+        <p class="clearfix">
+          {% if blog.previous_article %}
+            <span class="left">
+              &larr; {{ 'blogs.article.older_post' | t | link_to: blog.previous_article }}
+            </span>
+          {% endif %}
+          {% if blog.next_article %}
+            <span class="right">
+              {{ 'blogs.article.newer_post' | t | link_to: blog.next_article }} &rarr;
+            </span>
+          {% endif %}
+        </p>
+      {% endif %}
+
+      {% if blog.comments_enabled? %}
+      {% if number_of_comments > 0 %}
+        <hr>
+
+        <div class="h3">{{ 'blogs.comments.with_count' | t: count: number_of_comments }}</div>
+      {% endif %}
+
+        {% comment %}
+          Just like blog.liquid page, define how many comments should be on each page.
+        {% endcomment %}
+        {% paginate article.comments by 5 %}
+          {% comment %}
+            #comments is required, it is used as an anchor link by Shopify.
+          {% endcomment %}
+          <div id="comments">
+
+            {% if comment and comment.created_at %}
+              <p class="note form-success">
+                {% if blog.moderated? %}
+                  {{ 'blogs.comments.success_moderated' | t }}
+                {% else %}
+                  {{ 'blogs.comments.success' | t }}
+                {% endif %}
+              </p>
+            {% endif %}
+
+            {% if number_of_comments > 0 %}
+              <ul class="no-bullets">
+                {% comment %}
+                  If a comment was just submitted with no blank field, show it.
+                {% endcomment %}
+                {% if comment and comment.created_at %}
+                  <li id="{{ comment.id }}" class="comment comment-wrapper first{% if article.comments_count == 0 %} last{% endif %}">
+
+  <div class="comment">
+    <div class="rte">
+      {{ comment.content }}
+    </div>
+
+    <span class="comment-data">
+      {% capture author %}{{ comment.author }}{% endcapture %}
+      {% capture date %}<time datetime="{{ comment.created_at | date: '%Y-%m-%d' }}">{{ comment.created_at | date: format: 'month_day_year' }}</time>{% endcapture %}
+      {{ 'blogs.article.comment_meta_html' | t: author: author, date: date }}
+    </span>
+  </div>
+
+                  </li>
+                {% endif %}
+
+                {% comment %}
+                  Showing the rest of the comments.
+                {% endcomment %}
+                {% for comment in article.comments %}
+                  <li id="{{ comment.id }}" class="comment comment-wrapper {% unless number_of_comments > article.comments_count %}{% if forloop.first %} first{% endif %}{% endunless %}{% if forloop.last %} last {% endif %}">
+
+  <div class="comment">
+    <div class="rte">
+      {{ comment.content }}
+    </div>
+
+    <span class="comment-data">
+      {% capture author %}{{ comment.author }}{% endcapture %}
+      {% capture date %}<time datetime="{{ comment.created_at | date: '%Y-%m-%d' }}">{{ comment.created_at | date: format: 'month_day_year' }}</time>{% endcapture %}
+      {{ 'blogs.article.comment_meta_html' | t: author: author, date: date }}
+    </span>
+  </div>
+
+
+                  </li>
+                {% endfor %}
+              </ul>
+
+              {% if paginate.pages > 1 %}
+  <div class="pagination">
+
+    <ul>
+      {% if paginate.previous %}
+        <li class="pagination-arrow"><a href="{{ paginate.previous.url }}"><i class="fa fa-chevron-left"></i></a></li>
+      {% else %}
+        <li class="prev disabled"><a href="#" onclick="return false;">&laquo;</a></li>
+      {% endif %}
+
+      {% for part in paginate.parts %}
+        {% if part.is_link %}
+          <li class="pagination-number">{{ part.title | link_to: part.url }}</li>
+        {% else %}
+          {% if part.title == '&hellip;' %}
+          <li class="ellipsis">{{ part.title }}</li>
+          {% else %}
+          <li class="active pagination-number">{{ part.title | link_to: part.url }}</li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if paginate.next %}
+        <li class="pagination-arrow"><a href="{{ paginate.next.url }}"><i class="fa fa-chevron-right"></i></a></li>
+      {% else %}
+        <li class="next disabled"><a href="#" onclick="return false;">&raquo;</a></li>
+      {% endif %}
+    </ul>
+
+  </div>
+  {% endif %}
+
+
+              <hr>
+
+            {% endif %}
+
+            <div class="form-vertical">
+              {% form 'new_comment', article %}
+                <div class="h3">{{ 'blogs.comments.title' | t }}</div>
+
+                {{ form.errors | default_errors }}
+
+                <div class="grid">
+
+                  <div class="grid__item large--one-half">
+                    <label for="CommentAuthor" class="hidden-label">{{ 'blogs.comments.name' | t }}</label>
+                    <input type="text" name="comment[author]" id="CommentAuthor" class="input-full{% if form.errors contains 'author' %} error{% endif %}" placeholder="{{ 'blogs.comments.name' | t }}" value="{{ form.author }}" autocapitalize="words">
+
+                    <label for="CommentEmail" class="hidden-label">{{ 'blogs.comments.email' | t }}</label>
+                    <input type="email" name="comment[email]" id="CommentEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'blogs.comments.email' | t }}" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
+                  </div>
+
+                  <div class="grid__item large--one-half">
+                    <label for="CommentBody" class="hidden-label">{{ 'blogs.comments.message' | t }}</label>
+                    <textarea name="comment[body]" id="CommentBody" class="input-full{% if form.errors contains 'body' %} error{% endif %}" placeholder="{{ 'blogs.comments.message' | t }}">{{ form.body }}</textarea>
+                  </div>
+
+                </div>
+
+                {% if blog.moderated? %}
+                  <p>{{ 'blogs.comments.moderated' | t }}</p>
+                {% endif %}
+
+                <input type="submit" class="btn article-comment--btn" value="{{ 'blogs.comments.post' | t }}">
+              {% endform %}
+            </div>
+
+          </div>
+        {% assign sp_paginate_by = paginate.page_size %}{% endpaginate %}
+      {% endif %}
+
+    </article>
+
+    <aside class="grid__item large--one-quarter" role="complementary">
+
+        {% if section.settings.blog-sidebar-image %}
+          {% if section.settings.blog-sidebar-link %}
+                  <a href="{{ section.settings.blog-sidebar-link }}" itemprop="url">
+          {% endif %}
+              <img src="{{ section.settings.blog-sidebar-image | img_url: '600x' }}"
+              srcset="{{ section.settings.blog-sidebar-image | img_url: '600x' }} 1x, {{ section.settings.blog-sidebar-image | img_url: '600x', scale: 2 }} 2x"
+              alt="{{ section.settings.blog-sidebar-image.alt | default: shop.name }}"
+              class="img-responsive blog-sidebar-image">
+              {% if section.settings.blog-sidebar-link %}
+                  </a>
+              {% endif %}
+        {% endif %}
+
+          {% if section.settings.show_recent_posts %}
+        <div class="h4">{{ 'blogs.sidebar.recent_articles' | t }}</div>
+        <ul class="no-bullets blog-sidebar--recent-articles">
+          {% for article in blogs[blog.handle].articles limit:6 %}
+            <li>
+              <a href="{{ article.url }}">{{ article.title }}</a>
+              <br>
+              <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if section.settings.show_blog_tags %}
+          <div class="h4">{{ 'blogs.sidebar.categories' | t }}</div>
+          <ul class="no-bullets blog-sidebar--all-categories">
+            {% for tag in blog.all_tags %}
+              {% if current_tags contains tag %}
+              <li>{{ tag }}</li>
+              {% else %}
+              <li>{{ tag | link_to_tag: tag }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+    </aside>
+  {% endif %}
+</div>
+
+{% if sp_paginate_by %}{% render 'spurit_po2_collection_template_snippet', paginate_by: sp_paginate_by %}{% endif %}{% schema %}
+{
+  "name": "Article pages",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "blog-sidebar-image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "blog-sidebar-link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_blog_tags",
+      "label": "Show tags",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_recent_posts",
+      "label": "Show 'Latest articles'",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  $(function() {
+    $('[itemprop="articleBody"] img').each(function() {
+      if ($(this).attr('alt') == undefined) {
+        $(this).attr('alt', '');
+      };
+    })
+  });
+</script>

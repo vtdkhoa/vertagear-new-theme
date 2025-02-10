@@ -1,0 +1,158 @@
+{{ 'https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js' | script_tag }}
+{{ 'https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css' | stylesheet_tag }}
+<!-- /templates/page.contact.liquid -->
+{% comment %}
+
+  This page template is a requirement if you are submitting your theme to the Shopify Theme Store.
+  Be sure to select page.contact as the template from the admin page to have this template take effect.
+
+  For information on adding more fields, visit:
+    - http://docs.shopify.com/support/configuration/store-customization/adding-fields-to-the-liquid-contact-form
+
+{% endcomment %}
+
+<div class="grid page-main--wrapper">
+
+  <div class="grid__item large--two-thirds push--large--one-sixth">
+
+    <h1 class="page--title">{{ page.title }}</h1>
+
+    {% comment %}
+      Regular page content goes here.
+    {% endcomment %}
+    <div class="rte">
+      {{ page.content }}
+    </div>
+
+    {% comment %}
+      Contact form starts here
+    {% endcomment %}
+    <div class="form-vertical">
+      <form class="product_registration">
+
+      	<h3>Product Information</h3>
+      
+      	<label for="product_name">Product:</label>
+        <select id="product_name" name="product_name" class="input-full">
+          <option>SL3800</option>
+          <option>SL5800</option>      
+          <option>PL6800</option>
+          <option>PL4800</option>
+          <option>PL6000</option>
+          <option>PL4500</option>
+          <option>SL2000</option>
+          <option>SL4000</option>
+          <option>SL5000</option>
+          <option>SL5000 Midnight Sale</option>
+          <option>Triigger Line 275</option>
+          <option>Triigger Line 350</option>
+          <option>Triigger Line350se Special Edition</option>
+          <option>Penta RS1 Casters</option>
+          <option>Racing Series Pillow SC</option>
+          <option>RGB LED Bottom Kit</option>
+          <option>RGB LED Top Kit</option>
+        </select>
+		
+      	<label for="product_color">Color:</label>
+        <select id="product_color" name="product_color" class="input-full">
+          <option></option>
+          <option>Red</option>
+          <option>White</option>
+          <option>Blue</option>
+          <option>Carbon Black</option>
+          <option>Green</option>
+        </select>
+      	
+      	<label for="ContactFormPurchaseDate">Purchase Date:</label>
+      	<input type="text" name="purchase_date" class="input-full" id="ContactFormPurchaseDate" required />
+      	<br>
+        <h3>Customer Information</h3>
+     
+        <label for="fname" class="hidden-label_">First Name</label>
+        <input type="text" id="fname" class="input-full" name="first_name" autocapitalize="words" required>
+
+        <label for="lname" class="hidden-label_">Last Name</label>
+        <input type="text" id="lname" class="input-full" name="last_name" autocapitalize="words" required>
+
+        <label for="address1">Address Line 1:</label>
+      	<input type="text" name="address1" id="address1" class="input-full" required />
+      
+      	<label for="address2">Address Line 2:</label>
+      	<input type="text" name="address2" id="address2" class="input-full" />
+        
+        <label for="city">City:</label>
+      	<input type="text" name="city" id="city" class="input-full" required />
+        
+        <label for="state">State:</label>
+      	<input type="text" name="state" id="state" class="input-full" required />
+        
+        <label for="zip_code">Postal/Zip Code:</label>
+      	<input type="text" name="zip_code" id="zip_code" class="input-full" required />
+      	
+      	{% section 'country' %}
+      
+      	<label for="email" class="hidden-label_">Email</label>
+        <input type="email" id="email" class="input-full" name="email" placeholder="" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" autocorrect="off" autocapitalize="off" required>
+  
+		<div class="contact-form--submit-button">
+	        <input type="submit" class="btn" value="Send">
+		</div>
+
+      </form>
+    </div>
+
+  </div>
+
+</div>
+<script>
+  $('.product_registration').submit(function(e) {
+    var payload = {
+      "fname": $('#fname').val(),
+      "lname": $('#lname').val(),
+      "product_name": $('#product_name').val(),
+      "product_color": $('#product_color').val(),
+      "purchase_date": $('#ContactFormPurchaseDate').val(),
+      "address1": $('#address1').val(),
+      "address2": $('#address2').val(),
+      "city": $('#city').val(),
+      "state": $('#state').val(),
+      "zip_code": $('#zip_code').val(),
+      "country": $('#ContactFormCountry').val(),
+      "email": $('#email').val()
+    };
+    var url = 'https://h007jnxat0.execute-api.us-east-1.amazonaws.com/dev/zendesk/product-registration';
+    $('.contact-form--submit-button .btn').val('Please wait...');
+    fetch(url, {mode: 'cors', method: 'POST', body: JSON.stringify(payload) }).then(function(response) {
+      response.json().then(function(data) {
+        console.log(data);
+        if (data.statusCode == 201) {
+          new Noty({
+            type: 'success',
+            text: "Your request has been submitted successfully!",
+          }).show();
+          $('.product_registration').find("input[type=text], input[type=email]").val("");
+          var eventCategory = "Forms";
+          var eventAction = "Submit";
+          var eventLabel = "Product Registration";
+          //ga('send', 'event', eventCategory, eventAction, eventLabel);
+        } else {
+          new Noty({
+            type: 'error',
+            text: "An error has occurred. Please try again later.",
+          }).show();                        
+        }
+		$('.contact-form--submit-button .btn').val('Send');
+      });
+    }).then(function(data) {
+      
+    }).catch(function(err) {
+      console.log(err);
+      new Noty({
+        type: 'error',
+        text: "Something went wrong. Please try again later.",
+      }).show();
+    });
+    
+    e.preventDefault();
+   });
+</script>

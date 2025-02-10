@@ -1,0 +1,226 @@
+#lsLumbar,
+#lsSeat {
+  background-color: #000;
+  color: #fff;
+}
+
+.ls-hero__text {
+  padding: 20px 20px 50px 20px;
+  text-align: center;
+  width: 100;
+  width: 100%;
+}
+.ls-hero__text .title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+}
+.ls-hero__text .desc {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 170%;
+  margin-top: 14px;
+}
+.ls-hero__text .desc span {
+  color: #4dabe9;
+}
+.ls-hero img {
+  width: 100%;
+}
+.ls-hero .video-wrapper {
+  position: relative;
+  padding-bottom: 0;
+}
+.ls-hero .video-wrapper .play-btn {
+  position: absolute;
+  width: auto;
+}
+
+.ls-signature {
+  margin-top: 22px;
+}
+.ls-signature-text {
+  padding: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.ls-signature-text .header {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 150%;
+  color: #4dabe9;
+}
+.ls-signature-text .title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  margin-top: 4px;
+}
+.ls-signature-text .desc {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  margin-top: 10px;
+  opacity: 0.7;
+}
+.ls-signature-text .desc span {
+  color: #4dabe9;
+}
+.ls-signature__video-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.ls-signature__video-wrapper video {
+  width: 100%;
+  position: relative;
+}
+.ls-signature__video-wrapper .play-btn {
+  position: absolute;
+}
+.ls-signature__video-wrapper .image-cover {
+  width: 100%;
+}
+
+.ls-footer {
+  margin-top: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ls-footer img {
+  width: 100%;
+}
+.ls-footer__text {
+  position: absolute;
+  padding: 20px;
+  text-align: center;
+}
+.ls-footer__text .header {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 130%;
+}
+.ls-footer__text .desc {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  margin-top: 20px;
+}
+.ls-footer__text .action {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  padding: 14px 30px;
+  margin: auto;
+  margin-top: 20px;
+  display: block;
+  width: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+  .ls-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .ls-hero__text {
+    text-align: left;
+    max-width: 450px;
+    position: absolute;
+    margin-left: 75px;
+    padding: 0;
+  }
+  .ls-hero__text .title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 130%;
+  }
+  .ls-hero__text .desc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 170%;
+    margin-top: 20px;
+  }
+
+  .ls-signature {
+    display: flex;
+    margin-top: 0;
+  }
+  .ls-signature-text {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    background: linear-gradient(
+      116.3deg,
+      rgba(255, 255, 255, 0.1) 1.44%,
+      rgba(255, 255, 255, 0) 100.66%
+    );
+    backdrop-filter: blur(200px);
+  }
+  .ls-signature-text .header {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+  }
+  .ls-signature-text .title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    margin-top: 10px;
+  }
+  .ls-signature-text .desc {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    margin-top: 25px;
+  }
+  .ls-signature__video-wrapper {
+    width: 70%;
+  }
+
+  .ls-footer {
+    margin-top: 0;
+    height: 500px;
+    overflow: hidden;
+  }
+  .ls-footer__text {
+    max-width: 670px;
+    margin: auto;
+  }
+  .ls-footer__text .header {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 150%;
+  }
+  .ls-footer__text .desc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+  }
+  .ls-footer__text .action {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 21px 31.5px;
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .ls-footer__text .action img {
+    width: 24px;
+  }
+}

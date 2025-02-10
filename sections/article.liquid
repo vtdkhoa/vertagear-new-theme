@@ -1,0 +1,13 @@
+<div class="page-article">
+    
+    <div class="page-article__main vertagear-container -small">
+        <a class="page-article__view" href="{{blog.url}}">< View all {{blog.title}}</a>
+        <h1 class="page-article__title">
+            {{ article.title }}
+        </h1>
+        <div class="page-article__date">
+            {{ article.published_at  | date: "%b %d, %Y" }}
+        </div>
+        <div class="page-article__content">{{ article.content }}</div>
+    </div>
+  </div>

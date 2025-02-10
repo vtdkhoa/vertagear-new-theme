@@ -1,0 +1,247 @@
+{% include 'product-navigation' %}
+{% section 'esport-top' %}
+{% section 'esport-main' %}
+{% section 'esport-bottom' %}
+{% comment %}
+{{ 'esports-team-chairs.scss.css' | asset_url | stylesheet_tag }}
+<div id="esports-team-chairs-vg">
+  <div id="esports-header-vg">
+    <h1 id="esports-header-title-vg">ESPORTS TEAM CHAIRS</h1>
+  </div>
+  <nav id="esports-navi-vg">
+    <div class="esports-navi-ulist-vg">
+      <div id="misfits" class="esports-navi-item-vg esports-navi-item-vg-active" onclick="changeTeam('misfits', 'pl4500')">Misfits</div>
+      <!-- <div id="tsm" class="esports-navi-item-vg" onclick="changeTeam('tsm', 'sl2000')">TSM</div> -->
+      <!--<div id="ssg" class="esports-navi-item-vg" onclick="changeTeam('ssg', 'pl6000')">SSG</div>-->
+      <!-- <div id="method" class="esports-navi-item-vg" onclick="changeTeam('method', 'pl4500')">Method</div> -->
+      <div id="soar" class="esports-navi-item-vg" onclick="changeTeam('soar', 'pl4500')">SoaR</div>
+	  <div id="faze" class="esports-navi-item-vg" onclick="changeTeam('faze', 'FaZe Arc')">FaZe</div>
+    </div>
+  </nav>
+  <div id="esports-chair-content-vg">
+    <div id="esports-chair-content-vg-container">
+      <div id="esports-chair-content">
+        <img id="esports-team-logo-vg" />
+        <select class="esports-team-chair-select-vg" onchange="changeTeam('', this.options[this.selectedIndex].value);">
+        </select>
+        <span id="esports-team-chair-price">$299.99</span>
+        <a href="" id="esports-chair-buy-now"><div><span>Learn More</span></div></a>
+      </div>
+    </div>
+  </div>
+  <div id="esports-chair-content-vg-mob">
+    <div id="esports-chair-content-description-mob">
+      <img id="esports-team-logo-vg-mob" />
+    </div>
+    <div id="esports-chair-content-background-mob"></div>
+    <div id="esports-chair-content-buynow-mob">
+        <select class="esports-team-chair-select-vg" onchange="changeTeam('', this.options[this.selectedIndex].value);">
+        </select>
+      <span id="esports-team-chair-price-mob">$299.99</span>
+      <a href="" id="esports-chair-buy-now-mob"><div><span>Learn More</span></div></a>
+    </div>
+  </div>
+</div>
+
+<script>
+  var currentTeam = "";
+  var currentChair = "";
+  
+  var esprtschairs = {
+    "method": {
+      "description": "",
+      "logo_image": `{{'esprts_logo_method.png' | asset_url }}`,
+      "chairs": {
+        "pl4500": {
+          "mobile_background_image": `{{'mob_esprts_method_pl4500.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_method_pl4500.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/products/pl4500-gaming-chair?view=buynow&variant=16301678657647",
+          "price": "$589.99",
+        },
+      },
+    },
+    "faze": {
+      "description": "",
+      "logo_image": `{{'fazeclan-hero-logo.png' | asset_url }}`,
+      "chairs": {
+        "FaZe Arc": {
+          "mobile_background_image": `{{'mob_esprts_faze.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_faze.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/pages/faze-clan",
+          "price": "$419.99",
+        },
+        "FaZe Retro": {
+          "mobile_background_image": `{{'mob_esprts_faze.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_faze.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/pages/faze-clan",
+          "price": "$499.99",
+        },
+      },
+    },
+    "misfits": {
+      "description": "",
+      "logo_image": `{{'esprts_logo_misfits.png' | asset_url }}`,
+      "chairs": {
+        "pl4500": {
+          "mobile_background_image": `{{'mob_esprts_misfits_pl4500.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_misfits_pl4500.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/products/pl4500-gaming-chair?view=buynow&variant=16303493808239",
+          "price": "$589.99",
+        },
+        "sl2000": {
+          "mobile_background_image": `{{'mob_esprts_misfits_sl2000.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_misfits_sl2000.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/products/sl2000-gaming-chair?view=buynow&variant=16304139993199",
+          "price": "$329.99",
+        },
+      },
+    },
+    "soar": {
+      "description": "",
+      "logo_image": `{{'esprts_logo_soar.png' | asset_url }}`,
+      "chairs": {
+        "pl4500": {
+          "mobile_background_image": `{{'mob_esprts_soar_pl4500.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_soar_pl4500.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/products/pl4500-gaming-chair?view=buynow&variant=19328386138223",
+          "price": "$589.99",
+        },
+        "sl5000": {
+          "mobile_background_image": `{{'mob_esprts_soar_sl5000.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_soar_sl5000.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/products/sl5000-gaming-chair?view=buynow&variant=19459261366383",
+          "price": "$389.99",
+        },
+      },
+    },
+    "splyce": {
+      "description": "",
+      "logo_image": `{{'esprts_logo_splyce.png' | asset_url }}`,
+      "chairs": {
+        "sl5000": {
+          "mobile_background_image": `{{'mob_esprts_splyce_sl5000.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_splyce_sl5000.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/products/sl5000-gaming-chair?view=buynow&variant=17455206727791",
+          "price": "$389.99",
+        },
+      },
+    },
+    "ssg": {
+      "description": "",
+      "logo_image": `{{'esprts_logo_ssg.png' | asset_url }}`,
+      "chairs": {
+        "pl6000": {
+          "mobile_background_image": `{{'mob_esprts_ssg_pl6000.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_ssg_pl6000.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/products/pl6000-gaming-chair?view=buynow&variant=13682459672687",
+          "price": "$589.99",
+        },
+        "Nebula": {
+          "mobile_background_image": `{{'mob_esprts_ssg_nebula.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_ssg_nebula_1.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/pages/spacestation-gaming",
+          "price": "$419.99",
+        }
+      },
+    },
+    "tsm": {
+      "description": "",
+      "logo_image": `{{'esprts_logo_tsm.png' | asset_url }}`,
+      "chairs": {
+        "sl2000": {
+          "mobile_background_image": `{{'mob_esprts_tsm_sl2000.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_tsm_sl2000.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/products/sl2000-gaming-chair?view=buynow&variant=131480125445",
+          "price": "$329.99",
+        },
+        "pl4500": {
+          "mobile_background_image": `{{'mob_esprts_tsm_pl4500.jpg' | asset_url }}`,
+          "desktop_background_image": `{{'dsk_esprts_tsm_pl4500.jpg' | asset_url }}`,
+          "buy_now_url": "https://www.vertagear.com/products/pl4500-gaming-chair?view=buynow&variant=20329018130543",
+          "price": "$589.99",
+        },
+      },
+    },
+  };
+  
+  function changeTeam(team, chair) {
+    var navigator = document.querySelectorAll('.esports-navi-item-vg');
+    
+    [].forEach.call(navigator, function(navi) {
+		navi.classList.remove("esports-navi-item-vg-active");
+    });
+    
+    var teamClass = document.getElementById(team);
+    teamClass.classList.add("esports-navi-item-vg-active");
+    
+    currentChair = chair;
+    var teamLogoURL = esprtschairs[team].logo_image;
+    var backgroundImageURL = esprtschairs[team].chairs[chair].desktop_background_image;
+    var mobileBackgroundImageURL = esprtschairs[team].chairs[chair].mobile_background_image;
+    var buyNowURL = esprtschairs[team].chairs[chair].buy_now_url;
+    var teamChairs = esprtschairs[team].chairs;
+    var chairPrice = esprtschairs[team].chairs[chair].price;
+    
+    if ($(window).width() < 768) {
+      document.getElementById("esports-chair-content-vg-mob").style.display="block";
+      document.getElementById("esports-chair-content-vg").style.display="none";
+      document.getElementById("esports-chair-content-background-mob").style.backgroundImage=`url(${mobileBackgroundImageURL})`;
+      document.getElementById("esports-chair-buy-now-mob").setAttribute('href', buyNowURL);
+      document.getElementById("esports-team-logo-vg-mob").setAttribute('src', teamLogoURL);
+      document.getElementById("esports-team-chair-price-mob").innerHTML = chairPrice;
+      if (team != currentTeam) {
+        var chairSelect = document.getElementsByClassName('esports-team-chair-select-vg');
+        Array.prototype.forEach.call(chairSelect, function(el) {
+          for (i = el.options.length - 1; i >= 0; i--) {
+            el.remove(i);
+          }
+
+          el.setAttribute('onchange', `changeTeam("${team}", this.options[this.selectedIndex].value)`);
+
+          Object.keys(teamChairs).forEach(function(chair) {
+            let opt = document.createElement('option');
+            opt.setAttribute('value', chair);
+            opt.innerHTML = chair.toUpperCase();
+            el.appendChild(opt);
+          });
+        });
+
+        currentTeam = team;
+      }
+	} else {
+      document.getElementById("esports-chair-content-vg-mob").style.display="none";
+      document.getElementById("esports-chair-content-vg").style.display="flex";
+      document.getElementById("esports-chair-content-vg").style.backgroundImage=`url(${backgroundImageURL})`;
+      document.getElementById("esports-chair-buy-now").setAttribute('href', buyNowURL);
+      document.getElementById("esports-team-logo-vg").setAttribute('src', teamLogoURL);
+      document.getElementById("esports-team-chair-price").innerHTML = chairPrice;
+      if (team != currentTeam) {
+        var chairSelect = document.getElementsByClassName('esports-team-chair-select-vg');
+        Array.prototype.forEach.call(chairSelect, function(el) {
+          for (i = el.options.length - 1; i >= 0; i--) {
+            el.remove(i);
+          }
+
+          el.setAttribute('onchange', `changeTeam("${team}", this.options[this.selectedIndex].value)`);
+
+          Object.keys(teamChairs).forEach(function(chair) {
+            let opt = document.createElement('option');
+            opt.setAttribute('value', chair);
+            opt.innerHTML = chair.toUpperCase();
+            el.appendChild(opt);
+          });
+        });
+
+        currentTeam = team;
+      }
+	}
+    
+  };
+  
+  	$(window).resize(function() {
+      changeTeam(currentTeam, currentChair);
+	});
+  
+  changeTeam('faze', 'FaZe Arc');
+</script>
+{% endcomment %}

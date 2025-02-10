@@ -1,0 +1,448 @@
+{% assign globalProductLEDBottom = false %}
+{% assign globalProductLEDTop = false %}
+{% assign globalLightUpYourLogo = false %}
+
+{% for product in collections.all.products %}
+  {% if product.id == 3874717401199 %}
+    {% assign globalProductLEDBottom = product %}
+  {% endif %}
+
+  {% if product.id == 7033534546031 %}
+    {% assign globalProductLEDTop = product %}
+  {% endif %}
+
+  {% if product.id == 7033535037551 %}
+    {% assign globalLightUpYourLogo = product %}
+  {% endif %}
+
+  {% if product.id == 7025941348463 %}
+    {% assign product_review = product %}
+  {% endif %}
+
+  {%- comment -%} price pl4800  {%- endcomment -%}
+   {% if product.id == 7025941348463 %}
+    {% assign product_temp = product %}
+  {% endif %}
+{% endfor %}  
+
+<script>
+  const globalProductDetail = {{ product | json }};
+  const globalProductLEDBottom = {{ globalProductLEDBottom | json }};
+  const globalProductLEDTop = {{ globalProductLEDTop | json }};
+  const globalLightUpYourLogo = {{ globalLightUpYourLogo | json }};
+
+  console.log(globalProductDetail)
+</script>
+
+
+<div class="product800-detail product800-detail-update" id="productdetailstick">
+  <meta itemprop="name" content="{{ product.title | escape }} - {{ product.selected_variant.title }}">
+  <meta itemprop="image" content="https:{{ product.selected_variant.image.src | img_url: 'grande' }}">
+  <meta itemprop="description" content="{{ product.description | strip_html }}">
+  <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="sku" content="{{ product.selected_variant.sku }}">
+
+  <div class="nam-product-intro-container">
+    <div class="nam-product-images">
+      <div class="nam-product-images__wrapper">
+        <div id="namProductBigContentWrapper" class="process-productdetailstick" >
+          <div class="image-container image-zoom">
+          <img id="namProductBigImage"  alt="product image" src="{{product.selected_or_first_available_variant.featured_image.src | image_url }}" data-zoom-image="{{product.selected_or_first_available_variant.featured_image.src | image_url }}">
+        </div>
+
+          
+       <div class="group-gallery">
+            <div class="item-gallery js-popin-gallery" type="video">
+              <img class="lazyload" data-src="{{ 'galleryvideo.jpg' | asset_url }}" />
+              <div class="cta-gallery"><img src="{{ 'playicon.png' | asset_url }}" /> Video</div>
+            </div>
+            <div class="item-gallery js-popin-gallery imagezoom" type="gallery">
+              <img class="lazyload" data-src="{{ 'galleryimagePL4800.jpg' | asset_url }}" />
+              <div class="cta-gallery">Gallery</div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="nam-product-images__selection" id="namProductImagesSelection" style="display: none;">
+          <img id="npiSelectionBaseImg" class="lazyload nam-product-images__selection__img base" />
+          <div class="separator"></div>
+          <div id="npiSelectionStaticImgs" class="nam-product-images__selection__static-imgs"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nam-product-info">
+      <div class="nam-product-info__no-final-price">
+
+         <div class="nam-product__header">
+
+          <div class="row-header row-header__left">
+             <div class="nam-product__header__title">{{ product.title }}</div>
+             
+            <a class="fe800-reviews-js" data-oke-reviews-product-listing-rating style="display:inline-block"
+            class="bottomLine ag-vg-product-rating">
+            {%- if product_review.metafields.okendo.ProductListingSnippet -%}
+            {{ product_review.metafields.okendo.ProductListingSnippet }}
+            {%- else -%}
+            <span class="visually-hidden">There are no reviews yet.</span>
+            {%- endif -%}
+               </a>
+             
+          </div>
+
+          <div class="row-header row-header__right">
+            <div class="nam-product__total-price__pl4500-price">
+              <span id="custom_product_price" class="custom_product_price" data-product-id="{{ product.id }}"><span class="tdf_price_original"><span class="tdf_money money">{{product.compare_at_price | money}}</span></span><span class="tdf_price_sales"> <span class="tdf_money money">{{product.price | money}}</span></span></span>
+              {%- comment -%}<div class="date_discount" id="date_discount" style="display: none;">
+               Discount only available <span>in 7 days</span>  
+              </div>{%- endcomment -%}
+
+              {% for variant in product.variants %}
+              <div  style="display:none" id="selly-{{ variant.id }}" sellyenddate="{{ variant.metafields.custom.selly_end_date }}">{{ variant.metafields.custom.selly_end_date }}</div>
+              {% endfor %}
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="nam-product__key-features">
+          <div class="nam-product__key-features__title">VERTAGEAR SIGNATUREs</div>
+        <div class="nam-product__key-features__list">
+            <div class="row__key-features">
+              <!-- item 1 -->
+              <div class="key-features">
+                <h3 class="js-popups" popip="lumbarpl4800">ContourMax<sup>TM</sup> Lumbar</h3>
+                <p class="js-popups" popip="lumbarpl4800">New patent pending lumbar support that contours to each individual's shape and movement to prevent back pain <span>See More</span></p>
+              </div>
+
+              <!-- item 2 -->
+              <div class="key-features">
+                <h3 class="js-popups" popip="seatpl4800">VertaAir<sup>TM</sup> Seat</h3>
+                <p class="js-popups" popip="seatpl4800">A newly patent pending designed seat equipped with eight hexagonal air pillars, emitting air in and out to provide pressure relief on your sit bones for a healthy back <span>See More</span></p>
+              </div>
+            </div>
+
+            <div class="row__key-features">
+              <!-- item 3 -->
+              <div class="key-features">
+                <h3 class="js-popups" popip="rgb">RGB LED Upgrade Kits</h3>
+                <p class="js-popups" popip="rgb">Immerse in your game with Audio Sync as well as Light Sync with our Patented RGB LED Kits, the world's only wirelessly PC control gaming chair <span>See More</span></p>
+              </div>
+
+
+              <!-- item 4 -->
+              <div class="key-features">
+                <h3 class="js-popups" popip="hygennx">HygennX<sup>TM</sup></h3>
+                <p class="js-popups" popip="hygennx">Top-flight premium fabrics with superb odor control and anti-bacterial functionality <span>See More</span></p>
+              </div>
+            </div>
+
+             <div class="row__key-features">
+              <!-- item 5 -->
+              <div class="key-features fe800-class" data-youtube="https://www.youtube.com/embed/Vr_OXiEFJYA">
+                <h3>Effortless Assembly<sup>TM</sup></h3>
+                <p>Our Patented 'Slide-in' hardware allows for a quick and easy single person assembly <span>See More</span></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="nam-product__wh">
+          <h3>RECOMMENDED WEIGHT & HEIGHT</h3>
+
+          <div class="nam-product__info">
+
+            <div class="nam-product__info__limits">
+              <img src="{{ 'nam-pl4500-weight.svg' | file_url }}" alt="product weight limit" />
+              <div class="nam-product__info__limits__text">
+                <div class="nam-product__info__limits__title">WEIGHT</div>
+                <div class="nam-product__info__limits__data" id="product__info__limits__data-weight">
+                  Up to 163kg / 360lb
+                </div>
+              </div>
+            </div>
+
+            <div class="nam-product__info__limits">
+              <img src="{{'fe800-icon-height.svg'|asset_url}}"
+                alt="product weight limit" />
+              <div class="nam-product__info__limits__text">
+                <div class="nam-product__info__limits__title">HEIGHT</div>
+                <div class="nam-product__info__limits__data" id="product__info__limits__data-height">
+                  175cm-198cm / 5’9”-6’6”
+                </div>
+              </div>
+            </div>
+
+          </div>
+         
+        </div>
+
+        <div class="nam-product__select-color">
+          <div class="nam-product__select-color__title">
+            COLOR OPTIONS
+          </div>
+          <div id="namProductSelectColorOptions" class="nam-product__select-color__options"></div>
+        </div>
+
+        <div class="nam-product__rgb-options">
+          <div class="nam-product__rgb-options__title">
+            RGB LED KIT UPGRADE OPTIONS
+          </div>
+
+          <div class="product-warning">
+            <img src="{{ ' icon-info.svg ' | asset_url }}"><span></span>
+            <div class="warningclose"></div>
+          </div>
+
+          <div class="nam-product__rgb-options__list">
+            <div class="nam-product__rgb-option productoption" id="productoption1">
+              <img class="display-desktop"  src="{{ 'PL4800_with_Light Up_Your_Logo.jpg' | asset_img_url: '200x' }}"
+                alt="product rgb option image" />
+              <img class="display-mobile" src="{{ 'PL4800_with_Light Up_Your_Logo.jpg' | asset_img_url: '200x' }}"
+                alt="product rgb option image" />
+              <div class="nam-product__rgb-option__content">
+                <div class="nam-product__rgb-option__title">
+                  RGB LED Top Kit
+                </div>
+                <div class="nam-product__rgb-option__details">
+                  The RGB LED Upgrade kit allows you to mix and match your
+                  gaming chair. <a class="js-popups" popip="rgb">More details...</a>
+                </div>
+                <div class="nam-product__rgb-option__price">
+                  <button>
+                    <img class="nam-product__rgb-option__added-icon plus" style="display: none;"
+                      src="{{ 'fe800-plus.svg' | asset_url }}" />
+                    <div class="nam-product__rgb-option__add-to-chair-text">
+                      ADD TO CART
+                    </div>
+                  </button>
+                  <div>
+                    <span id="custom_product_price1" class="custom_product_price options_price" data-product-id="{{ globalProductLEDTop.id }}">
+                      <span class="tdf_price_original"><span class="tdf_money money">{{globalProductLEDTop.selected_or_first_available_variant.compare_at_price | money}}</span></span><span class="tdf_price_sales"> <span class="tdf_money money">{{globalProductLEDTop.selected_or_first_available_variant.price | money}}</span></span>
+                    </span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="productoption" id="productoption2">
+              <div class="nam-product__rgb-option">
+                <img class="display-desktop" src="{{'PL4800_Logo_light_up.jpg'|asset_img_url}}"
+                  alt="product rgb option image" />
+                <img class="display-mobile" src="{{'PL4800_Logo_light_up.jpg'|asset_img_url}}"
+                  alt="product rgb option image" />
+                <div class="nam-product__rgb-option__content">
+                  <div class="nam-product__rgb-option__title">
+                    Light Up Your Logo
+                  </div>
+                  <div class="nam-product__rgb-option__details">
+                    Our high-quality laser engraving technology will allow you
+                    to personalize any logo. <a href="https://www.vertagear.com/products/pl4800-rgb-led-top-upgrade-kit?variant=40900505960559"
+                      target="_blank">More details...</a>
+                  </div>
+                  <div class="nam-product__rgb-option__price">
+                    <button>
+                      <img class="nam-product__rgb-option__added-icon plus" style="display: none;"
+                        src="{{ 'fe800-plus.svg' | asset_url }}" />
+                      <div class="nam-product__rgb-option__add-to-chair-text">
+                        ADD TO CART
+                      </div>
+                    </button>
+                    <div>
+                      <span id="custom_product_price2" class="custom_product_price options_price" data-product-id="{{ globalLightUpYourLogo.id }}">
+                        <span class="tdf_price_original"><span class="tdf_money money">{{globalLightUpYourLogo.selected_or_first_available_variant.compare_at_price | money}}</span></span><span class="tdf_price_sales"> <span class="tdf_money money">{{globalLightUpYourLogo.selected_or_first_available_variant.price | money}}</span></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="nam-product-button nam-product__rgb-option__engrave js-zakeke_open"
+                id="namProductRgbEngraveBtn" style="display: none">
+                Engrave Your Logo
+              </button>
+            </div>
+
+            <div class="nam-product__rgb-option productoption" id="productoption3">
+              <img class="display-desktop" src="{{ 'RGB_Bottom_Kit.jpg' | asset_img_url: '200x' }}"
+                alt="product rgb option image" />
+              <img class="display-mobile" src="{{ 'RGB_Bottom_Kit.jpg' | asset_img_url: '200x' }}"
+                alt="product rgb option image" />
+              <div class="nam-product__rgb-option__content">
+                <div class="nam-product__rgb-option__title">
+                  RGB LED Bottom Kit
+                </div>
+                <div class="nam-product__rgb-option__details">
+                  Designed to be a seamless experience, the RGB LED kit is the
+                  world’s first wirelessly. <a href="/products/rgb-led-bottom-kit" target="_blank">More details...</a>
+                </div>
+                <div class="nam-product__rgb-option__price">
+                  <button>
+                    <img class="nam-product__rgb-option__added-icon plus" style="display: none;"
+                      src="{{ 'fe800-plus.svg' | asset_url }}" />
+                    <div class="nam-product__rgb-option__add-to-chair-text">
+                      Add to cart
+                    </div>
+                  </button>
+                  <div>
+                    <span id="custom_product_price3" class="custom_product_price options_price" data-product-id="{{ globalProductLEDBottom.id }}">
+                      <span class="tdf_price_original"><span class="tdf_money money">{{globalProductLEDBottom.selected_or_first_available_variant.compare_at_price | money}}</span></span><span class="tdf_price_sales"> <span class="tdf_money money">{{globalProductLEDBottom.selected_or_first_available_variant.price | money}}</span></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="nam-product__total-price">
+        <div class="nam-product__total-price__header">
+      
+          <div class="nam-product__total-price__pl4500-price">
+
+             <div class="nam-product__total-price__title">
+              {{ product.title }}
+            </div>
+            <span id="custom_product_price" class="custom_product_price"><span class="tdf_price_original" data-product-id="{{ product.id }}"><span class="tdf_money money">{{product.compare_at_price | money}}</span></span><span class="tdf_price_sales"> <span class="tdf_money money">{{product.price | money}}</span></span></span>
+          </div>
+            {%- comment -%} <div class="inventory_quantity" id="inventory_quantity">Only <span>7 chairs left</span> until next production </div> {%- endcomment -%}
+
+          
+        </div>
+        {% form 'product', product %}
+          <div class="shopify-payment-terms">
+            {{ form | payment_terms }}
+          </div>
+        {% endform %}
+
+        <div id="namProductTotalPriceWithOptions" class="nam-product__total-price__options" style="display: none">
+          <div class="nam-product__total-price__title_options">WITH OPTIONS</div>
+          <ul class="nam-product__total-price__options__list"></ul>
+          <div class="nam-product__total-price__options__images">
+            <img  src="{{ 'PL4800_with_Light Up_Your_Logo.jpg' | asset_img_url: '200x' }}"
+              alt="product rgb option image">
+            <img src="{{'PL4800_Logo_light_up.'|asset_url}}jpg"
+              alt="product rgb option image">
+            <img src="{{ 'RGB_Bottom_Kit.jpg' | asset_img_url: '70x' }}"
+              alt="product rgb option image">
+          </div>
+        </div>
+
+        <div class="nam-product__total-price__total hide-price-total">
+          <div class="nam-product__total-price__total_title">Total</div>
+          <div class="totalPrice">
+            <div id="totalPriceOriginal" class="totalPriceOriginal__number">$499.99</div>
+            <div id="namProductTotalPrice" class="nam-product__total-price__total__number">$499.99</div>
+          </div>
+        </div>
+
+        <div class="nam-product__total-price__actions" id="klarna-product-pl4800">
+          <div class="nam-product__total-price__quantity">
+            <button id="namProductCartQuantityDownBtn">
+              <img src="{{ 'minus-icon.svg' | file_url }}" />
+            </button>
+            <div id="namProductCartQuantity">1</div>
+            <button id="namProductCartQuantityUpBtn">
+              <img src="{{ 'plus-icon.svg' | file_url }}" />
+            </button>
+          </div>
+
+          <div class="nam-product-__total-price__atc-btn-wrapper">
+            <button class="nam-product-button" id="namProductAtcBtn">
+              <img src="{{ 'cart-icon.svg' | file_url }}" />ADD TO CART
+            </button>
+          </div>
+
+
+
+        </div>
+
+        <div class="viewreorder-extrainfo"></div>
+
+      </div>
+
+      <div class="protections-group">
+        {% if product.type contains 'S-Line' or product.type contains 'P-Line' or product.type contains 'Triigger'%}
+        {% unless product.id == 4589522288751 %}
+        <div class="new-edit-top__bottom-single"
+          onclick="document.querySelector('.product-learn-more-wear-and-tear-popup').classList.remove('-in-active')">
+          <div class="new-edit-top__bottom-single-left">
+            <div class="new-edit-top__bottom-single-left-text">
+              <b>Free<br>protection<br>program</b>
+            </div>
+            <div class="new-edit-top__bottom-single-left-detail">
+              See Details
+            </div>
+          </div>
+          <div class="new-edit-top__bottom-single-right">
+            <div class="new-edit-top__bottom-single-img">
+              <img src="{{ 'wear-and-tear-icon.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner" alt="">
+              <img src="{{ 'wear-and-tear-icon-outline.svg' | asset_url}}"
+                class="new-edit-top__bottom-single-img-inner -absolute" alt="">
+            </div>
+          </div>
+
+        </div>
+        {% endunless %}
+        {% endif %}
+        <div class="new-edit-top__bottom-single new-edit-top__bottom-single-second" style="cursor:default;">
+          <div class="new-edit-top__bottom-single-left">
+            <div class="new-edit-top__bottom-single-left-text">
+              <b>0% APR<br>6 months</b><br>or Pay in 4
+            </div>
+          </div>
+          <div class="new-edit-top__bottom-single-right">
+            <div class="new-edit-top__bottom-single-img">
+              <img src="{{ 'product-paypal.svg' | asset_url}}" class="new-edit-top__bottom-single-img-inner" alt="">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <form class="no-display" action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+        <div>
+          <select name="id">
+            <option id="namProductVariantId" value="null"></option>
+          </select>
+          <input id="namProductQuantity" name="quantity" value="1" />
+
+          <!-- test -->
+          <style>
+            .-hide-btn #AddToCart {
+              display: none !important;
+            }
+          </style>
+          <div id="viewreorder"
+            class="new-edit-top__submit {% if product.type == 'Personalized Service' %} -hide-btn{% endif %}">
+            <input type="submit" class="nam-product-button" class="ag-vg-product-add-to-cart" id="AddToCart"
+              value="ADD TO CART"></input>
+          </div>
+          <!-- testhere -->
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="product-image-slider-container" style="display: none !important;">
+  <iframe class="product-image-slider-container-main"></iframe>
+</div>
+<select id="ag-vg-product-select" name="id" style="display: none !important;">
+  {% for variant in product.variants %}
+  <option value="{{ variant.id }}"> {{ variant.title }} - {{ variant.price | money}}</option>
+  {% endfor %}
+</select>
+

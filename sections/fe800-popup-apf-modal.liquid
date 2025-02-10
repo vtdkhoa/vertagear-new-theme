@@ -1,0 +1,841 @@
+<div id="shopify-section-fe800-popup-apf-modal" class="shopify-section" product-id="{{ product.id }}">
+    <link rel="stylesheet" href="{{ 'apf.css' | asset_url }}" />
+    <link rel="stylesheet" href="{{ 'modal.css' | asset_url }}" />
+
+    <div class="popup-wrapper" id="apfPopupWrapper">
+        <div class="popup-background" style="display: block" ></div>
+
+        <div id="allProductFeatures" class="all-product-features popup nosticky">
+            <div id="apfPopHeader" class="pop-header">
+                <div class="sticky fixed">
+                    <div class="collapse">
+                        <div class="logo display-mobile">
+                            <img src="//cdn.shopify.com/s/files/1/1759/4609/files/pop-logo.svg?v=11658284595547430203">
+                        </div>
+                        <div class="title display-desktop">All Product Features</div>
+                        <button class="close-btn" >
+                            <img src="//cdn.shopify.com/s/files/1/1759/4609/files/pop-close.svg?v=1972664831519498879">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="apfHero" class="apf-hero">
+                <div class="apf-hero__text">
+                    <div class="apf-header">All Product Features</div>
+                    <div class="apf-hero__desc">
+                        The Vertagear 800 Series revolutionizes ergonomics to an entirely
+                        different dimension. Through a series of groundbreaking research
+                        and new technology focused on spinal health, we've designed a
+                        chair that will tailor itself to you specifically. Dive into the
+                        details and see for yourself what makes our new line of chairs the
+                        best for you.
+                    </div>
+                </div>
+                <div class="apf-hero__img-wrapper">
+                    <img src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-hero-mob.jpg?v=7184863024970811943"
+                        class="display-mobile">
+                    <img src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-hero-desk.jpg?v=8426429845112126020"
+                        class="display-desktop">
+                </div>
+            </div>
+
+            {% if request.page_type == "product" %}
+            <div class="apf-conma">
+                <div class="apf-header">Construction &amp; Materials</div>
+
+                {% assign separator = "|###|" %}
+                {% assign c_m_image_array = product.metafields.custom_fields["c_m_image"] | split: separator %}
+                {% assign c_m_title_array = product.metafields.custom_fields["c_m_title"] | split: separator %}
+                {% assign c_m_desc_array = product.metafields.custom_fields["c_m_desc"] | split: separator %}
+                {% assign fc_keys = product.metafields.custom_fields["construction__materials"] | split: "," %}
+                <div class="apf-scroll">
+                    {% for i in fc_keys %}
+                        {% assign index = i | plus: 0 %}
+                        <div class="apf-scroll__each">
+                            <div class="apf-scroll__each__img-wrapper">
+                                <img class="display-mobile"
+                                    src="{{ c_m_image_array[index] }}">
+                                <img class="display-desktop"
+                                    src="{{ c_m_image_array[index] }}">
+                            </div>
+                            <div class="apf-scroll__each__text">
+                                <div class="header">{{ c_m_title_array[index] }}</div>
+                                <div class="desc">
+                                    {{ c_m_desc_array[index] }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="apf-ergo">
+                <div class="apf-header">Posture Perfect Ergonomics</div>
+
+                {% assign separator = "|###|" %}
+                {% assign p_p_e_image_array = product.metafields.custom_fields["p_p_e_image"] | split: separator %}
+                {% assign p_p_e_title_array = product.metafields.custom_fields["p_p_e_title"] | split: separator %}
+                {% assign p_p_e_desc_array = product.metafields.custom_fields["p_p_e_desc"] | split: separator %}
+                {% assign fc_keys = product.metafields.custom_fields["posture_perfect_ergonomics"] | split: "," %}
+                <div class="apf-scroll">
+                    <div class="apf-ergo__first-three">
+                        {% for i in fc_keys %}
+                            {% assign index = i | plus: 0 %}
+                            {% if index < 3 %}
+                                <div class="apf-scroll__each">
+                                    <div class="apf-scroll__each__img-wrapper">
+                                        <img class="display-mobile"
+                                            src="{{ p_p_e_image_array[index] }}">
+                                        <img class="display-desktop"
+                                            src="{{ p_p_e_image_array[index] }}">
+                                    </div>
+                                    <div class="apf-scroll__each__text">
+                                        <div class="header">{{ p_p_e_title_array[index] }}</div>
+                                        <div class="desc">
+                                            {{ p_p_e_desc_array[index] }}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="apf-ergo__last-two">
+                        {% for i in fc_keys %}
+                            {% assign index = i | plus: 0 %}
+                            {% if index >= 3 %}
+                                <div class="apf-scroll__each">
+                                    <div class="apf-scroll__each__img-wrapper">
+                                        <img class="display-mobile"
+                                            src="{{ p_p_e_image_array[index] }}">
+                                        <img class="display-desktop"
+                                            src="{{ p_p_e_image_array[index] }}">
+                                    </div>
+                                    <div class="apf-scroll__each__text">
+                                        <div class="header">{{ p_p_e_title_array[index] }}</div>
+                                        <div class="desc">
+                                            {{ p_p_e_desc_array[index] }}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="apf-conma">
+                <div class="apf-header">Construction &amp; Materials</div>
+
+                <div class="apf-scroll">
+                    <div class="apf-scroll__each">
+                        <div class="apf-scroll__each__img-wrapper">
+                            <img class="display-mobile"
+                                src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-conma-mob-1.jpg?v=4908069386644673828">
+                            <img class="display-desktop"
+                                src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-conma-desk-1.jpg?v=13688150655865218710">
+                        </div>
+                        <div class="apf-scroll__each__text">
+                            <div class="header">Steel Frame</div>
+                            <div class="desc">
+                                The integrated steel skeleton that forms the shape of the
+                                gaming chair ensures long-term durability. The steel frame
+                                includes a 10-year warranty, keeping you secure and stable
+                                throughout any intense gameplay.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apf-scroll__each">
+                        <div class="apf-scroll__each__img-wrapper">
+                            <img class="display-mobile"
+                                src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-conma-mob-2.jpg?v=9039817182792918296">
+                            <img class="display-desktop"
+                                src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-conma-desk-2.jpg?v=9967186914405707782">
+                        </div>
+                        <div class="apf-scroll__each__text">
+                            <div class="header">Aluminum Alloy 5 Star Base</div>
+                            <div class="desc">
+                                As one of the critical support structure of the chair, the
+                                five-star base is fabricated with aluminum alloy to provide
+                                stability, lightweight construction, and lasting durability,
+                                providing the necessary strength to ensure longevity..
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apf-scroll__each">
+                        <div class="apf-scroll__each__img-wrapper">
+                            <img class="display-mobile"
+                                src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-conma-mob-3.jpg?v=12034813432369455467">
+                            <img class="display-desktop"
+                                src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-conma-desk-3.jpg?v=2278976559021412781">
+                        </div>
+                        <div class="apf-scroll__each__text">
+                            <div class="header">Gas Lift</div>
+                            <div class="desc">
+                                Vertagear Gaming Chair is supported with an industrial grade
+                                class-4 gas lift, providing the extra adjustability you need.
+                                Set the chair to your preferred height, to keep you at an
+                                optimal level relative to your setup to prevent sore
+                                shoulders.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apf-scroll__each">
+                        <div class="apf-scroll__each__img-wrapper">
+                          <img class="display-mobile" src="{{ 'fe800-apf-conma-desk-4.webp' | asset_url }}" />
+                          <img class="display-desktop" src="{{ 'fe800-apf-conma-desk-4.webp' | asset_url }}" />
+                        </div>
+                        <div class="apf-scroll__each__text">
+                            <div class="header">PUC Synthetic Faux Leather</div>
+                            <div class="desc">
+                                PUC combines the best attributes of both PVC and PU
+                                faux-leather into one. It retains the durability of PVC for
+                                everyday use, while maintaining the softness of PU for a
+                                low-maintenance solution without sacrificing comfort.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apf-scroll__each">
+                        <div class="apf-scroll__each__img-wrapper">
+                            <img class="display-mobile"
+                                src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-conma-mob-5.jpg?v=16139562004357854453">
+                            <img class="display-desktop"
+                                src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-conma-desk-5.jpg?v=10811336055164337890">
+                        </div>
+                        <div class="apf-scroll__each__text">
+                            <div class="header">UPHR Foam</div>
+                            <div class="desc">
+                                Our Ultra Premium High Resilience Foam boasts a density well
+                                above industry standard. While standard High Resilience foam
+                                stands up to approximately 2.5lbs per cubic foot, our UPHR
+                                foam can withstand 62% more per cubic foot. The foam prolongs
+                                the lifespan of the chair by preventing deformities from long
+                                periods of use, inching it closest to the characteristics of
+                                memory foam.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apf-scroll__each">
+                        <div class="apf-scroll__each__img-wrapper">
+                            <img class="display-mobile"
+                                src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-conma-mob-6.jpg?v=13214549732865447021">
+                            <img class="display-desktop"
+                                src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-conma-desk-6.jpg?v=12506425415067184013">
+                        </div>
+                        <div class="apf-scroll__each__text">
+                            <div class="header">Penta RS1 Caster</div>
+                            <div class="desc">
+                                The motorsports inspired style extends all the way down to the
+                                casters. Engineered to be carefree, the Penta RS1 Casters are
+                                coated with polyurethane (PU) for soft and smooth gliding on
+                                any surface. (Color matching chair)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="apf-ergo">
+                <div class="apf-header">Posture Perfect Ergonomics</div>
+
+                <div class="apf-scroll">
+                    <div class="apf-ergo__first-three">
+                        <div class="apf-scroll__each">
+                            <div class="apf-scroll__each__img-wrapper">
+                                <img class="display-mobile"
+                                    src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-ergo-mob-1.jpg?v=2679712280685465111">
+                                <img class="display-desktop"
+                                    src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-ergo-desk-1.jpg?v=13133462177867663529">
+                            </div>
+                            <div class="apf-scroll__each__text">
+                                <div class="header">Adjustable Seat Height</div>
+                                <div class="desc">
+                                    Having a good range of height adjustment allows you to be at
+                                    an optimal level relative to your desk and PC setup. Our
+                                    chairs are ergonomically-designed to cater to a wide range
+                                    of body shapes and height for long-lasting comfort.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="apf-scroll__each">
+                            <div class="apf-scroll__each__img-wrapper">
+                                <img class="display-mobile"
+                                    src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-ergo-mob-2.jpg?v=10320742732159108298">
+                                <img class="display-desktop"
+                                    src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-ergo-desk-2.jpg?v=17337453675053925360">
+                            </div>
+                            <div class="apf-scroll__each__text">
+                                <div class="header">Neck Support</div>
+                                <div class="desc">
+                                    Vertagear Gaming Chair comes with our standard memory foam
+                                    neck support, to give you the extra padding you need for any
+                                    position. Both cushions are easily removable for increased
+                                    adjustability and correct posture.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="apf-scroll__each">
+                            <div class="apf-scroll__each__img-wrapper">
+                                <img class="display-mobile"
+                                    src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-ergo-mob-3.jpg?v=9330524585379288018">
+                                <img class="display-desktop"
+                                    src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-ergo-desk-3.jpg?v=4645965262015201859">
+                            </div>
+                            <div class="apf-scroll__each__text">
+                                <div class="header">Adjustable Backrest</div>
+                                <div class="desc">
+                                    Features an independently adjustable backrest, allowing you
+                                    to adjust the angle of your sitting position throughout your
+                                    gaming sessions (up to 140 degrees).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apf-ergo__last-two">
+                        <div class="apf-scroll__each">
+                            <div class="apf-scroll__each__img-wrapper">
+                                <img class="display-mobile"
+                                    src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-ergo-mob-4.jpg?v=4284780435734685175">
+                                <img class="display-desktop"
+                                    src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-ergo-desk-4.jpg?v=2239079780128087676">
+                            </div>
+                            <div class="apf-scroll__each__text">
+                                <div class="header">Adjustable Tilt with Locking System</div>
+                                <div class="desc">
+                                    The chair's tilt tension is easily adaptable to your body
+                                    weight, allowing you to lean back with ease and comfort. The
+                                    tilt mechanism is also engineered to be lockable at
+                                    anupright position.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="apf-scroll__each">
+                            <div class="apf-scroll__each__img-wrapper">
+                                <img class="display-mobile"
+                                    src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-ergo-mob-5.jpg?v=9023495395155219978">
+                                <img class="display-desktop"
+                                    src="//cdn.shopify.com/s/files/1/1759/4609/files/apf-ergo-desk-5.jpg?v=5515689093898740070">
+                            </div>
+                            <div class="apf-scroll__each__text">
+                                <div class="header">4D Armrests</div>
+                                <div class="desc">
+                                    Adjustability extends to the armrests with 4 directional
+                                    adjustments. The ergonomically designed metal plate armrests
+                                    keep your forearms comfortable and steady regardless of body
+                                    shape and habit, to prevent sore shoulders..
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="product_comparison">
+
+                <div class="product_comparison-inner">
+
+                    <div class="product_comparison-content" id="product_comparison-content" style="display: block;">
+
+                        <!-- comparison listproduct-->
+                        <div class="row-comparison listproduct listproduct-js">
+
+                            <div class="row-item row-item-properties"></div>
+
+                            <div class="row-item comparison-product">
+                                <img class="lazyload" data-src="{{ 'fe800-product1.png' | asset_img_url: '250x' }}" />
+                                <h3>SL3800</h3>
+                            </div>
+
+                            <div class="row-item comparison-product">
+                                <img class="lazyload" data-src="{{ 'fe800-product2.png' | asset_img_url: '250x' }}" />
+                                <h3>SL5800</h3>
+                            </div>
+
+                            <div class="row-item comparison-product">
+                                <img class="lazyload" data-src="{{ 'fe800-product3.png' | asset_img_url: '250x' }}" />
+                                <h3>PL4800</h3>
+                            </div>
+
+                            <div class="row-item comparison-product">
+                                <img class="lazyload"data-src="{{ 'fe800-product4.png' | asset_img_url: '250x' }}" />
+                                <h3>PL6800</h3>
+                            </div>
+
+                        </div>
+
+                        <div class="listcomparison listcomparison-js">
+                            <!-- comparison 1  ContourMax<sup>TM</sup> Lumbar -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    ContourMax<sup>TM</sup> <label>Lumbar<div class="tooltip">
+                                            <div class="tooltiptext">
+                                                Our patent pending ContourMax Lumbar features a layer of memory foam
+                                                that adjusts specifically to the curves and angles of any individual’s
+                                                body. Four highly durable Thermoplastic Elastomer (TPE) modules,
+                                                consisting of 64 individual responsive branches, lay beneath the foam
+                                                and shift themselves according to the shape and movement of the sitter’s
+                                                back, maintaining a healthy posture at all times.
+                                            </div>
+                                        </div></label>
+
+
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                            </div>
+
+                            <!-- comparison 2 VertaAir<sup>TM</sup> Seat -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    VertaAir<sup>TM</sup> <label> Seat
+
+                                        <div class="tooltip">
+                                            <div class="tooltiptext">
+                                                If you're struggling with tightness and discomfort from the traditional
+                                                gaming chair, we understand your pain. Our patent pending VertaAir Seat
+                                                is a fresh concept that solves the primary issues plaguing traditional
+                                                chairs.
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                            </div>
+
+                            <!-- comparison 3  RGB LED Kit (Sold Separately) -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    RGB LED Kit (Sold <label>Separately)
+                                    </label>
+
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product" tick="no"></div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product" tick="no"></div>
+
+                            </div>
+
+                            <!-- comparison 4  HygennX -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    HygennX<sup>TM</sup>
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                            </div>
+
+                            <!-- comparison 5 Heavy Duty Base -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    Heavy Duty Base<label>
+
+                                        <div class="tooltip">
+                                            <div class="tooltiptext">
+                                                The heavy-duty frame ensures the long term durability of the chair's
+                                                critical components.
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                </div>
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product" tick="no"></div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+
+                            </div>
+
+                            <!-- comparison 6 PUC -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    PUC
+
+                                    <div class="tooltip">
+                                        <div class="tooltiptext">
+                                            PUC combines the best attributes of both PVC and PU faux-leather into one.
+                                            It retains the durability of PVC for everyday use, while maintaining the
+                                            softness of PU for a low-maintenance solution without sacrificing comfort.
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+
+                            </div>
+
+                            <!-- comparison 7 Effortless Assembly-->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    Effortless Assembly
+
+                                    <div class="tooltip">
+                                        <div class="tooltiptext">
+
+                                            Our patented “Slide-in” hardware allows for a quick and easy on-person
+                                            assembly. The chair can be assembled in seconds by simply sliding the
+                                            backrest into the seat, removing any alignment and hardware complexities for
+                                            a hassle-free,one-person process.
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+
+
+                            </div>
+
+                            <!-- comparison 8 Steel Frame-->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    Steel Frame
+
+                                    <div class="tooltip">
+                                        <div class="tooltiptext">
+                                            The integrated steel skeleton that forms the shape of the gaming chair
+                                            ensures long-term durability. The steel frame includes a 10-year warranty,
+                                            keeping you secure and stable throughout any intense gameplay.
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                            </div>
+                            <!-- comparison 9 UPHR Foam-->
+                            <div class="row-comparison js-check-position">
+
+                                <div class="row-item row-item-properties">
+                                    UPHR Foam
+
+                                    <div class="tooltip">
+                                        <div class="tooltiptext">
+                                            Our Ultra Premium High Resilience Foam boasts a density well above industry
+                                            standard. While standard High Resilience foam stands up to approximately
+                                            2.5lbs per cubic foot, our UPHR foam can withstand 62% more per cubic foot.
+                                            The foam prolongs the lifespan of the chair by preventing deformities from
+                                            long periods of use, inching it closest to the characteristics of memory
+                                            foam.
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product" tick="yes"></div>
+
+                            </div>
+
+                            <!-- comparison 10 5 Star base -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    5-Star Base
+
+                                    <div class="tooltip">
+                                        <div class="tooltiptext">
+                                            As one of the critical support structure of the chair, the five-star base is
+                                            fabricated with aluminum alloy to provide stability, lightweight
+                                            construction, and lasting durability, providing the necessary strength to
+                                            ensure longevity..
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product">Metal</div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product">Aluminum Alloy</div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product">Aluminum Alloy</div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product">Aluminum Alloy</div>
+
+
+
+                            </div>
+
+                            <!-- comparison 11 Penta RS1 Caster -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    Penta RS1 Caster
+
+                                    <div class="tooltip">
+                                        <div class="tooltiptext">
+                                            The motorsports inspired style extends all the way down to the casters.
+                                            Engineered to be carefree, the Penta RS1 Casters are coated with
+                                            polyurethane (PU) for soft and smooth gliding on any surface. (Color
+                                            matching chair)
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product">65mm / 2.5”</div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product">65mm / 2.5”</div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product">65mm / 2.5”</div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product">65mm / 2.5”</div>
+
+                            </div>
+
+                            <!-- comparison 12 Armrests -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    Armrests
+
+                                    <div class="tooltip">
+                                        <div class="tooltiptext">
+                                            Adjustability extends to the armrests with 4 directional adjustments. The
+                                            ergonomically designed metal plate armrests keep your forearms comfortable
+                                            and steady regardless of body shape and habit, to prevent sore shoulders..
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product">3D</div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product">4D</div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product">4D</div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product">4D</div>
+
+                            </div>
+
+                            <!-- comparison 13 Gas Lift -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    Gas Lift
+
+                                    <div class="tooltip">
+                                        <div class="tooltiptext">
+                                            Vertagear Gaming Chair is supported with an industrial grade class-4 gas
+                                            lift, providing the extra adjustability you need. Set the chair to your
+                                            preferred height, to keep you at an optimal level relative to your setup to
+                                            prevent sore shoulders.
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product">Class4</div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product">Class4</div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product">Class4</div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product">Class4</div>
+
+                            </div>
+
+                            <!-- comparison 14 Recommended Height -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    Recommended Height
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product">183cm / 5’10”</div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product">183cm / 6’</div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product">175cm-198cm / 5’9”-6’6”</div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product">175cm-203cm / 5’9”-6’8”</div>
+
+                            </div>
+
+                            <!-- comparison 15 Recommended Weight -->
+                            <div class="row-comparison">
+
+                                <div class="row-item row-item-properties">
+                                    Recommended Weight
+                                </div>
+
+                                <!-- SL3800 -->
+                                <div class="row-item comparison-product">100kg / 220lb</div>
+
+                                <!-- SL5800 -->
+                                <div class="row-item comparison-product">113kg / 250lb</div>
+
+                                <!-- PL4800 -->
+                                <div class="row-item comparison-product">163kg / 360lb</div>
+
+                                <!-- PL6800 -->
+                                <div class="row-item comparison-product">181kg / 400lb</div>
+
+                            </div>
+                            <!-- comparison BUTTON-->
+                            <div class="row-comparison ">
+                                <div class="row-item row-item-properties">
+                                </div>
+
+                                <div class="row-item row-btn"> <a class="btn-viewmode js-gotoidelement"
+                                        href="https://www.vertagear.com/products/sl3800" target="_blank">Shop Now</a>
+                                </div>
+                                <div class="row-item row-btn"> <a class="btn-viewmode js-gotoidelement"
+                                        href="https://www.vertagear.com/products/sl5800" target="_blank">Shop Now</a>
+                                </div>
+                                <div class="row-item row-btn"> <a class="btn-viewmode js-gotoidelement"
+                                        href="https://www.vertagear.com/products/pl4800-ergonomic-gaming-chair"
+                                        target="_blank">Shop Now</a> </div>
+                                <div class="row-item row-btn"> <a class="btn-viewmode js-gotoidelement"
+                                        href="https://www.vertagear.com/products/pl6800-big-and-tall-ergonomic-gaming-chair"
+                                        target="_blank">Shop Now</a> </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <a class="up-btn display-desktop" href="#apfHero">
+        <img src="//cdn.shopify.com/s/files/1/1759/4609/files/up.svg?v=6398841473404668040">
+    </a> -->
+</div>
+

@@ -1,0 +1,202 @@
+@font-face {
+    font-family: TeXGyreAdventor-Regular;
+    src: url('{{ 'texgyreadventor-regular.otf' | asset_url }}');
+}
+@font-face {
+    font-family: TeXGyreAdventor-Bold;
+    src: url('{{ 'texgyreadventor-bold.otf' | asset_url }}');
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300i,400');
+
+$viewport-px-size: 1920;
+$mob-viewport-px-size: 768;
+@function px-to-vw($elem-px-size) {
+    @return (($elem-px-size / $viewport-px-size) * 100)+vw
+}
+
+@function px-to-vw-mob($elem-px-size) {
+    @return (($elem-px-size / $mob-viewport-px-size) * 100)+vw
+}
+
+$min-mobile-breakpoint: 414px;
+$min-tablet-breakpoint: 768px;
+$mobile-breakpoint: 768px;
+
+
+body#e-sports-team-chairs {
+  .wrapper.main-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: initial !important;
+  }
+  #esports-header-vg {
+    display: flex;
+    background-image: url({{'mob_esprts_header.jpg' | asset_url }});
+    height: px-to-vw-mob(509);
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media screen and (min-width: $mobile-breakpoint) {
+      height: px-to-vw(531);
+      background-image: url({{'dsk_esprts_header.jpg' | asset_url }});
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    #esports-header-title-vg {
+      margin: auto;
+      color: #FFFFFF;
+      font-weight: bold;
+      font-family: "TeXGyreAdventor-Bold";
+      font-size: px-to-vw-mob(62);
+      @media screen and (min-width: $mobile-breakpoint) {
+	  font-size: px-to-vw(78);
+      }
+    }
+  }
+  #esports-navi-vg {
+    height: px-to-vw-mob(70);
+	@media screen and (min-width: $mobile-breakpoint) {
+    	height: px-to-vw(70);
+    }
+    background-color: #1E1E1E;
+    display: flex;
+    justify-content: center;
+    .esports-navi-ulist-vg {
+      margin: 0;
+      flex: 1;
+      @media screen and (min-width: $mobile-breakpoint) {
+      	max-width: px-to-vw(1000);
+      }
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: #FFFFFF;
+      justify-content: space-evenly;
+      .esports-navi-item-vg {
+        font-size: px-to-vw-mob(29);
+        @media screen and (min-width: $mobile-breakpoint) {
+        	font-size: px-to-vw(29);
+        }
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        cursor: pointer;
+        &:hover {
+          border-bottom: 2px solid white;
+        }
+      }
+      .esports-navi-item-vg-active {
+          border-bottom: 2px solid white;
+       }
+    }
+  }
+  #esports-chair-content-vg {
+    height: px-to-vw(1080);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    #esports-chair-content-vg-container {
+      margin: 0;
+      flex: 1;
+      max-width: px-to-vw(1000);
+      display: flex;
+      margin-left: px-to-vw(70);
+      #esports-chair-content {
+        width: px-to-vw(280);
+        height: auto;
+        margin-top: px-to-vw(100);
+        #esports-team-logo-vg {
+          width: px-to-vw(270) !important;
+          height: auto !important;
+        }
+        #esports-team-chair-price {
+          display: block;
+          font-size: px-to-vw(25);
+          color: #DB5800;
+          font-weight: bold;
+          font-family: "TeXGyreAdventor-Bold";
+          height: px-to-vw(43);
+          margin-left: px-to-vw(35);
+          margin-bottom: px-to-vw(20);
+        }
+        .esports-team-chair-select-vg {
+          margin-left: px-to-vw(35);
+        }
+        #esports-chair-buy-now {
+          text-decoration: none;
+          //justify-content: center;
+          div {
+            margin-left: px-to-vw(35);
+            border-radius: px-to-vw(8);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            height: px-to-vw(49);
+            width: px-to-vw(120);
+            span {
+              margin: 0;
+              font-size: px-to-vw(21);
+            }
+          }
+        }
+      }
+    }
+  }
+  #esports-chair-content-vg-mob {
+    #esports-chair-content-description-mob {
+      display: flex;
+      justify-content: center;
+      #esports-team-logo-vg-mob {
+        width: auto !important;
+        height: px-to-vw-mob(250) !important;
+      }
+    }
+    #esports-chair-content-background-mob {
+      background: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: px-to-vw-mob(1200);
+      width: 100%;
+    }
+    #esports-chair-content-buynow-mob {
+      text-align: center;
+      background-color: #EEEEEE;
+      padding: 20px;
+      .esports-team-chair-select-vg {
+        margin-left: px-to-vw-mob(35);
+      }
+      #esports-team-chair-price-mob {
+        display: block;
+        font-size: px-to-vw-mob(25);
+        color: #DB5800;
+        font-weight: bold;
+        font-family: "TeXGyreAdventor-Bold";
+        height: px-to-vw-mob(43);
+        margin-left: px-to-vw-mob(35);
+        margin-bottom: px-to-vw-mob(20);
+      }
+      #esports-chair-buy-now-mob {
+        text-decoration: none;
+        //justify-content: center;
+        div {
+          margin-left: px-to-vw-mob(35);
+          border-radius: px-to-vw-mob(8);
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #FF0000;
+          color: #FFFFFF;
+          height: px-to-vw-mob(49);
+          width: px-to-vw-mob(120);
+          span {
+            margin: 0;
+            font-size: px-to-vw-mob(21);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{% assign is_student = true %}
+{% if template == 'page.military-appreciation-program' %}
+	{% assign is_student = false %}
+{% endif %}
+
+{% include 'discount-top', 
+	is_student: is_student,
+	title: section.settings.title,
+	desc: section.settings.desc,
+	slogan: section.settings.slogan,
+	banner: section.settings.banner,
+	banner_m: section.settings.banner_m
+ %}
+{% include 'discount-desc', 
+	is_student: is_student,
+	title: section.settings.intro_title,
+	desc: section.settings.intro_desc 
+ %}
+{% include 'discount-get-code', 
+	is_student: is_student 
+ %}
+{% include 'discount-term', 
+	is_student: is_student,
+	terms_desc: section.settings.term,
+	terms_img: section.settings.term_img 
+ %}
+{% include 'atfirst-rework-product-might-like'%}
+{% include 'join-team-verta' %}
+
+
+{% schema %}
+  {
+  "name": "Military Discount",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "banner",
+        "label": "Banner"
+    },
+    {
+        "type": "image_picker",
+        "id": "banner_m",
+        "label": "Banner Mobile"
+    },
+    {
+        "id": "title",
+        "type": "text",
+        "label": "Title"
+    },
+    {
+        "id": "slogan",
+        "type": "text",
+        "label": "Slogan"
+    },  
+    {
+        "id": "desc",
+        "type": "text",
+        "label": "Description"
+    },     
+    { 
+        "type":"text",
+        "id":"intro_title",
+        "label":"Introduce Title"
+    },
+    { 
+        "type":"richtext",
+        "id":"intro_desc",
+        "label":"Introduce Description"
+    },
+    { 
+        "type":"richtext",
+        "id":"term",
+        "label":"Terms and Conditions"
+    },
+    {
+        "type": "image_picker",
+        "id": "term_img",
+        "label": "Terms and Conditions Image"
+    }
+    ]
+  }
+{% endschema %}

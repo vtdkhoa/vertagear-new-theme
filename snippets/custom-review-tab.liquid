@@ -1,0 +1,48 @@
+{% if request.page_type == "product" %}
+<div class="okeReviews okeReviews--theme custom-okeReviews">
+    <div class="custom-okeReviews-reviewsTab" data-oke-ga-click-action="Review Tab Click" role="button" tabindex="0">
+        <div class="okeReviews-reviewsTab-icon"></div>
+        <div class="okeReviews-reviewsTab-label">
+            Reviews
+        </div>
+    </div>
+</div>
+<style>
+    .okeReviews-reviewsTab:not(.custom-okeReviews-reviewsTab){
+        display: none;
+    }
+    .custom-okeReviews-reviewsTab{
+        background-color: #4e4cf7;
+        border-radius: 6px 6px 0 0;
+        box-shadow: 0 0 8px 0 rgb(0 0 0 / 50%);
+        color: #fff;
+        cursor: pointer;
+        left: 0;
+        line-height: 1;
+        padding: 0.75em 1em;
+        position: fixed;
+        top: 25%;
+        transform: rotate(90deg);
+        transform-origin: left bottom;
+        z-index: 2147483646;
+    }
+    @media (max-width: 1199px){
+        .custom-okeReviews-reviewsTab {
+            background: url({{ 'review-mobile.svg' | asset_url }}) 50%/100% auto no-repeat!important;
+            top: auto!important;
+            bottom: 105px!important;
+            right: 20px!important;
+            left: auto!important;
+            width: 45px!important;
+            height: 45px!important;
+            font-size: 0;
+            border-radius: 50%!important;
+            -webkit-transform: none!important;
+            transform: none!important;
+        }
+        .custom-okeReviews-reviewsTab .okeReviews-reviewsTab-icon {
+            display: none!important;
+        }
+    }
+</style>
+{% endif %}

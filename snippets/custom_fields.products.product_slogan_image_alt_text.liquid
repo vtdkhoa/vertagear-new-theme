@@ -1,0 +1,8 @@
+{% if product.metafields.custom_fields["product_slogan_image_alt_text"] != blank %}
+  <div class="custom-field custom-field__product-slogan-image-alt-text custom-field__type--text">
+    <h3 class="custom-field--title">Product Slogan Image Alt Text</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["product_slogan_image_alt_text"] }}
+    </div>
+  </div>
+{% endif %}

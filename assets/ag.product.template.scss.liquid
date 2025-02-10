@@ -1,0 +1,481 @@
+@font-face {
+    font-family: TeXGyreAdventor-Regular;
+    src: url('{{ 'texgyreadventor-regular.otf' | asset_url }}');
+}
+@font-face {
+    font-family: TeXGyreAdventor-Bold;
+    src: url('{{ 'texgyreadventor-bold.otf' | asset_url }}');
+}
+
+$mobile-breakpoint: 768px;
+
+#product-fullpage {
+    display: none;
+    @media screen and (min-width: $mobile-breakpoint) {
+        display: block;
+    }
+}
+
+#product-fullpage-mobile {
+    @media screen and (min-width: $mobile-breakpoint) {
+        display: none;
+    }
+}
+
+#shopify-section-header-custom {
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+}
+
+.wrapper.main-content {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: initial !important;
+}
+
+/*.fp-prev, .fp-next {
+    border-width: initial !important;
+    border-color: transparent !important;
+    font-size: 24px;
+    color: black;
+}*/
+
+.fp-prev {
+    border-width: 20.5px 20px 20.5px 0 !important;
+    border-color: transparent #afafaf transparent transparent !important;
+}
+
+.fp-next {
+    border-width: 20.5px 0 20.5px 20px !important;
+    border-color: transparent transparent transparent #afafaf !important;
+}
+
+.fp-slidesNav ul li a span {
+    background: black !important;
+}
+
+nav#ag-product-menu {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 9998;
+    height: 80px;
+    @media screen and (min-width: $mobile-breakpoint) {
+        height: 51px;
+    }
+    width: 100%;
+    color: white;
+    list-style-type: none;
+    .ag-menu-left {
+        display: none;
+        @media screen and (min-width: $mobile-breakpoint) {
+            display: block;
+        }
+        padding-left: 10%;
+        background-color: #232323;
+        height: 100%;
+        float: left;
+        padding-top: 12px;
+        font-family: "TeXGyreAdventor-Bold";
+        transition: all 1s ease;
+    }
+    .ag-menu-right {
+        background-color: #232323;
+        height: 100%;
+        @media screen and (min-width: $mobile-breakpoint) {
+            padding-right: 10%;
+            float: right;
+        }
+        vertical-align: middle;
+        text-align: center;
+        padding-top: 12px;
+        font-family: "TeXGyreAdventor-Bold";
+    }
+    li {
+        display: inline;
+        margin-left: 10px;
+        @media screen and (min-width: $mobile-breakpoint) {
+            margin-left: 40px;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+    span#ag-menu-title {
+        margin-right: 40px;
+        font-family: "TeXGyreAdventor-Bold";
+        transition: all 1s ease;
+    }
+}
+
+.ag-product-container {
+    text-align: center;
+    padding-top: 10%;
+    height: 100%;
+    @media screen and (min-width: $mobile-breakpoint) {
+        padding-left: 10%;
+        text-align: initial;
+        padding-top: 0;
+        height: initial;
+    }
+
+    h1.ag-product-title {
+        color: white;
+        font-family: "TeXGyreAdventor-Bold";
+        font-size: 32px;
+        @media screen and (min-width: $mobile-breakpoint) {
+            font-size: 34px;
+        }
+        font-weight: bold;
+    }
+
+    h2.ag-product-series {
+        color: white;
+        margin-bottom: 0;
+        font-family: "TeXGyreAdventor-Regular";
+        font-size: 32px;
+        @media screen and (min-width: $mobile-breakpoint) {
+            font-size: 34px;
+        }
+    }
+
+    a.ag-product-buy-now {
+        display: block;
+        width: 120px;
+        height: 40px;
+        color: white;
+        background-color: #CE6E00;
+        font-family: "TeXGyreAdventor-Bold";
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        box-sizing: border-box;
+        padding: 6px 0;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: auto;
+        @media screen and (min-width: $mobile-breakpoint) {
+            margin-left: initial;
+            margin-right: initial;
+            width: 190px;
+            height: 60px;
+            font-size: 24px;
+            padding: 8px 0;
+        }
+    }
+
+    p.ag-product-description {
+        display: none;
+        @media screen and (min-width: $mobile-breakpoint) {
+            display: block;
+        }
+        width: 390px;
+        text-align: justify;
+        color: white;
+    }
+}
+
+.ag-section-container-left {
+    display: none;
+    @media screen and (min-width: $mobile-breakpoint) {
+        display: block;
+    }
+    padding-left: 10%;
+    
+    h2.ag-section-title {
+        color: black;
+        font-family: "TeXGyreAdventor-Bold";
+        font-size: 1.39vw;
+    }
+
+    p.ag-section-description {
+        width: 289px;
+        color: black;
+        font-size: 1.11vw;
+    }
+}
+
+.ag-section-slider-mobile {
+    @media screen and (min-width: $mobile-breakpoint) {
+        display: none;
+    }
+    background-color: #464646;
+    min-height: 225px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    box-sizing: border-box;
+    .ag-section-slider-mobile-title {
+        font-family: "TeXGyreAdventor-Bold";
+        font-size: 20px;
+        color: white;
+    }
+    .ag-section-slider-mobile-description {
+        font-family: "TeXGyreAdventor-Regular";
+        font-size: 14px;
+        color: white;
+    }
+}
+
+.ag-color-section-container {
+    @media screen and (min-width: $mobile-breakpoint) {
+        display: none;
+    }
+    height: 100%;
+    position: relative;
+    text-align: center;
+    .ag-color-palette-mobile {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        @media screen and (min-width: $mobile-breakpoint) {
+            display: none;
+        }
+        font-family: "TeXGyreAdventor-Bold";
+        color: black;
+        text-align: center;
+        .ag-palette {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .ag-color-palette-circle {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            cursor: pointer;      
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+.ag-section-container-right {
+    display: none;
+    @media screen and (min-width: $mobile-breakpoint) {
+        display: block;
+    }
+    padding-right: 10%;
+    float: right;
+
+    h2.ag-section-title {
+        color: black;
+        font-family: "TeXGyreAdventor-Bold";
+        font-size: 1.39vw;
+        text-align: right;
+    }
+
+    p.ag-section-description {
+        width: 289px;
+        color: black;
+        font-size: 1.11vw;
+        text-align: right;
+    }
+
+    a.ag-product-learn-more {
+        display: block;
+        width: 190px;
+        height: 60px;
+        color: white;
+        background-color: #CE6E00;
+        font-family: "TeXGyreAdventor-Bold";
+        font-size: 24px;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        box-sizing: border-box;
+        padding: 8px 0;
+        cursor: pointer;
+        float: right;
+    }
+
+    .ag-color-palette {
+        display: none;
+        @media screen and (min-width: $mobile-breakpoint) {
+            display: block;
+        }
+        width: 470px;
+        font-family: "TeXGyreAdventor-Bold";
+        color: black;
+        .ag-palette {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .ag-color-palette-circle {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            cursor: pointer;      
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+.adjustibility-section {
+    position: relative;
+  	.fp-tableCell {
+      padding-top: 30px;
+      padding-bottom:30px;
+    }
+}
+
+.fp-tableCell {
+    position: relative;
+}
+
+.ag-adjustibility-section-container {
+    padding: 0 10%;
+    .ag-abjustable-points {
+        display: flex;
+        width: 100%;
+      	flex-direction: column;
+        .ag-adjustable-point {
+            flex: 1;
+            padding: 0 10px;
+          	display: flex;
+          	flex-direction: column;
+            &:not(:last-child) {
+                border-right: 1px solid #8C8C8C;
+            }
+            h2.ag-adjustable-title {
+                font-family: "TeXGyreAdventor-Bold";
+                color: black;
+                font-size: 1.11vw;
+                margin-bottom: 20px;
+            }
+            p.ag-adjustable-description {
+                font-family: "TeXGyreAdventor-Regular";
+                color: black;
+                min-height: 200px;
+                margin-top: 10px;
+                font-size: 0.83vw;
+            }
+        }
+    }
+  	.ag-adjustable-grid {
+        width: 100%;
+        display: flex;
+      	flex: 1;
+        justify-content: space-between;
+        .ag-adjustable-column {
+          	width: 32%;
+          	padding: 0 10px;
+            &:not(:last-child) {
+                border-right: 1px solid #8C8C8C;
+            }
+            h2.ag-adjustable-title {
+                font-family: "TeXGyreAdventor-Bold";
+                color: black;
+                font-size: 1.11vw;
+                margin-bottom: 20px;
+            }
+            p.ag-adjustable-description {
+                font-family: "TeXGyreAdventor-Regular";
+                color: black;
+                min-height: 200px;
+                margin-top: 10px;
+                font-size: 0.83vw;
+            }
+          	img {
+              width: 100%;
+              height: auto;
+            }
+        }
+    }
+}
+
+.ag-dimension-section-container {
+    padding: 0 10%;
+    text-align: center;
+    img {
+        max-height: 400px;
+        @media screen and (min-width: $mobile-breakpoint) {
+            max-height: 600px;
+        }
+    }
+}
+
+.dimensions-section {
+    display: none;
+    @media screen and (min-width: $mobile-breakpoint) {
+        display: table;
+    }
+}
+
+.dimensions-mobile-section {
+    @media screen and (min-width: $mobile-breakpoint) {
+        display: none;
+    }
+}
+
+.ag-specifications-section-container {
+    @media screen and (min-width: $mobile-breakpoint) {
+        padding: 0 10%;
+    }
+    text-align: center;
+    .ag-specifications-table {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        width: 100%;
+        @media screen and (min-width: $mobile-breakpoint) {
+            width: 85%;
+        }
+        .ag-spefications-row {
+            width: 100%;
+            .ag-specifications-row-item-left {
+                display: inline-block;
+                width: 48%;
+                text-align: right;
+                font-weight: bold;
+                font-family: "TeXGyreAdventor-Bold";
+                font-size: 2.08vw;
+                @media screen and (min-width: $mobile-breakpoint) {
+                    font-size: 1.25vw;
+                }
+                padding: 10px;
+            }
+            .ag-specifications-row-item-right {
+                display: inline-block;
+                width: 48%;
+                text-align: left;
+                font-family: "TeXGyreAdventor-Regular";
+                font-size: 1.82vw;
+                @media screen and (min-width: $mobile-breakpoint) {
+                    font-size: 1.11vw;
+                }
+                padding: 10px;
+            }
+        }
+    }
+}
+
+.top-section{
+  .fp-tableCell{
+    padding-top:50px;
+  }
+  .backstretch{
+    img{
+      top:0 !important;
+    }
+  }
+}

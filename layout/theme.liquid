@@ -1,0 +1,442 @@
+{% if template contains 'article' and blog.metafields.blogfeeder.use_canonical == 'yes' %}{% assign canonical_url = article.metafields.blogfeeder.canonical %}{% endif %}
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  
+<!-- BEGIN: Bing Ads UET tracking codes-->
+  <script>
+  (function(d,s,i)
+  {
+    var f,j;
+    f=d.getElementsByTagName(s)[0];
+    j=d.createElement(s);
+    j.async=true;
+    j.src='https://mtag.microsoft.com/tags/'+i+'.js';
+    f.parentNode.insertBefore(j,f);
+  })
+  (document,'script','14362370638255');
+</script>
+<!-- END: Bing Ads UET tracking codes-->
+  
+{% render 'geolizr-init' %}
+{% include 'taginstall-head' %}
+<!-- Added by AVADA SEO Suite -->
+{% include 'avada-seo' %}
+<!-- /Added by AVADA SEO Suite -->
+
+  <meta name="google-site-verification" content="NGwYXA5KBD61Vr1PlNHwBfhQqFUAYpJXJn7Dl4BcQCE" />  
+  <meta name="google-site-verification" content="5y3OHSn7Pf3NFJVexHNgV73y9IbV9OkI8UHAAqXCK7c" />
+  <meta name="google-site-verification" content="Xd4zRCydwzbHrKyTrjgTAm_FeRooloOT9LEMMceaCE0" />
+  <meta name="facebook-domain-verification" content="q6oqm8uhi1ijhngvth8stbefk1ald5" />
+  
+
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  {% if settings.favicon != blank %}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {% endif %}
+
+  <!-- Title and description ================================================== -->
+  <title>
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Helpers ================================================== -->
+  {% include 'social-meta-tags' %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  {% if template contains 'product' %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  {% else %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% endif %}
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+  
+  <style>
+      body.-loading #wrapper {
+          opacity: 0;
+      }
+
+      body.-loading .loading-shape {
+          opacity: 1;
+          pointer-events: auto; 
+      }
+
+      .loading-shape {
+          position: fixed;
+          top: 0;
+          left: 0;
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
+          background: #ffffff;
+          opacity: 0;
+          z-index: 100000;
+          transition: opacity 0.8s ease;
+          pointer-events: none;
+      }
+    .sub-menu-group-content__products-product__infomation-container .okeReviews.okeReviews--theme .okeReviews-starRating-indicator-layer--foreground{
+    background-image: url({{ 'starpreview.svg' | asset_url }}) !important;
+  }
+      #tdf_notify{
+      display: none;
+      }
+      .layoutv1 .productdetail-topbar .topbar-inner .topbar-info .okeReviews.okeReviews--theme .okeReviews-starRating-indicator-layer--foreground {
+        background-image: url({{ 'starpreview.svg' | asset_url }})
+    }
+    .product_comparison .product_comparison-content .row-comparison .tooltip:before{
+      background: url({{ 'fe800-tooltip.svg' | asset_url }}) no-repeat center;
+    }
+    .swatch-color__label::before{
+      background: url({{ 'sl5000-active.svg' | asset_url }}) !important;
+    }
+    .slick-loading .slick-list
+  {
+    background: #fff url("{{ 'ajax-loader.gif' | asset_img_url }} ") center center no-repeat;
+  }
+    {% if template == "product.sl3800-update-layoutV1" and product.handle == "sl3800-best-budget-comfortable-gaming-chair" %}
+      .protections-group .new-edit-top__bottom-single-second{
+        display: none;
+      }
+      {% endif %}
+  </style>
+
+  {{ 'timber.css' | asset_url | stylesheet_tag }}
+  {{ 'main.css' | asset_url | stylesheet_tag }}
+  {{ 'main-assets.css' | asset_url | stylesheet_tag }}
+  {{ 'overwrite.css' | asset_url | stylesheet_tag }}
+
+  {% render 'okendo-reviews-json-ld' %}
+  
+  {% render 'treedify' %}{{ content_for_header }}
+  {% include 'custom' %}
+  
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+  
+
+  {% if template contains 'customers' %}
+  		{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {% endif %}
+  
+  {% if template contains 'chair-selection-tool'%}
+      {{ 'jquery-ui.min.css' | asset_url | stylesheet_tag }}
+  	  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" defer="defer"></script>
+  {% endif %}
+  {{ shop.metafields.saletag.hc_tag_css }}
+
+ <!-- Rule Script Start --><script>window.checkout = {{cart | json}};window.price_format = {{ shop.money_format | json }};</script><!-- Rule Script End -->
+
+</head>
+
+
+<body id="{{ page_title | handle }}" class="-loading {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} -template-{{ template | handle}}" >
+<script>window.KlarnaThemeGlobals={};{%case template.name%} {%when"product"%} {% if product.first_available_variant.price %}window.KlarnaThemeGlobals.data_purchase_amount = {{ product.first_available_variant.price }};{% endif %}window.KlarnaThemeGlobals.productVariants={{product.variants|json}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%when"cart"%} window.KlarnaThemeGlobals.data_purchase_amount={{cart.total_price}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%endcase%}</script>
+
+
+
+
+{% render 'geolizr-api' %}
+
+
+
+
+
+
+
+
+  <!-- IMPACT's Identify Function Tag ================================================== -->
+  <script type="text/javascript">
+    try {
+        {% assign email_hash = {{customer.email}} | sha1 %}
+    {% if customer %}
+        ire('identify', {customerId: {{ customer.id }}, customerEmail: {{ email_hash }} });    
+    {% endif %}
+    } catch (error) {
+        console.log(error)
+    }
+    
+	</script>
+  
+   <datalist id="products_recommend" style="display:none">
+    <option value="SL5000">
+    <option value="SL4000">
+    <option value="PL1000">
+    <option value="PL6000">
+    <option value="SL2000">
+  </datalist>
+  <div  class="loading-shape"><div class="loading-shape__circle"></div></div>
+  {% if settings.ajax_cart_method == "drawer" %}
+      <div id="CartDrawer" class="drawer drawer--right">
+        <div class="drawer__header">
+          <div class="drawer__title h3">{{ 'cart.general.title' | t }}</div>
+          <div class="drawer__close js-drawer-close">
+            <button type="button" class="icon-fallback-text">
+              <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+              <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
+            </button>
+          </div>
+        </div>
+        <div id="CartContainer"></div>
+      </div>
+  {% endif %}
+  {% section 'header-new' %}
+  <div id="wrapper">
+    {% include 'youtube-popup' %}
+    
+    <main x-data="LazyLoad">
+      <div id="PageContainer" class="is-moved-by-drawer">
+          {% assign class_name = 'full-width-content' %}
+<!--           <div class="{{class_name}}"> -->
+            {{ content_for_layout }}{% render 'treedify_script' %}
+	        <noscript class="endOfLayoutContentX" type="text/mark"></noscript>
+<!--           </div> -->
+       </div>
+     </main>
+    {% comment %} Todo: New UI {% endcomment %}
+    {% section 'new-main-footer' %}
+    {% comment %}{% section 'footer-new' %}{% endcomment %}
+   </div>
+  		{% if template contains 'page.contact' 
+            or  template contains 'page.warranty'  
+            or  template contains 'page.wear-and-tear-3year' 
+            or  template contains 'page.wear-and-tear-2year' 
+        %}
+            {{ 'form.js' | asset_url | script_tag }}
+        {% else %}
+            {{ 'main.js' | asset_url | script_tag }}
+        {% endif %}
+   
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-845916327"></script>
+        
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-845916327');
+
+        (function(a,b,c,d,e,f,g){e['ire_o']=c;e[c]=e[c]||function(){(e[c].a=e[c].a||[]).push(arguments)};f=d.createElement(b);g=d.getElementsByTagName(b)[0];f.async=1;f.src=a;g.parentNode.insertBefore(f,g);})('https://d.impactradius-event.com/A2597169-1c2d-40b9-913b-d08b75c97ac41.js','script','ire',document,window);
+        ire('identify', {customerId: '', customerEmail: '' });
+        </script>
+
+  		
+        {{ 'app.js' | asset_url | script_tag }}
+        
+        {{ 'timber.js' | asset_url | script_tag }}
+  		{{ 'jquery.absolveGa.js' | asset_url | script_tag }}
+        <script>
+          window.product = {{ product | json }};
+          window.page = "{{ request.page_type }}";
+          window.template = "{{ template }}";
+          {% if resetPassword %}
+          $(function() {
+            timber.resetPasswordSuccess();
+          });
+          {% endif %}
+        </script>
+
+        {% comment %}
+        Ajaxify your cart with this plugin.
+        Documentation:
+        - http://shopify.com/timber#ajax-cart
+        {% endcomment %}
+        {% if settings.ajax_cart_method == "drawer" %}
+        {{ 'handlebars.min.js' | asset_url | script_tag }}
+        {% include 'ajax-cart-template' %}
+        <script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.min.js"></script>
+        {{ 'ajax-cart.js' | asset_url | script_tag }}
+        <script>
+          var shopifyAjaxCartContainer = "#CartContainer";
+          function init() {
+            ajaxCart.init({
+              formSelector: '#AddToCartForm',
+              cartContainer: shopifyAjaxCartContainer,
+              addToCartSelector: '#AddToCart',
+              cartCountSelector: '#CartCount',
+              moneyFormat: {{ shop.money_format | json }},
+            });
+          }
+          jQuery(init);
+          document.addEventListener('shopify:section:load', init);
+
+          jQuery(document.body).on('afterCartLoad.ajaxCart', function(evt, cart) {
+            // Bind to 'afterCartLoad.ajaxCart' to run any javascript after the cart has loaded in the DOM
+            //console.log("cartLoad - cart", cart);
+
+            shopifyAjaxCartContainer+" "
+
+            jQuery(cart.items).each(function(index, lineItem){
+              var line = index+1;
+              var lineItemPrice = lineItem.line_price;
+            });
+
+            //clsVertagearCart.cartleft_recaculatetotal()
+            //$('.ajaxcart__qty-num').trigger('change');
+
+          });
+        </script>
+        {% endif %}
+  		{% comment %}
+           
+          
+
+
+          {% include 'geolizr-redirect' %}
+          {% include 'geolizr-popup' %} 
+  		  {{ 'geolizr-lib.js' | asset_url | script_tag }}
+          {{ 'geolizr-lib.css' | asset_url | stylesheet_tag }}
+
+        {% endcomment %}
+  
+
+        <!-- Twitter universal website tag code -->
+        <script>
+          !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+                                                           },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+                                         a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+          // Insert Twitter Pixel ID and Standard Event data below
+          twq('init','o0kzs');
+          twq('track','PageView');
+        </script>
+        <!-- End Twitter universal website tag code -->              
+
+        <!-- google dynamic remarketing tag for theme.liquid -->
+        {% if template contains 'product' %}<!-- EVENT NOT DONE -->
+            <script type="text/javascript">
+              var json_product = {{ product | json }};
+            </script>
+            <script>
+              var ecomm_prodid=[];
+              for(var i=0;i<json_product.variants.length;i++)
+                ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
+            </script>
+            <script type="text/javascript">
+              var google_tag_params = {
+                ecomm_prodid: ecomm_prodid,
+                ecomm_pagetype: 'product',
+                ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}')
+                                             };
+            </script>
+        {% elsif template contains 'collection' %}<!-- EVENT NOT DONE -->
+            <script type="text/javascript">
+              var google_tag_params = {
+                ecomm_pagetype: 'category'
+              };
+            </script>
+        {% elsif template contains 'cart' %}<!-- EVENT NOT DONE -->
+            <script type="text/javascript">
+              var id = new Array();
+              {% for item in cart.items %}
+              id.push('shopify_US_{{item.product.id}}_{{item.variant.id}}');
+                      {% endfor %}
+
+                      var google_tag_params = {
+                      ecomm_prodid: id,
+                      ecomm_pagetype: 'cart',
+                      ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+                      };
+        		</script>
+        {% elsif template contains 'search' %}<!-- EVENT NOT DONE -->
+            <script type="text/javascript">
+              var google_tag_params = {
+                ecomm_pagetype: 'searchresults'
+              };
+            </script>
+        {% elsif template contains 'index' %}
+            <script type="text/javascript">
+              var google_tag_params = {
+                ecomm_pagetype: 'home'
+              };
+            </script>
+        {% else %}
+            <script type="text/javascript">
+              var google_tag_params = {
+                ecomm_pagetype: 'other'
+              };
+            </script>
+        {% endif %}
+
+        <script> 
+          gtag('event', 'page_view', {
+            'send_to': 'AW-845916327',
+            'ecomm_pagetype': google_tag_params.ecomm_pagetype, 
+            'ecomm_prodid': google_tag_params.ecomm_prodid,
+            'ecomm_totalvalue': google_tag_params.ecomm_totalvalue 
+          });
+        </script>
+
+        {% if template contains 'product'%}
+        <script src="https://cdn.shopify.com/shopifycloud/shop-js/v1.0/client.js"></script>
+  			  <script>
+                document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+              </script>
+              {{ 'slick.min.js' | asset_url | script_tag }}
+              {{ 'slick.css' | asset_url | stylesheet_tag }}
+              {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+  			  {% comment %}
+              <script>
+                      // affirm js start
+                    _affirm_config = {
+                      public_api_key:  "DLXEZ99LU8GC296I",
+                      script:          "https://cdn1.affirm.com/js/v2/affirm.js"
+                    };
+                    (function(l,g,m,e,a,f,b){var d,c=l[m]||{},h=document.createElement(f),n=document.getElementsByTagName(f)[0],k=function(a,b,c){return function(){a[b]._.push([c,arguments])}};c[e]=k(c,e,"set");d=c[e];c[a]={};c[a]._=[];d._=[];c[a][b]=k(c,a,b);a=0;for(b="set add save post open empty reset on off trigger ready setProduct".split(" ");a<b.length;a++)d[b[a]]=k(c,e,b[a]);a=0;for(b=["get","token","url","items"];a<b.length;a++)d[b[a]]=function(){};h.async=!0;h.src=g[f];n.parentNode.insertBefore(h,n);delete g[f];d(g);l[m]=c})(window,_affirm_config,"affirm","checkout","ui","script","ready");
+                    // affirm js end
+
+              </script>
+  			  {% endcomment %}
+            {% include 'atfirst-rework-product-bottom-script' %}
+
+        {% endif %}
+
+
+
+        {{ 'cutsom-zakeke-hint.js' | asset_url | script_tag }}
+        <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js"></script>
+        <script>
+        var lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+        });
+        </script>
+  		{{ shop.metafields.okendo.ReviewsWidgetStyleTag }}
+        {{ shop.metafields.okendo.StyleCustomizations }}
+  
+  
+        <!-- preorder js start -->
+  		<script async type='text/javascript' src='{{ 'preorder-custom.js' | asset_url }}'></script>
+        <script async type='text/javascript' src='//s3.amazonaws.com/shopify-apps/pre-order/store/31384590e883789d8be3c612ae3523ad.js'></script>
+        <!-- **BEGIN** Hextom SPM Integration // Main Include - DO NOT MODIFY -->
+        {% include 'hextom_spm_main' %}
+        <!-- **END** Hextom SPM Integration // Main Include - DO NOT MODIFY -->
+        {% render 'spurit_po2_theme_snippet' %}
+		<!-- **BEGIN** Hextom QAB Integration // Main Include - DO NOT MODIFY -->
+    	{% render 'hextom_qab_main', product: product, customer: customer %}
+    	<!-- **END** Hextom QAB Integration // Main Include - DO NOT MODIFY -->
+        <!-- preorder js end -->
+ 
+        <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=RY98J4"></script>
+		{{ '//cdn.shopify.com/s/files/1/0194/1736/6592/t/1/assets/booster-page-speed-optimizer.js?23' | script_tag }}
+
+
+        {{ 'alljs-vertagear.js' | asset_url | script_tag }}
+
+{% include 'taginstall-body' %}
+<div class="b-overlay"></div>
+{% include 'cart-popup-content' %}
+{% include 'custom-review-tab' %}
+{% include 'free-protection-programs-modal' %}
+{% if page.handle == "800-ergonomic-gaming-chairs" or product.id == 7024401154159 or product.id == 7024816291951 or product.id == 7025941348463 or product.id == 7025941446767 %}
+{% include 'up-to-top-btn' %}
+{% endif %}
+
+{{ 'lazysizes.min.js' | asset_url | script_tag}}
+</body>
+</html>

@@ -1,0 +1,112 @@
+<div class="page-support">
+    <div class="page-support__container vertagear-container">
+        <h1 class="page-support__title">{{page.title}}</h1>
+        <div class="page-support__main">
+            <a class="page-support__card" href="/pages/faq">
+                <div class="page-support__card-title">
+                    Vertagear FAQs
+                </div>
+                <div class="page-support__card-icon">
+                    <svg width="126" height="126" viewBox="0 0 126 126" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" class="page-support__card-icon-img">
+                        <path d="M39.557 76.622a36.778 36.778 0 01-20.16-5.989l-16.9 5.989 5.981-16.9a37.054 37.054 0 1168.141-20.157"/>
+                        <path d="M51.264 39.56c0 7.543-5.24 13.656-11.7 13.656s-11.7-6.113-11.7-13.656 5.24-13.653 11.7-13.653 11.7 6.112 11.7 13.653zM41.51 53.605l7.803 1.56M117.448 106.535a37.121 37.121 0 10-10.913 10.913l16.9 5.989zM86.375 72.72l-9.753 27.309M86.375 72.72l9.753 27.309M80.523 90.276h11.704"/>
+                    </svg>
+                </div>
+            </a>
+            <a class="page-support__card" href="/pages/warranty">
+                <div class="page-support__card-title">
+                    Product Registration
+                </div>
+                <div class="page-support__card-icon">
+                    <svg width="132.731" height="136.989" viewBox="0 0 132.731 136.989" fill="none" stroke="#000" stroke-width="5" class="page-support__card-icon-img">
+                        <g stroke-linejoin="round">
+                          <path d="M77.015 25.917V15.274a4.258 4.258 0 00-4.258-4.258h-4.262V2.5H34.433v8.516h-4.258a4.258 4.258 0 00-4.258 4.258v10.642z" stroke-linecap="round"/>
+                          <path d="M45.078 13.144v2.129h12.773v-2.129M68.494 134.489H6.759a4.257 4.257 0 01-4.258-4.258V21.658A4.258 4.258 0 016.759 17.4h8.516M87.653 17.4h8.516a4.258 4.258 0 014.258 4.258v38.32" stroke-linecap="square"/>
+                        </g>
+                        <g transform="translate(70.623 74.879)" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="29.804" cy="29.804" r="29.804"/>
+                          <path d="M17.031 29.801l10.645 10.644 14.9-21.288"/>
+                        </g>
+                        <g transform="translate(21.657 49.334)">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.161 4.258h38.32M19.161 21.289h31.933M19.161 38.32H40.45M19.161 55.35h17.031"/>
+                          <circle cx="4.258" cy="4.258" r="4.258" transform="translate(.001)"/>
+                          <path d="M8.516 21.289a4.258 4.258 0 11-4.258-4.258 4.258 4.258 0 014.258 4.258zM8.516 38.318a4.258 4.258 0 11-4.258-4.258 4.257 4.257 0 014.258 4.258zM8.516 55.351a4.258 4.258 0 11-4.258-4.258 4.258 4.258 0 014.258 4.258z"/>
+                        </g>
+                      </svg>
+                </div>
+            </a>
+            <div class="page-support__card -select">
+                <div class="page-support__card-title">
+                     Product Manuals and Software
+                </div>
+                <div class="page-support__card-desc">
+                    Select a product to download PDF manual or software.
+                </div>
+                <div class="page-support__card-select">
+                    <multiselect v-model="value" placeholder="Select a Product" label="name" track-by="name" :show-labels="false" :searchable="false" :options="[
+                    { name: 'SL3800', url: 'https://cdn.shopify.com/s/files/1/1759/4609/files/SL3800_Manual_-_UNIFIED_-FAQ_06022022.pdf?v=1666282821' },
+                    { name: 'SL5800', url: 'https://cdn.shopify.com/s/files/1/1759/4609/files/SL5800_Manual_-_UNIFIED_-FAQ_06022022.pdf?v=1666282731' },
+                    { name: 'PL4800', url: 'https://cdn.shopify.com/s/files/1/1759/4609/files/PL4800_Manual_-_UNIFIED_-FAQ_06022022.pdf?v=1666282821' },
+                    { name: 'PL6800', url: 'https://cdn.shopify.com/s/files/1/1759/4609/files/PL6800_Manual_-_UNIFIED_-FAQ_06022022.pdf?v=1666282820' },
+                    { name: 'SL2000', url: '{{ 'S-Line_Manual_UNIFIED_v3.pdf' | asset_url }}' },
+                    { name: 'SL4000', url: '{{ 'S-Line_Manual_UNIFIED_v3.pdf' | asset_url }}' },
+                    { name: 'SL5000', url: '{{ 'S-Line_Manual_UNIFIED_v3.pdf' | asset_url }}' },
+                    { name: 'PL6000', url: '{{ 'PL6000_Manual_UNIFIED_v2.pdf' | asset_url }}' },
+                    { name: 'PL4500', url: '{{ 'PL4500_Manual_UNIFIED_v3.pdf' | asset_url }}' },
+                    { name: 'PL4500 RGB LED Top Upgrade Kit', url: '{{ 'PL4500_LED_Manual_-_UNIFIED_FINAL.pdf' | asset_url }}' },
+                    { name: 'SL5000 RGB LED Top Upgrade Kit', url: '{{ 'SL5000_RGB_Kit_User_Manual.pdf' | asset_url }}' },
+                    { name: 'RGB LED Bottom Kit  Manual', url: '{{ '5_STAR_RGB_LED_Manual_-_UNIFIED_FINAL.pdf' | asset_url }}' },
+                    { name: 'RGB LED Upgrade Kits Cam Software', url: '{{ 'NZXT-CAM-Setup.exe' | asset_url }}' }
+                    
+                  ]">
+                        <template slot="option" slot-scope="props">
+                            <!-- <a class="option__link" :href="props.option.url"   target="_blank">
+                            </a> -->
+                            <div class="option__link" v-text="props.option.name">
+
+                            </div>
+                            <!-- download -->
+                        </template>
+                      </multiselect>
+                </div>
+                <div class="page-support__card-btn-box">
+                    <a v-if="value && value.url" class="page-support__card-btn vertagear-btn -blue" :href="value.url"  target="_blank" >
+                        DOWNLOAD
+                    </a>
+                    <a class="page-support__card-btn vertagear-btn -blue -disable" v-else>
+                        DOWNLOAD
+                    </a>
+                </div>
+            </div>
+            <a class="page-support__card" href="https://www.youtube.com/channel/UCI66wUzTqsp-_4woLcKHH9g" target="_blank" rel="noreferrer noopener">
+                <div class="page-support__card-title">
+                    Product Assembly Video
+                </div>
+                <div class="page-support__card-icon">
+                    <svg width="121.664" height="121.498" viewBox="0 0 121.664 121.498" class="page-support__card-icon-img">
+                        <path  transform="translate(0 15)" d="M21.616.5A21.137 21.137 0 00.5 21.616v48.266a21.137 21.137 0 0021.116 21.116h78.432a21.137 21.137 0 0021.116-21.116V21.616A21.137 21.137 0 00100.048.5H21.616zm0 6.033h78.432a14.984 14.984 0 0115.083 15.083v48.266a14.984 14.984 0 01-15.083 15.083H21.616A14.984 14.984 0 016.533 69.882V21.616A14.984 14.984 0 0121.616 6.538zm25.453 16.591a3.017 3.017 0 00-2.828 3.014v39.216a3.021 3.021 0 004.431 2.686l36.2-19.608a3.017 3.017 0 000-5.326l-36.2-19.608a3.017 3.017 0 00-1.6-.377zm3.205 8.107l26.867 14.517-26.867 14.564z" stroke="#fff"/>
+                      </svg>
+                </div>
+            </a>
+            <a class="page-support__card" href="/pages/store-locator">
+                <div class="page-support__card-title">
+                    Find A Retailer
+                </div>
+                <div class="page-support__card-icon">
+                    <svg width="105.429" height="105.293" viewBox="0 0 105.429 105.293" class="page-support__card-icon-img">
+                        <path data-name="Path 2193" d="M101.294 58.74H4.134v-8.192h97.16zm-5.144 42.426H42.53V69.981a2.065 2.065 0 00-2.067-2.063H20.2a2.065 2.065 0 00-2.067 2.063v31.185H9.344v-38.3H96.15zm-73.879 0H38.4V72.044H22.271zm-8.527-73.721h77.745l8.66 18.977H5.254zm17.976-4.126h41.988v-4.014H31.72zm-7.24-8.14h56.675V4.126H24.48zm80.945 33.244v-.086c0-.056-.011-.111-.019-.165 0-.022-.006-.045-.01-.067a2.051 2.051 0 00-.143-.458c0-.005 0-.011-.006-.017L94.7 24.527a2.068 2.068 0 00-1.881-1.208H77.843v-4.014h5.379a2.065 2.065 0 002.067-2.063V2.063A2.065 2.065 0 0083.222 0H22.413a2.065 2.065 0 00-2.067 2.063v15.179a2.065 2.065 0 002.067 2.063h5.173v4.013H12.4a2.068 2.068 0 00-1.888 1.222L.18 47.644v.011a1.967 1.967 0 00-.086.231v.012a1.959 1.959 0 00-.051.215c0 .024-.007.047-.011.071a1.708 1.708 0 00-.017.162V60.8a2.065 2.065 0 002.067 2.063H5.21v40.363a2.065 2.065 0 002.067 2.063h90.94a2.065 2.065 0 002.067-2.063v-40.36h3.077a2.065 2.065 0 002.067-2.063V48.485v-.062zm-50.644 40.9h29.646V72.044H54.782zm-2.067 4.126h33.78a2.065 2.065 0 002.067-2.063v-21.4a2.065 2.065 0 00-2.067-2.063h-33.78a2.065 2.065 0 00-2.067 2.063v21.4a2.065 2.065 0 002.067 2.063z" fill-rule="evenodd"/>
+                  </svg>
+                </div>
+            </a>
+            <a class="page-support__card" href="/pages/return-policy">
+                <div class="page-support__card-title">
+                    Shipping & Returns
+                </div>
+                <div class="page-support__card-icon">
+                  <svg class="page-support__card-icon-img" width="300" height="300" viewBox="0 0 300 300"><path d="M148.93 1.78L16.63 68.82c-.67.34-1.1 1.03-1.1 1.78v155.58c0 .74.41 1.43 1.07 1.77l132.3 69.28c.58.3 1.27.3 1.85 0l132.91-69.28c.66-.34 1.08-1.03 1.08-1.77V70.61c0-.76-.43-1.45-1.1-1.79L150.73 1.78c-.57-.28-1.24-.28-1.8 0zm1.85 15.92l32.55 16.44c1.44.73 1.47 2.77.06 3.54L79.69 94.53c-.59.32-1.3.33-1.89.02L41.61 75.63c-1.44-.75-1.43-2.82.02-3.56L148.97 17.7c.57-.29 1.24-.29 1.81 0zm-10.65 258.93L30.81 219.39a2.004 2.004 0 01-1.07-1.77V88.73c0-1.5 1.6-2.47 2.93-1.77l36.72 19.22c.66.35 1.07 1.03 1.07 1.77v16.89c0 .8.48 1.52 1.21 1.84l6.3 2.71c.26.11.49.28.69.49l6.39 6.99 6.22 6.16c.26.26.58.44.94.52l7.66 1.86c1.26.31 2.47-.65 2.47-1.94v-16.79c0-1.5 1.6-2.47 2.93-1.77L142 144.13c.66.35 1.07 1.03 1.07 1.77v128.98c-.01 1.48-1.61 2.45-2.94 1.75zm-26.68-166.98l105.98-56.36c.57-.31 1.26-.31 1.84-.02l37.6 18.99c1.45.73 1.47 2.81.02 3.56l-107.8 56.06c-.58.3-1.27.3-1.85 0l-35.78-18.69c-1.43-.75-1.43-2.79-.01-3.54zm156.01 109.69l-109.27 57.01c-1.33.69-2.93-.27-2.93-1.77v-128.7c0-.75.42-1.43 1.08-1.77l109.27-56.83c1.33-.69 2.92.27 2.92 1.77v128.51c0 .75-.41 1.44-1.07 1.78z" fill="#212120"/></svg>
+                </div>
+            </a>
+        
+        </div>
+    </div>
+</div>

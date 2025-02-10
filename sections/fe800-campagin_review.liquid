@@ -1,0 +1,143 @@
+<div class="campagin-review">
+  <div class="campagin-review-inner">
+    <div class="campagin-review-inner__title">Media Review</div>
+    <div class="campagin-review-recent">
+      <div class="campagin-review-recent__reviews">
+        {% for block in section.blocks %}
+          <div class="campagin-review-recent__reviews-item">
+            <img src="{{ block.settings.logo | image_url }}" width="auto" height="auto">
+            <p>{{ block.settings.text }}</p>
+            <a href="{{ block.settings.link }}" target="_blank">Read more</a>
+          </div>
+        {% endfor %}
+      </div>
+      {% comment %}
+        <div id="shopify-section-index-signature">
+          <div class="index-signature">
+            <div class="index-signature__main">
+              <h3>{{ section.settings.title }}</h3>
+              <div class="index-signature__main-inner">
+                <div class="index-signature__swiper-arrow swiper-arrow -prev vertagear-icon -icon-left"></div>
+                <div
+                  class="index-signature__swiper-arrow swiper-arrow -next vertagear-icon -icon-right"
+                  :class="'-current-' + current"
+                ></div>
+                <swiper
+                  class="index-signature__swiper"
+                  :options="options"
+                  key="index-signature-swiper"
+                  ref="signatureSwiper"
+                >
+                  {% for block in section.blocks %}
+                    <swiper-slide class="index-signature__swiper-slide">
+                      <img src="{{ block.settings.logo | image_url }}">
+                      <p>{{ block.settings.text }}</p>
+                      <a href="{{ block.settings.link }}" target="_blank">READ MORE</a>
+                    </swiper-slide>
+                  {% endfor %}
+                </swiper>
+              </div>
+              <div class="index-signature__tab mobile-hide" :class="'-current-' + current ">
+                <div
+                  class="index-signature__tab-btn"
+                  @click="slideTo(0)"
+                  v-bind:class="{'-active' : current === 0 }"
+                  :key="current + '0'"
+                ></div>
+
+                <div
+                  class="index-signature__tab-btn"
+                  @click="slideTo(1)"
+                  v-bind:class="{'-active' : current === 1 }"
+                  :key="current + '1'"
+                ></div>
+              </div>
+
+              <div class="index-signature__tab desktop-hide" :class="'-current-' + current ">
+                <div
+                  class="index-signature__tab-btn"
+                  @click="slideTo(0)"
+                  v-bind:class="{'-active' : current === 0 }"
+                  :key="current + '0'"
+                ></div>
+
+                <div
+                  class="index-signature__tab-btn"
+                  @click="slideTo(1)"
+                  v-bind:class="{'-active' : current === 1 }"
+                  :key="current + '1'"
+                ></div>
+
+                <div
+                  class="index-signature__tab-btn"
+                  @click="slideTo(2)"
+                  v-bind:class="{'-active' : current === 2 }"
+                  :key="current + '2'"
+                ></div>
+
+                <div
+                  class="index-signature__tab-btn"
+                  @click="slideTo(3)"
+                  v-bind:class="{'-active' : current === 3 }"
+                  :key="current + '3'"
+                ></div>
+
+                <div
+                  class="index-signature__tab-btn"
+                  @click="slideTo(4)"
+                  v-bind:class="{'-active' : current === 4 }"
+                  :key="current + '4'"
+                ></div>
+
+                <div
+                  class="index-signature__tab-btn"
+                  @click="slideTo(5)"
+                  v-bind:class="{'-active' : current === 5 }"
+                  :key="current + '5'"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endcomment %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "campagin_review",
+  "class": "fp-auto-height",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Featured In"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Blog",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "logo"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,45 @@
+<div class="signature-section">
+      <div class="signature-section__header">
+        <div class="signature-section__header__title">
+          <div class="heading">VERTAGEAR SIGNATURES</div>
+          <div class="title">{{ title }}</div>
+        </div>
+        <div class="signature-section__header__desc">
+          {{ description }}
+        </div>
+        <div class="signature-section__header__action">
+          <button onclick="{{ learn_more_click }}">
+            Learn More
+            <img
+              class="display-desktop"
+              src="{{ 'fe800-arrow-btn.svg' | asset_url }}"
+            />
+          </button>
+        </div>
+      </div>
+
+      <div class="signature-section__content">
+        <video
+          class="signature-section__content__video display-mobile"
+          muted
+          loop
+          preload
+          playsinline
+        >
+          <source src="{{ mobile_video_src }}" type="video/mp4" />
+        </video>
+        <video
+          class="signature-section__content__video display-desktop"
+          muted
+          loop
+          preload
+          playsinline
+        >
+          <source
+            src="{{ desktop_video_src }}"
+            type="video/mp4"
+          />
+        </video>
+        <img class="ss__play-btn" src="{{ 'ls-play-video.svg' | asset_url }}" />
+      </div>
+    </div>

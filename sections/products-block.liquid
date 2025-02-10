@@ -1,0 +1,163 @@
+{% include 'gravityadmin' %}
+<div style="display: none !important;  visibility: hidden !important;" class="cmspro-section" id="cmspro-9e5e231d"></div>
+{% include 'spurit_po2_section_snippet', product: null, products: collections[section.settings.collection].products %}
+<div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+
+<div class="wrapper">
+
+<div class="homepage-indiv-section-wrapper">
+	<div class="sitewide--title-wrapper">
+		<h2 class="homepage-sections--title">{{ section.settings.title }}</h2>
+	</div>
+
+	<div class="homepage-featured-products-grid">
+
+		{%- assign collection = collections[section.settings.collection] -%}
+
+		{% for product in collection.products limit:6 %}
+    {% include 'sca_freegift_price' with product %}
+			<div class="gutter-sizer"></div>
+			<!-- /snippets/product-grid-item.liquid -->
+{% comment %}
+
+  This snippet is used to showcase each product during the loop,
+  'for product in collection.products' in collection.liquid.
+
+  A liquid variable (grid_item_width) is set just before the this
+  snippet is included to change the size of the container.
+  Once the variable is set on a page, all future instances of this
+  snippet will use that width. Overwrite the variable to adjust this.
+
+  Example
+    - assign grid_item_width = 'large--one-quarter medium--one-half'
+
+{% endcomment %}
+
+{% comment %}
+  Set the default grid_item_width if no variable is set
+{% endcomment %}
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-third medium--one-half' %}
+{% endunless %}
+
+{% comment %}
+  Check if the product is on sale and set a variable to be used below.
+{% endcomment %}
+{% assign on_sale = false %}
+{% if sca_compare_at_price > sca_price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}
+  Check if the product is sold out and set a variable to be used below.
+{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<div class="homepage-featured-grid-item{% cycle '', '', ' homepage-featured-grid-item--width2', ' homepage-featured-grid-item--width2', '', '' %}">
+
+  <a href="{{ product.url | within: collection }}" class="grid__image">
+    <img src="{{ product.featured_image.src | img_url: '1024x1024' }}" alt="{{ product.featured_image.alt | escape }}">
+    <div name="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-collect" }} </div>
+    <div class="sca-fg-cat-list" style="display:none;" name="secomapp-fg-data-{{ product.id }}" prod-show='list'> </div>
+  </a>
+
+  <div class="homepage-featured-grid-item-details">
+  <p class="h6 product-grid--title">
+    <a href="{{ product.url | within: collection }}">{{ product.title }}
+  </p>
+  <p class="product-grid--price">
+    {% comment %}
+      You can show a leading 'from' or 'up to' by checking 'product.price_varies'
+      if your variants have different prices.
+    {% endcomment %}
+    {% if on_sale %}
+      {% if sca_price_varies %}
+        {% assign sale_price = sca_price | money %}
+        {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+      {% else %}
+        <s>{{ sca_compare_at_price | money }}</s>
+        {{ sca_price | money }}
+      {% endif %}
+    {% else %}
+			{% if sca_price_varies %}
+				<span class="product-grid--from-wrapper">{{ 'products.general.from_text' | t }}</span> {{ sca_price | money }}
+			{% else %}
+				{{ sca_price | money }}
+			{% endif %}
+    {% endif %}
+    {% if sold_out %}
+      <br><strong>{{ 'products.product.sold_out' | t }}</strong>
+    {% endif %}
+    {% if on_sale %}
+      <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+
+    {% endif %}
+  </p>
+  </a>
+  </div>
+
+{% if sca_compare_at_price_max > sca_price %}
+  <div class="sale-badge">{{ 'products.product.on_sale' | t }}</div>
+{% endif %}
+
+</div>
+
+		{% else %}
+			{% for i in (1..6) %}
+			<div class="gutter-sizer"></div>
+			<div class="homepage-featured-grid-item{% cycle '', '', ' homepage-featured-grid-item--width2', ' homepage-featured-grid-item--width2', '', '' %}">
+
+  <a href="{{ product.url | within: collection }}" class="grid__image">
+    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+    {{ 'product-' | append: current | placeholder_svg_tag: 'icon icon--placeholder grid__image' }}
+  </a>
+
+  <div class="homepage-featured-grid-item-details">
+<a href="/admin/products">
+  <p class="h6 product-grid--title">
+    {{ 'homepage.onboarding.product_title' | t }}
+  </p>
+ <p class="product-grid--price">$19.99</p>
+   </a>
+  </div>
+</div>
+
+			{% endfor %}
+		{% endfor %}
+
+	</div>
+
+	</div>
+
+</div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Products block",
+  "class": "products-block-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured Products"
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Products block",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

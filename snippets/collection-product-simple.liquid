@@ -1,0 +1,73 @@
+{% unless product.tags contains 'hide-add-to-cart' %}
+<div class="collection-product__card">
+    <div class="collection-product__card-container">
+        <div class="collection-product__card-left">
+            <div class="collection-product__card-thumb">
+                {% if product.variants.size > 1  %}
+                    {% assign color = false %}
+                    {% for option in product.options %}
+                      {% if option == "Base-colors" %}
+                          {% include 'new-swatch' with swatch : 'Base-colors',thumb : true %}
+                          {% assign color = true %}
+                      {% elsif option == "Base-Color" %}
+                          {% include 'new-swatch' with swatch : 'Base-Color', thumb : true %}
+                          {% assign color = true %}
+                      {% endif %}
+                    {% endfor %}
+                    {% if color == false %}
+                        {% assign image = product.featured_image.src | img_url: '500x' %}
+                          <a class="collection-product__card-thumb-link" href="{{ product.url }}">
+                            <img src="{{image}}" alt="{{ product.title | escape }}" class="collection-product__card-thumb-img" />
+                          </a>
+                    {% endif %}
+                {% else %}
+                     {% assign image = product.featured_image.src | img_url: '500x' %}
+                        <a class="collection-product__card-thumb-link" href="{{product.url}}">
+                          <img src="{{image}}" alt="{{product.title | escape}}" class="collection-product__card-thumb-img">
+                        </a>
+                {% endif %} 
+            </div>
+
+        </div>
+        <div class="collection-product__card-right" style="position:relative">
+            <div class="collection-product__card-right-center">
+                <div class="collection-product__card-title-group">
+                    <div class="collection-product__card-title">
+                        {{product.title}}
+                    </div>
+                </div>
+                <div data-oke-reviews-product-listing-rating style="display:inline-block" class="bottomLine ag-vg-product-rating" data-oke-reviews-scroll-target-id="bottom-review">{{ product.metafields.okendo.ProductListingSnippet }}</div>
+
+                <div class="collection-product__card-price">
+                      {%- if product.selected_or_first_available_variant -%}
+                          {%- assign price = product.selected_or_first_available_variant.price -%}
+                          {%- assign compare_at_price = product.selected_or_first_available_variant.compare_at_price -%}
+                      {%- else -%}
+                          {%- assign price = product.price -%}
+                      {%- endif -%}
+                      
+                      <s>{{compare_at_price | money }}</s> {{price | money }}
+
+                      
+                      {% comment %}
+                        {% if product.price < product.compare_at_price %}
+                            <span class="new-product-final-price-compare-at">{{ product.compare_at_price | money }}</span>
+                        {% endif %}
+                      {% endcomment %}
+                </div>
+              {%- if product.available and product.compare_at_price_min > product.price_min -%}
+              {%- capture discount -%}{{ product.compare_at_price_min | minus:product.price_min | times:100.0 | divided_by:product.compare_at_price_min | round }}%{%- endcapture -%}
+              <div class="hc-sale-tag"><span>{{ discount }}</span></div>
+              {%- endif -%}
+
+                <div class="collection-product__card-btn-box">
+                    <a class="vertagear-btn collection-product__card-btn" :href="'{{product.url}}'+ (id ? '?variant=' + id : '')">Buy now</a>
+                    {% unless product.type contains 'Accessories' %}
+                    <a href="/pages/chair-selection-tool" class="collection-product__card-link">Find Your Chair</a>
+                    {% endunless %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endunless %}

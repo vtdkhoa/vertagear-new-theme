@@ -1,0 +1,27 @@
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/vertagear.myshopify.com/globals/edit-field/53484
+{% endcomment %}
+{% if shop.metafields.custom_fields["partners_bar"] != blank %}
+  <div class="custom-field custom-field__partners-bar custom-field__type--field-collection">
+    <h3 class="custom-field--title">Partners Bar</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign partner_image_array = shop.metafields.custom_fields["partner_image"] | split: separator %}
+      {% assign variant_url_array = shop.metafields.custom_fields["variant_url"] | split: separator %}
+      {% assign fc_keys = shop.metafields.custom_fields["partners_bar"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item-- fc-index--{{ index }}">
+          <div class="fc-field field__partner-image">
+            {{ partner_image_array[index] }}
+          </div>
+          <div class="fc-field field__variant-url">
+            {{ variant_url_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

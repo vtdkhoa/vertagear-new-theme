@@ -1,0 +1,39 @@
+* {
+  --nam-main-color: #4e4cf7;
+  --nam-sec-color: #383851;
+}
+
+.nam-product-main-btn {
+  background-color: var(--nam-main-color);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.nam-product-sec-btn {
+  background-color: var(--nam-sec-color);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.display-desktop {
+  display: none;
+}
+.display-mobile {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .display-desktop {
+    display: block;
+  }
+  .display-mobile {
+    display: none;
+  }
+
+  .nam-carousel-desk__slide {
+/*     max-height: 470px; */
+  }
+  .flickity-viewport {
+/*    	max-height: 470px;  */
+  }
+}

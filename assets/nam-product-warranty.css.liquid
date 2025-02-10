@@ -1,0 +1,61 @@
+.nam-warranty-bg {
+  background-image: url("{{ 'nam-product-warranty-bg.jpg' | asset_url }}");
+  height: 730px;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.nam-warranty-content {
+  padding: 67.5px 20px;
+}
+
+.nam-warranty__title {
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  line-height: 130%;
+}
+
+.nam-warranty__info__each {
+  margin-top: 20px;
+  line-height: 150%;
+}
+.nam-warranty__info__each .title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--nam-main-color);
+    text-transform: uppercase;
+    }
+.nam-warranty__info__each .data {
+  margin-top: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .nam-warranty-bg {
+    background-image: url("{{ 'nam-product-warranty-bg-desk.jpeg' | asset_url }}");
+  }
+
+  .nam-warranty-content {
+    max-width: 1440px;
+    margin: auto;
+    padding: 145px 120px;
+  }
+
+  .nam-warranty__title {
+    font-weight: 700;
+    font-size: 60px;
+  }
+
+  .nam-warranty__info {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns:
+      calc(25% - 37.5px) calc(25% - 37.5px) calc(25% - 37.5px)
+      calc(25% - 37.5px);
+    gap: 50px;
+  }
+  .nam-warranty__info__each .data {
+    font-size: 18px;
+  }
+}

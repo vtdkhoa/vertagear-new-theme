@@ -1,0 +1,678 @@
+jQuery(document).ready(function () {
+    var recommendations = [
+      {
+        visualization_id: "SL2000",
+        handle: "sl2000-gaming-chair",
+        min_weight_lb: 25,
+        max_weight_lb: 240,
+        min_weight_kg: 11,
+        max_weight_kg: 108,
+        min_height_feet: 4,
+        min_height_inches: 0,
+        max_height_feet: 6,
+        max_height_inches: 4,
+        min_height_cm: 121,
+        max_height_cm: 193,
+        sequence: 10,
+        data: null,
+      },
+      {
+        visualization_id: "SL4000",
+        handle: "sl4000-gaming-chair",
+        min_weight_lb: 25,
+        max_weight_lb: 200,
+        min_weight_kg: 11,
+        max_weight_kg: 90,
+        min_height_feet: 4,
+        min_height_inches: 0,
+        max_height_feet: 5,
+        max_height_inches: 11,
+        min_height_cm: 121,
+        max_height_cm: 180,
+        sequence: 20,
+        data: null,
+      },
+      {
+        visualization_id: "SL5000",
+        handle: "sl5000-gaming-chair",
+        min_weight_lb: 25,
+        max_weight_lb: 260,
+        min_weight_kg: 11,
+        max_weight_kg: 117,
+        min_height_feet: 4,
+        min_height_inches: 0,
+        max_height_feet: 5,
+        max_height_inches: 11,
+        min_height_cm: 121,
+        max_height_cm: 180,
+        sequence: 30,
+        data: null,
+      },
+      {
+        visualization_id: "PL6000",
+        handle: "pl6000-gaming-chair",
+        min_weight_lb: 90,
+        max_weight_lb: 400,
+        min_weight_kg: 40,
+        max_weight_kg: 181,
+        min_height_feet: 5,
+        min_height_inches: 9,
+        max_height_feet: 6,
+        max_height_inches: 8,
+        min_height_cm: 175,
+        max_height_cm: 203,
+        sequence: 40,
+        data: null,
+      },
+      {
+        visualization_id: "Triigger275",
+        handle: "gaming-series-triigger-line-275-gaming-chair",
+        min_weight_lb: 25,
+        max_weight_lb: 260,
+        min_weight_kg: 11,
+        max_weight_kg: 117,
+        min_height_feet: 4,
+        min_height_inches: 0,
+        max_height_feet: 6,
+        max_height_inches: 4,
+        min_height_cm: 121,
+        max_height_cm: 193,
+        sequence: 50,
+        data: null,
+      },
+      {
+        visualization_id: "Triigger350",
+        handle: "gaming-series-triigger-line-350-gaming-chair",
+        min_weight_lb: 25,
+        max_weight_lb: 280,
+        min_weight_kg: 11,
+        max_weight_kg: 127,
+        min_height_feet: 4,
+        min_height_inches: 0,
+        max_height_feet: 6,
+        max_height_inches: 4,
+        min_height_cm: 121,
+        max_height_cm: 193,
+        sequence: 60,
+        data: null,
+      },
+    ];
+    // change units
+    var unitsOptionsSelector = ".units-option";
+    var $unitsOptions = jQuery(unitsOptionsSelector);
+    var unitsAttribute = "data-set-units";
+
+    var userUnits;
+    changeSelectedUnits("imperial"); // initialize
+    $unitsOptions.on("click", function () {
+      var $selectedOption = jQuery(this);
+      var selectedUnits = $selectedOption.attr(unitsAttribute);
+
+      changeSelectedUnits(selectedUnits)
+    });
+    function changeSelectedUnits(selection) {
+      var unitsAttributeSelector = "[" + unitsAttribute + "=" + selection + "]";
+
+      $unitsOptions.removeClass("active");
+      jQuery(unitsOptionsSelector + unitsAttributeSelector).addClass("active");
+
+      var valuesSetsSelector = ".values-set";
+      var $valuesSets = jQuery(valuesSetsSelector);
+      $valuesSets.removeClass("active");
+      jQuery(valuesSetsSelector + unitsAttributeSelector).addClass("active");
+      userUnits = selection;
+    }
+
+    // change gender
+    var genderOptionsSelector = ".gender-option";
+    var $genderOptions = jQuery(genderOptionsSelector);
+    var genderAttribute = "data-gender";
+
+    var userGender;
+    changeSelectedGender("male"); // initialize
+    $genderOptions.on("click", function () {
+      var $selectedOption = jQuery(this);
+      var selectedGender = $selectedOption.attr(genderAttribute);
+      changeSelectedGender(selectedGender);
+    });
+    function changeSelectedGender(selection) {
+      var genderAttributeSelector = "[" + genderAttribute + "=" + selection + "]";
+
+      $genderOptions.removeClass("active");
+      jQuery(genderOptionsSelector + genderAttributeSelector).addClass("active");
+
+      userGender = selection;
+    }
+
+    // find my chair
+    var $findMyChairButton = jQuery("#find-my-chair-button");
+    $findMyChairButton.on("click", function () {
+      var filteredRecommendations = recommendations.filter(function (r) {
+        switch (userUnits) {
+          case "imperial":
+            var feet = getImperialFt();
+            var inches = getImperialIn();
+            var pounds = getImperialLbs();
+            var totalInches = (feet * 12) + inches;
+            var minInches = (r.min_height_feet * 12) + r.min_height_inches;
+            var maxInches = (r.max_height_feet * 12) + r.max_height_inches;
+            if (totalInches >= minInches && totalInches <= maxInches) {
+              if (pounds >= r.min_weight_lb && pounds <= r.max_weight_lb) {
+                return true;
+              }
+            }
+            break;
+          case "metric":
+            var cm = getMetricCm();
+            var kg = getMetricKg();
+            if (cm >= r.min_height_cm && cm <= r.max_height_cm) {
+              if (kg >= r.min_weight_kg && kg <= r.max_weight_kg) {
+                return true;
+              }
+            }
+            break;
+        }
+        return false;
+      });
+      $('.recommendations-heading').show()
+      if (filteredRecommendations.length > 0) {
+        createRecommendations(filteredRecommendations);
+      } else {
+        $recommendationsWrapper.html("<div class='sorry-text'>Sorry, there are no recommendations.</div>");
+      }
+    });
+    var $imperialFtInput = jQuery("#imperial-ft");
+    function getImperialFt() {
+      return parseInt($imperialFtInput.val());
+    }
+    var $imperialInInput = jQuery("#imperial-in");
+    function getImperialIn() {
+      return parseInt($imperialInInput.val());
+    }
+    var $imperialLbInput = jQuery("#imperial-lb");
+    function getImperialLbs() {
+      return parseInt($imperialLbInput.val());
+    }
+    var $metricCmInput = jQuery("#metric-cm");
+    function getMetricCm() {
+      return parseInt($metricCmInput.val());
+    }
+    var $metricKgInput = jQuery("#metric-kg");
+    function getMetricKg() {
+      return parseInt($metricKgInput.val());
+    }
+
+    // construct recommendations
+    var $recommendationsWrapper = jQuery(".recommendations");
+    var $recommendationTemplate = jQuery(".recommendation.template");
+//     createRecommendations(recommendations); // init with all
+    var rBuffer, rBufferLength, rBufferFinished, rBufferActive;
+    function initRecBuffer(length) {
+      rBuffer = [];
+      rBufferLength = length;
+      rBufferFinished = 0;
+      rBufferActive = true;
+    }
+    function clearRecBuffer() {
+      rBufferActive = false;
+    }
+    function addToRecommendationBuffer($element) {
+      if (rBufferActive) {
+        rBuffer.push($element);
+      }
+    }
+    function checkBufferComplete() {
+      if (rBufferLength == rBufferFinished) {
+        bufferComplete();
+      }
+      function bufferComplete() {
+        rBuffer = rBuffer.sort(function (a, b) {
+          if (a.sequence > b.sequence) {
+            return 1;
+          }
+          if (a.sequence < b.sequence) {
+            return -1;
+          }
+          return 0;
+        });
+        for (i = 0; i < rBuffer.length; i++) {
+          var $element = rBuffer[i];
+          $recommendationsWrapper.append($element);
+        }
+        clearRecBuffer();
+      }
+    }
+    function createRecommendations(recommendationsInput) {
+      $recommendationsWrapper.html("");
+      if (rBufferActive) {
+        return true;
+      }
+      initRecBuffer(recommendationsInput.length);
+      for (i = 0; i < recommendationsInput.length; i++) {
+        var recommendation = recommendationsInput[i];
+        createRecommendation(recommendation);
+      }
+    }
+    var ctaVisualizeSelector = ".cta-visualize";
+    var ctaVisualizeWrapperSelector = ".cta-visualize-wrapper";
+    function createRecommendation(r) {
+      var recommendationRequest = new Request("/products/" + r.handle + ".js");
+      if (r.data == null) {
+        fetch(recommendationRequest).then(function (resp) {
+          // Required: title, price, height, weight, link
+          // this always runs
+          rBufferFinished++;
+          r.data = resp.json();
+          return r.data;
+        }).then(addRecommendationElement).catch(function (err) {
+          console.error("err", err);
+        }).finally(function () {
+          checkBufferComplete();
+        });
+      } else {
+        rBufferFinished++;
+        r.data.then(addRecommendationElement).catch(function (err) {
+          console.error("err", err);
+        }).finally(function () {
+          checkBufferComplete();
+        });
+      }
+      function addRecommendationElement(product) {
+        var $element = $recommendationTemplate.clone();
+        $element.removeClass("template");
+        // element changes start
+        $element.find("img.recommendation-image").attr("src", product.featured_image);
+        $element.find("a.cta-shop-now").attr("href", product.url);
+        // visualization
+        $element.find(".cta-visualize")
+          .attr("data-title", product.title)
+          .attr("data-visualization-id", r.visualization_id);
+        // text
+        interpolateText("name", product.title);
+        var priceDollars = Math.floor(product.price / 100);
+        var priceCents = product.price % 100;
+        var priceText = priceDollars + "." + priceCents;
+        interpolateText("price", priceText);
+        //measurements interpolate
+        interpolateText("max_weight_lb", r.max_weight_lb);
+        interpolateText("max_weight_kg", r.max_weight_kg);
+        interpolateText("max_height_feet", r.max_height_feet);
+        interpolateText("max_height_inches", r.max_height_inches);
+        interpolateText("max_height_cm", r.max_height_cm);
+        // element changes end
+        initializeVisualize($element.find(ctaVisualizeSelector));
+        $element.find(ctaVisualizeWrapperSelector).tooltip();
+        ensureDimensions();
+        $element.sequence = r.sequence;
+        addToRecommendationBuffer($element);
+        return product;
+        function interpolateText(key, text) {
+          var elementHtml = $element.html();
+          interpolatedHtml = elementHtml.replace("\[\[" + key + "\]\]", text);
+          $element.html(interpolatedHtml);
+        }
+      }
+    };
+
+    function initializeVisualize($element) {
+      $element.on("click", function () {
+        // currently doesnt work
+        var $this = jQuery(this);
+        var dataTitle = $this.attr("data-title");
+        targetModal.iziModal("setTitle", dataTitle);
+        var dataVisualizationID = $this.attr("data-visualization-id");
+        changeChair(dataVisualizationID);
+        updateFigures();
+        targetModal.iziModal("open");
+      });
+    }
+    var targetModal = jQuery(".modal");
+    targetModal.iziModal();
+
+
+
+
+
+
+
+    // BEGIN visualization
+    var imgUrls = {
+      'SL2000': {
+        front: '{{ "tool-front-sl2000.png" | asset_url }}',
+      side: '{{ "tool-side-sl2000.png" | asset_url }}',
+        side_bottom: '-27px',
+          side_left: '12px',
+            front_bottom: '-27px',
+              front_left: '45px'
+  },
+    'SL4000': {
+      front: '{{ "tool-front-sl4000.png" | asset_url }}',
+    side: '{{ "tool-side-sl4000.png" | asset_url }}',
+    side_bottom: '-28px',
+    side_left: '10px',
+    front_bottom: '-28px',
+    front_left: '45px'
+        },
+    'SL5000': {
+      front: '{{ "tool-front-sl5000.png" | asset_url }}',
+    side: '{{ "tool-side-sl5000.png" | asset_url }}',
+    side_bottom: '-28px',
+    side_left: '15px',
+    front_bottom: '-23px',
+    front_left: '45px'
+        },
+    'PL6000': {
+      front: '{{ "tool-front-pl6000.png" | asset_url }}',
+    side: '{{ "tool-side-pl6000.png" | asset_url }}',
+    side_bottom: '-22px',
+    side_left: '20px',
+    front_bottom: '-22px',
+    front_left: '45px'
+        },
+    'Triigger275': {
+      front: '{{ "tool-front-triigger275.png" | asset_url }}',
+    side: '{{ "tool-side-triigger275.png" | asset_url }}',
+    side_bottom: '-20px',
+    side_left: '10px',
+    front_bottom: '-20px',
+    front_left: '45px'
+        },
+    'Triigger350': {
+      front: '{{ "tool-front-triigger350.png" | asset_url }}',
+    side: '{{ "tool-side-triigger350.png" | asset_url }}',
+    side_bottom: '-20px',
+    side_left: '12px',
+    front_bottom: '-20px',
+    front_left: '45px'
+        }
+    };
+  var visualizationWidth = 250;
+  var visualizationHeight = 250;
+  var elementSide, elementFront,
+    sideStage, frontStage,
+    sideFigure, frontFigure;
+  function initializeVisualization() {
+    setupVisualization();
+    updateFigures();
+    ensureDimensions();
+  }
+  initializeVisualization();
+
+  // BEGIN utility
+  var minMaleHeightIn = 62, maxMaleHeightIn = 79, minMaleHeightCm = 159, maxMaleHeightCm = 202;
+  var minFemaleHeightIn = 57, maxFemaleHeightIn = 72, minFemaleHeightCm = 145, maxFemaleHeightCm = 185;
+  var minMaleWeightLb = 100, maxMaleWeightLb = 330, minMaleWeightKg = 45, maxMaleWeightKg = 150;
+  var minFemaleWeightLb = 100, maxFemaleWeightLb = 330, minFemaleWeightKg = 45, maxFemaleWeightKg = 150;
+  function ensureGender() {
+    switch (userGender) {
+      case "male":
+        frontFigure = parseSVG($('svg#front-male'), frontStage);
+        sideFigure = parseSVG($('svg#side-male'), sideStage);
+        break;
+      case "female":
+        frontFigure = parseSVG($('svg#front-female'), frontStage);
+        sideFigure = parseSVG($('svg#side-female'), sideStage);
+        break;
+    }
+  }
+  function parseSVG(svgID, stage) {
+    var shape = {
+      regular: stage.interpret($(svgID).find('#regular')[0]),
+      slim: stage.interpret($(svgID).find('#slim')[0]),
+      fat: stage.interpret($(svgID).find('#fat')[0]),
+      tall: stage.interpret($(svgID).find('#tall')[0]),
+      short: stage.interpret($(svgID).find('#short')[0]),
+    };
+
+    shape.figure = shape.regular.clone();
+    shape.regular.visible = false;
+    shape.slim.visible = false;
+    shape.fat.visible = false;
+    shape.tall.visible = false;
+    shape.short.visible = false;
+    shape.figure.opacity = 0.5;
+
+    return shape;
+  }
+
+  // BEGIN visualization generation
+  function morph(target, mheight, mweight) {
+    var h = mheight, w = mweight;
+    var vertHeight, vertWeight;
+    //console.log("mh",mheight,"mw", mweight);
+    (h > 0) ? vertHeight = target.tall : vertHeight = target.short;
+    (w > 0) ? vertWeight = target.fat : vertWeight = target.slim;
+    (h < 0) ? h *= -1 : h *= 1;
+    (w < 0) ? w *= -1 : w *= 1;
+    for (var i = 0; i < target.regular.vertices.length; i++) {
+      var origin = target.regular.vertices[i],
+        tVector = target.figure.vertices[i],
+        destH = vertHeight.vertices[i],
+        destW = vertWeight.vertices[i];
+
+      var hx, hy, wx, wy;
+      // Height effected value
+      hx = (destH.x - origin.x) * h;
+      hy = (destH.y - origin.y) * h;
+
+      // Weight effected value
+      wx = (destW.x - origin.x) * w;
+      wy = (destW.y - origin.y) * w;
+
+      tVector.x = (hx + wx) + origin.x;
+      tVector.y = (hy + wy) + origin.y;
+    }
+  }
+  function updateFigure(target, height, weight) {
+    morph(target, height, weight);
+    updateStages();
+  }
+  function updateFigures() {
+    var minOutWeight = -1.0, maxOutWeight = 1.26; // 45.6kg-150kg // 100.3lb-330lb
+    var minOutHeight = -0.7, maxOutHeight = 1.24; // 145.4cm-184.6cm // 57in-72in
+    var height, weight;
+    var minInHeight, maxInHeight, minInWeight, maxInWeight;
+    var valueHeight, valueWeight;
+    // BEGIN height
+    switch (userUnits) {
+      case "imperial":
+        switch (userGender) {
+          case "male":
+            minInHeight = minMaleHeightIn;
+            maxInHeight = maxMaleHeightIn;
+            break;
+          case "female":
+            minInHeight = minFemaleHeightIn;
+            maxInHeight = maxFemaleHeightIn;
+            break;
+        }
+        var feet = getImperialFt();
+        var inches = getImperialIn();
+        var totalInches = (feet * 12) + inches;
+        valueHeight = totalInches;
+        break;
+      case "metric":
+        switch (userGender) {
+          case "male":
+            minInHeight = minMaleHeightCm;
+            maxInHeight = maxMaleHeightCm;
+            break;
+          case "female":
+            minInHeight = minFemaleHeightCm;
+            maxInHeight = maxFemaleHeightCm;
+            break;
+        }
+        var cm = getMetricCm();
+        valueHeight = cm;
+        break;
+    }
+    // BEGIN weight
+    switch (userUnits) {
+      // same for both male and female, for now
+      case "imperial":
+        minInWeight = minMaleWeightLb;
+        maxInWeight = maxMaleWeightLb;
+        var pounds = getImperialLbs();
+        valueWeight = pounds;
+        break;
+      case "metric":
+        minInWeight = minMaleWeightKg;
+        maxInWeight = maxMaleWeightKg;
+        var kg = getMetricKg();
+        valueWeight = kg;
+        break;
+    }
+    height = mapRange(valueHeight, minInHeight, maxInHeight, minOutHeight, maxOutHeight);
+    weight = mapRange(valueWeight, minInWeight, maxInWeight, minOutWeight, maxOutWeight);
+
+    if (isNaN(height) || isNaN(weight)) {
+      return false;
+    }
+    // displace
+    weight += 0.7;
+    if (userGender == 'female') {
+      var femaleHeightRatioOffset = 1.5;
+      height += femaleHeightRatioOffset;
+    }
+    clearStages();
+    ensureGender();
+    updateFigure(frontFigure, height, weight);
+    updateFigure(sideFigure, height, weight);
+  }
+  function ensureDimensions() {
+    var $visualizeButtons = jQuery(ctaVisualizeSelector);
+    var $visualizeWrappers = jQuery(ctaVisualizeWrapperSelector);
+    // BEGIN height
+    switch (userUnits) {
+      case "imperial":
+        var feet = getImperialFt();
+        var inches = getImperialIn();
+        var totalInches = (feet * 12) + inches;
+        if (isNaN(totalInches)) {
+          disableVisualization();
+          return false;
+        }
+        switch (userGender) {
+          case "male":
+            if (totalInches < minMaleHeightIn || totalInches > maxMaleHeightIn) {
+              disableVisualization();
+              return false;
+            }
+            break;
+          case "female":
+            if (totalInches < minFemaleHeightIn || totalInches > maxFemaleHeightIn) {
+              disableVisualization();
+              return false;
+            }
+            break;
+        }
+        break;
+      case "metric":
+        var cm = getMetricCm();
+        if (isNaN(cm)) {
+          disableVisualization();
+          return false;
+        }
+        switch (userGender) {
+          case "male":
+            if (cm < minMaleHeightCm || cm > maxMaleHeightCm) {
+              disableVisualization();
+              return false;
+            }
+            break;
+          case "female":
+            if (cm < minFemaleHeightCm || cm > maxFemaleHeightCm) {
+              disableVisualization();
+              return false;
+            }
+            break;
+        }
+        break;
+    }
+    // BEGIN weight
+    switch (userUnits) {
+      // same for both male and female, for now
+      case "imperial":
+        var pounds = getImperialLbs();
+        if (pounds < minMaleWeightLb || pounds > maxMaleWeightLb) {
+          disableVisualization();
+          return false;
+        }
+        break;
+      case "metric":
+        var kg = getMetricKg();
+        if (kg < minMaleWeightKg || kg > maxMaleWeightKg) {
+          disableVisualization();
+          return false;
+        }
+        break;
+    }
+    // passed everything
+    enableVisualization();
+    return true;
+
+    function disableVisualization() {
+      $visualizeButtons.attr("disabled", "");
+      $visualizeWrappers.tooltip();
+      $visualizeWrappers.tooltip("enable");
+    }
+    function enableVisualization() {
+      $visualizeButtons.removeAttr("disabled");
+      $visualizeWrappers.tooltip();
+      $visualizeWrappers.tooltip("disable");
+    }
+  }
+  $imperialFtInput.on("change", ensureDimensions);
+  $imperialInInput.on("change", ensureDimensions);
+  $imperialLbInput.on("change", ensureDimensions);
+  $metricCmInput.on("change", ensureDimensions);
+  $metricKgInput.on("change", ensureDimensions);
+  function updateStages() {
+    sideStage.update();
+    frontStage.update();
+  }
+  function clearStages() {
+    sideStage.clear();
+    frontStage.clear();
+  }
+  function changeChair(id) {
+    var attr = id;
+    var urlFront = 'url(' + imgUrls[attr].front + ')';
+    var urlSide = 'url(' + imgUrls[attr].side + ')';
+    $('#chair-front').css('background-image', urlFront);
+    $('#chair-side').css('background-image', urlSide);
+
+    var side_bottom = imgUrls[attr].side_bottom;
+    var side_left = imgUrls[attr].side_left;
+    var front_bottom = imgUrls[attr].front_bottom;
+    var front_left = imgUrls[attr].front_left;
+
+    $('#chair-side svg').css('bottom', side_bottom);
+    $('#chair-side svg').css('left', side_left);
+    $('#chair-front svg').css('bottom', front_bottom);
+    $('#chair-front svg').css('left', front_left);
+  }
+  function mapRange(val, in_min, in_max, out_min, out_max) {
+    return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+  }
+
+  // BEGIN setup
+  function setupVisualization() {
+    elementSide = document.getElementById('chair-side');
+    elementFront = document.getElementById('chair-front');
+
+    sideStage = new Two({ width: visualizationWidth, height: visualizationHeight, type: Two.Types.svg }).appendTo(elementSide);
+    frontStage = new Two({ width: visualizationWidth, height: visualizationHeight, type: Two.Types.svg }).appendTo(elementFront);
+
+    // set viewBox
+    jQuery(elementSide).find("svg").get(0).setAttribute("viewBox", "0 0 500 500");
+    jQuery(elementFront).find("svg").get(0).setAttribute("viewBox", "0 0 500 500");
+  }
+  
+  });
+  $("button").click(function () {
+    $('html,body').animate({
+      scrollTop: $(".tool-recommendations-wrapper").offset().top
+    },
+      'slow');
+  });

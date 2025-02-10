@@ -1,0 +1,28 @@
+<div class="index-support">
+    <div class="vertagear-container index-support__container">
+        <div class="index-support__inner">
+            <div class="index-support__swiper-box">
+               <swiper class="index-support__swiper" :options="options" key="index-support-swiper">
+                    <swiper-slide class="index-support__swiper-slide">
+                        {% include 'index-support-wear' %}
+                    </swiper-slide>
+                    <swiper-slide class="index-support__swiper-slide">
+                        {% include 'index-support-warranty' %}
+                    </swiper-slide>
+                    <swiper-slide class="index-support__swiper-slide">
+                        {% include 'index-support-ship' %}
+                    </swiper-slide>
+                    <swiper-slide class="index-support__swiper-slide">
+                        {% include 'index-support-klarna' %}
+                    </swiper-slide>
+                </swiper>
+              </div>
+        </div>
+    </div>
+  	<div class="index-support__mobile vertagear-container">
+      	{% include 'index-support-wear' %}
+        {% include 'index-support-warranty' %}
+      	{% include 'index-support-ship' %}
+      	{% include 'index-support-klarna' %}
+    </div>
+</div>
